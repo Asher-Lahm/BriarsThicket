@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -5,11 +6,13 @@ using UnityEngine.InputSystem;
 
 public class PlayerMovement : MonoBehaviour
 {
-    public float speed;
+    [SerializeField] private float speed;
+    [SerializeField] private float sprintSpeed;
+    [SerializeField] private float gravity;
+    private float verticalVelocity;
 
     private CharacterController controller;
     private PlayerControls controls;
-    private Vector2 moveInput;
 
 
     void Awake()
@@ -30,9 +33,22 @@ public class PlayerMovement : MonoBehaviour
         right.Normalize();
 
         Vector2 input = controls.Player.Move.ReadValue<Vector2>();
-        Vector3 move = forward * input.y + right * input.x;
+        Boolean sprinting = controls.Player.Sprint.IsPressed();
+        Vector3 move = (forward * input.y + right * input.x) * (sprinting ? sprintSpeed : speed);
 
-        controller.Move(speed * Time.deltaTime * move);
+        if (controller.isGrounded)
+        {
+            if (verticalVelocity < 0)
+                verticalVelocity = -2f; // keeps player grounded
+        }
+        else
+        {
+            verticalVelocity += gravity * Time.deltaTime;
+        }
+
+        move.y = verticalVelocity;
+
+        controller.Move(Time.deltaTime * move);
     }
 
     private void OnEnable()
