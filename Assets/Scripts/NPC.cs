@@ -2,11 +2,11 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class NPC : MonoBehaviour, IInteractable
+public class NPC : Interactable
 {
-    [SerializeField] List<DialogueSequence> dialogue;
+    [SerializeField] List<DialogueLine> dialogueSequences;
     [SerializeField] Collider interactionRange;
-    private int dialogueCount = 0;
+    private int dialogueIndex = 0;
     void Start()
     {
         if (interactionRange == null)
@@ -16,8 +16,11 @@ public class NPC : MonoBehaviour, IInteractable
     }
 
     // Update is called once per frame
-    void Interact()
+    public override void Interact()
     {
-        DialogueManager.Instance.Enqueue(dialogue[dialogueCount]);
+        //DialogueManager.Instance.Dialogue(dialogueSequences[dialogueCount]);
+        dialogueIndex++;
+        if (dialogueIndex >= dialogueSequences.Count)
+            dialogueIndex = dialogueSequences.Count - 1;
     }
 }

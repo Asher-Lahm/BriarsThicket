@@ -2,10 +2,10 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class DialogueLine : ScriptableObject
+[CreateAssetMenu]
+public class DialogueLine : DialogueNode
 {
-    public string speakerName;
     [TextArea]
     public string text;
-    public Sprite portrait;
+    public List<AudioClip> voiceClips;
 }

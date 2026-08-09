@@ -225,10 +225,19 @@ public partial class @PlayerControls: IInputActionCollection2, IDisposable
             ""id"": ""ed17613f-1c7a-4994-871a-76febcbbd396"",
             ""actions"": [
                 {
-                    ""name"": ""New action"",
+                    ""name"": ""Move"",
+                    ""type"": ""Value"",
+                    ""id"": ""335233f1-c98b-4546-a594-f5b0c47594c5"",
+                    ""expectedControlType"": ""Vector2"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": true
+                },
+                {
+                    ""name"": ""Confirm"",
                     ""type"": ""Button"",
-                    ""id"": ""0c3e6340-4a99-48db-84b4-1fea134faf18"",
-                    ""expectedControlType"": ""Button"",
+                    ""id"": ""18f0352e-4266-4af7-b550-c13eeadfbe27"",
+                    ""expectedControlType"": """",
                     ""processors"": """",
                     ""interactions"": """",
                     ""initialStateCheck"": false
@@ -236,13 +245,79 @@ public partial class @PlayerControls: IInputActionCollection2, IDisposable
             ],
             ""bindings"": [
                 {
-                    ""name"": """",
-                    ""id"": ""89c4f75b-6cd1-45fb-8cda-ab4dff390f88"",
-                    ""path"": """",
+                    ""name"": ""2D Vector"",
+                    ""id"": ""1a132756-b387-4389-a4d9-affac5b47835"",
+                    ""path"": ""2DVector"",
                     ""interactions"": """",
                     ""processors"": """",
                     ""groups"": """",
-                    ""action"": ""New action"",
+                    ""action"": ""Move"",
+                    ""isComposite"": true,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": ""up"",
+                    ""id"": ""137d7d00-80cd-4644-87b9-d99b2fe039bd"",
+                    ""path"": ""<Keyboard>/w"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Move"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": true
+                },
+                {
+                    ""name"": ""down"",
+                    ""id"": ""10bdad92-4b7a-4b5f-b1b8-99510b9bad80"",
+                    ""path"": ""<Keyboard>/s"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Move"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": true
+                },
+                {
+                    ""name"": ""left"",
+                    ""id"": ""86fcc4d2-71e8-4eab-829a-8149c2bf5a5b"",
+                    ""path"": ""<Keyboard>/a"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Move"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": true
+                },
+                {
+                    ""name"": ""right"",
+                    ""id"": ""642c29e4-c93d-4ab4-80f6-d473ef36bc1f"",
+                    ""path"": ""<Keyboard>/d"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Move"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": true
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""5ce6b1be-2a06-469b-8dd4-767bee2ec979"",
+                    ""path"": ""<Keyboard>/space"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Confirm"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""17d4be92-05a5-4310-be7b-cc143364ec1b"",
+                    ""path"": ""<Keyboard>/enter"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Confirm"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
                 }
@@ -259,7 +334,8 @@ public partial class @PlayerControls: IInputActionCollection2, IDisposable
         m_Player_Interact = m_Player.FindAction("Interact", throwIfNotFound: true);
         // UI Navigation
         m_UINavigation = asset.FindActionMap("UI Navigation", throwIfNotFound: true);
-        m_UINavigation_Newaction = m_UINavigation.FindAction("New action", throwIfNotFound: true);
+        m_UINavigation_Move = m_UINavigation.FindAction("Move", throwIfNotFound: true);
+        m_UINavigation_Confirm = m_UINavigation.FindAction("Confirm", throwIfNotFound: true);
     }
 
     ~@PlayerControls()
@@ -470,7 +546,8 @@ public partial class @PlayerControls: IInputActionCollection2, IDisposable
     // UI Navigation
     private readonly InputActionMap m_UINavigation;
     private List<IUINavigationActions> m_UINavigationActionsCallbackInterfaces = new List<IUINavigationActions>();
-    private readonly InputAction m_UINavigation_Newaction;
+    private readonly InputAction m_UINavigation_Move;
+    private readonly InputAction m_UINavigation_Confirm;
     /// <summary>
     /// Provides access to input actions defined in input action map "UI Navigation".
     /// </summary>
@@ -483,9 +560,13 @@ public partial class @PlayerControls: IInputActionCollection2, IDisposable
         /// </summary>
         public UINavigationActions(@PlayerControls wrapper) { m_Wrapper = wrapper; }
         /// <summary>
-        /// Provides access to the underlying input action "UINavigation/Newaction".
+        /// Provides access to the underlying input action "UINavigation/Move".
         /// </summary>
-        public InputAction @Newaction => m_Wrapper.m_UINavigation_Newaction;
+        public InputAction @Move => m_Wrapper.m_UINavigation_Move;
+        /// <summary>
+        /// Provides access to the underlying input action "UINavigation/Confirm".
+        /// </summary>
+        public InputAction @Confirm => m_Wrapper.m_UINavigation_Confirm;
         /// <summary>
         /// Provides access to the underlying input action map instance.
         /// </summary>
@@ -512,9 +593,12 @@ public partial class @PlayerControls: IInputActionCollection2, IDisposable
         {
             if (instance == null || m_Wrapper.m_UINavigationActionsCallbackInterfaces.Contains(instance)) return;
             m_Wrapper.m_UINavigationActionsCallbackInterfaces.Add(instance);
-            @Newaction.started += instance.OnNewaction;
-            @Newaction.performed += instance.OnNewaction;
-            @Newaction.canceled += instance.OnNewaction;
+            @Move.started += instance.OnMove;
+            @Move.performed += instance.OnMove;
+            @Move.canceled += instance.OnMove;
+            @Confirm.started += instance.OnConfirm;
+            @Confirm.performed += instance.OnConfirm;
+            @Confirm.canceled += instance.OnConfirm;
         }
 
         /// <summary>
@@ -526,9 +610,12 @@ public partial class @PlayerControls: IInputActionCollection2, IDisposable
         /// <seealso cref="UINavigationActions" />
         private void UnregisterCallbacks(IUINavigationActions instance)
         {
-            @Newaction.started -= instance.OnNewaction;
-            @Newaction.performed -= instance.OnNewaction;
-            @Newaction.canceled -= instance.OnNewaction;
+            @Move.started -= instance.OnMove;
+            @Move.performed -= instance.OnMove;
+            @Move.canceled -= instance.OnMove;
+            @Confirm.started -= instance.OnConfirm;
+            @Confirm.performed -= instance.OnConfirm;
+            @Confirm.canceled -= instance.OnConfirm;
         }
 
         /// <summary>
@@ -606,11 +693,18 @@ public partial class @PlayerControls: IInputActionCollection2, IDisposable
     public interface IUINavigationActions
     {
         /// <summary>
-        /// Method invoked when associated input action "New action" is either <see cref="UnityEngine.InputSystem.InputAction.started" />, <see cref="UnityEngine.InputSystem.InputAction.performed" /> or <see cref="UnityEngine.InputSystem.InputAction.canceled" />.
+        /// Method invoked when associated input action "Move" is either <see cref="UnityEngine.InputSystem.InputAction.started" />, <see cref="UnityEngine.InputSystem.InputAction.performed" /> or <see cref="UnityEngine.InputSystem.InputAction.canceled" />.
         /// </summary>
         /// <seealso cref="UnityEngine.InputSystem.InputAction.started" />
         /// <seealso cref="UnityEngine.InputSystem.InputAction.performed" />
         /// <seealso cref="UnityEngine.InputSystem.InputAction.canceled" />
-        void OnNewaction(InputAction.CallbackContext context);
+        void OnMove(InputAction.CallbackContext context);
+        /// <summary>
+        /// Method invoked when associated input action "Confirm" is either <see cref="UnityEngine.InputSystem.InputAction.started" />, <see cref="UnityEngine.InputSystem.InputAction.performed" /> or <see cref="UnityEngine.InputSystem.InputAction.canceled" />.
+        /// </summary>
+        /// <seealso cref="UnityEngine.InputSystem.InputAction.started" />
+        /// <seealso cref="UnityEngine.InputSystem.InputAction.performed" />
+        /// <seealso cref="UnityEngine.InputSystem.InputAction.canceled" />
+        void OnConfirm(InputAction.CallbackContext context);
     }
 }
