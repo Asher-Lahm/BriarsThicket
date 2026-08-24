@@ -5,7 +5,7 @@ using UnityEngine;
 public class NPC : Interactable
 {
     [SerializeField] List<DialogueLine> dialogueSequences;
-    [SerializeField] Collider interactionRange;
+    Collider interactionRange;
     private int dialogueIndex = 0;
     void Start()
     {

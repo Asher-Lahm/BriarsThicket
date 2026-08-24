@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 
 [CreateAssetMenu]
-public class DialogueChoice
+public class DialogueChoice : ScriptableObject
 {
     public string text;
     public DialogueNode next;

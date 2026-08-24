@@ -7,5 +7,6 @@ public class DialogueLine : DialogueNode
 {
     [TextArea]
     public string text;
-    public List<AudioClip> voiceClips;
+    public DiaEmote emotion;
+    public CharacterDialogue character;
 }
