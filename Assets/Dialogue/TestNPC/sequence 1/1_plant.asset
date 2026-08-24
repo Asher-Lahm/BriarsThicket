@@ -12,7 +12,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cb52b063b05226043b7d314dbeff6be3, type: 3}
   m_Name: 1_plant
   m_EditorClassIdentifier: 
-  next: {fileID: 0}
+  next: {fileID: 11400000, guid: 27c6fd073d398e34aa62ec758e9c2490, type: 2}
   actions: []
-  text: Hello, I am a plant.
-  voiceClips: []
+  text: Hello, I am a cube.
+  emotion: 0
+  character: {fileID: 11400000, guid: 3b50a5bd599daea4d97db60e92cf90b9, type: 2}

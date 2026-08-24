@@ -15,4 +15,5 @@ MonoBehaviour:
   next: {fileID: 0}
   actions: []
   text: Don't talk to me anymore.
-  voiceClips: []
+  emotion: 3
+  character: {fileID: 0}

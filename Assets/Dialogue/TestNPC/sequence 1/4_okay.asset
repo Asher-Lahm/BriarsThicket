@@ -14,5 +14,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   next: {fileID: 0}
   actions: []
-  text: 
-  voiceClips: []
+  text: Okay, that's cool.
+  emotion: 1
+  character: {fileID: 0}

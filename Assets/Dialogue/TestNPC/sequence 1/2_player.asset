@@ -12,7 +12,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cb52b063b05226043b7d314dbeff6be3, type: 3}
   m_Name: 2_player
   m_EditorClassIdentifier: 
-  next: {fileID: 0}
+  next: {fileID: 11400000, guid: bc76a2bde7f2c6d4c9251afb7207731d, type: 2}
   actions: []
   text: You are a player?
-  voiceClips: []
+  emotion: 5
+  character: {fileID: 0}

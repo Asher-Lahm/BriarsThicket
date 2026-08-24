@@ -13,5 +13,5 @@ MonoBehaviour:
   m_Name: choice1_bad
   m_EditorClassIdentifier: 
   text: No, I'm not a player.
-  next: {fileID: 0}
+  next: {fileID: 11400000, guid: 27e24c3f9c95c2c4ca83617886b4bb88, type: 2}
   actions: []

@@ -12,7 +12,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cb52b063b05226043b7d314dbeff6be3, type: 3}
   m_Name: 4_odd
   m_EditorClassIdentifier: 
-  next: {fileID: 0}
+  next: {fileID: 11400000, guid: 7ad14bf1f5c81424e89c1e907552e9eb, type: 2}
   actions: []
-  text: 
-  voiceClips: []
+  text: That's kind of odd...
+  emotion: 5
+  character: {fileID: 0}
