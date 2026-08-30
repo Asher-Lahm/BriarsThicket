@@ -14,6 +14,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   next: {fileID: 11400000, guid: 27c6fd073d398e34aa62ec758e9c2490, type: 2}
   actions: []
+  style: {fileID: 11400000, guid: 1238d145f9fdfea4a92ff7c37a3e93ad, type: 2}
+  preventPlayerInputBehind: 0
+  automaticProgressionTime: 0
   text: Hello, I am a cube.
   emotion: 0
   character: {fileID: 11400000, guid: 3b50a5bd599daea4d97db60e92cf90b9, type: 2}

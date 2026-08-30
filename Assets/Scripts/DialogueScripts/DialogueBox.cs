@@ -2,10 +2,12 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.TextCore.Text;
+using TMPro;
+using UnityEngine.UI;
 
 public class DialogueBox : MonoBehaviour
 {
-    public Sprite dialogueBoxTexture;
-    public FontAsset font;
-    public int fontSize;
+    public Image dialogueBoxImage;
+    public TextMeshProUGUI textObject;
+    public Transform choiceContainer;
 }
