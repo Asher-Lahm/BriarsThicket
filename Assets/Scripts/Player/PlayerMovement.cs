@@ -12,19 +12,18 @@ public class PlayerMovement : MonoBehaviour
     private float verticalVelocity;
 
     private CharacterController controller;
-    private PlayerControls controls;
+    private PlayerInputReader input;
+    private Camera mainCamera;
 
-
-    void Awake()
+    private void Awake()
     {
-        controller = GetComponent<CharacterController>();
-        controls = new PlayerControls();
+        input = GetComponent<PlayerInputReader>();
+        mainCamera = Camera.main;
     }
-
     void Update()
     {
-        Vector3 forward = Camera.main.transform.forward;
-        Vector3 right = Camera.main.transform.right;
+        Vector3 forward = mainCamera.transform.forward;
+        Vector3 right = mainCamera.transform.right;
 
         forward.y = 0;
         right.y = 0;
@@ -32,9 +31,9 @@ public class PlayerMovement : MonoBehaviour
         forward.Normalize();
         right.Normalize();
 
-        Vector2 input = controls.Player.Move.ReadValue<Vector2>();
-        Boolean sprinting = controls.Player.Sprint.IsPressed();
-        Vector3 move = (forward * input.y + right * input.x) * (sprinting ? sprintSpeed : speed);
+        Vector2 directionInput = input.Move;
+        Boolean sprinting = input.Sprint;
+        Vector3 move = (forward * directionInput.y + right * directionInput.x) * (sprinting ? sprintSpeed : speed);
 
         if (controller.isGrounded)
         {
@@ -49,15 +48,5 @@ public class PlayerMovement : MonoBehaviour
         move.y = verticalVelocity;
 
         controller.Move(Time.deltaTime * move);
-    }
-
-    private void OnEnable()
-    {
-        controls.Player.Enable();
-    }
-
-    private void OnDisable()
-    {
-        controls.Player.Disable();
     }
 }
