@@ -12,8 +12,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b6e22a03f5275a241a0334256d42a283, type: 3}
   m_Name: testStyle2
   m_EditorClassIdentifier: 
-  prefab: {fileID: 0}
-  texture: {fileID: 0}
-  font: {fileID: 0}
-  fontSize: 0
-  textColor: {r: 0, g: 0, b: 0, a: 0}
+  prefab: {fileID: 6651549079013556068, guid: 50ab713b8bd16be4e9c13a59c471b5bb, type: 3}
+  texture: {fileID: 21300000, guid: b470079dd0a39c64c9e7549449994a10, type: 3}
+  font: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
+  fontSize: 36
+  textColor: {r: 0, g: 0, b: 0, a: 1}

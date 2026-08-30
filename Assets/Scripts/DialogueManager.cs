@@ -13,6 +13,8 @@ public class DialogueManager : MonoBehaviour
     private TextMeshProUGUI textObject;
     private Image characterPortrait;
 
+    [SerializeField]
+    PlayerInputReader playerInputReader;
 
     [SerializeField]
     private DialogueBox dialogueBox;
@@ -26,6 +28,8 @@ public class DialogueManager : MonoBehaviour
     [DoNotSerialize]
     public static bool isDialogue = false;
 
+    bool evaluatingConditions = false;
+
     private void Awake()
     {
         if (Instance == null)
@@ -37,13 +41,16 @@ public class DialogueManager : MonoBehaviour
             Destroy(gameObject);
         }
     }
-    void Start()
+
+    private void OnEnable()
     {
         
     }
 
     public void StartDialogue(DialogueNode startNode)
     {
+        playerInputReader.SetContext(InputContext.Dialogue);
+
         if (startNode.style)
         {
             UpdateDialogueBox(startNode.style);
@@ -52,6 +59,21 @@ public class DialogueManager : MonoBehaviour
             UpdateDialogueBox(defaultStyle);
         }
             EvaluateNode(startNode);
+    }
+
+    public void AdvanceDialogue()
+    {
+        if (!evaluatingConditions)
+        {
+            if (currentDialogue.next != null)
+            {
+                EvaluateNode(currentDialogue.next);
+            }
+            else
+            {
+                playerInputReader.SetContext(InputContext.Gameplay);
+            }
+        }
     }
 
     void UpdateDialogueBox(DialogueStyle style)
@@ -101,6 +123,7 @@ public class DialogueManager : MonoBehaviour
 
     void EvaluateCondition(ConditionNode node)
     {
+        evaluatingConditions = true;
         bool conditionsTrue = true;
         foreach (PlayerStatCondition condition in node.playerStatConditions)
         {
@@ -148,5 +171,6 @@ public class DialogueManager : MonoBehaviour
         {
             EvaluateNode(node.falseNode);
         }
+        evaluatingConditions = false;
     }
 }

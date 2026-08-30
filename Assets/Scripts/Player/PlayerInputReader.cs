@@ -5,6 +5,13 @@ using UnityEngine;
 using UnityEngine.Events;
 using UnityEngine.InputSystem;
 
+public enum InputContext
+{
+    Gameplay,
+    Dialogue,
+    Menu
+}
+
 public class PlayerInputReader : MonoBehaviour
 {
     private PlayerControls controls;
@@ -14,6 +21,10 @@ public class PlayerInputReader : MonoBehaviour
     public bool Sprint => controls.Player.Sprint.IsPressed();
 
     public event Action InteractPressed;
+    public event Action DialogueAdvancePressed;
+    public event Action MenuConfirmPressed;
+
+    public InputContext currentContext { get; private set; } = InputContext.Gameplay;
 
     void Awake()
     {
@@ -34,6 +45,24 @@ public class PlayerInputReader : MonoBehaviour
 
     private void OnInteractPerformed(InputAction.CallbackContext context)
     {
-        InteractPressed?.Invoke();
+        switch (currentContext)
+        {
+            case InputContext.Gameplay:
+                InteractPressed?.Invoke();
+                break;
+
+            case InputContext.Dialogue:
+                DialogueAdvancePressed?.Invoke();
+                break;
+
+            case InputContext.Menu:
+                MenuConfirmPressed?.Invoke();
+                break;
+        }
+    }
+
+    public void SetContext(InputContext context)
+    {
+        currentContext = context;
     }
 }
