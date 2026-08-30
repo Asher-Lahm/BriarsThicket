@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using Unity.VisualScripting;
 using UnityEngine;
 using TMPro;
+using System;
 
 public class DialogueManager : MonoBehaviour
 {
@@ -61,7 +62,7 @@ public class DialogueManager : MonoBehaviour
         }
         switch (node) {
             case ConditionNode conditionNode:
-                //ConditionNodeLogic(conditionNode);
+                EvaluateCondition(conditionNode);
                 break;
             case DialogueLine dialogueLine:
                 ShowDialogueLine(dialogueLine);
@@ -82,6 +83,57 @@ public class DialogueManager : MonoBehaviour
         foreach (DialogueChoice choice in node.choices)
         {
             Instantiate(choice.style.prefab, dialogueBox.choiceContainer);
+        }
+    }
+
+    void EvaluateCondition(ConditionNode node)
+    {
+        bool conditionsTrue = true;
+        foreach (PlayerStatCondition condition in node.playerStatConditions)
+        {
+            int statToCompare = 0;
+            bool comparison= false;
+            switch (condition.stat)
+            {
+                case PlayerStat.Money:
+                    //statToCompare = ps.Money;
+                    break;
+            }
+            switch (condition.comparison)
+            {
+                case Comparison.Equal:
+                    comparison = statToCompare == condition.value;
+                    break;
+                case Comparison.GreaterThan:
+                    comparison = statToCompare > condition.value;
+                    break;
+                case Comparison.GreaterThanOrEqual:
+                    comparison = statToCompare >= condition.value;
+                    break;
+                case Comparison.LessThanOrEqual:
+                    comparison = statToCompare <= condition.value;
+                    break;
+                case Comparison.LessThan:
+                    comparison = statToCompare < condition.value;
+                    break;
+            }
+
+            conditionsTrue = conditionsTrue && comparison;
+        }
+        foreach (PlayerStatCondition condition in node.playerStatConditions)
+        {
+            bool comparison = false;
+
+
+            conditionsTrue = conditionsTrue && comparison;
+        }
+
+        if (conditionsTrue)
+        {
+            EvaluateNode(node.trueNode);
+        } else
+        {
+            EvaluateNode(node.falseNode);
         }
     }
 }

@@ -1,9 +1,6 @@
 public enum PlayerStat
 {
-    Wisdom,
-    Karma,
-    Treasure,
-    WaterLevel
+    Money
 }
 
 public enum Comparison
