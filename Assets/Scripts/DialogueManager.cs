@@ -3,13 +3,19 @@ using System.Collections.Generic;
 using Unity.VisualScripting;
 using UnityEngine;
 using TMPro;
+using UnityEngine.UI;
 
 public class DialogueManager : MonoBehaviour
 {
 
     private DialogueLine currentDialogue;
-    private DialogueBox dialogueBox;
     private TextMeshProUGUI textObject;
+    private Image characterPortrait;
+
+
+    [SerializeField]
+    private DialogueBox dialogueBox;
+    [SerializeField]
     private DialogueStyle defaultStyle;
 
 
@@ -51,6 +57,13 @@ public class DialogueManager : MonoBehaviour
     {
         Destroy(dialogueBox.gameObject);
         dialogueBox = Instantiate(style.prefab).GetComponent<DialogueBox>();
+
+        textObject = dialogueBox.textObject;
+        characterPortrait = dialogueBox.characterPortrait;
+        dialogueBox.dialogueBoxImage.sprite = style.texture;
+        dialogueBox.textObject.fontSize = style.fontSize;
+        dialogueBox.textObject.font = style.font;
+        dialogueBox.textObject.color = style.textColor;
     }
 
     void EvaluateNode(DialogueNode node)

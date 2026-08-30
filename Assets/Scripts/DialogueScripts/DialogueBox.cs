@@ -10,4 +10,5 @@ public class DialogueBox : MonoBehaviour
     public Image dialogueBoxImage;
     public TextMeshProUGUI textObject;
     public Transform choiceContainer;
+    public Image characterPortrait;
 }
