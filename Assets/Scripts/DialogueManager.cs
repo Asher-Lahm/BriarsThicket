@@ -3,14 +3,22 @@ using System.Collections.Generic;
 using Unity.VisualScripting;
 using UnityEngine;
 using TMPro;
+using UnityEngine.UI;
 using System;
 
 public class DialogueManager : MonoBehaviour
 {
 
     private DialogueLine currentDialogue;
-    private DialogueBox dialogueBox;
     private TextMeshProUGUI textObject;
+    private Image characterPortrait;
+
+    [SerializeField]
+    PlayerInputReader playerInputReader;
+
+    [SerializeField]
+    private DialogueBox dialogueBox;
+    [SerializeField]
     private DialogueStyle defaultStyle;
 
 
@@ -19,6 +27,8 @@ public class DialogueManager : MonoBehaviour
 
     [DoNotSerialize]
     public static bool isDialogue = false;
+
+    bool evaluatingConditions = false;
 
     private void Awake()
     {
@@ -31,13 +41,16 @@ public class DialogueManager : MonoBehaviour
             Destroy(gameObject);
         }
     }
-    void Start()
+
+    private void OnEnable()
     {
         
     }
 
     public void StartDialogue(DialogueNode startNode)
     {
+        playerInputReader.SetContext(InputContext.Dialogue);
+
         if (startNode.style)
         {
             UpdateDialogueBox(startNode.style);
@@ -48,10 +61,32 @@ public class DialogueManager : MonoBehaviour
             EvaluateNode(startNode);
     }
 
+    public void AdvanceDialogue()
+    {
+        if (!evaluatingConditions)
+        {
+            if (currentDialogue.next != null)
+            {
+                EvaluateNode(currentDialogue.next);
+            }
+            else
+            {
+                playerInputReader.SetContext(InputContext.Gameplay);
+            }
+        }
+    }
+
     void UpdateDialogueBox(DialogueStyle style)
     {
         Destroy(dialogueBox.gameObject);
         dialogueBox = Instantiate(style.prefab).GetComponent<DialogueBox>();
+
+        textObject = dialogueBox.textObject;
+        characterPortrait = dialogueBox.characterPortrait;
+        dialogueBox.dialogueBoxImage.sprite = style.texture;
+        dialogueBox.textObject.fontSize = style.fontSize;
+        dialogueBox.textObject.font = style.font;
+        dialogueBox.textObject.color = style.textColor;
     }
 
     void EvaluateNode(DialogueNode node)
@@ -88,6 +123,7 @@ public class DialogueManager : MonoBehaviour
 
     void EvaluateCondition(ConditionNode node)
     {
+        evaluatingConditions = true;
         bool conditionsTrue = true;
         foreach (PlayerStatCondition condition in node.playerStatConditions)
         {
@@ -135,5 +171,6 @@ public class DialogueManager : MonoBehaviour
         {
             EvaluateNode(node.falseNode);
         }
+        evaluatingConditions = false;
     }
 }

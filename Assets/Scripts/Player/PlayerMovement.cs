@@ -19,6 +19,7 @@ public class PlayerMovement : MonoBehaviour
     {
         input = GetComponent<PlayerInputReader>();
         mainCamera = Camera.main;
+        controller = GetComponent<CharacterController>();
     }
     void Update()
     {
