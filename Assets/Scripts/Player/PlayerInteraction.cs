@@ -5,16 +5,21 @@ using UnityEngine;
 public class PlayerInteraction : MonoBehaviour
 {
     private readonly List<Interactable> nearbyInteractables = new();
+    [SerializeField]
     private PlayerInputReader input;
 
     private void Awake()
     {
-        input = GetComponent<PlayerInputReader>();
+        if (input == null)
+        {
+            input = GetComponentInChildren<PlayerInputReader>();
+        }
     }
     // Start is called before the first frame update
     public void AddInteractable(Interactable interactable)
     {
         nearbyInteractables.Add(interactable);
+        Debug.Log("InteractableAdded");
     }
 
     public void RemoveInteractable(Interactable interactable)
@@ -62,8 +67,8 @@ public class PlayerInteraction : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
-        
-        if (other.TryGetComponent<Interactable>(out Interactable interactable))
+        Interactable interactable = other.GetComponentInParent<Interactable>();
+        if (interactable != null)
         {
             nearbyInteractables.Add(interactable);
         }
@@ -71,7 +76,8 @@ public class PlayerInteraction : MonoBehaviour
 
     private void OnTriggerExit(Collider other)
     {
-        if (other.TryGetComponent<Interactable>(out Interactable interactable))
+        Interactable interactable = other.GetComponentInParent<Interactable>();
+        if (interactable != null)
         {
             nearbyInteractables.Remove(interactable);
         }

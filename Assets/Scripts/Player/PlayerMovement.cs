@@ -12,15 +12,18 @@ public class PlayerMovement : MonoBehaviour
     private float verticalVelocity;
 
     private CharacterController controller;
+    [SerializeField]
     private PlayerInputReader input;
     private Camera mainCamera;
 
     private void Awake()
     {
-        input = GetComponent<PlayerInputReader>();
+        if (input == null) 
+            input = GetComponent<PlayerInputReader>();
         mainCamera = Camera.main;
         controller = GetComponent<CharacterController>();
     }
+
     void Update()
     {
         Vector3 forward = mainCamera.transform.forward;

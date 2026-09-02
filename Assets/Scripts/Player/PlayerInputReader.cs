@@ -1,6 +1,7 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.Events;
 using UnityEngine.InputSystem;
@@ -21,8 +22,7 @@ public class PlayerInputReader : MonoBehaviour
     public bool Sprint => controls.Player.Sprint.IsPressed();
 
     public event Action InteractPressed;
-    public event Action DialogueAdvancePressed;
-    public event Action MenuConfirmPressed;
+    public event Action UIConfirmPressed;
 
     public InputContext currentContext { get; private set; } = InputContext.Gameplay;
 
@@ -35,6 +35,7 @@ public class PlayerInputReader : MonoBehaviour
     {
         controls.Player.Enable();
         controls.Player.Interact.performed += OnInteractPerformed;
+        controls.UINavigation.Confirm.performed += OnConfirmPerformed;
     }
 
     void OnDisable()
@@ -45,24 +46,27 @@ public class PlayerInputReader : MonoBehaviour
 
     private void OnInteractPerformed(InputAction.CallbackContext context)
     {
-        switch (currentContext)
-        {
-            case InputContext.Gameplay:
-                InteractPressed?.Invoke();
-                break;
-
-            case InputContext.Dialogue:
-                DialogueAdvancePressed?.Invoke();
-                break;
-
-            case InputContext.Menu:
-                MenuConfirmPressed?.Invoke();
-                break;
-        }
+        InteractPressed?.Invoke();
     }
 
-    public void SetContext(InputContext context)
+    private void OnConfirmPerformed(InputAction.CallbackContext context)
     {
-        currentContext = context;
+        UIConfirmPressed?.Invoke();
+    }
+
+    public void StartUI()
+    {
+        controls.Player.Disable();
+        controls.UINavigation.Enable();
+        Cursor.lockState = CursorLockMode.None;
+        Cursor.visible = true;
+    }
+
+    public void StartGameplay()
+    {
+        controls.Player.Enable();
+        controls.UINavigation.Disable();
+        Cursor.lockState = CursorLockMode.Locked;
+        Cursor.visible = false;
     }
 }

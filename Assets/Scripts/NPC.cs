@@ -4,8 +4,7 @@ using UnityEngine;
 
 public class NPC : Interactable
 {
-    [SerializeField] List<DialogueLine> dialogueSequences;
-    Collider interactionRange;
+    [SerializeField] List<DialogueStart> dialogueSequences;
     private int dialogueIndex = 0;
     void Start()
     {
@@ -15,12 +14,13 @@ public class NPC : Interactable
         }
     }
 
-    // Update is called once per frame
     public override void Interact()
     {
-        //DialogueManager.Instance.Dialogue(dialogueSequences[dialogueCount]);
+        DialogueManager.Instance.StartDialogue(dialogueSequences[dialogueIndex]);
         dialogueIndex++;
         if (dialogueIndex >= dialogueSequences.Count)
             dialogueIndex = dialogueSequences.Count - 1;
+
+        Debug.Log("NPC recieved interactRequest");
     }
 }
