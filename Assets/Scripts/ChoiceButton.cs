@@ -8,4 +8,5 @@ public class ChoiceButton : MonoBehaviour
 {
     public Image choiceButtonImage;
     public TextMeshProUGUI textObject;
+    public Button button;
 }

@@ -20,7 +20,7 @@ public enum DiaEmote
     Misc5,
 }
 
-[CreateAssetMenu]
+[CreateAssetMenu(menuName = "Dialogue/Character")]
 public class CharacterDialogue : ScriptableObject
 {
     public string characterName;

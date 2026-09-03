@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-[CreateAssetMenu]
+[CreateAssetMenu(menuName = "Dialogue/Line")]
 public class DialogueLine : DialogueNode
 {
     [TextArea]

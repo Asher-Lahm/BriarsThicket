@@ -85,13 +85,14 @@ GameObject:
   m_Component:
   - component: {fileID: 142013386685787430}
   - component: {fileID: 2206741659168330625}
+  - component: {fileID: 8628696081194177695}
   m_Layer: 0
   m_Name: ChoiceContainer
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &142013386685787430
 RectTransform:
   m_ObjectHideFlags: 0
@@ -137,6 +138,20 @@ MonoBehaviour:
   m_ChildScaleWidth: 0
   m_ChildScaleHeight: 0
   m_ReverseArrangement: 0
+--- !u!114 &8628696081194177695
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5765323705974622924}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e3855a7814658b84e86c6b1d341618ba, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  initialSelection: {fileID: 0}
+  menuFocusManager: {fileID: 0}
 --- !u!1 &6651549079013556068
 GameObject:
   m_ObjectHideFlags: 0
@@ -189,9 +204,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c46479cb635e9874db92e97fc3ec8371, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  initialSelection: {fileID: 0}
+  menuFocusManager: {fileID: 0}
   dialogueBoxImage: {fileID: 7112452789996515798}
   textObject: {fileID: 8578064159680245747}
-  choiceContainer: {fileID: 142013386685787430}
+  choiceContainer: {fileID: 8628696081194177695}
   characterPortrait: {fileID: 4243417520929118052}
 --- !u!1 &6679248633254861557
 GameObject:

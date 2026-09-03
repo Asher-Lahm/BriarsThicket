@@ -1,25 +1,32 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
-using Unity.VisualScripting;
-using UnityEngine;
 using TMPro;
+using Unity.VisualScripting;
+using UnityEditor.ShaderGraph;
+using UnityEngine;
 using UnityEngine.UI;
-using System;
 
 public class DialogueManager : MonoBehaviour
 {
 
-    private DialogueLine currentDialogue;
+    private DialogueNode currentNode;
     private TextMeshProUGUI textObject;
     private Image characterPortrait;
-
-    [SerializeField]
-    PlayerInputReader playerInputReader;
-
-    [SerializeField]
+    private CharacterDialogue currentCharacter;
+    private DiaEmote currentEmotion = 0;
     private DialogueBox dialogueBox;
+
+    [SerializeField]
+    PlayerInputReader input;
+
+    
     [SerializeField]
     private DialogueStyle defaultStyle;
+    [SerializeField]
+    private DialogueChoiceStyle defaultChoiceStyle;
+    [SerializeField]
+    private CharacterDialogue defaultCharacter;
 
 
     [DoNotSerialize]
@@ -29,6 +36,7 @@ public class DialogueManager : MonoBehaviour
     public static bool isDialogue = false;
 
     bool evaluatingConditions = false;
+    bool makingChoice = false;
 
     private void Awake()
     {
@@ -44,42 +52,50 @@ public class DialogueManager : MonoBehaviour
 
     private void OnEnable()
     {
-        
+        input.UIConfirmPressed += AdvanceDialogue;
+    }
+
+    private void OnDisable()
+    {
+        input.UIConfirmPressed -= AdvanceDialogue;
     }
 
     public void StartDialogue(DialogueNode startNode)
     {
-        playerInputReader.SetContext(InputContext.Dialogue);
+        input.StartUI();
 
-        if (startNode.style)
-        {
-            UpdateDialogueBox(startNode.style);
-        } else
-        {
-            UpdateDialogueBox(defaultStyle);
-        }
-            EvaluateNode(startNode);
+        currentNode = startNode;
+
+        EvaluateNode(startNode);
     }
 
     public void AdvanceDialogue()
     {
-        if (!evaluatingConditions)
+        if (!evaluatingConditions && !makingChoice)
         {
-            if (currentDialogue.next != null)
+            if (currentNode.next != null)
             {
-                EvaluateNode(currentDialogue.next);
+                EvaluateNode(currentNode.next);
             }
             else
             {
-                playerInputReader.SetContext(InputContext.Gameplay);
+                EndDialogue();
             }
         }
     }
 
+    private void EndDialogue()
+    {
+        input.StartGameplay();
+        RemoveDialogueBox();
+    }
+
     void UpdateDialogueBox(DialogueStyle style)
     {
-        Destroy(dialogueBox.gameObject);
-        dialogueBox = Instantiate(style.prefab).GetComponent<DialogueBox>();
+        RemoveDialogueBox();
+
+        Debug.Log("DialogueBox created");
+        dialogueBox = Instantiate(style.prefab, transform).GetComponent<DialogueBox>();
 
         textObject = dialogueBox.textObject;
         characterPortrait = dialogueBox.characterPortrait;
@@ -89,13 +105,32 @@ public class DialogueManager : MonoBehaviour
         dialogueBox.textObject.color = style.textColor;
     }
 
+    void RemoveDialogueBox()
+    {
+        Debug.Log("RemoveDialogueBox run");
+        if (dialogueBox != null)
+        {
+            Destroy(dialogueBox.gameObject);
+            Debug.Log("DialogueBox destroyed");
+        }
+            
+    }
+
     void EvaluateNode(DialogueNode node)
     {
+        currentNode = node;
         if (node.style)
         {
             UpdateDialogueBox(node.style);
         }
         switch (node) {
+            case DialogueStart startNode:
+                if (!node.style)
+                {
+                    UpdateDialogueBox(defaultStyle);
+                }
+                EvaluateNode(startNode.next);
+                break;
             case ConditionNode conditionNode:
                 EvaluateCondition(conditionNode);
                 break;
@@ -110,17 +145,42 @@ public class DialogueManager : MonoBehaviour
 
     void ShowDialogueLine(DialogueLine node)
     {
-        dialogueBox.textObject.text = node.text;
+        dialogueBox.SetText(node.text);
+
+        if (node.character != null)
+        {
+            currentCharacter = node.character;
+        } else if (currentCharacter == null)
+        {
+            currentCharacter = defaultCharacter;
+        }
+        currentEmotion = node.emotion;
+            
+        dialogueBox.SetCharacterSprite(currentCharacter.dialogueSprites[(int)currentEmotion]);
     }
 
     void ShowDialogueChoice(DialogueChoiceNode node)
     {
+        makingChoice = true;
         foreach (DialogueChoice choice in node.choices)
         {
-            Instantiate(choice.style.prefab, dialogueBox.choiceContainer);
+            if (choice.style == null)
+            {
+                choice.style = defaultChoiceStyle;
+            }
+            dialogueBox.choiceContainer.AddChoice(choice, () => MakeChoice(choice));
         }
+        dialogueBox.choiceContainer.ShowChoices();
     }
 
+    void MakeChoice(DialogueChoice choice)
+    {
+        makingChoice = false;
+        dialogueBox.choiceContainer.RemoveChoices();
+        EvaluateNode(choice.next);
+    }
+
+    //TODO Update to take in parameters once those are in place.
     void EvaluateCondition(ConditionNode node)
     {
         evaluatingConditions = true;
