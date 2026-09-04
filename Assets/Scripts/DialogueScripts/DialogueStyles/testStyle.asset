@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: testStyle
   m_EditorClassIdentifier: 
   prefab: {fileID: 6651549079013556068, guid: 50ab713b8bd16be4e9c13a59c471b5bb, type: 3}
-  dialogueBoxTexture: {fileID: 21300000, guid: 813388ac68be6994ebfaad6767a176af, type: 3}
+  texture: {fileID: 21300000, guid: 813388ac68be6994ebfaad6767a176af, type: 3}
   font: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   fontSize: 36
   textColor: {r: 1, g: 1, b: 1, a: 1}
