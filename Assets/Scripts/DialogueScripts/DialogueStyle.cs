@@ -4,7 +4,7 @@ using UnityEngine;
 using UnityEngine.TextCore.Text;
 using TMPro;
 
-[CreateAssetMenu(menuName = "Dialogue/DialogueStyle")]
+[CreateAssetMenu(menuName = "Dialogue/StyleBox")]
 public class DialogueStyle : ScriptableObject
 {
     public GameObject prefab;

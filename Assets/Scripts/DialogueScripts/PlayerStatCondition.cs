@@ -1,3 +1,5 @@
+using UnityEngine;
+
 public enum PlayerStat
 {
     Money
@@ -13,7 +15,8 @@ public enum Comparison
 }
 
 [System.Serializable]
-public class PlayerStatCondition
+[CreateAssetMenu(menuName = "Dialogue/Condition")]
+public class PlayerStatCondition : ScriptableObject
 {
     public PlayerStat stat;
     public Comparison comparison;

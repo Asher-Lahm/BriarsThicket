@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-[CreateAssetMenu]
+[CreateAssetMenu(menuName = "Dialogue/Choice")]
 public class DialogueChoice : ScriptableObject
 {
     public string text;
