@@ -6,6 +6,7 @@ using UnityEngine.EventSystems;
 public class MenuFocusManager : MonoBehaviour
 {
     private Stack<Menu> menuStack = new();
+    [SerializeField] PlayerInputReader playerInput;
 
     public static MenuFocusManager Instance;
 
@@ -29,13 +30,15 @@ public class MenuFocusManager : MonoBehaviour
 
         menuStack.Push(menu);
         menu.Focus();
-        print($"{menuStack.Peek().gameObject.name}");
+        Debug.Log("UI nav");
+        playerInput.StartUI();
     }
 
     public void CloseTopMenu()
     {
         if (menuStack.Count <= 0)
             return;
+            
 
         menuStack.Pop();
 
@@ -44,6 +47,7 @@ public class MenuFocusManager : MonoBehaviour
             menuStack.Peek().Focus();
         } else
         {
+            playerInput.StartGameplay();
             EventSystem.current.SetSelectedGameObject(null);
         }
     }

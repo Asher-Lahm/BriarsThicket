@@ -2,6 +2,7 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class DialogueChoiceMenu : Menu
 {
@@ -22,12 +23,32 @@ public class DialogueChoiceMenu : Menu
         Open();
     }
 
+    public void SetNavigation()
+    {
+        for (int i = 0; i < buttonList.Count; i++)
+        {
+            Debug.Log($"button {i} nav");
+            ChoiceButton button = buttonList[i];
+            Navigation buttonNav = button.button.navigation;
+            if (i - 1 >= 0)
+            {
+                buttonNav.selectOnUp = buttonList[i - 1].button;
+            }
+            if (i + 1 < buttonList.Count)
+            {
+                buttonNav.selectOnDown = buttonList[i + 1].button;
+            }
+            button.button.navigation = buttonNav;
+        }
+    }
+
     public void RemoveChoices()
     {
         foreach (ChoiceButton choice in buttonList)
         {
             Destroy(choice.gameObject);
         }
+        buttonList = new List<ChoiceButton>();
         Close();
     }
 }

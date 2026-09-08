@@ -20,7 +20,8 @@ public class DialogueManager : MonoBehaviour
     [SerializeField]
     PlayerInputReader input;
 
-    
+    [SerializeField]
+    private DialogueChoiceMenu choiceMenu;
     [SerializeField]
     private DialogueStyle defaultStyle;
     [SerializeField]
@@ -62,6 +63,7 @@ public class DialogueManager : MonoBehaviour
 
     public void StartDialogue(DialogueNode startNode)
     {
+        isDialogue = true;
         input.StartUI();
 
         currentNode = startNode;
@@ -71,7 +73,7 @@ public class DialogueManager : MonoBehaviour
 
     public void AdvanceDialogue()
     {
-        if (!evaluatingConditions && !makingChoice)
+        if (!evaluatingConditions && !makingChoice && isDialogue)
         {
             if (currentNode.next != null)
             {
@@ -88,6 +90,7 @@ public class DialogueManager : MonoBehaviour
     {
         input.StartGameplay();
         RemoveDialogueBox();
+        isDialogue = false;
     }
 
     void UpdateDialogueBox(DialogueStyle style)
@@ -168,15 +171,16 @@ public class DialogueManager : MonoBehaviour
             {
                 choice.style = defaultChoiceStyle;
             }
-            dialogueBox.choiceContainer.AddChoice(choice, () => MakeChoice(choice));
+            choiceMenu.AddChoice(choice, () => MakeChoice(choice));
         }
-        dialogueBox.choiceContainer.ShowChoices();
+        choiceMenu.SetNavigation();
+        choiceMenu.ShowChoices();
     }
 
     void MakeChoice(DialogueChoice choice)
     {
         makingChoice = false;
-        dialogueBox.choiceContainer.RemoveChoices();
+        choiceMenu.RemoveChoices();
         EvaluateNode(choice.next);
     }
 
