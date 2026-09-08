@@ -17,10 +17,6 @@ public class MouseLook : MonoBehaviour
     void Awake()
     {
         controls = new PlayerControls();
-
-        // temporarily here
-        Cursor.lockState = CursorLockMode.Locked;
-        Cursor.visible = false;
         cameraMax = cameraMinHeight + cameraMaxHeight;
     }
 

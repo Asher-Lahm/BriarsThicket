@@ -7,6 +7,5 @@ public class PlantData : ScriptableObject
 {
     public string plantName;
     public string description;
-    public Mesh plantMesh;
-    public RuntimeAnimatorController plantAnimator;
+    public GrowthStage growthStages;
 }
