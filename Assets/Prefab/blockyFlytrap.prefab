@@ -58,10 +58,45 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: -2382349243374796615, guid: 7ba54cc232c0ada45a596e0ea98d9308,
+        type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0.00000017136335
+      objectReference: {fileID: 0}
+    - target: {fileID: -2382349243374796615, guid: 7ba54cc232c0ada45a596e0ea98d9308,
+        type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0.5848684
+      objectReference: {fileID: 0}
+    - target: {fileID: -2382349243374796615, guid: 7ba54cc232c0ada45a596e0ea98d9308,
+        type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0.000000014901161
+      objectReference: {fileID: 0}
     - target: {fileID: 919132149155446097, guid: 7ba54cc232c0ada45a596e0ea98d9308,
         type: 3}
       propertyPath: m_Name
       value: blockyFlytrap
+      objectReference: {fileID: 0}
+    - target: {fileID: 5992947537572903470, guid: 7ba54cc232c0ada45a596e0ea98d9308,
+        type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0.000000007450581
+      objectReference: {fileID: 0}
+    - target: {fileID: 5992947537572903470, guid: 7ba54cc232c0ada45a596e0ea98d9308,
+        type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0.32747602
+      objectReference: {fileID: 0}
+    - target: {fileID: 5992947537572903470, guid: 7ba54cc232c0ada45a596e0ea98d9308,
+        type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0.000000044703484
+      objectReference: {fileID: 0}
+    - target: {fileID: 8810652324969098344, guid: 7ba54cc232c0ada45a596e0ea98d9308,
+        type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
