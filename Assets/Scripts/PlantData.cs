@@ -7,5 +7,5 @@ public class PlantData : ScriptableObject
 {
     public string plantName;
     public string description;
-    public GrowthStage growthStages;
+    public GrowthStage[] growthStages;
 }

@@ -4,5 +4,8 @@ using UnityEngine;
 
 public class GrowthStage : ScriptableObject
 {
-    GameObject plantPrefab;
+    public GameObject prefab;
+    public int baseAttack;
+    public int baseDefense;
+    public Attack[] attacks;
 }

@@ -35,7 +35,7 @@ public class BattleManager : MonoBehaviour
         Debug.Log("Started Battle (Theoretically)");
     }
 
-    void TryAttack()
+    void BriarTryAttack(Plant target, Attack attack)
     {
 
     }

@@ -5,9 +5,10 @@ using UnityEngine;
 public class BattleOptionsContainer : MonoBehaviour
 {
     private List<GameObject> buttons = new List<GameObject>();
-    public void AddOptionButton(BattleActionData data)
+    [SerializeField] GameObject buttonPrefab;
+    public void AddOptionButton(BriarAttackData data)
     {
-        GameObject button = Instantiate(data.prefab, transform);
+        GameObject button = Instantiate(buttonPrefab, transform);
         BattleOptionButton optionButton = button.GetComponent<BattleOptionButton>();
         optionButton.textObject.text = data.actionName;
         optionButton.optionImage.sprite = data.image;
