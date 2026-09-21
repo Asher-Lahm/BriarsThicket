@@ -4,7 +4,9 @@ using UnityEngine;
 
 public class PlantBedInteractable : Interactable
 {
-    [SerializeField] BattleStartMenu menuToOpen;
+    [SerializeField] BattleStartMenu battleMenu;
+    [SerializeField] PlantingMenu plantingMenu;
+    [SerializeField] DayNightManager dayNightManager;
     private PlantBed bed;
 
     private void Start()
@@ -14,7 +16,7 @@ public class PlantBedInteractable : Interactable
 
     public override void Interact()
     {
-        menuToOpen.Open();
-        menuToOpen.Target(bed);
+        battleMenu.Open();
+        battleMenu.Target(bed);
     }
 }

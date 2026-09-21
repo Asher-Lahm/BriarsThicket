@@ -2,12 +2,8 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Plant : MonoBehaviour
+public class Plant : Combatant
 {
-    [SerializeField]
-    PlantData data;
-    [HideInInspector]
-    public int currentHealth;
     [SerializeField]
     private Attack[] attacks;
 

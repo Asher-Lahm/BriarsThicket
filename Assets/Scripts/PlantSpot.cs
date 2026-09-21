@@ -4,5 +4,6 @@ using UnityEngine;
 
 public class PlantSpot : MonoBehaviour
 {
-
+    public Vector2Int position;
+    public Plant plant;
 }
