@@ -9,11 +9,11 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 572cb3f98cec53443bd71938d8ffb21b, type: 3}
-  m_Name: testFlytrap
+  m_Script: {fileID: 11500000, guid: 6a8584553e79dad4c9a67452a5d350b2, type: 3}
+  m_Name: SeedMound
   m_EditorClassIdentifier: 
-  plantName: Blocky Flytrap
-  description: A plant made for testing that will never see the light of day. Poor
-    thing.
-  plantMesh: {fileID: 0}
-  plantAnimator: {fileID: 0}
+  prefab: {fileID: 0}
+  baseDefense: 0
+  baseMaxHealth: 0
+  attacks: []
+  isFightable: 0

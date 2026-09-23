@@ -8,6 +8,8 @@ public class PlantBedInteractable : Interactable
     [SerializeField] PlantingMenu plantingMenu;
     [SerializeField] DayNightManager dayNightManager;
     private PlantBed bed;
+    private int dayLastFought;
+    private bool fought;
 
     private void Start()
     {
@@ -16,7 +18,14 @@ public class PlantBedInteractable : Interactable
 
     public override void Interact()
     {
-        battleMenu.Open();
-        battleMenu.Target(bed);
+        if (dayNightManager.isDay)
+        {
+            plantingMenu.Open();
+            plantingMenu.PrepareMenus(bed);
+        } else
+        {
+            battleMenu.Open();
+            battleMenu.Target(bed);
+        }  
     }
 }

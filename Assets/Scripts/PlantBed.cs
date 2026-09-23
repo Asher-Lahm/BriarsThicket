@@ -5,13 +5,8 @@ using UnityEngine;
 public class PlantBed : MonoBehaviour
 {
     public PlantSpot[] plantSpots;
-
-    public void Plant(PlantData data, PlantSpot spot)
-    {
-        GameObject plantObject = Instantiate(data.growthStages[0].prefab, spot.transform);
-        Plant plant = plantObject.GetComponent<Plant>();
-        plant.Initialize(this);
-    }
+    public Transform plantingCameraTransform;
+    public Transform battleCameraTransform;
 
     public Combatant GetAdjacent(Plant target, Vector2Int pos)
     {

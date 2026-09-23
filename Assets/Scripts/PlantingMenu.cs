@@ -8,6 +8,7 @@ public class PlantingMenu : Menu
     PlantBed bed;
     [SerializeField] GameObject indivPlantMenu;
     List<IndivPlantMenu> indivPlantMenus = new List<IndivPlantMenu>();
+    [SerializeField] CameraController camControl;
 
     private void Start()
     {
@@ -16,16 +17,24 @@ public class PlantingMenu : Menu
             gardenManager = GardenManager.Instance;
         }
     }
-    public void SummonMenus(PlantBed bed)
+    public void PrepareMenus(PlantBed bed)
     {
         this.bed = bed;
         foreach (PlantSpot spot in bed.plantSpots)
         {
             GameObject menuObject = Instantiate(indivPlantMenu, transform);
 
-            IndivPlantMenu menu = GetComponent<IndivPlantMenu>();
+            IndivPlantMenu menu = menuObject.GetComponent<IndivPlantMenu>();
+            
             menu.Initialize(spot);
             indivPlantMenus.Add(menu);
         }
+        camControl.MoveToFixedPosition(bed.plantingCameraTransform);
+    }
+
+    public void CloseMenus()
+    {
+        camControl.ReturnPlayerControl();
+        Close();
     }
 }
