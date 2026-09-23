@@ -11,6 +11,8 @@ public class Plant : Combatant
 
     private Animator animator;
 
+    private GameObject currentVisual;
+
     void Start()
     {
         animator = GetComponent<Animator>();

@@ -5,6 +5,9 @@ using UnityEngine;
 public class PlantBed : MonoBehaviour
 {
     public PlantSpot[] plantSpots;
+    public Transform plantingCameraTransform;
+    public Transform battleCameraTransform;
+
 
     public void Plant(PlantData data, PlantSpot spot)
     {

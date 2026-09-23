@@ -15,5 +15,5 @@ MonoBehaviour:
   plantName: Blocky Flytrap
   description: A plant made for testing that will never see the light of day. Poor
     thing.
-  plantMesh: {fileID: 0}
-  plantAnimator: {fileID: 0}
+  growthStages:
+  - {fileID: 0}

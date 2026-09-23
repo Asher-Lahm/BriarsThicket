@@ -7,6 +7,7 @@ public class WorldUIFollower : MonoBehaviour
     private Transform worldTarget;
     private RectTransform uiElement;
     private Canvas canvas;
+    [SerializeField] Vector2 offset;
 
     private RectTransform canvasRect;
 
@@ -34,13 +35,8 @@ public class WorldUIFollower : MonoBehaviour
         bool isInFrontOfCamera = screenPosition.z > 0;
         uiElement.gameObject.SetActive(isInFrontOfCamera);
 
-        RectTransformUtility.ScreenPointToLocalPointInRectangle(
-            canvasRect,
-            screenPosition,
-            canvas.worldCamera,
-            out Vector2 localPosition
-        );
+        RectTransformUtility.ScreenPointToLocalPointInRectangle(canvasRect, screenPosition, canvas.worldCamera, out Vector2 localPosition);
 
-        uiElement.anchoredPosition = localPosition;
+        uiElement.anchoredPosition = localPosition - offset;
     }
 }
