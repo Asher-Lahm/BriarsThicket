@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-[CreateAssetMenu]
+[CreateAssetMenu(menuName = "Attacks/BriarAttack")]
 public class BriarAttackData : ScriptableObject
 {
     public string actionName;

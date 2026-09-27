@@ -5,10 +5,17 @@ using UnityEngine;
 
 public abstract class Combatant : MonoBehaviour
 {
+    [HideInInspector]
     public int currentHealth;
     public int maxHealth;
-    int attack;
+    public int defense;
+    public int statusTurns;
+    public Status status;
     public event Action<float, float> HealthChanged;
+    [HideInInspector]
+    public bool isAbleToAttack;
+    [HideInInspector]
+    public bool isAttackable;
 
     public void TakeDamage(int damage)
     {

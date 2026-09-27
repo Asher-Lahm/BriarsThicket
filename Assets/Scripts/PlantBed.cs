@@ -4,15 +4,34 @@ using UnityEngine;
 
 public class PlantBed : MonoBehaviour
 {
-    List<Plant> plants = new List<Plant>();
-    [SerializeField] PlantSpot[] plantSpots;
+    public PlantSpot[] plantSpots;
+    public Transform plantingCameraTransform;
+    public Transform battleCameraTransform;
 
-    void Plant(PlantData data, int spotNumber)
+    public void Initialize(DayNightManager dayNightManager, GameObject prefab)
     {
-        GameObject plantObject = Instantiate(data.growthStages[0].prefab, plantSpots[spotNumber].transform);
-        Plant plant = plantObject.GetComponent<Plant>();
-        plants.Add(plant);
-        plant.Initialize(this);
+        foreach (PlantSpot spot in plantSpots)
+        {
+            spot.Initialize(dayNightManager, prefab);
+        }
+
+        GetComponent<PlantBedInteractable>().dayNightManager = dayNightManager;
+    }
+
+    public Combatant GetAdjacent(Plant target, Vector2Int pos)
+    {
+        PlantSpot mainSpot = target.GetComponentInParent<PlantSpot>();
+        foreach (PlantSpot spot in plantSpots)
+        {
+            if (spot.position.x == mainSpot.position.x + pos.x && spot.position.y == mainSpot.position.y + pos.y)
+            {
+                return spot.plant;
+            } else
+            {
+                return null;
+            }
+        }
+        return null;
     }
 
      

@@ -47,7 +47,10 @@ public class MenuFocusManager : MonoBehaviour
             menuStack.Peek().Focus();
         } else
         {
-            playerInput.StartGameplay();
+            if (!DialogueManager.isDialogue)
+            {
+                playerInput.StartGameplay();
+            }
             EventSystem.current.SetSelectedGameObject(null);
         }
     }

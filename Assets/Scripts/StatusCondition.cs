@@ -2,8 +2,10 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class StatusCondition : ScriptableObject
+
+public enum Status
 {
-    public AttackAction[] startOfTurnEffect;
-    public AttackAction[] endOfTurnEffect;
+    None,
+    Posion,
+    Sticky
 }
