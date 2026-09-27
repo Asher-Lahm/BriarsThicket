@@ -6,7 +6,7 @@ public class PlantBedInteractable : Interactable
 {
     [SerializeField] BattleStartMenu battleMenu;
     [SerializeField] PlantingMenu plantingMenu;
-    [SerializeField] DayNightManager dayNightManager;
+    [HideInInspector] public DayNightManager dayNightManager;
     private PlantBed bed;
     private int dayLastFought;
     private bool fought;

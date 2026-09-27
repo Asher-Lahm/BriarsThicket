@@ -13,14 +13,19 @@ public class Plant : Combatant
     private Animator animator;
 
     private GameObject currentVisual;
+    private DayNightManager dayNightManager;
 
     void Start()
     {
         animator = GetComponentInChildren<Animator>();
     }
 
-    public void Initialize(PlantData data)
+    public void Initialize(PlantData data, DayNightManager dnManager)
     {
+        dayNightManager = dnManager;
+        dayNightManager.OnBecomeDay += HandleBecomeDay;
+        dayNightManager.OnBecomeNight += HandleBecomeNight;
+
         plantData = data;
         SetStage(0);
     }
@@ -32,6 +37,16 @@ public class Plant : Combatant
         SetStage(growthStage);
     }
 
+    private void HandleBecomeDay()
+    {
+
+    }
+
+    private void HandleBecomeNight()
+    {
+        Grow();
+    }
+
     private void SetStage(int stageIndex)
     {
         if (currentVisual != null)
@@ -41,6 +56,7 @@ public class Plant : Combatant
 
         GrowthStage currentStage = plantData.growthStages[stageIndex];
 
+        print($"{currentStage.name}");
         currentVisual = Instantiate(currentStage.prefab, transform);
         maxHealth = currentStage.baseMaxHealth;
         attacks = currentStage.attacks;

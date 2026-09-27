@@ -7,16 +7,24 @@ public class PlantSpot : MonoBehaviour
     public Vector2Int position;
     public Plant plant;
     public GameObject plantPrefab;
+    private DayNightManager dayNightManager;
 
+    public void Initialize(DayNightManager dnManager, GameObject prefab)
+    {
+        dayNightManager = dnManager;
+        plantPrefab = prefab;
+    }
     public void Plant(PlantData plantData)
     {
         GameObject plantObject = Instantiate(plantPrefab, transform);
         plant = plantObject.GetComponent<Plant>();
-        plant.Initialize(plantData);
+        plant.Initialize(plantData, dayNightManager);
     }
 
     public void RemovePlant()
     {
+        if (plant.gameObject == null)
+            return;
         Destroy(plant.gameObject);
     }
 }

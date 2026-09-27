@@ -16,4 +16,6 @@ MonoBehaviour:
   description: A plant made for testing that will never see the light of day. Poor
     thing.
   growthStages:
-  - {fileID: 0}
+  - {fileID: 11400000, guid: 4732ba7a5bd1e644a9a7e78b31325bcf, type: 2}
+  - {fileID: 11400000, guid: e4b00a46c34ce364b9294f7559d69bd1, type: 2}
+  - {fileID: 11400000, guid: 4d1f2fd5807f6c348864084a6d7ff2d5, type: 2}

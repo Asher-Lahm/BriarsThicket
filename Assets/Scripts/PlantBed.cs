@@ -8,6 +8,16 @@ public class PlantBed : MonoBehaviour
     public Transform plantingCameraTransform;
     public Transform battleCameraTransform;
 
+    public void Initialize(DayNightManager dayNightManager, GameObject prefab)
+    {
+        foreach (PlantSpot spot in plantSpots)
+        {
+            spot.Initialize(dayNightManager, prefab);
+        }
+
+        GetComponent<PlantBedInteractable>().dayNightManager = dayNightManager;
+    }
+
     public Combatant GetAdjacent(Plant target, Vector2Int pos)
     {
         PlantSpot mainSpot = target.GetComponentInParent<PlantSpot>();

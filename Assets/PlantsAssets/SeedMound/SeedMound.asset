@@ -12,8 +12,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6a8584553e79dad4c9a67452a5d350b2, type: 3}
   m_Name: SeedMound
   m_EditorClassIdentifier: 
-  prefab: {fileID: 0}
+  prefab: {fileID: 4502117568037287687, guid: a5db9414c8e10124281fbcca8018746c, type: 3}
   baseDefense: 0
   baseMaxHealth: 0
+  baseFatigueHealth: 0
   attacks: []
   isFightable: 0

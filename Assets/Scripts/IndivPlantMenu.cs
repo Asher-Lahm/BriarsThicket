@@ -29,6 +29,7 @@ public class IndivPlantMenu : MonoBehaviour
 
     public void Plant()
     {
+        print("Menu Plant");
         spot.Plant(selectedPlant);
     }
 }

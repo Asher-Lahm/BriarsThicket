@@ -12,8 +12,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6a8584553e79dad4c9a67452a5d350b2, type: 3}
   m_Name: Flytrap2
   m_EditorClassIdentifier: 
-  prefab: {fileID: 0}
+  prefab: {fileID: 2488030901697701023, guid: c02d4a010f4c2074890b3fcda91f8719, type: 3}
   baseDefense: 0
-  baseMaxHealth: 0
+  baseMaxHealth: 10
+  baseFatigueHealth: 0
   attacks: []
   isFightable: 1
