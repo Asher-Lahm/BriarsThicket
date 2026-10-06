@@ -7,5 +7,5 @@ using UnityEngine;
 public class Attack : ScriptableObject
 {
     public AttackAction[] actions;
-    public CombatAnimationType animation;
+    public bool briarAttack;
 }

@@ -18,12 +18,12 @@ public class PlantBed : MonoBehaviour
         GetComponent<PlantBedInteractable>().dayNightManager = dayNightManager;
     }
 
-    public Combatant GetAdjacent(Plant target, Vector2Int pos)
+    public Combatant GetAdjacent(Plant target, int x, int y)
     {
         PlantSpot mainSpot = target.GetComponentInParent<PlantSpot>();
         foreach (PlantSpot spot in plantSpots)
         {
-            if (spot.position.x == mainSpot.position.x + pos.x && spot.position.y == mainSpot.position.y + pos.y)
+            if (spot.position.x == mainSpot.position.x + x && spot.position.y == mainSpot.position.y + y)
             {
                 return spot.plant;
             } else
