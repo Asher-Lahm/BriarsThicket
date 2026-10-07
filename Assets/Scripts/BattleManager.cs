@@ -99,21 +99,21 @@ public class BattleManager : MonoBehaviour
         foreach(AttackAction action in attack.actions)
         {
             //attacker.playAnimation
-            foreach(AttackPosition ap in action.attackPositions)
+            foreach(Vector3Int ap in action.attackPositions)
             {
-                if (ap.position == null)
+                if (!attack.briarAttack)
                 {
-                    reciever.TakeDamage(ap.damage);
+                    reciever.TakeDamage(ap.x);
                 } else
                 {
                     Combatant extraReciever = null;
                     if (reciever is Plant)
                     {
-                        extraReciever = currentBed.GetAdjacent((Plant)reciever, ap.position);
+                        extraReciever = currentBed.GetAdjacent((Plant)reciever, ap.y, ap.z);
                     }
                     if (extraReciever != null)
                     {
-                        extraReciever.TakeDamage(ap.damage);
+                        extraReciever.TakeDamage(ap.x);
                     }
                 }
             }

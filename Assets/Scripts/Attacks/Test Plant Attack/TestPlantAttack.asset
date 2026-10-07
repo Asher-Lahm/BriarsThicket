@@ -13,5 +13,5 @@ MonoBehaviour:
   m_Name: TestPlantAttack
   m_EditorClassIdentifier: 
   actions:
-  - {fileID: 11400000, guid: 85cb1d94d786a4546a87b172fd06f292, type: 2}
-  animation: 0
+  - {fileID: 11400000, guid: ccf8dfeb7fd2b394095d3c681e072054, type: 2}
+  briarAttack: 0
