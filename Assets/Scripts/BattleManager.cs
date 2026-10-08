@@ -19,7 +19,7 @@ public class BattleManager : MonoBehaviour
     [SerializeField] BattleUIManager battleUI;
     private Queue<AttackQueueItem> attackQueue = new Queue<AttackQueueItem>();
     private PlantBed currentBed;
-    private PlayerInputReader playerInput;
+    [SerializeField] PlayerInputReader playerInput;
     [SerializeField] CameraController camControl;
     //[[SerializeField]] List<Combatant> combatants;
 
@@ -37,12 +37,12 @@ public class BattleManager : MonoBehaviour
     public void StartBattle(BriarBattle briar, PlantBed bed)
     {
         Debug.Log("Started Battle (Theoretically)");
-        camControl.MoveToFixedPosition(bed.plantingCameraTransform);
+        camControl.MoveToFixedPosition(bed.battleCameraTransform);
         currentBed = bed;
         isInBattle = true;
         battleUI.SetPlantHealthBars(currentBed);
         battleUI.SetBriarHealthBar(briar);
-        playerInput.StartUI();
+        battleUI.OpenBattleMenu();
     }
 
     public void EndBattle()

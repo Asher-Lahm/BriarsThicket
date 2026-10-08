@@ -553,6 +553,7 @@ GameObject:
   m_Component:
   - component: {fileID: 815522475498602966}
   - component: {fileID: 3696676809580782433}
+  - component: {fileID: 1468682055011206208}
   m_Layer: 5
   m_Name: Health Bar
   m_TagString: Untagged
@@ -568,7 +569,7 @@ RectTransform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 6156583054651599000}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0.10214801}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1.955, y: 1.955, z: 1.955}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -582,7 +583,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -48.612488, y: 8.000183}
+  m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 125.6, y: 37.8}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &3696676809580782433
@@ -601,6 +602,19 @@ MonoBehaviour:
   nameText: {fileID: 5226953888388753542}
   maxHealthText: {fileID: 3005023534830353272}
   currentHealthText: {fileID: 1108467135733952627}
+--- !u!114 &1468682055011206208
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6156583054651599000}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5222d4b89de6c7245be1d7ee9ec245b7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  offset: {x: 0, y: 0}
 --- !u!1 &8386419394630160509
 GameObject:
   m_ObjectHideFlags: 0

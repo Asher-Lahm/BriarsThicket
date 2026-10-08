@@ -25,6 +25,6 @@ public class HealthBar : HealthUI
     protected override void SetUpVisuals(Combatant combatant)
     {
         nameText.text = combatant.combatName;
-        follower.SetTarget(combatant.transform);
+        follower.SetTarget(combatant.healthUITransform);
     }
 }

@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class BattleUIManager : MonoBehaviour
 {
+    [SerializeField] BattleMenu battleMenu;
     [SerializeField] Transform healthBarContainer;
     [SerializeField] GameObject healthBarPrefabPlant;
     [SerializeField] GameObject healthBarPrefabBriar;
@@ -14,7 +15,10 @@ public class BattleUIManager : MonoBehaviour
     {
         
     }
-
+    public void OpenBattleMenu()
+    {
+        battleMenu.Open();
+    }
     public void SetPlantHealthBars(PlantBed bed)
     {
         foreach (PlantSpot spot in bed.plantSpots)

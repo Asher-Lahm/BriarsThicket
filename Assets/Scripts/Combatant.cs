@@ -17,6 +17,7 @@ public abstract class Combatant : MonoBehaviour
     [HideInInspector]
     public bool isAttackable;
     public string combatName;
+    public Transform healthUITransform;
 
     public void TakeDamage(int damage)
     {
