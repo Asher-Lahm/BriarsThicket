@@ -4,16 +4,52 @@ using UnityEngine;
 
 public class Inventory : MonoBehaviour
 {
-    public Dictionary<InventoryItem, int> inventory = new Dictionary<InventoryItem, int>();
-    // Start is called before the first frame update
-    void Start()
-    {
-        
+    public List<InventoryEntry> items;
+    public int money;
+
+
+    public void AddItemToInventory(InventoryItem item, int amount) {
+        InventoryEntry existing = items.Find(x => x.item == item);
+
+        if (existing != null)
+        {
+            existing.amount += amount;
+        } 
+        else
+        {
+            items.Add(new InventoryEntry {item = item, amount = amount});
+        }
     }
 
-    // Update is called once per frame
-    void Update()
+    public bool RemoveItemFromInventory(InventoryItem item, int amount)
     {
-        
+        InventoryEntry existing = items.Find(x => x.item == item);
+
+        if (existing != null)
+        {
+            if (existing.amount - amount >= 0)
+            {
+                existing.amount -= amount;
+                if (existing.amount == 0)
+                {
+                    items.Remove(existing);
+                }
+                return true;
+            }
+            else
+            {
+                return false;
+            }
+        }
+        else
+        {
+            return false;
+        }
+    }
+
+    public List<InventoryEntry> GetInventoryItems<T>() where T : InventoryItem
+    {
+        List<InventoryEntry> outputList = items.FindAll(entry => entry.item is T);
+        return outputList;
     }
 }

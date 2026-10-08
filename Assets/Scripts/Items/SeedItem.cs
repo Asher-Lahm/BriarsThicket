@@ -12,4 +12,8 @@ public class SeedItem : InventoryItem, IPurchasable, ISellable
     private int sellPrice;
     public int SellPrice => sellPrice;
 
+    [SerializeField]
+    private PlantData plantToGrow;
+    public PlantData PlantToGrow => plantToGrow;
+
 }
