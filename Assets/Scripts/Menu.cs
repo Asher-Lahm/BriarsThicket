@@ -18,7 +18,7 @@ public class Menu : MonoBehaviour
     }
     public void Open()
     {
-        if (menuFocusManager == null)
+        if (menuFocusManager == null || !menuFocusManager.isActiveAndEnabled)
         {
             menuFocusManager = MenuFocusManager.Instance;
         }
@@ -29,7 +29,12 @@ public class Menu : MonoBehaviour
     public void Close()
     {
         gameObject.SetActive(false);
+        if (menuFocusManager == null)
+        {
+            menuFocusManager = MenuFocusManager.Instance;
+        }
         menuFocusManager.CloseTopMenu();
+        print("menu closed");
     }
 
     public void SaveSelection()

@@ -60,6 +60,7 @@ public class PlayerInputReader : MonoBehaviour
         controls.UINavigation.Enable();
         Cursor.lockState = CursorLockMode.None;
         Cursor.visible = true;
+        Debug.Log("switched to UI nav");
     }
 
     public void StartGameplay()
@@ -68,5 +69,6 @@ public class PlayerInputReader : MonoBehaviour
         controls.UINavigation.Disable();
         Cursor.lockState = CursorLockMode.Locked;
         Cursor.visible = false;
+        Debug.Log("Switched to gameplay");
     }
 }

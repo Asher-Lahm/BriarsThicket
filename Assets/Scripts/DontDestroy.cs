@@ -10,6 +10,7 @@ public class DontDestroy : MonoBehaviour
         Canvas,
         Inventory,
         Placeholders,
+        GardenManager,
         NUM_TYPES //This should always be last on the list
     }
     public ObjectType objectType;
