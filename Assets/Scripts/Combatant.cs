@@ -11,11 +11,12 @@ public abstract class Combatant : MonoBehaviour
     public int defense;
     public int statusTurns;
     public Status status;
-    public event Action<float, float> HealthChanged;
+    public event Action<int, int> HealthChanged;
     [HideInInspector]
     public bool isAbleToAttack;
     [HideInInspector]
     public bool isAttackable;
+    public string combatName;
 
     public void TakeDamage(int damage)
     {

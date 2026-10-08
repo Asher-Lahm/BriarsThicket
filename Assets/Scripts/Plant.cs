@@ -27,6 +27,8 @@ public class Plant : Combatant
         dayNightManager.OnBecomeNight += HandleBecomeNight;
 
         plantData = data;
+        combatName = data.plantName;
+
         SetStage(0);
     }
 
