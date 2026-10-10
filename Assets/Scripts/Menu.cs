@@ -34,6 +34,7 @@ public class Menu : MonoBehaviour
             menuFocusManager = MenuFocusManager.Instance;
         }
         menuFocusManager.CloseTopMenu();
+        print("menu closed");
     }
 
     public void SaveSelection()

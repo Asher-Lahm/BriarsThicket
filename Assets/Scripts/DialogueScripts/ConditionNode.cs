@@ -5,7 +5,7 @@ using UnityEngine;
 public class ConditionNode : DialogueNode
 {
     public List<PlayerStatCondition> playerStatConditions;
-    public int flag;
+    public List<int> flags;
     public DialogueNode trueNode;
     public DialogueNode falseNode;
 

@@ -6,6 +6,7 @@ using UnityEngine.UI;
 public class BattleStartMenu : Menu
 {
     [SerializeField] BattleManager battleManager;
+    [SerializeField] BattleUIManager battleUIManager;
     PlantBed bed;
 
     private void Start()
@@ -22,6 +23,6 @@ public class BattleStartMenu : Menu
 
     public void StartBattle()
     {
-        battleManager.StartBattle(bed);
+        battleManager.StartBattle(BriarBattle.Instance, bed);
     }
 }
