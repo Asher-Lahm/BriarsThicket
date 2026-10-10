@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.VFX;
 
 public class IndivPlantMenu : MonoBehaviour
 {
@@ -10,6 +11,8 @@ public class IndivPlantMenu : MonoBehaviour
     Button button;
     Button buttonContainer;
     [SerializeField] PlantData selectedPlant;
+    [SerializeField] GameObject plantButton;
+    [SerializeField] GameObject removeButton;
 
     public void Awake()
     {
@@ -31,5 +34,10 @@ public class IndivPlantMenu : MonoBehaviour
     {
         print("Menu Plant");
         spot.Plant(selectedPlant);
+    }
+
+    public void spawnSeedSelector()
+    {
+
     }
 }
