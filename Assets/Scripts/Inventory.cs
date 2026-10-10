@@ -7,7 +7,7 @@ public class Inventory : MonoBehaviour
     public List<InventoryEntry> items = new List<InventoryEntry>();
     public int money;
 
-    public void AddItemToInventory(InventoryItem item, int amount) {
+    public void AddItemToInventory(Item item, int amount) {
         InventoryEntry existing = items.Find(x => x.item == item);
 
         if (existing != null)
@@ -21,7 +21,7 @@ public class Inventory : MonoBehaviour
         }
     }
 
-    public bool RemoveItemFromInventory(InventoryItem item, int amount)
+    public bool RemoveItemFromInventory(Item item, int amount)
     {
         InventoryEntry existing = items.Find(x => x.item == item);
 
@@ -47,7 +47,7 @@ public class Inventory : MonoBehaviour
         }
     }
 
-    public List<InventoryEntry> GetInventoryItems<T>() where T : InventoryItem
+    public List<InventoryEntry> GetItems<T>() where T : Item
     {
         List<InventoryEntry> outputList = items.FindAll(entry => entry.item is T);
         return outputList;

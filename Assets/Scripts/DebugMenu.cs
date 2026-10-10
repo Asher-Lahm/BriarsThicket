@@ -22,9 +22,9 @@ public class DebugMenu : Menu
         CreateButtons(fruits, fruitsContainer);
     }
 
-    private void CreateButtons(InventoryItem[] itemList, RectTransform container)
+    private void CreateButtons(Item[] itemList, RectTransform container)
     {
-        foreach (InventoryItem item in itemList)
+        foreach (Item item in itemList)
         {
             GameObject buttonObject = Instantiate(buttonPrefab, container);
             Button button = buttonObject.GetComponent<Button>();

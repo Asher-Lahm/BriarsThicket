@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 
 [CreateAssetMenu (menuName = "Items/Seed")]
-public class SeedItem : InventoryItem, IPurchasable, ISellable
+public class SeedItem : Item, IPurchasable, ISellable
 {
     [SerializeField]
     private int purchasePrice;

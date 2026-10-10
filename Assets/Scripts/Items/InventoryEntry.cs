@@ -4,6 +4,6 @@ using UnityEngine;
 
 public class InventoryEntry 
 {
-    public InventoryItem item;
+    public Item item;
     public int amount;
 }
