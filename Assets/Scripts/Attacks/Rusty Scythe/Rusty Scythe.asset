@@ -9,8 +9,9 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 6f42cd1ac38e935448bb829b7b19b4fd, type: 3}
-  m_Name: ScytheTestAP1
+  m_Script: {fileID: 11500000, guid: bc82de89ebef2684395f4f101a40e49e, type: 3}
+  m_Name: Rusty Scythe
   m_EditorClassIdentifier: 
-  position: {x: 0, y: 0}
-  damage: 5
+  actions:
+  - {fileID: 11400000, guid: 85cb1d94d786a4546a87b172fd06f292, type: 2}
+  briarAttack: 1

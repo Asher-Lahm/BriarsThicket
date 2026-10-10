@@ -5,6 +5,7 @@ using UnityEngine;
 public abstract class InventoryItem : ScriptableObject
 {
     public string itemName;
+    [TextArea]
     public string itemDescription;
     public Sprite texture;
 }

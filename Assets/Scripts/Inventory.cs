@@ -4,9 +4,8 @@ using UnityEngine;
 
 public class Inventory : MonoBehaviour
 {
-    public List<InventoryEntry> items;
+    public List<InventoryEntry> items = new List<InventoryEntry>();
     public int money;
-
 
     public void AddItemToInventory(InventoryItem item, int amount) {
         InventoryEntry existing = items.Find(x => x.item == item);
@@ -14,6 +13,7 @@ public class Inventory : MonoBehaviour
         if (existing != null)
         {
             existing.amount += amount;
+            print($"{existing.item.itemName}, {existing.amount}");
         } 
         else
         {

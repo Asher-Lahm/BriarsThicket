@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+[CreateAssetMenu (menuName = "Items/Seed")]
 public class SeedItem : InventoryItem, IPurchasable, ISellable
 {
     [SerializeField]

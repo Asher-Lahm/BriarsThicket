@@ -10,11 +10,10 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 02d990c0c680e934d9c3e0baf2ccd73a, type: 3}
-  m_Name: ScytheAttack
+  m_Name: RustyScytheBA
   m_EditorClassIdentifier: 
-  actionName: Scythe
-  description: Ignore the fact that it's an axe. Costs 2 energy and deals 3 damage
-    to one enemy and all adjacent enemies.
-  image: {fileID: 21300000, guid: 3ebc5cf7e65e41e43b524ac987b523b8, type: 3}
+  actionName: Rusty Scythe
+  description: Attack to deal 2 damage to a plant and all adjacent plants.
+  image: {fileID: 21300000, guid: f04135aca11111344b682ac2d8d919e7, type: 3}
   attack: {fileID: 11400000, guid: 6e9cb2729a8f168408df6bde62af14ca, type: 2}
   energyCost: 2
