@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using System.Linq;
 using UnityEngine;
 
 public class Inventory : MonoBehaviour
@@ -47,9 +48,8 @@ public class Inventory : MonoBehaviour
         }
     }
 
-    public List<InventoryEntry> GetItems<T>() where T : Item
+    public T[] GetItems<T>() where T : Item
     {
-        List<InventoryEntry> outputList = items.FindAll(entry => entry.item is T);
-        return outputList;
+        return items.Select(entry => entry.item).OfType<T>().ToArray();
     }
 }

@@ -10,16 +10,16 @@ public class ItemSelectorHorizontal : Menu
     [SerializeField] Transform itemContainer;
     [SerializeField] GameObject buttonPrefab;
 
-    public void Intialize(Item[] items, Action<Item> callback)
+    public void Initialize<T>(T[] items, Action<T> callback) where T : Item
     {
-        onItemSelected = callback;
+        onItemSelected = item => callback((T)item);
 
         foreach (Transform child in itemContainer)
         {
             Destroy(child.gameObject);
         }
 
-        foreach (Item item in items)
+        foreach (T item in items)
         {
             GameObject buttonObject = Instantiate(buttonPrefab, itemContainer);
             Button button = buttonObject.GetComponent<Button>();

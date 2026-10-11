@@ -9,6 +9,7 @@ public class PlantingMenu : Menu
     [SerializeField] GameObject indivPlantMenu;
     List<IndivPlantMenu> indivPlantMenus = new List<IndivPlantMenu>();
     [SerializeField] CameraController camControl;
+    [SerializeField] Inventory inventory;
 
     private void Start()
     {
@@ -26,7 +27,7 @@ public class PlantingMenu : Menu
 
             IndivPlantMenu menu = menuObject.GetComponent<IndivPlantMenu>();
             
-            menu.Initialize(spot);
+            menu.Initialize(spot, inventory);
             indivPlantMenus.Add(menu);
         }
         camControl.MoveToFixedPosition(bed.plantingCameraTransform);

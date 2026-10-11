@@ -3093,7 +3093,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: aea548393eb4ecc4ba1edcb902b22fbb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  initialSelection: {fileID: 0}
+  initialSelection: {fileID: 2059456188}
   menuFocusManager: {fileID: 163871870}
   gardenManager: {fileID: 1704867194}
   indivPlantMenu: {fileID: 6631823178259411978, guid: e1df82f49d648214b8fb8d4dc6d5b310,
@@ -4917,13 +4917,19 @@ PrefabInstance:
     - target: {fileID: 7706157954576165118, guid: 7eeac77e503cb2e488dcdedcbf8c8237,
         type: 3}
       propertyPath: m_Name
-      value: TestButton
+      value: Exit Planting Menu
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 7eeac77e503cb2e488dcdedcbf8c8237, type: 3}
+--- !u!1 &2059456188 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 7706157954576165118, guid: 7eeac77e503cb2e488dcdedcbf8c8237,
+    type: 3}
+  m_PrefabInstance: {fileID: 2059456187}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &2060757428
 GameObject:
   m_ObjectHideFlags: 0
