@@ -27,5 +27,6 @@ public class PlantSpot : MonoBehaviour
         if (plant.gameObject == null)
             return;
         Destroy(plant.gameObject);
+        plant = null;
     }
 }

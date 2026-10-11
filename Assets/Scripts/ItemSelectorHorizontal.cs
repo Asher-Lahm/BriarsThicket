@@ -25,7 +25,7 @@ public class ItemSelectorHorizontal : Menu
             Button button = buttonObject.GetComponent<Button>();
             ItemSelectButton cButton = buttonObject.GetComponent<ItemSelectButton>();
             cButton.imageObject.sprite = item.texture;
-            cButton.item = item;
+            cButton.optionName = item.itemName;
             button.onClick.AddListener(() => SelectItem(item));
         }
         base.Open();
@@ -39,5 +39,6 @@ public class ItemSelectorHorizontal : Menu
         callback?.Invoke(item);
 
         base.Close();
+        Destroy(this.gameObject);
     }
 }

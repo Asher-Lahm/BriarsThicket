@@ -3099,6 +3099,7 @@ MonoBehaviour:
   indivPlantMenu: {fileID: 6631823178259411978, guid: e1df82f49d648214b8fb8d4dc6d5b310,
     type: 3}
   camControl: {fileID: 138094829}
+  inventory: {fileID: 1733816147}
 --- !u!222 &1357262849
 CanvasRenderer:
   m_ObjectHideFlags: 0

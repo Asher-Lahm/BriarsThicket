@@ -20,6 +20,7 @@ public class PlantingMenu : Menu
     }
     public void PrepareMenus(PlantBed bed)
     {
+        indivPlantMenus.Clear();
         this.bed = bed;
         foreach (PlantSpot spot in bed.plantSpots)
         {
@@ -36,6 +37,11 @@ public class PlantingMenu : Menu
     public void CloseMenus()
     {
         camControl.ReturnPlayerControl();
+        foreach (IndivPlantMenu menu in indivPlantMenus)
+        {
+            Destroy(menu.gameObject);
+            print("menu destroyed");
+        }
         Close();
     }
 }

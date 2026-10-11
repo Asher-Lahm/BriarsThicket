@@ -15,6 +15,7 @@ public class IndivPlantMenu : MonoBehaviour
     [SerializeField] GameObject removeButton;
     [SerializeField] ItemSelectorHorizontal itemSelectorPrefab;
     Inventory inventory;
+    ItemSelectorHorizontal selectorMenu;
 
     public void Awake()
     {
@@ -26,22 +27,52 @@ public class IndivPlantMenu : MonoBehaviour
         this.spot = spot;
         this.inventory = inventory;
         follower.SetTarget(spot.transform);
+        UpdateVisual();
     }
 
     public void RemovePlant()
     {
         spot.RemovePlant();
+        UpdateVisual();
     }
 
     public void Plant(SeedItem seed)
     {
+        selectorMenu = null;
         print("Menu Plant");
         spot.Plant(seed.PlantToGrow);
+        UpdateVisual();
     }
 
     public void spawnSeedSelector()
     {
-        ItemSelectorHorizontal selectorMenu = Instantiate(itemSelectorPrefab, transform);
+        selectorMenu = null;
+        if (spot.plant != null)
+            return;
+        selectorMenu = Instantiate(itemSelectorPrefab, transform);
         selectorMenu.Initialize(inventory.GetItems<SeedItem>(), Plant);
+    }
+
+    private void OnDestroy()
+    {
+        if (selectorMenu != null)
+        {
+            selectorMenu.Close();
+            Destroy(selectorMenu.gameObject);
+        }
+    }
+
+    private void UpdateVisual()
+    {
+        if (spot.plant != null)
+        {
+            removeButton.SetActive(true);
+            plantButton.SetActive(false);
+        }
+        else
+        {
+            removeButton.SetActive(false);
+            plantButton.SetActive(true);
+        }
     }
 }

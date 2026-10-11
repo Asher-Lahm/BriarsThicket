@@ -6,7 +6,7 @@ using TMPro;
 
 public class ItemSelectButton : MonoBehaviour
 {
-    public Item item;
+    public string optionName;
     public Image bgObject;
     public Image imageObject;
 }
