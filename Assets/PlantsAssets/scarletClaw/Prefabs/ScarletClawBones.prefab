@@ -31,17 +31,17 @@ PrefabInstance:
     - target: {fileID: -8679921383154817045, guid: d09882ac110c29c4b94269c419dec5c1,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: 11.222
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: d09882ac110c29c4b94269c419dec5c1,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: 0.672
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: d09882ac110c29c4b94269c419dec5c1,
         type: 3}
       propertyPath: m_LocalPosition.z
-      value: 7.8792
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: d09882ac110c29c4b94269c419dec5c1,
         type: 3}
@@ -146,7 +146,7 @@ PrefabInstance:
     - target: {fileID: 919132149155446097, guid: d09882ac110c29c4b94269c419dec5c1,
         type: 3}
       propertyPath: m_Name
-      value: ScarletClawBones (2)
+      value: ScarletClawBones
       objectReference: {fileID: 0}
     - target: {fileID: 1509082801168421577, guid: d09882ac110c29c4b94269c419dec5c1,
         type: 3}

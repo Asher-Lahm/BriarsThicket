@@ -12,8 +12,8 @@ public class PlayerMovement : MonoBehaviour
     private float verticalVelocity;
 
     private CharacterController controller;
-    [SerializeField]
-    private PlayerInputReader input;
+    [SerializeField] PlayerInputReader input;
+    [SerializeField] Transform modelTransform;
     private Camera mainCamera;
 
     private void Awake()
@@ -38,6 +38,14 @@ public class PlayerMovement : MonoBehaviour
         Vector2 directionInput = input.Move;
         Boolean sprinting = input.Sprint;
         Vector3 move = (forward * directionInput.y + right * directionInput.x) * (sprinting ? sprintSpeed : speed);
+
+        if (move.sqrMagnitude > 0.001f)
+        {
+
+            Quaternion targetRotation = Quaternion.LookRotation(move, Vector3.up);
+
+            modelTransform.rotation = Quaternion.Slerp(modelTransform.rotation, targetRotation, Time.deltaTime * 10f);
+        }
 
         if (controller.isGrounded)
         {
