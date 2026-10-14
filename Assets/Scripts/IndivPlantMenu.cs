@@ -51,6 +51,7 @@ public class IndivPlantMenu : MonoBehaviour
             return;
         selectorMenu = Instantiate(itemSelectorPrefab, transform);
         selectorMenu.Initialize(inventory.GetItems<SeedItem>(), Plant);
+        transform.SetAsLastSibling();
     }
 
     private void OnDestroy()

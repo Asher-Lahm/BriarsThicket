@@ -6,6 +6,7 @@ using UnityEngine;
 public class PlantData : ScriptableObject
 {
     public string plantName;
+    [TextArea]
     public string description;
     public GrowthStage[] growthStages;
 }
