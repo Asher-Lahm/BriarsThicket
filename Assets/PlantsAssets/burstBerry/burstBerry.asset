@@ -10,10 +10,11 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 572cb3f98cec53443bd71938d8ffb21b, type: 3}
-  m_Name: template
+  m_Name: burstBerry
   m_EditorClassIdentifier: 
-  plantName: Template Name
-  description: Template Description
+  plantName: Burst Berry
+  description: This plant lobs explosive berries. These berries make for effective
+    defensive weapons.
   growthStages:
   - {fileID: 11400000, guid: 4732ba7a5bd1e644a9a7e78b31325bcf, type: 2}
-  - {fileID: 0}
+  - {fileID: 11400000, guid: 8976d7a62b4c4ba459f5d0143b7e9b38, type: 2}

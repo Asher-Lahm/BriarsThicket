@@ -10,11 +10,11 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 6a8584553e79dad4c9a67452a5d350b2, type: 3}
-  m_Name: templateGrowthStage
+  m_Name: BurstBerryFull
   m_EditorClassIdentifier: 
-  prefab: {fileID: 0}
+  prefab: {fileID: 491982815870508991, guid: 5ed15bdf021f00e41aa991f559a03347, type: 3}
   baseDefense: 0
-  baseMaxHealth: 12
+  baseMaxHealth: 8
   baseFatigueHealth: 3
   attacks:
   - {fileID: 11400000, guid: 69bdb33c25c156b458b4b17e9e09fa1d, type: 2}
