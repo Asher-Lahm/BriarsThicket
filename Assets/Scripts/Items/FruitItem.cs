@@ -2,7 +2,8 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class FruitItem : InventoryItem, IPurchasable, IAttackItem, ISellable
+[CreateAssetMenu(menuName = "Items/Fruit")]
+public class FruitItem : Item, IPurchasable, IAttackItem, ISellable
 {
     [SerializeField]
     private int purchasePrice;
@@ -13,7 +14,7 @@ public class FruitItem : InventoryItem, IPurchasable, IAttackItem, ISellable
     public int SellPrice => sellPrice;
 
     [SerializeField]
-    private BriarAttackData briarAttack;
-    public BriarAttackData BriarAttack => briarAttack;
+    private BriarAttackData[] briarAttack;
+    public BriarAttackData[] BriarAttack => briarAttack;
 
 }

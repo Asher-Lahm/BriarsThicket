@@ -7,7 +7,7 @@ using UnityEngine.UI;
 public class Menu : MonoBehaviour
 {
     [Tooltip("Button selected when this gameObject is enabled.")]
-    [SerializeField] private GameObject initialSelection;
+    [SerializeField] protected GameObject initialSelection;
     private GameObject newInitialSelection;
     [SerializeField] private MenuFocusManager menuFocusManager;
     private GameObject savedSelection;

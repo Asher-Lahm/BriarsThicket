@@ -1,0 +1,20 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 572cb3f98cec53443bd71938d8ffb21b, type: 3}
+  m_Name: burstBerry
+  m_EditorClassIdentifier: 
+  plantName: Burst Berry
+  description: This plant lobs explosive berries. These berries make for effective
+    defensive weapons.
+  growthStages:
+  - {fileID: 11400000, guid: 4732ba7a5bd1e644a9a7e78b31325bcf, type: 2}
+  - {fileID: 11400000, guid: 8976d7a62b4c4ba459f5d0143b7e9b38, type: 2}

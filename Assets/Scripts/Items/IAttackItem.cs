@@ -4,5 +4,5 @@ using UnityEngine;
 
 public interface IAttackItem
 {
-    BriarAttackData BriarAttack { get; }
+    BriarAttackData[] BriarAttack { get; }
 }

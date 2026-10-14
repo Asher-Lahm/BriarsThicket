@@ -9,6 +9,7 @@ public class PlantingMenu : Menu
     [SerializeField] GameObject indivPlantMenu;
     List<IndivPlantMenu> indivPlantMenus = new List<IndivPlantMenu>();
     [SerializeField] CameraController camControl;
+    [SerializeField] Inventory inventory;
 
     private void Start()
     {
@@ -19,6 +20,7 @@ public class PlantingMenu : Menu
     }
     public void PrepareMenus(PlantBed bed)
     {
+        indivPlantMenus.Clear();
         this.bed = bed;
         foreach (PlantSpot spot in bed.plantSpots)
         {
@@ -26,7 +28,7 @@ public class PlantingMenu : Menu
 
             IndivPlantMenu menu = menuObject.GetComponent<IndivPlantMenu>();
             
-            menu.Initialize(spot);
+            menu.Initialize(spot, inventory);
             indivPlantMenus.Add(menu);
         }
         camControl.MoveToFixedPosition(bed.plantingCameraTransform);
@@ -35,6 +37,11 @@ public class PlantingMenu : Menu
     public void CloseMenus()
     {
         camControl.ReturnPlayerControl();
+        foreach (IndivPlantMenu menu in indivPlantMenus)
+        {
+            Destroy(menu.gameObject);
+            print("menu destroyed");
+        }
         Close();
     }
 }
