@@ -8,6 +8,7 @@ public class PlantSpot : MonoBehaviour
     public Plant plant;
     public GameObject plantPrefab;
     private DayNightManager dayNightManager;
+    [SerializeField] Transform healthBarPosition;
 
     public void Initialize(DayNightManager dnManager, GameObject prefab)
     {
@@ -18,7 +19,7 @@ public class PlantSpot : MonoBehaviour
     {
         GameObject plantObject = Instantiate(plantPrefab, transform);
         plant = plantObject.GetComponent<Plant>();
-        plant.Initialize(plantData, dayNightManager);
+        plant.Initialize(plantData, dayNightManager, healthBarPosition);
     }
 
     public void RemovePlant()
@@ -26,5 +27,6 @@ public class PlantSpot : MonoBehaviour
         if (plant.gameObject == null)
             return;
         Destroy(plant.gameObject);
+        plant = null;
     }
 }

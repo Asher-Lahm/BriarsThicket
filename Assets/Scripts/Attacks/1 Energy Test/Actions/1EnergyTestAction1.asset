@@ -12,6 +12,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d5bda2092be2e494ba50caee75323d58, type: 3}
   m_Name: 1EnergyTestAction1
   m_EditorClassIdentifier: 
+  animation: 0
   attackPositions:
-  - {fileID: 11400000, guid: 63f366736b27af94b87dc2140c4c527f, type: 2}
+  - {x: 4, y: 0, z: 0}
   statusPosition: []
+  status: 0

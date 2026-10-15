@@ -23,6 +23,7 @@ public class PlayerInputReader : MonoBehaviour
 
     public event Action InteractPressed;
     public event Action UIConfirmPressed;
+    public event Action DebugPressed;
 
     public InputContext currentContext { get; private set; } = InputContext.Gameplay;
 
@@ -36,12 +37,24 @@ public class PlayerInputReader : MonoBehaviour
         controls.Player.Enable();
         controls.Player.Interact.performed += OnInteractPerformed;
         controls.UINavigation.Confirm.performed += OnConfirmPerformed;
+        controls.UINavigation.Debug.performed += OnDebugPressed;
+        controls.Player.Debug.performed += OnDebugPressed;
     }
 
     void OnDisable()
     {
+
         controls.Player.Interact.performed -= OnInteractPerformed;
+        controls.UINavigation.Confirm.performed -= OnInteractPerformed;
+        controls.UINavigation.Debug.performed -= OnDebugPressed;
         controls.Player.Disable();
+        controls.UINavigation.Disable();
+    }
+
+    private void OnDebugPressed(InputAction.CallbackContext context)
+    {
+        DebugPressed?.Invoke();
+        print("Debug Pressed");
     }
 
     private void OnInteractPerformed(InputAction.CallbackContext context)

@@ -16,10 +16,11 @@ public class BattleManager : MonoBehaviour
 {
     public static bool isInBattle;
     public static BattleManager Instance;
-    [SerializeField] BattleUIManager BattleUI;
+    [SerializeField] BattleUIManager battleUI;
     private Queue<AttackQueueItem> attackQueue = new Queue<AttackQueueItem>();
     private PlantBed currentBed;
-    private PlayerInputReader playerInput;
+    [SerializeField] PlayerInputReader playerInput;
+    [SerializeField] CameraController camControl;
     //[[SerializeField]] List<Combatant> combatants;
 
     public void Awake()
@@ -33,13 +34,20 @@ public class BattleManager : MonoBehaviour
         }
     }
 
-    public void StartBattle(PlantBed bed)
+    public void StartBattle(BriarBattle briar, PlantBed bed)
     {
-        //Todo
         Debug.Log("Started Battle (Theoretically)");
+        camControl.MoveToFixedPosition(bed.battleCameraTransform);
         currentBed = bed;
         isInBattle = true;
-        playerInput.StartUI();
+        battleUI.SetPlantHealthBars(currentBed);
+        battleUI.SetBriarHealthBar(briar);
+        battleUI.OpenBattleMenu();
+    }
+
+    public void EndBattle()
+    {
+        battleUI.DestroyHealthBars();
     }
 
     void QueueAttack(Attack attack, Combatant attacker, Combatant reciever)
@@ -99,25 +107,27 @@ public class BattleManager : MonoBehaviour
         foreach(AttackAction action in attack.actions)
         {
             //attacker.playAnimation
-            foreach(AttackPosition ap in action.attackPositions)
+            foreach(Vector3Int ap in action.attackPositions)
             {
-                if (ap.position == null)
+                if (!attack.briarAttack)
                 {
-                    reciever.TakeDamage(ap.damage);
+                    reciever.TakeDamage(ap.x);
                 } else
                 {
                     Combatant extraReciever = null;
                     if (reciever is Plant)
                     {
-                        extraReciever = currentBed.GetAdjacent((Plant)reciever, ap.position);
+                        extraReciever = currentBed.GetAdjacent((Plant)reciever, ap.y, ap.z);
                     }
                     if (extraReciever != null)
                     {
-                        extraReciever.TakeDamage(ap.damage);
+                        extraReciever.TakeDamage(ap.x);
                     }
                 }
             }
         }
+
+
 
         yield return new WaitForSeconds(0.5f);
     }
