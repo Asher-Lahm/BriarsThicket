@@ -12,6 +12,11 @@ public class DayNightManager : MonoBehaviour
     public event Action OnBecomeDay;
     public event Action OnBecomeNight;
 
+    [SerializeField] private Material daySkybox;
+    [SerializeField] private Material nightSkybox;
+    [SerializeField] private Color dayColor;
+    [SerializeField] private Color nightColor;
+
     public void EndNight()
     {
         if (!isDay)
@@ -41,6 +46,9 @@ public class DayNightManager : MonoBehaviour
             worldLight.intensity -= 0.05f;
             yield return null;
         }
+        ChangeSkybox(nightSkybox);
+        worldLight.color = nightColor;
+        DynamicGI.UpdateEnvironment();
     }
 
     IEnumerator BrightenLight()
@@ -49,6 +57,21 @@ public class DayNightManager : MonoBehaviour
         {
             worldLight.intensity += 0.05f;
             yield return null;
+        }
+        ChangeSkybox(daySkybox);
+        worldLight.color = dayColor;
+        DynamicGI.UpdateEnvironment();
+    }
+
+    private void ChangeSkybox(Material newSkybox)
+    {
+        if (newSkybox != null)
+        {
+            RenderSettings.skybox = newSkybox;
+        }
+        else
+        {
+            Debug.LogWarning("Skybox material is missing!");
         }
     }
 }

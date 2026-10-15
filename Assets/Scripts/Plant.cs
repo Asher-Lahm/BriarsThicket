@@ -15,6 +15,9 @@ public class Plant : Combatant
     private GameObject currentVisual;
     private DayNightManager dayNightManager;
 
+    private Material dayMaterial;
+    private Material nightMaterial;
+
     void Start()
     {
         animator = GetComponentInChildren<Animator>();
@@ -48,12 +51,31 @@ public class Plant : Combatant
 
     private void HandleBecomeDay()
     {
-
+        ChangeMaterial(dayMaterial);
     }
 
     private void HandleBecomeNight()
     {
         Grow();
+        ChangeMaterial(nightMaterial);
+    }
+
+    private void ChangeMaterial(Material mat)
+    {
+        Renderer[] renderers = GetComponentsInChildren<Renderer>(true);
+
+        foreach (Renderer r in renderers)
+        {
+            // Replace every material slot
+            Material[] materials = r.sharedMaterials;
+
+            for (int i = 0; i < materials.Length; i++)
+            {
+                materials[i] = mat;
+            }
+
+            r.sharedMaterials = materials;
+        }
     }
 
     private void SetStage(int stageIndex)
@@ -71,8 +93,8 @@ public class Plant : Combatant
         currentHealth = maxHealth;
         attacks = currentStage.attacks;
         defense = currentStage.baseDefense;
-        
-
+        nightMaterial = currentStage.nightMaterial;
+        dayMaterial = currentStage.dayMaterial;
     }
 
     // Update is called once per frame
