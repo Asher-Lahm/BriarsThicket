@@ -5944,6 +5944,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 9059013914540622373, guid: 9e72124bbe493af409db075b7f642fdc,
         type: 3}
+      propertyPath: playerInput
+      value: 
+      objectReference: {fileID: 1677191628}
+    - target: {fileID: 9059013914540622373, guid: 9e72124bbe493af409db075b7f642fdc,
+        type: 3}
       propertyPath: cameraMaxHeight
       value: 5
       objectReference: {fileID: 0}
@@ -5957,7 +5962,8 @@ PrefabInstance:
       propertyPath: transitionDuration
       value: 0.5
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 8749467808588228889, guid: 9e72124bbe493af409db075b7f642fdc, type: 3}
     m_RemovedGameObjects: []
     m_AddedGameObjects:
     - targetCorrespondingSourceObject: {fileID: 911203186392419284, guid: 9e72124bbe493af409db075b7f642fdc,
@@ -7791,7 +7797,6 @@ SceneRoots:
   - {fileID: 1021911142}
   - {fileID: 163871871}
   - {fileID: 962610154}
-  - {fileID: 1733816143}
   - {fileID: 148246648}
   - {fileID: 2023362571}
   - {fileID: 842176173}
@@ -7799,3 +7804,4 @@ SceneRoots:
   - {fileID: 1704867195}
   - {fileID: 891404910}
   - {fileID: 1560863726}
+  - {fileID: 1733816143}

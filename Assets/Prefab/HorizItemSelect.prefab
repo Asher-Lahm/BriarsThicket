@@ -119,19 +119,7 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 9103695822194779327}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 6104236556388932498}
-        m_TargetAssemblyTypeName: Menu, Assembly-CSharp
-        m_MethodName: Close
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
+      m_Calls: []
 --- !u!1 &4253392671460178604
 GameObject:
   m_ObjectHideFlags: 0
@@ -716,7 +704,7 @@ MonoBehaviour:
   m_fontSizeMax: 72
   m_fontStyle: 0
   m_HorizontalAlignment: 2
-  m_VerticalAlignment: 256
+  m_VerticalAlignment: 512
   m_textAlignment: 65535
   m_characterSpacing: 0
   m_wordSpacing: 0
@@ -924,6 +912,8 @@ MonoBehaviour:
   itemContainer: {fileID: 3568234842002628331}
   buttonPrefab: {fileID: 6337749178046490255, guid: 6e96f1d20e4d34647ae31aa81b6f90fc,
     type: 3}
+  clickBlock: {fileID: 1076208584318628508}
+  itemNameText: {fileID: 5932979094246822293}
 --- !u!1001 &2841049141161378677
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -934,13 +924,8 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 1945746332444400077, guid: 6e96f1d20e4d34647ae31aa81b6f90fc,
         type: 3}
-      propertyPath: m_TargetGraphic
-      value: 
-      objectReference: {fileID: 2302356295744871260}
-    - target: {fileID: 1945746332444400077, guid: 6e96f1d20e4d34647ae31aa81b6f90fc,
-        type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.size
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 1945746332444400077, guid: 6e96f1d20e4d34647ae31aa81b6f90fc,
         type: 3}
@@ -1101,15 +1086,21 @@ PrefabInstance:
     - target: {fileID: 6337749178046490255, guid: 6e96f1d20e4d34647ae31aa81b6f90fc,
         type: 3}
       propertyPath: m_Name
-      value: SelectItemOption
+      value: Cancel
       objectReference: {fileID: 0}
     - target: {fileID: 8285493534354861464, guid: 6e96f1d20e4d34647ae31aa81b6f90fc,
         type: 3}
       propertyPath: optionName
       value: Cancel
       objectReference: {fileID: 0}
+    - target: {fileID: 8285493534354861464, guid: 6e96f1d20e4d34647ae31aa81b6f90fc,
+        type: 3}
+      propertyPath: itemNameText
+      value: 
+      objectReference: {fileID: 5932979094246822293}
     m_RemovedComponents: []
-    m_RemovedGameObjects: []
+    m_RemovedGameObjects:
+    - {fileID: 7051683640678895922, guid: 6e96f1d20e4d34647ae31aa81b6f90fc, type: 3}
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 6e96f1d20e4d34647ae31aa81b6f90fc, type: 3}
@@ -1119,18 +1110,6 @@ RectTransform:
     type: 3}
   m_PrefabInstance: {fileID: 2841049141161378677}
   m_PrefabAsset: {fileID: 0}
---- !u!114 &2302356295744871260 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 4079966586605901865, guid: 6e96f1d20e4d34647ae31aa81b6f90fc,
-    type: 3}
-  m_PrefabInstance: {fileID: 2841049141161378677}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1 &8113615607492404730 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 6337749178046490255, guid: 6e96f1d20e4d34647ae31aa81b6f90fc,

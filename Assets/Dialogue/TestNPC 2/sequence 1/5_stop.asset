@@ -15,8 +15,7 @@ MonoBehaviour:
   next: {fileID: 0}
   actions: []
   style: {fileID: 0}
-  preventPlayerInputBehind: 1
   automaticProgressionTime: 0
-  text: Don't talk to me anymore.
+  text: You're weird!
   emotion: 3
   character: {fileID: 0}

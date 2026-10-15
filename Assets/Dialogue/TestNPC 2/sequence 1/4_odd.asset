@@ -15,8 +15,7 @@ MonoBehaviour:
   next: {fileID: 11400000, guid: d2a1a98fa2fd06d45b1bf86c94b10674, type: 2}
   actions: []
   style: {fileID: 0}
-  preventPlayerInputBehind: 1
   automaticProgressionTime: 0
-  text: That's kind of odd...
+  text: That's odd, you look like a player. Are you lying to me?
   emotion: 5
   character: {fileID: 0}

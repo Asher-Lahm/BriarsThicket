@@ -18,3 +18,5 @@ MonoBehaviour:
   baseFatigueHealth: 0
   attacks: []
   isFightable: 1
+  dayMaterial: {fileID: 2100000, guid: 27fe7354d82c61d4f80e2d14c8193d5c, type: 2}
+  nightMaterial: {fileID: 2100000, guid: fac28a87855b7cc4bbe88fd6b5cbc6bb, type: 2}

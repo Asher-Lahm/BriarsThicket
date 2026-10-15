@@ -12,10 +12,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: dfa8ce1bf4968e64681e94656787e652, type: 3}
   m_Name: 3_choice
   m_EditorClassIdentifier: 
-  next: {fileID: 11400000, guid: 965ce4673850ed94f99c7b1a36d29dc9, type: 2}
+  next: {fileID: 0}
   actions: []
   style: {fileID: 0}
-  preventPlayerInputBehind: 1
   automaticProgressionTime: 0
   choices:
   - {fileID: 11400000, guid: 7931a1f16a9ab464bb1f4fd12c6a24fd, type: 2}

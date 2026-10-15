@@ -48,8 +48,8 @@ public class Inventory : MonoBehaviour
         }
     }
 
-    public T[] GetItems<T>() where T : Item
+    public InventoryEntry[] GetItems<T>() where T : Item
     {
-        return items.Select(entry => entry.item).OfType<T>().ToArray();
+        return items.Where(entry => entry.item is T).ToArray();
     }
 }
