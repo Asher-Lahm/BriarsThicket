@@ -13,11 +13,28 @@ public class ItemSelectButton : MonoBehaviour, ISelectHandler, IPointerEnterHand
     public int itemQuantity;
     public TextMeshProUGUI itemQuantityText;
     public TextMeshProUGUI itemNameText;
+    public ItemSelectorHorizontal itemSelector;
+    private Item item;
 
     public void UpdateQuantity(int newQuant)
     {
         itemQuantity = newQuant;
         itemQuantityText.text = $"{itemQuantity}";
+    }
+
+    public void Initialize(Item inItem, ItemSelectorHorizontal selector)
+    {
+        if (inItem != null)
+        {
+            item = inItem;
+            print(inItem.itemName);
+            print(item.itemName);
+            optionName = item.itemName;
+            imageObject.sprite = item.texture;
+        }
+        
+        itemSelector = selector;
+        itemNameText = selector.itemNameText;
     }
 
     public void OnPointerEnter(PointerEventData eventData)
@@ -28,6 +45,9 @@ public class ItemSelectButton : MonoBehaviour, ISelectHandler, IPointerEnterHand
     public void OnSelect(BaseEventData eventData)
     {
         ShowItemName();
+        itemSelector.CenterButton(
+            GetComponent<RectTransform>()
+        );
     }
 
     public void OnPointerExit(PointerEventData eventData)
