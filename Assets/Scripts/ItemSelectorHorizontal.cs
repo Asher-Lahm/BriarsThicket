@@ -6,34 +6,9 @@ using UnityEngine;
 using UnityEngine.EventSystems;
 using UnityEngine.UI;
 
-public class ItemSelectorHorizontal : Menu
+public class ItemSelectorHorizontal : ItemSelector
 {
-    private Action<Item> onItemSelected;
-    [SerializeField] Transform itemContainer;
-    [SerializeField] GameObject buttonPrefab;
-    [SerializeField] Button clickBlock;
-    [SerializeField] public TextMeshProUGUI itemNameText;
-    List<Button> buttons = new List<Button>();
-
-    [SerializeField] private RectTransform content;
-    [SerializeField] private RectTransform viewport;
-
-    [SerializeField] Button selectedButton;
-
-    private Coroutine centerCoroutine;
-
-    public void CenterButton(RectTransform button)
-    {
-        selectedButton = button.GetComponent<Button>();
-        if (centerCoroutine != null)
-        {
-            StopCoroutine(centerCoroutine);
-        }
-
-        centerCoroutine = StartCoroutine(CenterButtonNextFrame(button));
-    }
-
-    private IEnumerator CenterButtonNextFrame(RectTransform button)
+    protected override IEnumerator CenterButtonNextFrame(RectTransform button)
     {
 
         yield return null;
@@ -62,19 +37,19 @@ public class ItemSelectorHorizontal : Menu
         print($"Button World Center: {buttonWorldCenter}\nButton Viewport Center: {buttonViewportCenter}\nMovement {movement}");
     }
 
-    public void SelectLeft()
-    {
-        if (selectedButton != null)
-            EventSystem.current.SetSelectedGameObject(selectedButton.navigation.selectOnLeft.gameObject);
-    }
-
-    public void SelectRight()
+    public override void SelectForward()
     {
         if (selectedButton != null)
             EventSystem.current.SetSelectedGameObject(selectedButton.navigation.selectOnRight.gameObject);
     }
 
-    public void Initialize<T>(InventoryEntry[] items, Action<T> callback) where T : Item
+    public override void SelectBack()
+    {
+        if (selectedButton != null)
+            EventSystem.current.SetSelectedGameObject(selectedButton.navigation.selectOnLeft.gameObject);
+    }
+
+    public override void Initialize<T>(InventoryEntry[] items, Action<T> callback)
     {
         Button cancelButton = this.initialSelection.GetComponent<Button>();
         ItemSelectButton cancelCButton = this.initialSelection.GetComponent<ItemSelectButton>();
@@ -87,7 +62,6 @@ public class ItemSelectorHorizontal : Menu
         foreach (InventoryEntry entry in items)
         {
             T item = (T)entry.item;
-            print($"{item.itemName}");
             GameObject buttonObject = Instantiate(buttonPrefab, itemContainer);
             Button button = buttonObject.GetComponent<Button>();
             ItemSelectButton cButton = buttonObject.GetComponent<ItemSelectButton>();
@@ -96,12 +70,7 @@ public class ItemSelectorHorizontal : Menu
             button.onClick.AddListener(() => SelectItem(item));
             buttons.Add(button);
 
-            Navigation currentNav = button.navigation;
-            Navigation prevNav = buttons[i - 1].navigation;
-            prevNav.selectOnRight = button;
-            currentNav.selectOnLeft = buttons[i - 1];
-            button.navigation = currentNav;
-            buttons[i - 1].navigation = prevNav;
+            NavToPrevButton(button, buttons[i - 1]);
 
             i++;
         }
@@ -113,14 +82,13 @@ public class ItemSelectorHorizontal : Menu
         base.Open();
     }
 
-    private void SelectItem(Item item)
+    protected override void NavToPrevButton(Button button1, Button button2)
     {
-        Action<Item> callback = onItemSelected;
-        onItemSelected = null;
-
-        callback?.Invoke(item);
-
-        base.Close();
-        Destroy(this.gameObject);
+        Navigation currentNav = button1.navigation;
+        Navigation prevNav = button2.navigation;
+        prevNav.selectOnRight = button1;
+        currentNav.selectOnLeft = button2;
+        button1.navigation = currentNav;
+        button2.navigation = prevNav;
     }
 }

@@ -13,7 +13,7 @@ public class ItemSelectButton : MonoBehaviour, ISelectHandler, IPointerEnterHand
     public int itemQuantity;
     public TextMeshProUGUI itemQuantityText;
     public TextMeshProUGUI itemNameText;
-    public ItemSelectorHorizontal itemSelector;
+    public ItemSelector itemSelector;
     private Item item;
 
     public void UpdateQuantity(int newQuant)
@@ -22,7 +22,7 @@ public class ItemSelectButton : MonoBehaviour, ISelectHandler, IPointerEnterHand
         itemQuantityText.text = $"{itemQuantity}";
     }
 
-    public void Initialize(Item inItem, ItemSelectorHorizontal selector)
+    public void Initialize(Item inItem, ItemSelector selector)
     {
         if (inItem != null)
         {
