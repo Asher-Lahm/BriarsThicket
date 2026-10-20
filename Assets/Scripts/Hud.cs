@@ -19,7 +19,7 @@ public class Hud : MonoBehaviour
         input.DebugPressed -= ToggleMenu;
     }
 
-    private void ToggleMenu()
+    public void ToggleMenu()
     {
         debugShown = !debugShown;
         if (debugShown)

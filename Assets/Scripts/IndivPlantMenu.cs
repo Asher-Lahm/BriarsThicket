@@ -49,14 +49,14 @@ public class IndivPlantMenu : MonoBehaviour
         UpdateVisual();
     }
 
-    public void spawnSeedSelector()
+    public void SpawnSeedSelector()
     {
         planting = true;
         selectorMenu = null;
         if (spot.plant != null)
             return;
         selectorMenu = Instantiate(itemSelectorPrefab, transform);
-        selectorMenu.Initialize<SeedItem>(inventory.GetItems<SeedItem>(), Plant);
+        selectorMenu.Initialize<SeedItem, SeedItem>(inventory.GetItems<SeedItem>(), Plant);
         transform.SetAsLastSibling();
         UpdateVisual();
     }

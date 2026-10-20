@@ -6,6 +6,7 @@ public class BriarBattle : Combatant
 {
     public static BriarBattle Instance;
     [SerializeField] DayNightManager dnManager;
+    public int maxEnergy;
 
     private void Awake()
     {

@@ -8,43 +8,42 @@ using UnityEngine.UI;
 public class ItemSelectButton : MonoBehaviour, ISelectHandler, IPointerEnterHandler
 {
     public string optionName;
+    [TextArea]
+    public string optionDescription;
     public Image bgObject;
     public Image imageObject;
-    public int itemQuantity;
-    public TextMeshProUGUI itemQuantityText;
-    public TextMeshProUGUI itemNameText;
     public ItemSelector itemSelector;
-    private Item item;
+    protected InventoryEntry entry;
+    public bool updateUI = true;
 
-    public void UpdateQuantity(int newQuant)
-    {
-        itemQuantity = newQuant;
-        itemQuantityText.text = $"{itemQuantity}";
-    }
-
-    public void Initialize(Item inItem, ItemSelector selector)
+    public virtual void Initialize(InventoryEntry inItem, ItemSelector selector)
     {
         if (inItem != null)
         {
-            item = inItem;
-            print(inItem.itemName);
-            print(item.itemName);
-            optionName = item.itemName;
-            imageObject.sprite = item.texture;
+            entry = inItem;
+            optionName = entry.item.itemName;
+            optionDescription = entry.item.itemDescription;
+            imageObject.sprite = entry.item.texture;
+            UpdateVisuals();
         }
         
         itemSelector = selector;
-        itemNameText = selector.itemNameText;
+        
+    }
+
+    protected virtual void UpdateVisuals()
+    {
+
     }
 
     public void OnPointerEnter(PointerEventData eventData)
     {
-        ShowItemName();
+        HighlightItem();
     }
 
     public void OnSelect(BaseEventData eventData)
     {
-        ShowItemName();
+        HighlightItem();
         itemSelector.CenterButton(
             GetComponent<RectTransform>()
         );
@@ -55,9 +54,8 @@ public class ItemSelectButton : MonoBehaviour, ISelectHandler, IPointerEnterHand
 
     }
 
-    private void ShowItemName()
+    protected void HighlightItem()
     {
-        // Replace item.ItemName with your actual name property.
-        itemNameText.text = optionName;
+        itemSelector.UpdateSelectedItem(this);
     }
 }

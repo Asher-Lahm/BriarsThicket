@@ -4,8 +4,36 @@ using UnityEngine;
 using TMPro;
 using UnityEngine.UI;
 
-public class BattleOptionButton : MonoBehaviour
+public class BattleOptionButton : ItemSelectButton
 {
-    public Image optionImage;
-    public TextMeshProUGUI textObject;
+    [SerializeField] private TextMeshProUGUI itemNameText;
+    [SerializeField] private GameObject energyImage;
+    [SerializeField] private Transform energyContainer;
+    public int energyCost;
+    public BriarAttackData weaponItem;
+    public void Initialize(InventoryEntry inItem, BriarAttackData weaponItem, ItemSelector selector)
+    {
+        if (inItem != null)
+        {
+            entry = inItem;
+            this.weaponItem = weaponItem;
+            this.energyCost = weaponItem.energyCost;
+            optionName = weaponItem.itemName;
+            optionDescription = weaponItem.itemDescription;
+            imageObject.sprite = entry.item.texture;
+            UpdateVisuals();
+        }
+
+        itemSelector = selector;
+    }
+    protected override void UpdateVisuals()
+    {
+        itemNameText.text = $"{optionName}";
+        int i = 0;
+        while (i < energyCost)
+        {
+            Instantiate(energyImage, energyContainer);
+            i++;
+        }
+    }
 }

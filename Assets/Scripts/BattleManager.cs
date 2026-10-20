@@ -18,7 +18,7 @@ public class BattleManager : MonoBehaviour
     public static BattleManager Instance;
     [SerializeField] BattleUIManager battleUI;
     private Queue<AttackQueueItem> attackQueue = new Queue<AttackQueueItem>();
-    private PlantBed currentBed;
+    public PlantBed currentBed;
     [SerializeField] PlayerInputReader playerInput;
     [SerializeField] CameraController camControl;
     //[[SerializeField]] List<Combatant> combatants;
@@ -50,7 +50,7 @@ public class BattleManager : MonoBehaviour
         battleUI.DestroyHealthBars();
     }
 
-    void QueueAttack(Attack attack, Combatant attacker, Combatant reciever)
+    public void QueueAttack(Attack attack, Combatant attacker, Combatant reciever)
     {
         attackQueue.Enqueue(new AttackQueueItem(attack, attacker, reciever));
     }

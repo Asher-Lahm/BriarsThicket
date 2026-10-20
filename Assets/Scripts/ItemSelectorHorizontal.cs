@@ -8,6 +8,8 @@ using UnityEngine.UI;
 
 public class ItemSelectorHorizontal : ItemSelector
 {
+
+    [SerializeField] public TextMeshProUGUI itemNameText;
     protected override IEnumerator CenterButtonNextFrame(RectTransform button)
     {
 
@@ -49,7 +51,7 @@ public class ItemSelectorHorizontal : ItemSelector
             EventSystem.current.SetSelectedGameObject(selectedButton.navigation.selectOnLeft.gameObject);
     }
 
-    public override void Initialize<T>(InventoryEntry[] items, Action<T> callback)
+    public override void Initialize<T, S>(InventoryEntry[] items, Action<S> callback) 
     {
         Button cancelButton = this.initialSelection.GetComponent<Button>();
         ItemSelectButton cancelCButton = this.initialSelection.GetComponent<ItemSelectButton>();
@@ -57,7 +59,7 @@ public class ItemSelectorHorizontal : ItemSelector
         cancelButton.onClick.AddListener(() => SelectItem(null));
         cancelCButton.Initialize(null, this);
         clickBlock.onClick.AddListener(() => SelectItem(null));
-        onItemSelected = item => callback((T)item);
+        onItemSelected = item => callback((S)item);
         int i = 1;
         foreach (InventoryEntry entry in items)
         {
@@ -65,8 +67,7 @@ public class ItemSelectorHorizontal : ItemSelector
             GameObject buttonObject = Instantiate(buttonPrefab, itemContainer);
             Button button = buttonObject.GetComponent<Button>();
             ItemSelectButton cButton = buttonObject.GetComponent<ItemSelectButton>();
-            cButton.Initialize(item, this);
-            cButton.UpdateQuantity(entry.amount);
+            cButton.Initialize(entry, this);
             button.onClick.AddListener(() => SelectItem(item));
             buttons.Add(button);
 
@@ -90,5 +91,24 @@ public class ItemSelectorHorizontal : ItemSelector
         currentNav.selectOnLeft = button2;
         button1.navigation = currentNav;
         button2.navigation = prevNav;
+    }
+
+    private void OnEnable()
+    {
+        ItemUpdated += OnItemUpdated;
+    }
+
+    private void OnDisable()
+    {
+        ItemUpdated -= OnItemUpdated;
+    }
+    private void OnDestroy()
+    {
+        ItemUpdated -= OnItemUpdated;
+    }
+
+    private void OnItemUpdated(ItemSelectButton selectedItemButton)
+    {
+        itemNameText.text = selectedItemButton.optionName;
     }
 }

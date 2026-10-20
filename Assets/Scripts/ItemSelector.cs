@@ -12,7 +12,6 @@ public class ItemSelector : Menu
     [SerializeField] protected Transform itemContainer;
     [SerializeField] protected GameObject buttonPrefab;
     [SerializeField] protected Button clickBlock;
-    [SerializeField] public TextMeshProUGUI itemNameText;
     protected List<Button> buttons = new List<Button>();
 
     [SerializeField] protected RectTransform content;
@@ -21,6 +20,15 @@ public class ItemSelector : Menu
     [SerializeField] protected Button selectedButton;
 
     protected Coroutine centerCoroutine;
+    public ItemSelectButton selectedItem;
+
+    public event Action<ItemSelectButton> ItemUpdated;
+
+    public void UpdateSelectedItem(ItemSelectButton newSelect)
+    {
+        selectedItem = newSelect;
+        ItemUpdated?.Invoke(selectedItem);
+    }
 
     public void CenterButton(RectTransform button)
     {
@@ -59,7 +67,6 @@ public class ItemSelector : Menu
         content.anchoredPosition = position;
 
         centerCoroutine = null;
-        print($"Button World Center: {buttonWorldCenter}\nButton Viewport Center: {buttonViewportCenter}\nMovement {movement}");
     }
 
     public virtual void SelectForward()
@@ -74,15 +81,17 @@ public class ItemSelector : Menu
             EventSystem.current.SetSelectedGameObject(selectedButton.navigation.selectOnRight.gameObject);
     }
 
-    public virtual void Initialize<T>(InventoryEntry[] items, Action<T> callback) where T : Item
+    public virtual void Initialize<T, S>(InventoryEntry[] items, Action<S> callback) where T : Item where S : Item
     {
         Button cancelButton = this.initialSelection.GetComponent<Button>();
         ItemSelectButton cancelCButton = this.initialSelection.GetComponent<ItemSelectButton>();
         buttons.Add(cancelButton);
         cancelButton.onClick.AddListener(() => SelectItem(null));
         cancelCButton.Initialize(null, this);
-        clickBlock.onClick.AddListener(() => SelectItem(null));
-        onItemSelected = item => callback((T)item);
+        if (clickBlock != null)
+            clickBlock.onClick.AddListener(() => SelectItem(null));
+
+        onItemSelected = item => callback((S)item);
         int i = 1;
         foreach (InventoryEntry entry in items)
         {
@@ -90,8 +99,7 @@ public class ItemSelector : Menu
             GameObject buttonObject = Instantiate(buttonPrefab, itemContainer);
             Button button = buttonObject.GetComponent<Button>();
             ItemSelectButton cButton = buttonObject.GetComponent<ItemSelectButton>();
-            cButton.Initialize(item, this);
-            cButton.UpdateQuantity(entry.amount);
+            cButton.Initialize(entry, this);
             button.onClick.AddListener(() => SelectItem(item));
             buttons.Add(button);
 
