@@ -29,6 +29,7 @@ public class RecipientSelectMenu : Menu
 
                 worldUI.SetTarget(spot.plant.healthUITransform);
                 button.onClick.AddListener(() => Select(spot.plant));
+                button.onClick.AddListener(CloseMenus);
                 buttons.Add(rButton);
             }
         }
@@ -42,6 +43,7 @@ public class RecipientSelectMenu : Menu
 
     public void CloseMenus()
     {
+        print($"{buttons.Count}");
         foreach (RecipientButton button in buttons)
         {
             Destroy(button.gameObject);
