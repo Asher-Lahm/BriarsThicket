@@ -65,22 +65,31 @@ public class RecipientSelectMenu : Menu
 
                         button.onClick.AddListener(() => SelectRecipient(attack, spot.plant));
                         buttons.Add(rButton);
+                    }  
+                    else
+                    {
+                        DrawNullButton();
                     }
                 } 
                 else
                 {
-                    GameObject buttonObject = Instantiate(recipientPrefab, recipientTransform);
-
-                    RecipientButton rButton = buttonObject.GetComponent<RecipientButton>();
-                    rButton.Initialize(null, this);
-                    Button button = buttonObject.GetComponent<Button>();
-                    button.interactable = false;
-
-                    buttons.Add(rButton);
+                    DrawNullButton();
                 }
             }
         }
         base.Open();
+    }
+
+    private void DrawNullButton()
+    {
+        GameObject buttonObject = Instantiate(recipientPrefab, recipientTransform);
+
+        RecipientButton rButton = buttonObject.GetComponent<RecipientButton>();
+        rButton.Initialize(null, this);
+        Button button = buttonObject.GetComponent<Button>();
+        button.interactable = false;
+
+        buttons.Add(rButton);
     }
 
     protected void SelectRecipient(BriarAttackData attack, Combatant selectedTarget)

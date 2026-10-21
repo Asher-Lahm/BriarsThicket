@@ -10,12 +10,12 @@ public class RecipientButton : MonoBehaviour
     [SerializeField] TextMeshProUGUI textObject;
     public Combatant combatant;
     RecipientSelectMenu selectorMenu;
+
     public void Initialize(Combatant inCombatant, RecipientSelectMenu selector)
     {
         selectorMenu = selector;
         if (inCombatant == null)
         {
-            textObject.text = "";
             return;
         }
         combatant = inCombatant;

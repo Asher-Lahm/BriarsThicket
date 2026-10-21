@@ -13,14 +13,8 @@ public class PlantBed : MonoBehaviour
     [HideInInspector] public int rows;
     public PlantSpot[,] plantSpotsGrid;
 
-    public void Initialize(DayNightManager dayNightManager, GameObject prefab)
+    private void Awake()
     {
-        foreach (PlantSpot spot in plantSpots)
-        {
-            spot.Initialize(dayNightManager, prefab);
-        }
-
-        GetComponent<PlantBedInteractable>().dayNightManager = dayNightManager;
         columns = plantSpots.Max(e => e.position.x) - plantSpots.Min(e => e.position.x) + 1;
         rows = plantSpots.Max(e => e.position.y) - plantSpots.Min(e => e.position.y) + 1;
         plantSpotsGrid = new PlantSpot[columns, rows];
@@ -32,6 +26,16 @@ public class PlantBed : MonoBehaviour
             }
             plantSpotsGrid[spot.position.x, spot.position.y] = spot;
         }
+    }
+
+    public void Initialize(DayNightManager dayNightManager, GameObject prefab)
+    {
+        foreach (PlantSpot spot in plantSpots)
+        {
+            spot.Initialize(dayNightManager, prefab);
+        }
+
+        GetComponent<PlantBedInteractable>().dayNightManager = dayNightManager;
     }
 
     public Combatant GetAdjacent(Plant target, int x, int y)

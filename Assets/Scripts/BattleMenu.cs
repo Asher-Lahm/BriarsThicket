@@ -134,9 +134,10 @@ public class BattleMenu : Menu
 
     private void ChooseRecipient(BriarAttackData attack)
     {
-        DestroySelectorMenu();
-        DestroyRecipMenu();
         CleanItemInfo();
+        attackToggled = false;
+        itemToggled = false;
+        actionToggled = false;
         if (attack == null)
         {
             sideMenu.SetActive(false);
@@ -152,6 +153,13 @@ public class BattleMenu : Menu
 
     private void QueueBriarAttack(BriarAttackData attack, Combatant target)
     {
+        sideMenu.SetActive(false);
+        if (attack == null || target == null)
+        {
+            mainButtons.SetActive(true);
+            return;
+        }
+        
 
     }
 
@@ -159,6 +167,7 @@ public class BattleMenu : Menu
     {
         mainButtons.SetActive(false);
         DestroySelectorMenu();
+        DestroyRecipMenu();
         CleanItemInfo();
     }
 
