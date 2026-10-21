@@ -21,8 +21,8 @@ public class BattleMenu : Menu
 
     [SerializeField] Queue<BriarAttackData> queuedAttacks = new Queue<BriarAttackData>();
     [SerializeField] BattleManager bm;
-    [SerializeField] RecipientSelectMenu recipientSelectMenu;
-    [SerializeField] GameObject recipientSelectMenuPrefab;
+    RecipientSelectMenu recipientSelectMenu;
+    [SerializeField] RecipientSelectMenu recipSelectPrefab;
     [SerializeField] GameObject mainButtons;
 
     bool actionToggled = false;
@@ -121,17 +121,38 @@ public class BattleMenu : Menu
         }
     }
 
+    private void DestroyRecipMenu()
+    {
+        if (recipientSelectMenu != null)
+        {
+            recipientSelectMenu.RecipientUpdated -= OnRecipientUpdated;
+            recipientSelectMenu.Close();
+            Destroy(selectorMenu);
+        }
+    }
 
-    private void ChooseRecipient(BriarAttackData item)
+
+    private void ChooseRecipient(BriarAttackData attack)
     {
         DestroySelectorMenu();
+        DestroyRecipMenu();
         CleanItemInfo();
-        mainButtons.SetActive(false);
-        if (!item.attacksAllEnemies && !item.affectsSelf)
+        if (attack == null)
         {
-            recipientSelectMenu.Open();
-            recipientSelectMenu.Initialize(item);
+            sideMenu.SetActive(false);
+            return;
         }
+        mainButtons.SetActive(false);
+        if (!attack.attacksAllEnemies && !attack.affectsSelf)
+        {
+            recipientSelectMenu = Instantiate(recipSelectPrefab, sideMenu.transform);
+            recipientSelectMenu.Initialize(attack, bm.currentBed, QueueBriarAttack);
+        }
+    }
+
+    private void QueueBriarAttack(BriarAttackData attack, Combatant target)
+    {
+
     }
 
     public void StartOfTurn()
@@ -178,6 +199,11 @@ public class BattleMenu : Menu
                 i++;
             }
         }
+    }
+
+    private void OnRecipientUpdated(RecipientButton combatantButton)
+    {
+
     }
 
     private void CleanItemInfo()

@@ -11,7 +11,6 @@ GameObject:
   - component: {fileID: 5432134132561581059}
   - component: {fileID: 5844763737857956455}
   - component: {fileID: 5380977831137618953}
-  - component: {fileID: 6823935804372425830}
   - component: {fileID: 4010947542370490513}
   m_Layer: 5
   m_Name: RecipSelectButton
@@ -62,7 +61,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Navigation:
-    m_Mode: 3
+    m_Mode: 4
     m_WrapAround: 0
     m_SelectOnUp: {fileID: 0}
     m_SelectOnDown: {fileID: 0}
@@ -93,19 +92,6 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls: []
---- !u!114 &6823935804372425830
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 654420114374307063}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 5222d4b89de6c7245be1d7ee9ec245b7, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  offset: {x: 0, y: 50}
 --- !u!114 &4010947542370490513
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -118,6 +104,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 63fb239aa7d2f86448f686ea32ba1fd3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  textObject: {fileID: 5477525416475874008}
+  combatant: {fileID: 0}
 --- !u!1 &3901677785544127176
 GameObject:
   m_ObjectHideFlags: 0
@@ -289,7 +277,7 @@ MonoBehaviour:
   m_fontSizeBase: 24
   m_fontWeight: 400
   m_enableAutoSizing: 1
-  m_fontSizeMin: 8.8
+  m_fontSizeMin: 8.27
   m_fontSizeMax: 72
   m_fontStyle: 0
   m_HorizontalAlignment: 2
