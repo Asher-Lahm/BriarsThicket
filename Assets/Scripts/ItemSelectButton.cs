@@ -15,6 +15,7 @@ public class ItemSelectButton : MonoBehaviour, ISelectHandler, IPointerEnterHand
     public ItemSelector itemSelector;
     protected InventoryEntry entry;
     public bool updateUI = true;
+    public Color contentColor = new Color(1, 1, 1);
 
     public virtual void Initialize(InventoryEntry inItem, ItemSelector selector)
     {
@@ -31,9 +32,11 @@ public class ItemSelectButton : MonoBehaviour, ISelectHandler, IPointerEnterHand
         
     }
 
-    protected virtual void UpdateVisuals()
+    public virtual void UpdateVisuals()
     {
-
+        imageObject.color = contentColor;
+        bgObject.color = contentColor;
+        imageObject.color = contentColor;
     }
 
     public void OnPointerEnter(PointerEventData eventData)

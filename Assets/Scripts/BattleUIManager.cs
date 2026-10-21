@@ -18,7 +18,14 @@ public class BattleUIManager : MonoBehaviour
     public void OpenBattleMenu()
     {
         battleMenu.Open();
+        StartTurnUI();
     }
+
+    public void StartTurnUI()
+    {
+        battleMenu.StartOfTurn();
+    }
+
     public void SetPlantHealthBars(PlantBed bed)
     {
         foreach (PlantSpot spot in bed.plantSpots)

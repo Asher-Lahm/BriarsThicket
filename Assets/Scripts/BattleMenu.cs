@@ -151,16 +151,15 @@ public class BattleMenu : Menu
         }
     }
 
-    private void QueueBriarAttack(BriarAttackData attack, Combatant target)
+    private void QueueBriarAttack(BriarAttackData briarAttack, Combatant target)
     {
         sideMenu.SetActive(false);
-        if (attack == null || target == null)
+        if (briarAttack == null || target == null)
         {
             mainButtons.SetActive(true);
             return;
         }
-        
-
+        bm.BriarQueueAttack(briarAttack, target);
     }
 
     public void StartOfTurn()
@@ -175,11 +174,15 @@ public class BattleMenu : Menu
     {
         if (selectorMenu)
             selectorMenu.ItemUpdated -= OnItemUpdated;
+        if (recipientSelectMenu)
+            recipientSelectMenu.RecipientUpdated -= OnRecipientUpdated;
     }
     private void OnDestroy()
     {
         if (selectorMenu)
             selectorMenu.ItemUpdated -= OnItemUpdated;
+        if (recipientSelectMenu)
+            recipientSelectMenu.RecipientUpdated -= OnRecipientUpdated;
     }
 
     private void OnItemUpdated(ItemSelectButton selectedItemButton)
@@ -196,9 +199,8 @@ public class BattleMenu : Menu
         itemImage.gameObject.SetActive(true);
         itemNameText.text = selectedItemButton.optionName;
         itemDescriptionText.text = selectedItemButton.optionDescription;
-        if (selectedItemButton is BattleOptionButton)
+        if (selectedItemButton is BattleOptionButton attackButton)
         {
-            BattleOptionButton attackButton = (BattleOptionButton)selectedItemButton;
             itemImage.sprite = attackButton.weaponItem.texture;
             energyText.text = $"{attackButton.energyCost} Energy";
             int i = 0;

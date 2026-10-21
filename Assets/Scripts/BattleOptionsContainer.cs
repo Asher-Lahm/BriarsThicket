@@ -1,6 +1,7 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using System.Linq;
 using TMPro;
 using UnityEngine;
 using UnityEngine.EventSystems;
@@ -91,11 +92,15 @@ public class BattleOptionsContainer : ItemSelector
     }
 
     public void DisableButtons(int energy)
-    {
+    {   
         foreach (Button button in buttons)
         {
             BattleOptionButton cButton = button.GetComponent<BattleOptionButton>();
-            button.interactable = cButton.energyCost <= energy;
+            if (cButton.energyCost <= energy)
+            {
+                button.interactable = false;
+                cButton.contentColor = new Color(.6f, .6f, .6f, .2f);
+            }
         }
     }
 

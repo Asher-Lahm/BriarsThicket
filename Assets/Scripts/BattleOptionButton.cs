@@ -26,8 +26,10 @@ public class BattleOptionButton : ItemSelectButton
 
         itemSelector = selector;
     }
-    protected override void UpdateVisuals()
+    public override void UpdateVisuals()
     {
+        base.UpdateVisuals();
+        itemNameText.color = contentColor;
         itemNameText.text = $"{optionName}";
         int i = 0;
         while (i < energyCost)

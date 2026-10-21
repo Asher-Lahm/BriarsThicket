@@ -9,7 +9,7 @@ public class SquareItemButton : ItemSelectButton
 {
     public TextMeshProUGUI itemQuantityText;
 
-    protected override void UpdateVisuals()
+    public override void UpdateVisuals()
     {
         itemQuantityText.text = $"{entry.amount}";
     }

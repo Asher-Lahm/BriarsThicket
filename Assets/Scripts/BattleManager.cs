@@ -48,7 +48,6 @@ public class BattleManager : MonoBehaviour
         isInBattle = true;
         battleUI.SetPlantHealthBars(currentBed);
         battleUI.SetBriarHealthBar(briar);
-        battleUI.OpenBattleMenu();
         StartTurn();
     }
 
@@ -60,10 +59,22 @@ public class BattleManager : MonoBehaviour
     public void StartTurn()
     {
         briarBattle.ResetEnergy();
+        ReturnBriarControl();
     }
-    public void BriarQueueAttack(Attack attack, Combatant attacker, Combatant reciever)
+
+    public void ReturnBriarControl()
     {
-        attackQueue.Enqueue(new AttackQueueItem(attack, attacker, reciever));
+        battleUI.StartTurnUI();
+    }
+    public void BriarQueueAttack(BriarAttackData briarAttack, Combatant reciever)
+    {
+        print(briarBattle.energy);
+        if (briarBattle.UseEnergy(briarAttack.energyCost))
+        {
+            attackQueue.Enqueue(new AttackQueueItem(briarAttack.attack, briarBattle, reciever));
+            StartCoroutine(ProcessAttackQueue());
+        }
+        print(briarBattle.energy);
     }
 
     public void QueuePlantAttacks()
@@ -80,11 +91,12 @@ public class BattleManager : MonoBehaviour
             {
                 target = briarBattle;
             }
-                QueueAttack(attack, plant, target);
+            QueueAttack(attack, plant, target);
         }
+        StartCoroutine(ProcessAttackQueue());
     }
 
-    public void QueueAttack(Attack attack, Combatant attacker, Combatant reciever)
+    private void QueueAttack(Attack attack, Combatant attacker, Combatant reciever)
     {
         attackQueue.Enqueue(new AttackQueueItem(attack, attacker, reciever));
     }
@@ -103,32 +115,18 @@ public class BattleManager : MonoBehaviour
 
             yield return new WaitForSeconds(0.5f);
         }
-
+        if (briarBattle.energy > 0)
+        {
+            ReturnBriarControl();
+        }
+        else
+        {
+            QueuePlantAttacks();
+        }
         // Queue is empty.
         // The turn is finished.
     }
 
-
-    private void SubmitTurn()
-    {
-        StartCoroutine(ProcessTurn());
-    }
-
-    //Some kind of submit button will activate this.
-    private IEnumerator ProcessTurn()
-    {
-        // Player has already selected their attacks.
-
-        yield return StartCoroutine(ProcessAttackQueue());
-
-        // Now the plants choose their attacks.
-        //QueuePlantAttacks();
-
-        yield return StartCoroutine(ProcessAttackQueue());
-
-        // Turn is over.
-        //BeginNextTurn();
-    }
 
     IEnumerator PerformAttack(AttackQueueItem currentAttack)
     {
