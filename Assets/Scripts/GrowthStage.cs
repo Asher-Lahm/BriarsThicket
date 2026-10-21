@@ -11,4 +11,6 @@ public class GrowthStage : ScriptableObject
     public int baseFatigueHealth;
     public Attack[] attacks;
     public bool isFightable = true;
+    public Material dayMaterial;
+    public Material nightMaterial;
 }

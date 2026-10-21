@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -8,9 +9,13 @@ public class CameraController : MonoBehaviour
     public Transform cameraPivot;
     public Transform cameraY;
     public float sensitivityYaw;
+    private float baseSensitivityYaw;
     public float sensitivityPitch;
+    private float baseSensitivityPitch;
     public float cameraMaxHeight;
     [SerializeField] float transitionDuration;
+    [SerializeField] PlayerInputReader playerInput;
+    private bool menuOpen;
 
     private PlayerControls controls;
     private float cameraMinHeight = -7;
@@ -24,24 +29,45 @@ public class CameraController : MonoBehaviour
 
     void Awake()
     {
+        baseSensitivityYaw = sensitivityYaw;
+        baseSensitivityPitch = sensitivityPitch;
         controls = new PlayerControls();
         cameraPivot = playerCameraPivot;
         cameraMax = cameraMinHeight + cameraMaxHeight;
     }
 
+    void OnUIStart()
+    {
+        menuOpen = true;
+        UpdateCameraSensitivity(0f, 0f);
+    }
+
+    void OnGameplayStart()
+    {
+        menuOpen = false;
+        UpdateCameraSensitivity(1f, 1f);
+    }
+
+    private void UpdateCameraSensitivity(float yaw, float pitch)
+    {
+        sensitivityYaw = baseSensitivityYaw * yaw;
+        sensitivityPitch = baseSensitivityPitch * pitch;
+    }
+
     private void StartCameraTransition(
         Vector3 position,
-        Quaternion rotation)
+        Quaternion rotation,
+        Action callback)
     {
         if (cameraTransition != null)
             StopCoroutine(cameraTransition);
 
         cameraTransition = StartCoroutine(
-            TransitionCamera(position, rotation)
+            TransitionCamera(position, rotation, callback)
         );
     }
 
-    private IEnumerator TransitionCamera(Vector3 targetPosition, Quaternion targetRotation)
+    private IEnumerator TransitionCamera(Vector3 targetPosition, Quaternion targetRotation, Action callback)
     {
         Vector3 startPosition = transform.position;
         Quaternion startRotation = transform.rotation;
@@ -67,6 +93,8 @@ public class CameraController : MonoBehaviour
         transform.position = targetPosition;
         transform.rotation = targetRotation;
 
+        callback?.Invoke();
+
     }
 
     public void MoveToFixedPosition(Transform targetPos)
@@ -74,13 +102,13 @@ public class CameraController : MonoBehaviour
         fixedCamera = true;
         previousPosition = transform.position;
         previousRotation = transform.rotation;
-        StartCameraTransition(targetPos.position, targetPos.rotation);
+        StartCameraTransition(targetPos.position, targetPos.rotation, null);
     }
 
     public void ReturnPlayerControl()
     {
-        StartCameraTransition(previousPosition, previousRotation);
-        fixedCamera = false;
+        StartCameraTransition(previousPosition, previousRotation, () => {fixedCamera = false; });
+        
     }
 
     // Update is called once per frame
@@ -104,10 +132,14 @@ public class CameraController : MonoBehaviour
     private void OnEnable()
     {
         controls.Player.Enable();
+        playerInput.UIStart += OnUIStart;
+        playerInput.GameplayStart += OnGameplayStart;
     }
 
     private void OnDisable()
     {
         controls.Player.Disable();
+        playerInput.UIStart -= OnUIStart;
+        playerInput.GameplayStart -= OnGameplayStart;
     }
 }

@@ -12,9 +12,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 02d990c0c680e934d9c3e0baf2ccd73a, type: 3}
   m_Name: 1EnergyTest
   m_EditorClassIdentifier: 
-  actionName: Shovel Test
-  description: Test attack. There is no shovel in the final game. Uses 1 Energy and
-    does 3 Damage to one plant.
-  image: {fileID: 21300000, guid: e3aedf598cf450f4585160148de9bc5d, type: 3}
+  itemName: Old Shovel
+  itemDescription: Test attack. There is no shovel in the final game. Uses 1 Energy
+    and does 3 Damage to one plant.Test attack. There is no shovel in the final game.
+    Uses 1 Energy and does 3 Damage to one plant.
+  texture: {fileID: 0}
   attack: {fileID: 11400000, guid: 8bf00e2e089eca04f93c8915327639a4, type: 2}
   energyCost: 1
+  attacksAllEnemies: 0
+  affectsSelf: 0

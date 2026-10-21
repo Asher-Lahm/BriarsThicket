@@ -1,48 +1,114 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using TMPro;
 using UnityEngine;
+using UnityEngine.EventSystems;
 using UnityEngine.UI;
 
-public class ItemSelectorHorizontal : Menu
+public class ItemSelectorHorizontal : ItemSelector
 {
-    private Action<Item> onItemSelected;
-    [SerializeField] Transform itemContainer;
-    [SerializeField] GameObject buttonPrefab;
-    List<Button> buttons = new List<Button>();
 
-    public void Initialize<T>(T[] items, Action<T> callback) where T : Item
+    [SerializeField] public TextMeshProUGUI itemNameText;
+    protected override IEnumerator CenterButtonNextFrame(RectTransform button)
+    {
+
+        yield return null;
+        Canvas.ForceUpdateCanvases();
+
+        if (button == null)
+            yield break;
+
+
+        Vector3 buttonWorldCenter =
+            button.TransformPoint(button.rect.center);
+
+        Vector3 buttonViewportCenter =
+            viewport.InverseTransformPoint(buttonWorldCenter);
+
+
+        float movement = buttonViewportCenter.x;
+
+
+        Vector2 position = content.anchoredPosition;
+        position.x -= movement;
+
+        content.anchoredPosition = position;
+
+        centerCoroutine = null;
+        print($"Button World Center: {buttonWorldCenter}\nButton Viewport Center: {buttonViewportCenter}\nMovement {movement}");
+    }
+
+    public override void SelectForward()
+    {
+        if (selectedButton != null)
+            EventSystem.current.SetSelectedGameObject(selectedButton.navigation.selectOnRight.gameObject);
+    }
+
+    public override void SelectBack()
+    {
+        if (selectedButton != null)
+            EventSystem.current.SetSelectedGameObject(selectedButton.navigation.selectOnLeft.gameObject);
+    }
+
+    public override void Initialize<T, S>(InventoryEntry[] items, Action<S> callback) 
     {
         Button cancelButton = this.initialSelection.GetComponent<Button>();
+        ItemSelectButton cancelCButton = this.initialSelection.GetComponent<ItemSelectButton>();
         buttons.Add(cancelButton);
-        onItemSelected = item => callback((T)item);
+        cancelButton.onClick.AddListener(() => SelectItem(null));
+        cancelCButton.Initialize(null, this);
+        clickBlock.onClick.AddListener(() => SelectItem(null));
+        onItemSelected = item => callback((S)item);
         int i = 1;
-        foreach (T item in items)
+        foreach (InventoryEntry entry in items)
         {
+            T item = (T)entry.item;
             GameObject buttonObject = Instantiate(buttonPrefab, itemContainer);
             Button button = buttonObject.GetComponent<Button>();
             ItemSelectButton cButton = buttonObject.GetComponent<ItemSelectButton>();
-            cButton.imageObject.sprite = item.texture;
-            cButton.optionName = item.itemName;
+            cButton.Initialize(entry, this);
             button.onClick.AddListener(() => SelectItem(item));
             buttons.Add(button);
-            Navigation currentNav = button.navigation;
-            Navigation prevNav = buttons[i - 1].navigation;
-            prevNav.selectOnLeft = button;
-            currentNav.selectOnRight = buttons[i - 1];
+
+            NavToPrevButton(button, buttons[i - 1]);
+
             i++;
+        }
+
+        if (buttons.Count > 1)
+        {
+            ChangeInitialSelection(buttons[1].gameObject);
         }
         base.Open();
     }
 
-    private void SelectItem(Item item)
+    protected override void NavToPrevButton(Button button1, Button button2)
     {
-        Action<Item> callback = onItemSelected;
-        onItemSelected = null;
+        Navigation currentNav = button1.navigation;
+        Navigation prevNav = button2.navigation;
+        prevNav.selectOnRight = button1;
+        currentNav.selectOnLeft = button2;
+        button1.navigation = currentNav;
+        button2.navigation = prevNav;
+    }
 
-        callback?.Invoke(item);
+    private void OnEnable()
+    {
+        ItemUpdated += OnItemUpdated;
+    }
 
-        base.Close();
-        Destroy(this.gameObject);
+    private void OnDisable()
+    {
+        ItemUpdated -= OnItemUpdated;
+    }
+    private void OnDestroy()
+    {
+        ItemUpdated -= OnItemUpdated;
+    }
+
+    private void OnItemUpdated(ItemSelectButton selectedItemButton)
+    {
+        itemNameText.text = selectedItemButton.optionName;
     }
 }

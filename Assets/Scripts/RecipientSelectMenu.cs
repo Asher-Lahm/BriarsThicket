@@ -1,0 +1,105 @@
+using System;
+using System.Collections;
+using System.Collections.Generic;
+using UnityEngine;
+using UnityEngine.UI;
+
+public class RecipientSelectMenu : Menu
+{
+
+    private Action<BriarAttackData, Combatant> onRecipientSelected;
+    [SerializeField] BattleManager bm;
+    PlantBed currentBed;
+    [SerializeField] GameObject recipientPrefab;
+    [SerializeField] Transform recipientTransform;
+    GridLayoutGroup recipGrid;
+    RectTransform recipRectTransform;
+    List<RecipientButton> buttons = new List<RecipientButton>();
+    BriarAttackData attackData;
+    [SerializeField] BriarBattle briar;
+    public Action<RecipientButton> RecipientUpdated;
+    RecipientButton selectedRecipient;
+    [SerializeField] protected Button clickBlock;
+
+    public void UpdateSelectedRecipient(RecipientButton newSelect)
+    {
+        selectedRecipient = newSelect;
+        RecipientUpdated?.Invoke(selectedRecipient);
+    }
+
+    public void Initialize(BriarAttackData attack, PlantBed inBed, Action<BriarAttackData, Combatant> callback)
+    {
+        Button cancelButton = this.initialSelection.GetComponent<Button>();
+        RecipientButton cancelRButton = this.initialSelection.GetComponent<RecipientButton>();
+        buttons.Add(cancelRButton);
+        cancelButton.onClick.AddListener(() => SelectRecipient(null, null));
+        cancelRButton.Initialize(null, this);
+        if (clickBlock != null)
+            clickBlock.onClick.AddListener(() => SelectRecipient(null, null));
+        recipGrid = recipientTransform.GetComponent<GridLayoutGroup>();
+        recipRectTransform = recipientTransform.GetComponent<RectTransform>();
+        currentBed = inBed;
+        attackData = attack;
+        buttons.Clear();
+
+        onRecipientSelected = callback;
+
+        recipGrid.constraintCount = currentBed.columns;
+        float cellSize = recipRectTransform.rect.height / currentBed.rows - recipGrid.spacing.y;
+        recipGrid.cellSize = new Vector2(cellSize, cellSize);
+
+        for (int i = 0; i < currentBed.columns; i++)
+        {
+            for (int j = 0; j < currentBed.rows; j++)
+            {
+                if (currentBed.plantSpotsGrid[i, j] != null)
+                {
+                    PlantSpot spot = currentBed.plantSpotsGrid[i, j];
+                    if (spot.plant != null)
+                    {
+                        GameObject buttonObject = Instantiate(recipientPrefab, recipientTransform);
+
+                        RecipientButton rButton = buttonObject.GetComponent<RecipientButton>();
+                        rButton.Initialize(spot.plant, this);
+                        Button button = buttonObject.GetComponent<Button>();
+
+                        button.onClick.AddListener(() => SelectRecipient(attack, spot.plant));
+                        buttons.Add(rButton);
+                    }  
+                    else
+                    {
+                        DrawNullButton();
+                    }
+                } 
+                else
+                {
+                    DrawNullButton();
+                }
+            }
+        }
+        base.Open();
+    }
+
+    private void DrawNullButton()
+    {
+        GameObject buttonObject = Instantiate(recipientPrefab, recipientTransform);
+
+        RecipientButton rButton = buttonObject.GetComponent<RecipientButton>();
+        rButton.Initialize(null, this);
+        Button button = buttonObject.GetComponent<Button>();
+        button.interactable = false;
+
+        buttons.Add(rButton);
+    }
+
+    protected void SelectRecipient(BriarAttackData attack, Combatant selectedTarget)
+    {
+        Action<BriarAttackData, Combatant> callback = onRecipientSelected;
+        onRecipientSelected = null;
+
+        callback?.Invoke(attack, selectedTarget);
+
+        base.Close();
+        Destroy(this.gameObject);
+    }
+}

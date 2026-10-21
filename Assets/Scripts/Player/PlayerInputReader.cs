@@ -24,6 +24,8 @@ public class PlayerInputReader : MonoBehaviour
     public event Action InteractPressed;
     public event Action UIConfirmPressed;
     public event Action DebugPressed;
+    public event Action UIStart;
+    public event Action GameplayStart;
 
     public InputContext currentContext { get; private set; } = InputContext.Gameplay;
 
@@ -74,6 +76,7 @@ public class PlayerInputReader : MonoBehaviour
         Cursor.lockState = CursorLockMode.None;
         Cursor.visible = true;
         Debug.Log("switched to UI nav");
+        UIStart?.Invoke();
     }
 
     public void StartGameplay()
@@ -83,5 +86,6 @@ public class PlayerInputReader : MonoBehaviour
         Cursor.lockState = CursorLockMode.Locked;
         Cursor.visible = false;
         Debug.Log("Switched to gameplay");
+        GameplayStart?.Invoke();
     }
 }

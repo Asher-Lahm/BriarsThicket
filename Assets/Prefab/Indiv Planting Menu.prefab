@@ -544,7 +544,7 @@ PrefabInstance:
     - target: {fileID: 6798578014124168899, guid: 7eeac77e503cb2e488dcdedcbf8c8237,
         type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
-      value: spawnSeedSelector
+      value: SpawnSeedSelector
       objectReference: {fileID: 0}
     - target: {fileID: 6798578014124168899, guid: 7eeac77e503cb2e488dcdedcbf8c8237,
         type: 3}

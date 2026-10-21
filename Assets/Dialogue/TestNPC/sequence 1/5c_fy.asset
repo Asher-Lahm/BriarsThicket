@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fb676e7c9a659b249b69b117f5ab5999, type: 3}
   m_Name: 5c_fy
   m_EditorClassIdentifier: 
-  text: Fuck yes
+  text: Heck yes
   next: {fileID: 11400000, guid: e9e0ac49e398f464aa072a5d452de688, type: 2}
   actions: []
   style: {fileID: 11400000, guid: 632dd293294f01e488bd3e5644305ae7, type: 2}

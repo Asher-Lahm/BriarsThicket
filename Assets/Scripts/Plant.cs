@@ -4,7 +4,9 @@ using UnityEngine;
 
 public class Plant : Combatant
 {
-    [SerializeField]
+    private int weakHealth;
+    public bool weak = false;
+
     private Attack[] attacks;
     private int growthStage = 0;
     private PlantData plantData;
@@ -14,6 +16,9 @@ public class Plant : Combatant
 
     private GameObject currentVisual;
     private DayNightManager dayNightManager;
+
+    private Material dayMaterial;
+    private Material nightMaterial;
 
     void Start()
     {
@@ -33,6 +38,25 @@ public class Plant : Combatant
         SetStage(0);
     }
 
+    public override void TakeDamage(int damage, Combatant attacker)
+    {
+        base.TakeDamage(damage, attacker);
+
+        SetWeak();
+    }
+
+    public override void Heal(int amount)
+    {
+        base.Heal(amount);
+
+        SetWeak();
+    }
+
+    void SetWeak()
+    {
+        weak = currentHealth <= weakHealth;
+    }
+
     public void OnDestroy()
     {
         dayNightManager.OnBecomeDay -= HandleBecomeDay;
@@ -48,12 +72,36 @@ public class Plant : Combatant
 
     private void HandleBecomeDay()
     {
-
+        ChangeMaterial(dayMaterial);
     }
 
     private void HandleBecomeNight()
     {
         Grow();
+        ChangeMaterial(nightMaterial);
+    }
+
+    public Attack ChooseAttack()
+    {
+        return attacks[Random.Range(0, attacks.Length - 1)];
+    }
+
+    private void ChangeMaterial(Material mat)
+    {
+        Renderer[] renderers = GetComponentsInChildren<Renderer>(true);
+
+        foreach (Renderer r in renderers)
+        {
+            // Replace every material slot
+            Material[] materials = r.sharedMaterials;
+
+            for (int i = 0; i < materials.Length; i++)
+            {
+                materials[i] = mat;
+            }
+
+            r.sharedMaterials = materials;
+        }
     }
 
     private void SetStage(int stageIndex)
@@ -65,14 +113,15 @@ public class Plant : Combatant
 
         GrowthStage currentStage = plantData.growthStages[stageIndex];
 
-        print($"{currentStage.name}");
         currentVisual = Instantiate(currentStage.prefab, transform);
         maxHealth = currentStage.baseMaxHealth;
         currentHealth = maxHealth;
         attacks = currentStage.attacks;
         defense = currentStage.baseDefense;
-        
-
+        nightMaterial = currentStage.nightMaterial;
+        dayMaterial = currentStage.dayMaterial;
+        weakHealth = currentStage.baseFatigueHealth;
+        attacks = currentStage.attacks;
     }
 
     // Update is called once per frame

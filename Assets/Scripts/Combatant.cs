@@ -9,6 +9,8 @@ public abstract class Combatant : MonoBehaviour
     public int currentHealth;
     public int maxHealth;
     public int defense;
+    public int tempDefense;
+    public int tempStrength = 0;
     public int statusTurns;
     public Status status;
     public event Action<int, int> HealthChanged;
@@ -19,13 +21,14 @@ public abstract class Combatant : MonoBehaviour
     public string combatName;
     public Transform healthUITransform;
 
-    public void TakeDamage(int damage)
+    public virtual void TakeDamage(int damage, Combatant attacker)
     {
-        currentHealth = Mathf.Max(currentHealth - damage, 0);
+        int finalDamage = (damage + attacker.tempStrength) - (defense + tempDefense);
+        currentHealth = Mathf.Max(currentHealth - finalDamage, 0);
         HealthChanged?.Invoke(currentHealth, maxHealth);
     }
 
-    public void Heal(int amount)
+    public virtual void Heal(int amount)
     {
         currentHealth = Mathf.Min(currentHealth + amount, maxHealth);
         HealthChanged?.Invoke(currentHealth, maxHealth);

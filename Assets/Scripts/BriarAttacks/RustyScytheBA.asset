@@ -12,8 +12,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 02d990c0c680e934d9c3e0baf2ccd73a, type: 3}
   m_Name: RustyScytheBA
   m_EditorClassIdentifier: 
-  actionName: Rusty Scythe
-  description: Attack to deal 2 damage to a plant and all adjacent plants.
-  image: {fileID: 21300000, guid: f04135aca11111344b682ac2d8d919e7, type: 3}
+  itemName: Scythe Swipe
+  itemDescription: Attack to deal 2 damage to a plant and all adjacent plants.
+  texture: {fileID: 21300000, guid: f04135aca11111344b682ac2d8d919e7, type: 3}
   attack: {fileID: 11400000, guid: 6e9cb2729a8f168408df6bde62af14ca, type: 2}
   energyCost: 2
+  attacksAllEnemies: 0
+  affectsSelf: 0

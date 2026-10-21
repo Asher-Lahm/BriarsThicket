@@ -18,20 +18,28 @@ public class BattleUIManager : MonoBehaviour
     public void OpenBattleMenu()
     {
         battleMenu.Open();
+        StartTurnUI();
     }
+
+    public void StartTurnUI()
+    {
+        battleMenu.StartOfTurn();
+    }
+
     public void SetPlantHealthBars(PlantBed bed)
     {
         foreach (PlantSpot spot in bed.plantSpots)
         {
-            if (spot.plant == null)
-                return;
-            Plant plant = spot.plant;
-            GameObject menuObject = Instantiate(healthBarPrefabPlant, healthBarContainer);
+            if (spot.plant != null)
+            {
+                Plant plant = spot.plant;
+                GameObject menuObject = Instantiate(healthBarPrefabPlant, healthBarContainer);
 
-            HealthUI menu = menuObject.GetComponent<HealthUI>();
+                HealthUI menu = menuObject.GetComponent<HealthUI>();
 
-            menu.Initialize(plant);
-            plantHealthMenus.Add(menu);
+                menu.Initialize(plant);
+                plantHealthMenus.Add(menu);
+            }
         }
     }
 
