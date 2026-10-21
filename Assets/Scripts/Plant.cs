@@ -4,7 +4,9 @@ using UnityEngine;
 
 public class Plant : Combatant
 {
-    [SerializeField]
+    private int weakHealth;
+    public bool weak = false;
+
     private Attack[] attacks;
     private int growthStage = 0;
     private PlantData plantData;
@@ -36,6 +38,25 @@ public class Plant : Combatant
         SetStage(0);
     }
 
+    public override void TakeDamage(int damage, Combatant attacker)
+    {
+        base.TakeDamage(damage, attacker);
+
+        SetWeak();
+    }
+
+    public override void Heal(int amount)
+    {
+        base.Heal(amount);
+
+        SetWeak();
+    }
+
+    void SetWeak()
+    {
+        weak = currentHealth <= weakHealth;
+    }
+
     public void OnDestroy()
     {
         dayNightManager.OnBecomeDay -= HandleBecomeDay;
@@ -58,6 +79,11 @@ public class Plant : Combatant
     {
         Grow();
         ChangeMaterial(nightMaterial);
+    }
+
+    public Attack ChooseAttack()
+    {
+        return attacks[Random.Range(0, attacks.Length - 1)];
     }
 
     private void ChangeMaterial(Material mat)
@@ -87,7 +113,6 @@ public class Plant : Combatant
 
         GrowthStage currentStage = plantData.growthStages[stageIndex];
 
-        print($"{currentStage.name}");
         currentVisual = Instantiate(currentStage.prefab, transform);
         maxHealth = currentStage.baseMaxHealth;
         currentHealth = maxHealth;
@@ -95,6 +120,8 @@ public class Plant : Combatant
         defense = currentStage.baseDefense;
         nightMaterial = currentStage.nightMaterial;
         dayMaterial = currentStage.dayMaterial;
+        weakHealth = currentStage.baseFatigueHealth;
+        attacks = currentStage.attacks;
     }
 
     // Update is called once per frame

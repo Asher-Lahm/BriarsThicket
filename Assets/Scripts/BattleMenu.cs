@@ -8,20 +8,22 @@ using UnityEngine.UI;
 public class BattleMenu : Menu
 {
     [SerializeField] GameObject sideMenu;
-    [SerializeField] ItemSelector selectorPrefab;
-    [SerializeField] ItemSelector actionPrefab;
+    [SerializeField] BattleOptionsContainer selectorPrefab;
+    [SerializeField] BattleOptionsContainer actionPrefab;
     [SerializeField] private TextMeshProUGUI itemNameText;
     [SerializeField] private TextMeshProUGUI itemDescriptionText;
     [SerializeField] private TextMeshProUGUI energyText;
     [SerializeField] private GameObject energyImage;
     [SerializeField] private Transform energyContainer;
     [SerializeField] private Image itemImage;
-    ItemSelector selectorMenu;
+    BattleOptionsContainer selectorMenu;
     [SerializeField] Inventory inventory;
-    [SerializeField] BriarBattle briarBattle;
+
     [SerializeField] Queue<BriarAttackData> queuedAttacks = new Queue<BriarAttackData>();
     [SerializeField] BattleManager bm;
     [SerializeField] RecipientSelectMenu recipientSelectMenu;
+    [SerializeField] GameObject recipientSelectMenuPrefab;
+    [SerializeField] GameObject mainButtons;
 
     bool actionToggled = false;
     bool attackToggled = false;
@@ -51,6 +53,7 @@ public class BattleMenu : Menu
         selectorMenu = Instantiate(selectorPrefab, sideMenu.transform);
         selectorMenu.Initialize<WeaponItem, BriarAttackData>(inventory.GetItems<WeaponItem>(), ChooseRecipient);
         selectorMenu.ItemUpdated += OnItemUpdated;
+        selectorMenu.DisableButtons(bm.GetBriarEnergy());
     }
 
     public void ToggleItemMenu()
@@ -76,6 +79,7 @@ public class BattleMenu : Menu
         selectorMenu = Instantiate(selectorPrefab, sideMenu.transform);
         selectorMenu.Initialize<FruitItem, BriarAttackData>(inventory.GetItems<FruitItem>(), ChooseRecipient);
         selectorMenu.ItemUpdated += OnItemUpdated;
+        selectorMenu.DisableButtons(bm.GetBriarEnergy());
     }
 
     public void ToggleActionMenu()
@@ -99,6 +103,7 @@ public class BattleMenu : Menu
 
         selectorMenu = null;
         selectorMenu = Instantiate(actionPrefab, sideMenu.transform);
+        selectorMenu.DisableButtons(bm.GetBriarEnergy());
     }
 
     public void RunFromBattle()
@@ -119,29 +124,21 @@ public class BattleMenu : Menu
 
     private void ChooseRecipient(BriarAttackData item)
     {
-        sideMenu.SetActive(false);
-        if (item == null)
-        {
-            if (attackToggled)
-            {
-                OpenAttackMenu();
-            } else if (itemToggled)
-            {
-                OpenItemMenu();
-            } else if (actionToggled)
-            {
-                OpenActionMenu();
-            }
-            return;
-        }
-        int energyUsed = queuedAttacks.Sum(attack => attack.energyCost);
-        if (item.energyCost > briarBattle.maxEnergy - energyUsed)
-            return;
+        DestroySelectorMenu();
+        CleanItemInfo();
+        mainButtons.SetActive(false);
         if (!item.attacksAllEnemies && !item.affectsSelf)
         {
             recipientSelectMenu.Open();
             recipientSelectMenu.Initialize(item);
         }
+    }
+
+    public void StartOfTurn()
+    {
+        mainButtons.SetActive(false);
+        DestroySelectorMenu();
+        CleanItemInfo();
     }
 
     private void OnDisable()

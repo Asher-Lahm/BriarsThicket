@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: affe1e6f54fdb104dbfc0138d5b76673, type: 3}
   m_Name: Rusty Scythe
   m_EditorClassIdentifier: 
-  itemName: Rusty Scythe
+  itemName: Scythe
   itemDescription: An old scythe you inherited from your mother. It's long past its
     prime, but it can still help you in the garden!
   texture: {fileID: 21300000, guid: f04135aca11111344b682ac2d8d919e7, type: 3}

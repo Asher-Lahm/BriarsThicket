@@ -9,13 +9,9 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 6a8584553e79dad4c9a67452a5d350b2, type: 3}
-  m_Name: templateGrowthStage
+  m_Script: {fileID: 11500000, guid: bc82de89ebef2684395f4f101a40e49e, type: 3}
+  m_Name: Scarlet Petal
   m_EditorClassIdentifier: 
-  prefab: {fileID: 0}
-  baseDefense: 0
-  baseMaxHealth: 12
-  baseFatigueHealth: 3
-  attacks:
-  - {fileID: 11400000, guid: 69bdb33c25c156b458b4b17e9e09fa1d, type: 2}
-  isFightable: 1
+  actions:
+  - {fileID: 11400000, guid: d68dc8f0c3f6b2c449ac3f3e10a5077a, type: 2}
+  briarAttack: 1

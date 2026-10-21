@@ -60,20 +60,25 @@ public class BattleOptionsContainer : ItemSelector
         foreach (InventoryEntry entry in items)
         {
             T item = (T)entry.item;
-            if (item is IAttackItem)
+            int j = 0;
+            while (j < entry.amount)
             {
-                IAttackItem attackItem = (IAttackItem)item;
-                foreach (BriarAttackData attackData in attackItem.BriarAttack)
+                j++;
+                if (item is IAttackItem)
                 {
-                    GameObject buttonObject = Instantiate(buttonPrefab, itemContainer);
-                    Button button = buttonObject.GetComponent<Button>();
-                    BattleOptionButton cButton = buttonObject.GetComponent<BattleOptionButton>();
-                    cButton.Initialize(entry, attackData, this);
-                    button.onClick.AddListener(() => SelectItem(attackData));
-                    buttons.Add(button);
+                    IAttackItem attackItem = (IAttackItem)item;
+                    foreach (BriarAttackData attackData in attackItem.BriarAttack)
+                    {
+                        GameObject buttonObject = Instantiate(buttonPrefab, itemContainer);
+                        Button button = buttonObject.GetComponent<Button>();
+                        BattleOptionButton cButton = buttonObject.GetComponent<BattleOptionButton>();
+                        cButton.Initialize(entry, attackData, this);
+                        button.onClick.AddListener(() => SelectItem(attackData));
+                        buttons.Add(button);
 
-                    NavToPrevButton(button, buttons[i - 1]);
-                    i++;
+                        NavToPrevButton(button, buttons[i - 1]);
+                        i++;
+                    }
                 }
             }
         }
@@ -83,6 +88,15 @@ public class BattleOptionsContainer : ItemSelector
             ChangeInitialSelection(buttons[1].gameObject);
         }
         base.Open();
+    }
+
+    public void DisableButtons(int energy)
+    {
+        foreach (Button button in buttons)
+        {
+            BattleOptionButton cButton = button.GetComponent<BattleOptionButton>();
+            button.interactable = cButton.energyCost <= energy;
+        }
     }
 
     protected override void NavToPrevButton(Button button1, Button button2)

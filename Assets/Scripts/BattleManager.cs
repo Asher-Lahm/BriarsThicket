@@ -1,4 +1,4 @@
-using System;
+using JetBrains.Annotations;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -21,6 +21,7 @@ public class BattleManager : MonoBehaviour
     public PlantBed currentBed;
     [SerializeField] PlayerInputReader playerInput;
     [SerializeField] CameraController camControl;
+    [SerializeField] BriarBattle briarBattle;
     //[[SerializeField]] List<Combatant> combatants;
 
     public void Awake()
@@ -34,6 +35,11 @@ public class BattleManager : MonoBehaviour
         }
     }
 
+    public int GetBriarEnergy()
+    {
+        return briarBattle.energy;
+    }
+
     public void StartBattle(BriarBattle briar, PlantBed bed)
     {
         Debug.Log("Started Battle (Theoretically)");
@@ -43,11 +49,39 @@ public class BattleManager : MonoBehaviour
         battleUI.SetPlantHealthBars(currentBed);
         battleUI.SetBriarHealthBar(briar);
         battleUI.OpenBattleMenu();
+        StartTurn();
     }
 
     public void EndBattle()
     {
         battleUI.DestroyHealthBars();
+    }
+
+    public void StartTurn()
+    {
+        briarBattle.ResetEnergy();
+    }
+    public void BriarQueueAttack(Attack attack, Combatant attacker, Combatant reciever)
+    {
+        attackQueue.Enqueue(new AttackQueueItem(attack, attacker, reciever));
+    }
+
+    public void QueuePlantAttacks()
+    {
+        foreach (PlantSpot plantSpot in currentBed.plantSpots)
+        {
+            Plant plant = plantSpot.plant;
+            Attack attack = plant.ChooseAttack();
+            Combatant target;
+            if (attack.plantTarget)
+            {
+                target = currentBed.plantSpots[Random.Range(0, currentBed.plantSpots.Length - 1)].plant;
+            } else
+            {
+                target = briarBattle;
+            }
+                QueueAttack(attack, plant, target);
+        }
     }
 
     public void QueueAttack(Attack attack, Combatant attacker, Combatant reciever)
@@ -107,21 +141,21 @@ public class BattleManager : MonoBehaviour
         foreach(AttackAction action in attack.actions)
         {
             //attacker.playAnimation
-            foreach(Vector3Int ap in action.attackPositions)
+            if (action.attackPositions.Length == 1)
             {
-                if (!attack.briarAttack)
-                {
-                    reciever.TakeDamage(ap.x);
-                } else
+                reciever.TakeDamage(action.attackPositions[0].x, attacker);
+            } else
+            {
+                foreach (Vector3Int ap in action.attackPositions)
                 {
                     Combatant extraReciever = null;
-                    if (reciever is Plant)
+                    if (reciever is Plant plant)
                     {
-                        extraReciever = currentBed.GetAdjacent((Plant)reciever, ap.y, ap.z);
+                        extraReciever = currentBed.GetAdjacent(plant, ap.y, ap.z);
                     }
                     if (extraReciever != null)
                     {
-                        extraReciever.TakeDamage(ap.x);
+                        extraReciever.TakeDamage(ap.x, attacker);
                     }
                 }
             }

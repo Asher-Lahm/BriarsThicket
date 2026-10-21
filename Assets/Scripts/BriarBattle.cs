@@ -7,6 +7,22 @@ public class BriarBattle : Combatant
     public static BriarBattle Instance;
     [SerializeField] DayNightManager dnManager;
     public int maxEnergy;
+    public int energy;
+
+    public bool UseEnergy(int amount)
+    {
+        if (energy >= amount)
+        {
+            energy -= amount;
+            return true;
+        }
+        return false;
+    }
+
+    public void ResetEnergy()
+    {
+        energy = maxEnergy;
+    }
 
     private void Awake()
     {

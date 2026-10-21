@@ -12,10 +12,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: affe1e6f54fdb104dbfc0138d5b76673, type: 3}
   m_Name: Rusty Shears
   m_EditorClassIdentifier: 
-  itemName: Rusty Shears
+  itemName: Shears
   itemDescription: A pair of shears that your mother used to use. The blades are
     dull, and the rust makes them hard to snip with, but they work in a pinch.
   texture: {fileID: 21300000, guid: 3ebc5cf7e65e41e43b524ac987b523b8, type: 3}
   purchasePrice: 0
   briarAttack:
   - {fileID: 11400000, guid: d979133b3176b8543bb81ca979bca38b, type: 2}
+  - {fileID: 11400000, guid: c45fa9c6c26698d4bb29d10954c10c0e, type: 2}
