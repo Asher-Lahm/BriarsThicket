@@ -7,8 +7,11 @@ using UnityEngine;
 public class AttackAction : ScriptableObject 
 {
     public bool affectSelf;
+    public bool heal;
+    public int chooseAmount;
     public CombatAnimationType animation;
     public Vector3Int[] attackPositions;
-    public Vector2Int[] statusPosition;
-    public Status status;
+    public StatusData[] status;
+    public int turns;
+    public bool infiniteStatus;
 }

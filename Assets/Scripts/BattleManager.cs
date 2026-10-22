@@ -2,6 +2,7 @@ using JetBrains.Annotations;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using System.Linq;
 
 public enum BattleState
 {
@@ -60,6 +61,10 @@ public class BattleManager : MonoBehaviour
 
     public void StartNewTurn()
     {
+        foreach(PlantSpot spot in currentBed.plantSpots)
+        {
+            spot.plant.EvalStatuses();
+        }
         plantsHaveTurn = true;
         briarBattle.ResetEnergy();
         ReturnBriarControl();
@@ -150,26 +155,61 @@ public class BattleManager : MonoBehaviour
             //attacker.playAnimation
             if (action.attackPositions.Length == 1)
             {
-                reciever.TakeDamage(action.attackPositions[0].x, attacker);
-            } else
+                ApplyAP(attacker, reciever, action, action.attackPositions[0]);
+            }
+            else
             {
-                foreach (Vector3Int ap in action.attackPositions)
+                if (action.chooseAmount == 0)
                 {
-                    Combatant extraReciever = null;
-                    if (reciever is Plant plant)
+                    foreach (Vector3Int ap in action.attackPositions)
                     {
-                        extraReciever = currentBed.GetAdjacent(plant, ap.y, ap.z);
+                        Combatant extraReciever = null;
+                        if (reciever is Plant plant)
+                        {
+                            extraReciever = currentBed.GetAdjacent(plant, ap.y, ap.z);
+                        }
+                        if (extraReciever != null)
+                        {
+                            ApplyAP(attacker, reciever, action, ap);
+                        }
                     }
-                    if (extraReciever != null)
+                }
+                else
+                {
+                    Vector3Int[] attackRandom = action.attackPositions.OrderBy(x => Random.value).ToArray();
+                    for (int i = 0; i < action.chooseAmount; i++)
                     {
-                        extraReciever.TakeDamage(ap.x, attacker);
+                        Vector3Int ap = attackRandom[i];
+                        Combatant extraReciever = null;
+                        if (reciever is Plant plant)
+                        {
+                            extraReciever = currentBed.GetAdjacent(plant, ap.y, ap.z);
+                        }
+                        if (extraReciever != null)
+                        {
+                            ApplyAP(attacker, reciever, action, ap);
+                        }
                     }
                 }
             }
         }
-
-
-
         yield return new WaitForSeconds(0.5f);
+    }
+
+    private static void ApplyAP(Combatant attacker, Combatant reciever, AttackAction action, Vector3Int ap)
+    {
+        
+        if (action.heal)
+        {
+            reciever.Heal(ap.x);
+        }
+        else
+        {
+            reciever.TakeDamage(ap.x, attacker);
+        }
+        foreach (StatusData status in action.status)
+        {
+            reciever.AddStatus(new StatusCondition(status, action.turns, action.infiniteStatus));
+        }
     }
 }
