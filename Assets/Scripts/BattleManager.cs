@@ -22,6 +22,7 @@ public class BattleManager : MonoBehaviour
     [SerializeField] PlayerInputReader playerInput;
     [SerializeField] CameraController camControl;
     [SerializeField] BriarBattle briarBattle;
+    private bool plantsHaveTurn = true;
     //[[SerializeField]] List<Combatant> combatants;
 
     public void Awake()
@@ -48,7 +49,8 @@ public class BattleManager : MonoBehaviour
         isInBattle = true;
         battleUI.SetPlantHealthBars(currentBed);
         battleUI.SetBriarHealthBar(briar);
-        StartTurn();
+        battleUI.OpenBattleMenu();
+        StartNewTurn();
     }
 
     public void EndBattle()
@@ -56,8 +58,9 @@ public class BattleManager : MonoBehaviour
         battleUI.DestroyHealthBars();
     }
 
-    public void StartTurn()
+    public void StartNewTurn()
     {
+        plantsHaveTurn = true;
         briarBattle.ResetEnergy();
         ReturnBriarControl();
     }
@@ -68,30 +71,32 @@ public class BattleManager : MonoBehaviour
     }
     public void BriarQueueAttack(BriarAttackData briarAttack, Combatant reciever)
     {
-        print(briarBattle.energy);
         if (briarBattle.UseEnergy(briarAttack.energyCost))
         {
             attackQueue.Enqueue(new AttackQueueItem(briarAttack.attack, briarBattle, reciever));
             StartCoroutine(ProcessAttackQueue());
         }
-        print(briarBattle.energy);
     }
 
     public void QueuePlantAttacks()
     {
         foreach (PlantSpot plantSpot in currentBed.plantSpots)
         {
-            Plant plant = plantSpot.plant;
-            Attack attack = plant.ChooseAttack();
-            Combatant target;
-            if (attack.plantTarget)
+            if (plantSpot.plant != null)
             {
-                target = currentBed.plantSpots[Random.Range(0, currentBed.plantSpots.Length - 1)].plant;
-            } else
-            {
-                target = briarBattle;
+                Plant plant = plantSpot.plant;
+                Attack attack = plant.ChooseAttack();
+                Combatant target;
+                if (attack.plantTarget)
+                {
+                    target = currentBed.plantSpots[Random.Range(0, currentBed.plantSpots.Length - 1)].plant;
+                }
+                else
+                {
+                    target = briarBattle;
+                }
+                QueueAttack(attack, plant, target);
             }
-            QueueAttack(attack, plant, target);
         }
         StartCoroutine(ProcessAttackQueue());
     }
@@ -106,7 +111,6 @@ public class BattleManager : MonoBehaviour
         while (attackQueue.Count > 0)
         {
             AttackQueueItem currentAttack = attackQueue.Dequeue();
-
             if (currentAttack.attacker.isAbleToAttack && currentAttack.reciever.isAttackable)
             {
                 yield return StartCoroutine(PerformAttack(currentAttack));
@@ -119,9 +123,14 @@ public class BattleManager : MonoBehaviour
         {
             ReturnBriarControl();
         }
+        else if (plantsHaveTurn == true)
+        {
+            plantsHaveTurn = false;
+            QueuePlantAttacks();
+        }
         else
         {
-            QueuePlantAttacks();
+            StartNewTurn();
         }
         // Queue is empty.
         // The turn is finished.

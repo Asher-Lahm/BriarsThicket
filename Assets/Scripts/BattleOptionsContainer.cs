@@ -96,10 +96,11 @@ public class BattleOptionsContainer : ItemSelector
         foreach (Button button in buttons)
         {
             BattleOptionButton cButton = button.GetComponent<BattleOptionButton>();
-            if (cButton.energyCost <= energy)
+            if (cButton.energyCost > energy)
             {
                 button.interactable = false;
                 cButton.contentColor = new Color(.6f, .6f, .6f, .2f);
+                cButton.UpdateVisuals();
             }
         }
     }

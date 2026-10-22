@@ -15,11 +15,12 @@ public class BattleMenu : Menu
     [SerializeField] private TextMeshProUGUI energyText;
     [SerializeField] private GameObject energyImage;
     [SerializeField] private Transform energyContainer;
+    [SerializeField] private TextMeshProUGUI briarEnergyText;
+    [SerializeField] private Transform briarEnergyContainer;
     [SerializeField] private Image itemImage;
     BattleOptionsContainer selectorMenu;
     [SerializeField] Inventory inventory;
 
-    [SerializeField] Queue<BriarAttackData> queuedAttacks = new Queue<BriarAttackData>();
     [SerializeField] BattleManager bm;
     RecipientSelectMenu recipientSelectMenu;
     [SerializeField] RecipientSelectMenu recipSelectPrefab;
@@ -162,12 +163,27 @@ public class BattleMenu : Menu
         bm.BriarQueueAttack(briarAttack, target);
     }
 
+    public void UpdateBriarEnergyGraphic()
+    {
+        foreach (Transform child in briarEnergyContainer)
+        {
+            Destroy(child.gameObject);
+        }
+        briarEnergyText.text = $"{bm.GetBriarEnergy()} Energy";
+
+        for (int i = 0; i < bm.GetBriarEnergy(); i++)
+        {
+            Instantiate(energyImage, briarEnergyContainer);
+        }
+    }
+
     public void StartOfTurn()
     {
-        mainButtons.SetActive(false);
+        mainButtons.SetActive(true);
         DestroySelectorMenu();
         DestroyRecipMenu();
         CleanItemInfo();
+        UpdateBriarEnergyGraphic();
     }
 
     private void OnDisable()
@@ -227,16 +243,5 @@ public class BattleMenu : Menu
         {
             Destroy(child.gameObject);
         }
-    }
-
-    void Start()
-    {
-        
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
     }
 }
