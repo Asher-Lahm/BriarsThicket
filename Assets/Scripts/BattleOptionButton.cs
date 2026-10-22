@@ -31,11 +31,13 @@ public class BattleOptionButton : ItemSelectButton
         base.UpdateVisuals();
         itemNameText.color = contentColor;
         itemNameText.text = $"{optionName}";
-        int i = 0;
-        while (i < energyCost)
+        foreach (Transform child in energyContainer)
+        {
+            Destroy(child.gameObject);
+        }
+        for (int i = 0; i < energyCost; i++)
         {
             Instantiate(energyImage, energyContainer);
-            i++;
         }
     }
 }

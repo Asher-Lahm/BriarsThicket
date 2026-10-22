@@ -20,8 +20,9 @@ public class Plant : Combatant
     private Material dayMaterial;
     private Material nightMaterial;
 
-    void Start()
+    protected override void Awake()
     {
+        base.Awake();
         animator = GetComponentInChildren<Animator>();
     }
 
@@ -40,6 +41,7 @@ public class Plant : Combatant
 
     public override void TakeDamage(int damage, Combatant attacker)
     {
+        print("take damage run");
         base.TakeDamage(damage, attacker);
 
         SetWeak();

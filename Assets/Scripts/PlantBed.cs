@@ -46,9 +46,6 @@ public class PlantBed : MonoBehaviour
             if (spot.position.x == mainSpot.position.x + x && spot.position.y == mainSpot.position.y + y)
             {
                 return spot.plant;
-            } else
-            {
-                return null;
             }
         }
         return null;

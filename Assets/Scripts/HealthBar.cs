@@ -18,7 +18,7 @@ public class HealthBar : HealthUI
     }
     override protected void UpdateHealthUI(int current, int max)
     {
-        slider.value = current / max;
+        slider.value = (float)current / max;
         maxHealthText.text = $"{max}";
         currentHealthText.text = $"{current}";
     }

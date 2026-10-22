@@ -24,8 +24,9 @@ public class BriarBattle : Combatant
         energy = maxEnergy;
     }
 
-    private void Awake()
+    protected override void Awake()
     {
+        base.Awake();
         if (Instance == null)
         {
             Instance = this;
