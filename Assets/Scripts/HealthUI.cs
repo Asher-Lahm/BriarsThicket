@@ -12,6 +12,7 @@ abstract public class HealthUI : MonoBehaviour
         this.combatant = combatant;
 
         combatant.HealthChanged += UpdateHealthUI;
+        combatant.StatusChanged += UpdateStatusUI;
 
         UpdateHealthUI(combatant.currentHealth, combatant.maxHealth);
         SetUpVisuals(combatant);
@@ -19,11 +20,19 @@ abstract public class HealthUI : MonoBehaviour
 
     abstract protected void UpdateHealthUI(int current, int max);
 
+    abstract protected void UpdateStatusUI(List<StatusCondition> statuses);
+
+    abstract public void UpdateStatusPanel(StatusCondition status);
+
     abstract protected void SetUpVisuals(Combatant combatant);
+
 
     private void OnDestroy()
     {
         if (combatant != null)
+        {
             combatant.HealthChanged -= UpdateHealthUI;
+            combatant.StatusChanged -= UpdateStatusUI;
+        }
     }
 }

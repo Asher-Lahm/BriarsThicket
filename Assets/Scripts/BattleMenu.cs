@@ -114,11 +114,14 @@ public class BattleMenu : Menu
 
     private void DestroySelectorMenu()
     {
+        print("Destroy selector menu called");
+        print($"Selector = {selectorMenu.gameObject.name}");
         if (selectorMenu != null)
         {
             selectorMenu.ItemUpdated -= OnItemUpdated;
             selectorMenu.Close();
-            Destroy(selectorMenu);
+            Destroy(selectorMenu.gameObject);
+            print("Destroyed");
         }
     }
 
