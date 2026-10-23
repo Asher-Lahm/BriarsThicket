@@ -77,8 +77,10 @@ public class Plant : Combatant
 
     public void Grow()
     {
-        growthStage++;
-
+        if (growthStage < plantData.growthStages.Length - 1)
+        {
+            growthStage++;
+        }
         SetStage(growthStage);
     }
 

@@ -21,7 +21,7 @@ public class PlantHealthBar : HealthBar
         base.SetUpVisuals(combatant);
         Plant plant = (Plant)combatant;
         weakHealth = plant.weakHealth;
-        fatigueSlider.value = weakHealth / plant.maxHealth;
+        fatigueSlider.value =(float)weakHealth / plant.maxHealth;
     }
 
 }
