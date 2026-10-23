@@ -29,7 +29,6 @@ public class ItemSelectButton : MonoBehaviour, ISelectHandler, IPointerEnterHand
         }
         
         itemSelector = selector;
-        
     }
 
     public virtual void UpdateVisuals()

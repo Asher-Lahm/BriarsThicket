@@ -4,8 +4,10 @@ using UnityEngine;
 
 public class Plant : Combatant
 {
-    private int weakHealth;
+    public int weakHealth;
     public bool weak = false;
+
+    [SerializeField] StatusData fatigueStatus;
 
     private Attack[] attacks;
     private int growthStage = 0;
@@ -57,6 +59,14 @@ public class Plant : Combatant
     void SetWeak()
     {
         weak = currentHealth <= weakHealth;
+        if (weak)
+        {
+            AddStatus(new StatusCondition(fatigueStatus, 0, true));
+        } else
+        {
+            RemoveStatus(new StatusCondition(fatigueStatus, 0, true));
+        }
+        EvalStatuses(false);
     }
 
     public void OnDestroy()
@@ -85,7 +95,11 @@ public class Plant : Combatant
 
     public Attack ChooseAttack()
     {
-        return attacks[Random.Range(0, attacks.Length - 1)];
+        if (attacks.Length == 0)
+        {
+            return null;
+        }
+        return attacks[Random.Range(0, attacks.Length)];
     }
 
     private void ChangeMaterial(Material mat)

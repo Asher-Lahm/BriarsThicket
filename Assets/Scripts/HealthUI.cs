@@ -14,11 +14,11 @@ abstract public class HealthUI : MonoBehaviour
         combatant.HealthChanged += UpdateHealthUI;
         combatant.StatusChanged += UpdateStatusUI;
 
-        UpdateHealthUI(combatant.currentHealth, combatant.maxHealth);
+        UpdateHealthUI(combatant.currentHealth, combatant.maxHealth, combatant.tempBlock);
         SetUpVisuals(combatant);
     }
 
-    abstract protected void UpdateHealthUI(int current, int max);
+    abstract protected void UpdateHealthUI(int current, int max, int tempBlock);
 
     abstract protected void UpdateStatusUI(List<StatusCondition> statuses);
 

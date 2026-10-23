@@ -6,9 +6,8 @@ using UnityEngine;
 [CreateAssetMenu(menuName = "Attacks/Action")]
 public class AttackAction : ScriptableObject 
 {
-    public bool affectSelf;
-    public bool heal;
-    public int chooseAmount;
+    public DamageType damageType;
+    public int amountOfPlantsToAffect;
     public CombatAnimationType animation;
     public Vector3Int[] attackPositions;
     public StatusData[] status;

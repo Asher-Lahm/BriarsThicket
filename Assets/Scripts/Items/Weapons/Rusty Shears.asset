@@ -19,4 +19,3 @@ MonoBehaviour:
   purchasePrice: 0
   briarAttack:
   - {fileID: 11400000, guid: d979133b3176b8543bb81ca979bca38b, type: 2}
-  - {fileID: 11400000, guid: c45fa9c6c26698d4bb29d10954c10c0e, type: 2}

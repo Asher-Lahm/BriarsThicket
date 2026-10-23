@@ -22,7 +22,7 @@ public class BattleManager : MonoBehaviour
     public PlantBed currentBed;
     [SerializeField] PlayerInputReader playerInput;
     [SerializeField] CameraController camControl;
-    [SerializeField] BriarBattle briarBattle;
+    [SerializeField] public BriarBattle briarBattle;
     private bool plantsHaveTurn = true;
     //[[SerializeField]] List<Combatant> combatants;
 
@@ -63,7 +63,8 @@ public class BattleManager : MonoBehaviour
     {
         foreach(PlantSpot spot in currentBed.plantSpots)
         {
-            spot.plant.EvalStatuses();
+            if (spot.plant != null)
+                spot.plant.EvalStatuses(true);
         }
         plantsHaveTurn = true;
         briarBattle.ResetEnergy();
@@ -92,15 +93,18 @@ public class BattleManager : MonoBehaviour
                 Plant plant = plantSpot.plant;
                 Attack attack = plant.ChooseAttack();
                 Combatant target;
-                if (attack.plantTarget)
+                if (attack != null)
                 {
-                    target = currentBed.plantSpots[Random.Range(0, currentBed.plantSpots.Length - 1)].plant;
+                    if (attack.plantTarget)
+                    {
+                        target = plant;
+                    }
+                    else
+                    {
+                        target = briarBattle;
+                    }
+                    QueueAttack(attack, plant, target);
                 }
-                else
-                {
-                    target = briarBattle;
-                }
-                QueueAttack(attack, plant, target);
             }
         }
         StartCoroutine(ProcessAttackQueue());
@@ -159,7 +163,7 @@ public class BattleManager : MonoBehaviour
             }
             else
             {
-                if (action.chooseAmount == 0)
+                if (action.amountOfPlantsToAffect == 0)
                 {
                     foreach (Vector3Int ap in action.attackPositions)
                     {
@@ -170,16 +174,16 @@ public class BattleManager : MonoBehaviour
                         }
                         if (extraReciever != null)
                         {
-                            ApplyAP(attacker, reciever, action, ap);
+                            ApplyAP(attacker, extraReciever, action, ap);
                         }
                     }
                 }
                 else
                 {
                     Vector3Int[] attackRandom = action.attackPositions.OrderBy(x => Random.value).ToArray();
-                    for (int i = 0; i < action.chooseAmount; i++)
+                    int i = 0;
+                    foreach (Vector3Int ap in attackRandom)
                     {
-                        Vector3Int ap = attackRandom[i];
                         Combatant extraReciever = null;
                         if (reciever is Plant plant)
                         {
@@ -187,7 +191,12 @@ public class BattleManager : MonoBehaviour
                         }
                         if (extraReciever != null)
                         {
-                            ApplyAP(attacker, reciever, action, ap);
+                            ApplyAP(attacker, extraReciever, action, ap);
+                            i++;
+                            if (i >= action.amountOfPlantsToAffect)
+                            {
+                                break;
+                            }
                         }
                     }
                 }
@@ -198,14 +207,19 @@ public class BattleManager : MonoBehaviour
 
     private static void ApplyAP(Combatant attacker, Combatant reciever, AttackAction action, Vector3Int ap)
     {
-        
-        if (action.heal)
+        switch (action.damageType)
         {
-            reciever.Heal(ap.x);
-        }
-        else
-        {
-            reciever.TakeDamage(ap.x, attacker);
+            case DamageType.Heal:
+                reciever.Heal(ap.x);
+                break;
+            case DamageType.Attack:
+                print($"{reciever.name}.TakeDamage({ap.x}, {attacker.name}");
+                reciever.TakeDamage(ap.x, attacker);
+                break;
+            case DamageType.Block:
+                reciever.AddBlock(ap.x);
+                break;
+
         }
         foreach (StatusData status in action.status)
         {
