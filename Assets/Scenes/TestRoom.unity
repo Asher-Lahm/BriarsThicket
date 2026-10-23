@@ -2945,7 +2945,8 @@ MonoBehaviour:
   sideMenu: {fileID: 1545323163}
   selectorPrefab: {fileID: 3387011398030403683, guid: 4f7ca0ccf89f9bd489586d46ef3136fd,
     type: 3}
-  actionPrefab: {fileID: 0}
+  actionPrefab: {fileID: 3387011398030403683, guid: 1e8145e9bcfa4994cbab41fc81d24422,
+    type: 3}
   itemNameText: {fileID: 1379382801}
   itemDescriptionText: {fileID: 1295404535}
   energyText: {fileID: 1965883263}
@@ -2960,6 +2961,7 @@ MonoBehaviour:
   recipSelectPrefab: {fileID: 6695779238780038230, guid: f89234c279ad60c4fb3a8d5ef3c4d0f5,
     type: 3}
   mainButtons: {fileID: 556480372}
+  runAway: {fileID: 11400000, guid: 9fa8aeaba435eba44b126f690c2ba2a1, type: 2}
 --- !u!1 &698212568
 GameObject:
   m_ObjectHideFlags: 0
@@ -8549,7 +8551,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   battleMenu: {fileID: 692203318}
   healthBarContainer: {fileID: 1794156150}
-  healthBarPrefabPlant: {fileID: 6156583054651599000, guid: 7e9ee501866b78644a5ca7725c56d36e,
+  healthBarPrefabPlant: {fileID: 6156583054651599000, guid: 961d18f7daf4e484587971e6b75d4c22,
     type: 3}
   healthBarPrefabBriar: {fileID: 6156583054651599000, guid: 7e9ee501866b78644a5ca7725c56d36e,
     type: 3}
