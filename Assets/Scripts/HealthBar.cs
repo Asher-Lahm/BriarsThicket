@@ -9,29 +9,35 @@ using static UnityEngine.EventSystems.EventTrigger;
 
 public class HealthBar : HealthUI, IPointerExitHandler
 {
-    [SerializeField] private Slider slider;
-    [SerializeField] private TextMeshProUGUI nameText;
-    [SerializeField] private TextMeshProUGUI maxHealthText;
-    [SerializeField] private TextMeshProUGUI currentHealthText;
-    [SerializeField] private GameObject statusPanel;
-    [SerializeField] private TextMeshProUGUI statusNameText;
-    [SerializeField] private TextMeshProUGUI statusTurnsText;
-    [SerializeField] private TextMeshProUGUI statusDescText;
-    [SerializeField] private Transform statusParent;
-    [SerializeField] private StatusButton statusPrefab;
-    private List<StatusButton> buttons = new List<StatusButton>();
+    [SerializeField] protected Slider slider;
+    [SerializeField] protected Slider blockSlider;
+    [SerializeField] protected TextMeshProUGUI nameText;
+    [SerializeField] protected TextMeshProUGUI maxHealthText;
+    [SerializeField] protected TextMeshProUGUI currentHealthText;
+    [SerializeField] protected GameObject statusPanel;
+    [SerializeField] protected TextMeshProUGUI statusNameText;
+    [SerializeField] protected TextMeshProUGUI statusTurnsText;
+    [SerializeField] protected TextMeshProUGUI statusDescText;
+    [SerializeField] protected Transform statusParent;
+    [SerializeField] protected StatusButton statusPrefab;
+    protected List<StatusButton> buttons = new List<StatusButton>();
 
-    WorldUIFollower follower;
+    protected WorldUIFollower follower;
 
-    private void Awake()
+    protected void Awake()
     {
         follower = GetComponent<WorldUIFollower>();
     }
-    override protected void UpdateHealthUI(int current, int max)
+    override protected void UpdateHealthUI(int current, int max, int tempBlock)
     {
         slider.value = (float)current / max;
+        blockSlider.value = (float)tempBlock / max;
         maxHealthText.text = $"{max}";
-        currentHealthText.text = $"{current}";
+        currentHealthText.text = $"{current + tempBlock}";
+        foreach (StatusButton button in buttons)
+        {
+            button.UpdateVisuals();
+        }
     }
 
     override protected void UpdateStatusUI(List<StatusCondition> statuses)
@@ -45,6 +51,7 @@ public class HealthBar : HealthUI, IPointerExitHandler
         {
             StatusButton button = Instantiate(statusPrefab, statusParent);
             button.Initialize(status, this);
+            button.UpdateVisuals();
             buttons.Add(button);
         }
     }
@@ -57,7 +64,7 @@ public class HealthBar : HealthUI, IPointerExitHandler
         statusPanel.SetActive(true);
     }
 
-    private void HideStatusPanel()
+    protected void HideStatusPanel()
     {
         statusPanel.SetActive(false);
     }

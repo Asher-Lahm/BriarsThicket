@@ -58,27 +58,30 @@ public class BattleOptionsContainer : ItemSelector
         cancelCButton.Initialize(null, this);
         onItemSelected = item => callback((S)item);
         int i = 1;
-        foreach (InventoryEntry entry in items)
+        if (items != null)
         {
-            T item = (T)entry.item;
-            int j = 0;
-            while (j < entry.amount)
+            foreach (InventoryEntry entry in items)
             {
-                j++;
-                if (item is IAttackItem)
+                T item = (T)entry.item;
+                int j = 0;
+                while (j < entry.amount)
                 {
-                    IAttackItem attackItem = (IAttackItem)item;
-                    foreach (BriarAttackData attackData in attackItem.BriarAttack)
+                    j++;
+                    if (item is IAttackItem)
                     {
-                        GameObject buttonObject = Instantiate(buttonPrefab, itemContainer);
-                        Button button = buttonObject.GetComponent<Button>();
-                        BattleOptionButton cButton = buttonObject.GetComponent<BattleOptionButton>();
-                        cButton.Initialize(entry, attackData, this);
-                        button.onClick.AddListener(() => SelectItem(attackData));
-                        buttons.Add(button);
+                        IAttackItem attackItem = (IAttackItem)item;
+                        foreach (BriarAttackData attackData in attackItem.BriarAttack)
+                        {
+                            GameObject buttonObject = Instantiate(buttonPrefab, itemContainer);
+                            Button button = buttonObject.GetComponent<Button>();
+                            BattleOptionButton cButton = buttonObject.GetComponent<BattleOptionButton>();
+                            cButton.Initialize(entry, attackData, this);
+                            button.onClick.AddListener(() => SelectItem(attackData));
+                            buttons.Add(button);
 
-                        NavToPrevButton(button, buttons[i - 1]);
-                        i++;
+                            NavToPrevButton(button, buttons[i - 1]);
+                            i++;
+                        }
                     }
                 }
             }
@@ -89,6 +92,12 @@ public class BattleOptionsContainer : ItemSelector
             ChangeInitialSelection(buttons[1].gameObject);
         }
         base.Open();
+    }
+
+    public void ManuallyAddButton(Button button)
+    {
+        buttons.Add(button);
+        button.onClick.AddListener(() => SelectItem(button.GetComponent<BattleOptionButton>().weaponItem));
     }
 
     public void DisableButtons(int energy)

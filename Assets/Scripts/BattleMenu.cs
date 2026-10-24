@@ -25,6 +25,8 @@ public class BattleMenu : Menu
     RecipientSelectMenu recipientSelectMenu;
     [SerializeField] RecipientSelectMenu recipSelectPrefab;
     [SerializeField] GameObject mainButtons;
+    [SerializeField] BriarAttackData runAway;
+    Item selectedParentItem;
 
     bool actionToggled = false;
     bool attackToggled = false;
@@ -104,24 +106,24 @@ public class BattleMenu : Menu
 
         selectorMenu = null;
         selectorMenu = Instantiate(actionPrefab, sideMenu.transform);
+        selectorMenu.Initialize<WeaponItem, BriarAttackData>(null, ChooseRecipient);
+        selectorMenu.ItemUpdated += OnItemUpdated;
         selectorMenu.DisableButtons(bm.GetBriarEnergy());
     }
 
     public void RunFromBattle()
     {
-        
+        bm.EndBattle();
     }
 
     private void DestroySelectorMenu()
     {
-        print("Destroy selector menu called");
-        print($"Selector = {selectorMenu.gameObject.name}");
         if (selectorMenu != null)
         {
             selectorMenu.ItemUpdated -= OnItemUpdated;
             selectorMenu.Close();
             Destroy(selectorMenu.gameObject);
-            print("Destroyed");
+            selectorMenu = null;
         }
     }
 
@@ -147,8 +149,16 @@ public class BattleMenu : Menu
             sideMenu.SetActive(false);
             return;
         }
+        if (attack == runAway)
+        {
+            RunFromBattle();
+        }
         mainButtons.SetActive(false);
-        if (!attack.attacksAllEnemies && !attack.affectsSelf)
+        if (attack.affectsSelf)
+        {
+            QueueBriarAttack(attack, bm.briarBattle);
+        }
+        else if (!attack.attacksAllEnemies)
         {
             recipientSelectMenu = Instantiate(recipSelectPrefab, sideMenu.transform);
             recipientSelectMenu.Initialize(attack, bm.currentBed, QueueBriarAttack);
@@ -164,6 +174,10 @@ public class BattleMenu : Menu
             return;
         }
         bm.BriarQueueAttack(briarAttack, target);
+        if (selectedParentItem is FruitItem fruitItem)
+        {
+            inventory.RemoveItemFromInventory(fruitItem, 1);
+        }
     }
 
     public void UpdateBriarEnergyGraphic()
@@ -222,6 +236,7 @@ public class BattleMenu : Menu
         {
             itemImage.sprite = attackButton.weaponItem.texture;
             energyText.text = $"{attackButton.energyCost} Energy";
+            selectedParentItem = attackButton.parentItem;
             int i = 0;
             while (i < attackButton.energyCost)
             {

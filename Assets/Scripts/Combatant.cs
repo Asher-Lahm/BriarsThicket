@@ -10,13 +10,14 @@ public abstract class Combatant : MonoBehaviour
     public int maxHealth;
     public int defense;
     public int tempDefense = 0;
+    public int tempBlock = 0;
     public int tempStrength = 0;
     public float attackMultiplier = 1;
     public bool isInvulnerable = false;
     public float hitChance = 1;
     public float notStuckChance = 1;
     public Status status;
-    public event Action<int, int> HealthChanged;
+    public event Action<int, int, int> HealthChanged;
     public event Action<int> AttackEffect;
     public event Action<List<StatusCondition>> StatusChanged;
     [HideInInspector]
@@ -35,29 +36,60 @@ public abstract class Combatant : MonoBehaviour
 
     public virtual void TakeDamage(int damage, Combatant attacker)
     {
-        print("base take damage run");
-        int finalDamage = Mathf.Max((int)((damage + attacker.tempStrength) * attacker.attackMultiplier) - (defense + tempDefense), 0);
-        if (!isInvulnerable)
+        
+        int finalDamage = Mathf.Max((int)((damage + attacker.tempStrength) * attacker.attackMultiplier) - (defense + tempDefense + tempBlock), 0);
+        if (isInvulnerable)
         {
             finalDamage = 0;
         }
+        tempBlock = Mathf.Max(tempBlock - damage, 0);
         currentHealth = Mathf.Max(currentHealth - finalDamage, 0);
-        HealthChanged?.Invoke(currentHealth, maxHealth);
+        HealthChanged?.Invoke(currentHealth, maxHealth, tempBlock);
         AttackEffect?.Invoke(finalDamage);
     }
 
     public virtual void Heal(int amount)
     {
         currentHealth = Mathf.Min(currentHealth + amount, maxHealth);
-        HealthChanged?.Invoke(currentHealth, maxHealth);
+        HealthChanged?.Invoke(currentHealth, maxHealth, tempBlock);
+    }
+
+    public virtual void AddBlock(int amount)
+    {
+        tempBlock += Mathf.Min(maxHealth, amount);
+        HealthChanged?.Invoke(currentHealth, maxHealth, tempBlock);
     }
 
     public virtual void AddStatus(StatusCondition status)
     {
-        statusConditions.Add(status);
+        StatusCondition existingStatus = statusConditions.Find(s => s.status == status.status);
+        if (existingStatus != null)
+        {
+            existingStatus.turns += status.turns;
+        }
+        else
+        {
+            statusConditions.Add(status);
+        }
+        EvalStatuses(false);
     }
 
-    public virtual void EvalStatuses()
+    public virtual void RemoveStatus(StatusCondition status)
+    {
+        StatusCondition existingStatus = statusConditions.Find(s => s.status == status.status);
+        if (existingStatus != null)
+        {
+            statusConditions.Remove(existingStatus);
+        }
+        EvalStatuses(false);
+    }
+
+    public virtual void Die()
+    {
+
+    }
+
+    public virtual void EvalStatuses(bool newTurn)
     {
         tempDefense = 0;
         tempStrength = 0;
@@ -67,7 +99,8 @@ public abstract class Combatant : MonoBehaviour
         notStuckChance = 1;
         foreach (StatusCondition status in statusConditions)
         {
-            status.turns -= 1;
+            if (newTurn && !status.infinite)
+                status.turns -= 1;
             StatusData data = status.status;
             if (status.turns <= 0 && !status.infinite)
             {

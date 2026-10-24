@@ -16,6 +16,14 @@ public class StatusButton : MonoBehaviour, IPointerEnterHandler
         healthUI = parent;
         this.status = status;
     }
+
+    public void UpdateVisuals()
+    {
+        statusImage.sprite = status.status.icon;
+        turnsText.text = "";
+        if (!status.infinite)
+            turnsText.text = $"{status.turns}";
+    }
     protected void HighlightItem()
     {
         healthUI.UpdateStatusPanel(status);

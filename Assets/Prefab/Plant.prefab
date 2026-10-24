@@ -69,8 +69,17 @@ MonoBehaviour:
   currentHealth: 0
   maxHealth: 0
   defense: 0
-  statusTurns: 0
+  tempDefense: 0
+  tempBlock: 0
+  tempStrength: 0
+  attackMultiplier: 1
+  isInvulnerable: 0
+  hitChance: 1
+  notStuckChance: 1
   status: 0
   isAbleToAttack: 0
   isAttackable: 0
-  attacks: []
+  combatName: 
+  healthUITransform: {fileID: 0}
+  weak: 0
+  fatigueStatus: {fileID: 11400000, guid: 455029eb22c0c514f95dff1c0703c675, type: 2}

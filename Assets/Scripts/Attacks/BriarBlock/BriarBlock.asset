@@ -9,8 +9,9 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 6f42cd1ac38e935448bb829b7b19b4fd, type: 3}
-  m_Name: TestPlantAP1
+  m_Script: {fileID: 11500000, guid: bc82de89ebef2684395f4f101a40e49e, type: 3}
+  m_Name: BriarBlock
   m_EditorClassIdentifier: 
-  position: {x: 0, y: 0}
-  damage: 3
+  actions:
+  - {fileID: 11400000, guid: 06929c2694a25db4d88fa25ba19236d4, type: 2}
+  plantTarget: 0

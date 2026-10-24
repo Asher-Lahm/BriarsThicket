@@ -11,17 +11,39 @@ public class BattleOptionButton : ItemSelectButton
     [SerializeField] private Transform energyContainer;
     public int energyCost;
     public BriarAttackData weaponItem;
+    public Item parentItem;
+
+    public void Awake()
+    {
+        if (weaponItem == null)
+            return;
+        energyCost = weaponItem.energyCost;
+        optionName = weaponItem.itemName;
+        optionDescription = weaponItem.itemDescription;
+        imageObject.sprite = weaponItem.texture;
+        UpdateVisuals();
+        BattleOptionsContainer battleOptions = (BattleOptionsContainer)itemSelector;
+        battleOptions.ManuallyAddButton(GetComponent<Button>());
+    }
     public void Initialize(InventoryEntry inItem, BriarAttackData weaponItem, ItemSelector selector)
     {
-        if (inItem != null)
+        if (inItem != null && weaponItem != null)
         {
             entry = inItem;
             this.weaponItem = weaponItem;
             this.energyCost = weaponItem.energyCost;
             optionName = weaponItem.itemName;
             optionDescription = weaponItem.itemDescription;
-            imageObject.sprite = entry.item.texture;
-            UpdateVisuals();
+            parentItem = inItem.item;
+            if (weaponItem.texture == null)
+            {
+                imageObject.sprite = entry.item.texture;
+            }
+            else
+            {
+                imageObject.sprite = weaponItem.texture;
+            }
+                UpdateVisuals();
         }
 
         itemSelector = selector;
