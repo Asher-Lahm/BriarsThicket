@@ -1253,5 +1253,7 @@ MonoBehaviour:
   optionDescription: 
   bgObject: {fileID: 2302356295744871260}
   imageObject: {fileID: 4375234921957526201}
-  itemSelector: {fileID: 0}
+  itemSelector: {fileID: 6104236556388932498}
+  item: {fileID: 0}
   updateUI: 1
+  contentColor: {r: 1, g: 1, b: 1, a: 1}

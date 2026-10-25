@@ -14,6 +14,7 @@ public class ItemSelectButton : MonoBehaviour, ISelectHandler, IPointerEnterHand
     public Image imageObject;
     public ItemSelector itemSelector;
     protected InventoryEntry entry;
+    public Item preItem;
     public bool updateUI = true;
     public Color contentColor = new Color(1, 1, 1);
 

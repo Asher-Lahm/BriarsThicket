@@ -23,7 +23,7 @@ public class BattleOptionButton : ItemSelectButton
         imageObject.sprite = weaponItem.texture;
         UpdateVisuals();
         BattleOptionsContainer battleOptions = (BattleOptionsContainer)itemSelector;
-        battleOptions.ManuallyAddButton(GetComponent<Button>());
+        //battleOptions.ManuallyAddButton(GetComponent<Button>());
     }
     public void Initialize(InventoryEntry inItem, BriarAttackData weaponItem, ItemSelector selector)
     {
