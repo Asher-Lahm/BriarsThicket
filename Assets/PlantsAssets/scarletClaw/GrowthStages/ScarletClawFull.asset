@@ -15,9 +15,10 @@ MonoBehaviour:
   prefab: {fileID: 639265416033938997, guid: 25ee795dc605e0542be91f6384105482, type: 3}
   baseDefense: 0
   baseMaxHealth: 12
-  baseFatigueHealth: 3
+  baseFatigueHealth: 4
   attacks:
   - {fileID: 11400000, guid: 69bdb33c25c156b458b4b17e9e09fa1d, type: 2}
+  - {fileID: 11400000, guid: 115d0e757f62fcb4093e4e8dc0a12778, type: 2}
   isFightable: 1
   dayMaterial: {fileID: 2100000, guid: 809aff3735300e447914ef327812f413, type: 2}
   nightMaterial: {fileID: 2100000, guid: 07117e1d1bf525146bb1d1d61f8a21fb, type: 2}

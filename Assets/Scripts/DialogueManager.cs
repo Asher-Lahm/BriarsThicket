@@ -72,7 +72,7 @@ public class DialogueManager : MonoBehaviour
 
     public void AdvanceDialogue()
     {
-        if (!evaluatingConditions && !makingChoice && isDialogue)
+        if (!evaluatingConditions && !makingChoice && isDialogue && currentNode.automaticProgressionTime == 0)
         {
             if (currentNode.next != null)
             {

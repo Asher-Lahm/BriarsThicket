@@ -6,6 +6,7 @@ using UnityEngine;
 [CreateAssetMenu(menuName = "Attacks/Action")]
 public class AttackAction : ScriptableObject 
 {
+    public bool affectSelf;
     public DamageType damageType;
     public int amountOfPlantsToAffect;
     public CombatAnimationType animation;

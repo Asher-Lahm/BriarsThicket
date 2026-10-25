@@ -16,6 +16,9 @@ public abstract class Combatant : MonoBehaviour
     public bool isInvulnerable = false;
     public float hitChance = 1;
     public float notStuckChance = 1;
+    public int healthEachTurn = 0;
+    public int damageEachTurn = 0;
+    public bool skipTurn;
     public Status status;
     public event Action<int, int, int> HealthChanged;
     public event Action<int> AttackEffect;
@@ -34,10 +37,24 @@ public abstract class Combatant : MonoBehaviour
         isAttackable = true;
     }
 
+    public void NewTurn()
+    {
+        TakeDamage(damageEachTurn, null);
+        Heal(healthEachTurn);
+        EvalStatuses(true);
+        tempBlock = 0;
+    }
+
     public virtual void TakeDamage(int damage, Combatant attacker)
     {
-        
-        int finalDamage = Mathf.Max((int)((damage + attacker.tempStrength) * attacker.attackMultiplier) - (defense + tempDefense + tempBlock), 0);
+        int aTempStrength = 0;
+        float aAttackMult = 1;
+        if (attacker != null)
+        {
+            aTempStrength = attacker.tempStrength;
+            aAttackMult = attacker.attackMultiplier;
+        }
+        int finalDamage = Mathf.Max((int)((damage + aTempStrength) * aAttackMult) - (defense + tempDefense + tempBlock), 0);
         if (isInvulnerable)
         {
             finalDamage = 0;
@@ -97,27 +114,30 @@ public abstract class Combatant : MonoBehaviour
         isInvulnerable = false;
         hitChance = 1;
         notStuckChance = 1;
+        healthEachTurn = 0;
+        damageEachTurn = 0;
+        skipTurn = false;
         foreach (StatusCondition status in statusConditions)
         {
             if (newTurn && !status.infinite)
                 status.turns -= 1;
+        }
+        statusConditions.RemoveAll(status => status.turns <= 0 && !status.infinite);
+        foreach (StatusCondition status in statusConditions)
+        {
             StatusData data = status.status;
-            if (status.turns <= 0 && !status.infinite)
+            attackMultiplier *= data.attackMultiplier;
+            tempStrength += data.addToAttack;
+            tempDefense += data.addToDefense;
+            hitChance *= data.missChance;
+            notStuckChance *= data.stuckChance;
+            isInvulnerable = isInvulnerable || data.invulnerable;
+            healthEachTurn += data.healEachTurn;
+            damageEachTurn += data.damageEachTurn;
+            skipTurn = data.skipTurn;
+            if (data.skipTurn)
             {
-                statusConditions.Remove(status);
-            } 
-            else
-            {
-                attackMultiplier *= data.attackMultiplier;
-                tempStrength += data.addToAttack;
-                tempDefense += data.addToDefense;
-                hitChance *= data.missChance;
-                notStuckChance *= data.stuckChance;
-                isInvulnerable = isInvulnerable || data.invulnerable;
-                if (data.skipTurn)
-                {
-                    notStuckChance = 0;
-                }
+                notStuckChance = 0;
             }
         }
         StatusChanged?.Invoke(statusConditions);
