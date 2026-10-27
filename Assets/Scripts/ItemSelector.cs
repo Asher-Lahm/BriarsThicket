@@ -83,11 +83,14 @@ public class ItemSelector : Menu
 
     public virtual void Initialize<T, S>(InventoryEntry[] items, Action<S> callback) where T : Item where S : Item
     {
+        /*
         Button cancelButton = this.initialSelection.GetComponent<Button>();
         ItemSelectButton cancelCButton = this.initialSelection.GetComponent<ItemSelectButton>();
         buttons.Add(cancelButton);
         cancelButton.onClick.AddListener(() => SelectItem(null));
         cancelCButton.Initialize(null, this);
+        */
+        ScanForButtons();
         if (clickBlock != null)
             clickBlock.onClick.AddListener(() => SelectItem(null));
 
@@ -115,6 +118,17 @@ public class ItemSelector : Menu
         base.Open();
     }
 
+    protected void ScanForButtons()
+    {
+        foreach (Transform child in itemContainer.transform)
+        {
+            Button button = child.GetComponent<Button>();
+            ItemSelectButton cButton = child.GetComponent<ItemSelectButton>();
+            buttons.Add(button);
+            button.onClick.AddListener(() => SelectItem(cButton.preItem));
+        }
+    }
+
     protected virtual void NavToPrevButton (Button button1, Button button2)
     {
         Navigation currentNav = button1.navigation;
@@ -129,6 +143,7 @@ public class ItemSelector : Menu
     {
         Action<Item> callback = onItemSelected;
         onItemSelected = null;
+        print("item selected");
 
         callback?.Invoke(item);
 

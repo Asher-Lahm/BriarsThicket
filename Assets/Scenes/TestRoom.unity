@@ -3444,6 +3444,7 @@ MonoBehaviour:
   - {fileID: 11400000, guid: 0fab969537b14fa47b273b09af10ef3c, type: 2}
   - {fileID: 11400000, guid: 48d5f90f039247248a7b6cacb6652a09, type: 2}
   - {fileID: 11400000, guid: de834738abb75414ea116ac3c47f247c, type: 2}
+  - {fileID: 11400000, guid: 6a8e70f9076fc584d83aed138de6c1bb, type: 2}
   fruits:
   - {fileID: 11400000, guid: 5ca4947145a26a4478049efcaf82c5fd, type: 2}
   - {fileID: 11400000, guid: d2a6e1fb96f92434e983b680c8602322, type: 2}

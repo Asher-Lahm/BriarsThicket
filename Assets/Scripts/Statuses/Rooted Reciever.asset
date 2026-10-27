@@ -1,0 +1,27 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d96cb087aa6e8794f883d9a3720ffbab, type: 3}
+  m_Name: Rooted Reciever
+  m_EditorClassIdentifier: 
+  statusName: Rooted
+  description: Drains one HP every turn and gives it to the plant that rooted you.
+  icon: {fileID: 0}
+  attackMultiplier: 0
+  addToAttack: 0
+  addToDefense: 0
+  healEachTurn: 1
+  damageEachTurn: 0
+  skipTurn: 0
+  stuckChance: 0
+  missChance: 0
+  invulnerable: 0
+  infinite: 0

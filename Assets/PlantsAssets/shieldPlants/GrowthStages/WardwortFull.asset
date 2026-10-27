@@ -17,7 +17,9 @@ MonoBehaviour:
   baseMaxHealth: 6
   baseFatigueHealth: 2
   attacks:
-  - {fileID: 11400000, guid: 69bdb33c25c156b458b4b17e9e09fa1d, type: 2}
+  - {fileID: 11400000, guid: 9698cc0fe10f02540870e972680d6aeb, type: 2}
+  - {fileID: 11400000, guid: 11b2b3a1e7af7054aa6af46e9b376ddb, type: 2}
+  - {fileID: 11400000, guid: e802612610c046b4b92a3615be6924b5, type: 2}
   isFightable: 1
   dayMaterial: {fileID: 2100000, guid: 844e7d93cd95fa64ea1a0413ddd2cbfe, type: 2}
   nightMaterial: {fileID: 2100000, guid: 50d3c1fcfcaf2e84c95a87095480145d, type: 2}

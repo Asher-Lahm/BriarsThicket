@@ -1,4 +1,3 @@
-using JetBrains.Annotations;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -64,7 +63,7 @@ public class BattleManager : MonoBehaviour
         foreach(PlantSpot spot in currentBed.plantSpots)
         {
             if (spot.plant != null)
-                spot.plant.EvalStatuses(true);
+                spot.plant.NewTurn();
         }
         plantsHaveTurn = true;
         briarBattle.ResetEnergy();
@@ -112,6 +111,7 @@ public class BattleManager : MonoBehaviour
                         target = briarBattle;
                     }
                     QueueAttack(attack, plant, target);
+                    print($"{attack.name}");
                 }
             }
         }
@@ -132,9 +132,8 @@ public class BattleManager : MonoBehaviour
             {
                 yield return StartCoroutine(PerformAttack(currentAttack));
             }
-            
 
-            yield return new WaitForSeconds(0.5f);
+            yield return new WaitForSeconds(1f);
         }
         if (briarBattle.energy > 0)
         {
@@ -164,10 +163,20 @@ public class BattleManager : MonoBehaviour
 
         foreach(AttackAction action in attack.actions)
         {
+            if (Random.value > attacker.notStuckChance)
+            {
+                //fail
+                yield return new WaitForSeconds(0.5f);
+            }
             //attacker.playAnimation
+            Combatant newReciever = reciever;
+            if (action.affectSelf)
+            {
+                newReciever = attacker;
+            }
             if (action.attackPositions.Length == 1)
             {
-                ApplyAP(attacker, reciever, action, action.attackPositions[0]);
+                ApplyAP(attacker, newReciever, action, action.attackPositions[0]);
             }
             else
             {
@@ -215,13 +224,13 @@ public class BattleManager : MonoBehaviour
 
     private static void ApplyAP(Combatant attacker, Combatant reciever, AttackAction action, Vector3Int ap)
     {
+        print($"{action.name}, {attacker.combatName}, {reciever.combatName}");
         switch (action.damageType)
         {
             case DamageType.Heal:
                 reciever.Heal(ap.x);
                 break;
             case DamageType.Attack:
-                print($"{reciever.name}.TakeDamage({ap.x}, {attacker.name}");
                 reciever.TakeDamage(ap.x, attacker);
                 break;
             case DamageType.Block:

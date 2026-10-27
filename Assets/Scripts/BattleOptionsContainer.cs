@@ -51,11 +51,14 @@ public class BattleOptionsContainer : ItemSelector
 
     public override void Initialize<T, S>(InventoryEntry[] items, Action<S> callback)
     {
+        /*
         Button cancelButton = this.initialSelection.GetComponent<Button>();
         ItemSelectButton cancelCButton = this.initialSelection.GetComponent<ItemSelectButton>();
         buttons.Add(cancelButton);
         cancelButton.onClick.AddListener(() => SelectItem(null));
         cancelCButton.Initialize(null, this);
+        */
+        ScanForButtons();
         onItemSelected = item => callback((S)item);
         int i = 1;
         if (items != null)
