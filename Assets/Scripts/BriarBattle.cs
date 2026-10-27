@@ -21,7 +21,7 @@ public class BriarBattle : Combatant
 
     public void ResetEnergy()
     {
-        energy = maxEnergy;
+        energy = maxEnergy + bonusEnergy;
     }
 
     protected override void Awake()

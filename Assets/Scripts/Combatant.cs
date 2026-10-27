@@ -16,6 +16,7 @@ public abstract class Combatant : MonoBehaviour
     public bool isInvulnerable = false;
     public float hitChance = 1;
     public float notStuckChance = 1;
+    public int bonusEnergy = 0;
     public Status status;
     public event Action<int, int, int> HealthChanged;
     public event Action<int> AttackEffect;
@@ -97,6 +98,7 @@ public abstract class Combatant : MonoBehaviour
         isInvulnerable = false;
         hitChance = 1;
         notStuckChance = 1;
+        bonusEnergy = 0;
         foreach (StatusCondition status in statusConditions)
         {
             if (newTurn && !status.infinite)
@@ -114,6 +116,7 @@ public abstract class Combatant : MonoBehaviour
                 hitChance *= data.missChance;
                 notStuckChance *= data.stuckChance;
                 isInvulnerable = isInvulnerable || data.invulnerable;
+                bonusEnergy += data.energyBoost;
                 if (data.skipTurn)
                 {
                     notStuckChance = 0;

@@ -16,7 +16,8 @@ MonoBehaviour:
   itemDescription: Deals 2 damage to a chosen plant and any plants in front of or
     behind it.
   texture: {fileID: 21300000, guid: 7e5070c3801754c40acf16bca30945b5, type: 3}
-  attack: {fileID: 11400000, guid: 68a942886bf99644aba912c0feac25cb, type: 2}
+  attackOnPlant: {fileID: 11400000, guid: 68a942886bf99644aba912c0feac25cb, type: 2}
+  attackOnBriar: {fileID: 0}
   energyCost: 1
   attacksAllEnemies: 0
   affectsSelf: 0

@@ -16,7 +16,7 @@ public class RecipientSelectMenu : Menu
     RectTransform recipRectTransform;
     List<RecipientButton> buttons = new List<RecipientButton>();
     BriarAttackData attackData;
-    [SerializeField] BriarBattle briar;
+    [SerializeField] Button briarButton;
     public Action<RecipientButton> RecipientUpdated;
     RecipientButton selectedRecipient;
     [SerializeField] protected Button clickBlock;
@@ -27,13 +27,27 @@ public class RecipientSelectMenu : Menu
         RecipientUpdated?.Invoke(selectedRecipient);
     }
 
-    public void Initialize(BriarAttackData attack, PlantBed inBed, Action<BriarAttackData, Combatant> callback)
+    public void Initialize(BriarAttackData attack, PlantBed inBed, BriarBattle inBriar, Action<BriarAttackData, Combatant> callback)
     {
         Button cancelButton = this.initialSelection.GetComponent<Button>();
         RecipientButton cancelRButton = this.initialSelection.GetComponent<RecipientButton>();
         buttons.Add(cancelRButton);
         cancelButton.onClick.AddListener(() => SelectRecipient(null, null));
         cancelRButton.Initialize(null, this);
+
+        RecipientButton rBriarButton = briarButton.GetComponent<RecipientButton>();
+        buttons.Add(rBriarButton);
+        briarButton.onClick.AddListener(() => SelectRecipient(attack, inBriar));
+        rBriarButton.Initialize(inBriar, this);
+        if (attack.attackOnBriar == null)
+        {
+            briarButton.gameObject.SetActive(false);
+        } else
+        {
+            briarButton.gameObject.SetActive(true);
+        }
+
+
         if (clickBlock != null)
             clickBlock.onClick.AddListener(() => SelectRecipient(null, null));
         recipGrid = recipientTransform.GetComponent<GridLayoutGroup>();

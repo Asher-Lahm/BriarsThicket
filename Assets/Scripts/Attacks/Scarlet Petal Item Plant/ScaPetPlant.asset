@@ -10,7 +10,7 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: bc82de89ebef2684395f4f101a40e49e, type: 3}
-  m_Name: Scarlet Petal
+  m_Name: ScaPetPlant
   m_EditorClassIdentifier: 
   actions:
   - {fileID: 11400000, guid: d68dc8f0c3f6b2c449ac3f3e10a5077a, type: 2}

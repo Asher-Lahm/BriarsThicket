@@ -14,6 +14,7 @@ public class StatusData : ScriptableObject
     public int addToDefense;
     public int healEachTurn;
     public bool skipTurn;
+    public int energyBoost;
     public float stuckChance;
     public float missChance;
     public bool invulnerable;

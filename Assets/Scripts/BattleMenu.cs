@@ -161,7 +161,7 @@ public class BattleMenu : Menu
         else if (!attack.attacksAllEnemies)
         {
             recipientSelectMenu = Instantiate(recipSelectPrefab, sideMenu.transform);
-            recipientSelectMenu.Initialize(attack, bm.currentBed, QueueBriarAttack);
+            recipientSelectMenu.Initialize(attack, bm.currentBed, bm.briarBattle, QueueBriarAttack);
         }
     }
 

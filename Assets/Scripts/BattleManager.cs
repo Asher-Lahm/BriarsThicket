@@ -79,7 +79,15 @@ public class BattleManager : MonoBehaviour
     {
         if (briarBattle.UseEnergy(briarAttack.energyCost))
         {
-            attackQueue.Enqueue(new AttackQueueItem(briarAttack.attack, briarBattle, reciever));
+            Attack attack;
+            if (reciever = briarBattle)
+            {
+                attack = briarAttack.attackOnBriar;
+            } else
+            {
+                attack = briarAttack.attackOnPlant;
+            }
+            attackQueue.Enqueue(new AttackQueueItem(attack, briarBattle, reciever));
             StartCoroutine(ProcessAttackQueue());
         }
     }

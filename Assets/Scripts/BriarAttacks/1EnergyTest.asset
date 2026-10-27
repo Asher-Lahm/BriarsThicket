@@ -17,7 +17,8 @@ MonoBehaviour:
     and does 3 Damage to one plant.Test attack. There is no shovel in the final game.
     Uses 1 Energy and does 3 Damage to one plant.
   texture: {fileID: 0}
-  attack: {fileID: 11400000, guid: 8bf00e2e089eca04f93c8915327639a4, type: 2}
+  attackOnPlant: {fileID: 11400000, guid: 8bf00e2e089eca04f93c8915327639a4, type: 2}
+  attackOnBriar: {fileID: 0}
   energyCost: 1
   attacksAllEnemies: 0
   affectsSelf: 0
