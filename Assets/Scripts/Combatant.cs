@@ -38,7 +38,7 @@ public abstract class Combatant : MonoBehaviour
         isAttackable = true;
     }
 
-    public void NewTurn()
+    public virtual void NewTurn()
     {
         TakeDamage(damageEachTurn, null);
         Heal(healthEachTurn);
@@ -123,6 +123,7 @@ public abstract class Combatant : MonoBehaviour
         {
             if (newTurn && !status.infinite)
                 status.turns -= 1;
+            print($"{this.combatName} {status.status.statusName} ticked down.");
         }
         statusConditions.RemoveAll(status => status.turns <= 0 && !status.infinite);
         foreach (StatusCondition status in statusConditions)

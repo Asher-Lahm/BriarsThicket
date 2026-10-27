@@ -7,7 +7,8 @@ public class BriarAttackData : Item
 {
     public Attack attackOnPlant;
     public Attack attackOnBriar;
-    public int energyCost;
+    public int plantEnergyCost;
+    public int briarEnergyCost;
     public bool attacksAllEnemies;
     public bool affectsSelf;
 }

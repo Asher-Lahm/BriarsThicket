@@ -65,8 +65,8 @@ public class BattleManager : MonoBehaviour
             if (spot.plant != null)
                 spot.plant.NewTurn();
         }
+        briarBattle.NewTurn();
         plantsHaveTurn = true;
-        briarBattle.ResetEnergy();
         ReturnBriarControl();
     }
 
@@ -76,16 +76,20 @@ public class BattleManager : MonoBehaviour
     }
     public void BriarQueueAttack(BriarAttackData briarAttack, Combatant reciever)
     {
-        if (briarBattle.UseEnergy(briarAttack.energyCost))
+        Attack attack;
+        int energyCost;
+        if (reciever == briarBattle)
         {
-            Attack attack;
-            if (reciever = briarBattle)
-            {
-                attack = briarAttack.attackOnBriar;
-            } else
-            {
-                attack = briarAttack.attackOnPlant;
-            }
+            attack = briarAttack.attackOnBriar;
+            energyCost = briarAttack.briarEnergyCost;
+        }
+        else
+        {
+            attack = briarAttack.attackOnPlant;
+            energyCost = briarAttack.plantEnergyCost;
+        }
+        if (briarBattle.UseEnergy(energyCost))
+        {
             attackQueue.Enqueue(new AttackQueueItem(attack, briarBattle, reciever));
             StartCoroutine(ProcessAttackQueue());
         }
@@ -159,7 +163,7 @@ public class BattleManager : MonoBehaviour
         Combatant attacker = currentAttack.attacker;
         Combatant reciever = currentAttack.reciever;
 
-        
+        print($"attack: {attack.name}");
 
         foreach(AttackAction action in attack.actions)
         {

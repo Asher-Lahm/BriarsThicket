@@ -9,15 +9,15 @@ public class StatusData : ScriptableObject
     [TextArea]
     public string description;
     public Sprite icon;
-    public float attackMultiplier;
-    public int addToAttack;
-    public int addToDefense;
-    public int healEachTurn;
-    public int damageEachTurn;
-    public bool skipTurn;
-    public int energyBoost;
-    public float stuckChance;
-    public float missChance;
-    public bool invulnerable;
-    public bool infinite;
+    public float attackMultiplier = 1;
+    public int addToAttack = 0;
+    public int addToDefense = 0;
+    public int healEachTurn = 0;
+    public int damageEachTurn = 0;
+    public bool skipTurn = false;
+    public int energyBoost = 0;
+    public float stuckChance = 0;
+    public float missChance = 0;
+    public bool invulnerable = false;
+    public bool infinite = false;
 }

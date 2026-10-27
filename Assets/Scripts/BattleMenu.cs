@@ -12,11 +12,13 @@ public class BattleMenu : Menu
     [SerializeField] BattleOptionsContainer actionPrefab;
     [SerializeField] private TextMeshProUGUI itemNameText;
     [SerializeField] private TextMeshProUGUI itemDescriptionText;
-    [SerializeField] private TextMeshProUGUI energyText;
+    [SerializeField] private TextMeshProUGUI plantEnergyText;
     [SerializeField] private GameObject energyImage;
-    [SerializeField] private Transform energyContainer;
+    [SerializeField] private Transform plantEnergyContainer;
     [SerializeField] private TextMeshProUGUI briarEnergyText;
     [SerializeField] private Transform briarEnergyContainer;
+    [SerializeField] private TextMeshProUGUI currentEnergy;
+    [SerializeField] private Transform currentEnergyContainer;
     [SerializeField] private Image itemImage;
     BattleOptionsContainer selectorMenu;
     [SerializeField] Inventory inventory;
@@ -162,6 +164,7 @@ public class BattleMenu : Menu
         {
             recipientSelectMenu = Instantiate(recipSelectPrefab, sideMenu.transform);
             recipientSelectMenu.Initialize(attack, bm.currentBed, bm.briarBattle, QueueBriarAttack);
+            recipientSelectMenu.DisableButtons(bm.GetBriarEnergy());
         }
     }
 
@@ -182,15 +185,15 @@ public class BattleMenu : Menu
 
     public void UpdateBriarEnergyGraphic()
     {
-        foreach (Transform child in briarEnergyContainer)
+        foreach (Transform child in currentEnergyContainer)
         {
             Destroy(child.gameObject);
         }
-        briarEnergyText.text = $"{bm.GetBriarEnergy()} Energy";
+        currentEnergy.text = $"{bm.GetBriarEnergy()} Energy";
 
         for (int i = 0; i < bm.GetBriarEnergy(); i++)
         {
-            Instantiate(energyImage, briarEnergyContainer);
+            Instantiate(energyImage, currentEnergyContainer);
         }
     }
 
@@ -235,13 +238,21 @@ public class BattleMenu : Menu
         if (selectedItemButton is BattleOptionButton attackButton)
         {
             itemImage.sprite = attackButton.weaponItem.texture;
-            energyText.text = $"{attackButton.energyCost} Energy";
+            plantEnergyText.text = $"{attackButton.energyCostPlant} Energy | Plant";
             selectedParentItem = attackButton.parentItem;
-            int i = 0;
-            while (i < attackButton.energyCost)
+            
+            for (int i = 0; i < attackButton.energyCostPlant; i++)
             {
-                Instantiate(energyImage, energyContainer);
-                i++;
+                Instantiate(energyImage, plantEnergyContainer);
+            }
+
+            if (attackButton.energyCostPlant != attackButton.energyCostBriar)
+            {
+                briarEnergyText.text = $"{attackButton.energyCostBriar} Energy | Briar";
+                for (int i = 0; i < attackButton.energyCostBriar; i++)
+                {
+                    Instantiate(energyImage, briarEnergyContainer);
+                }
             }
         }
     }
@@ -255,9 +266,14 @@ public class BattleMenu : Menu
     {
         itemNameText.text = "";
         itemDescriptionText.text = "";
-        energyText.text = "";
+        plantEnergyText.text = "";
+        briarEnergyText.text = "";
         itemImage.gameObject.SetActive(false);
-        foreach (Transform child in energyContainer)
+        foreach (Transform child in plantEnergyContainer)
+        {
+            Destroy(child.gameObject);
+        }
+        foreach (Transform child in briarEnergyContainer)
         {
             Destroy(child.gameObject);
         }

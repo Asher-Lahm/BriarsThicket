@@ -19,6 +19,12 @@ public class BriarBattle : Combatant
         return false;
     }
 
+    public override void NewTurn()
+    {
+        base.NewTurn();
+        ResetEnergy();
+    }
+
     public void ResetEnergy()
     {
         energy = maxEnergy + bonusEnergy;

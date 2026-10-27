@@ -29,6 +29,7 @@ public class RecipientSelectMenu : Menu
 
     public void Initialize(BriarAttackData attack, PlantBed inBed, BriarBattle inBriar, Action<BriarAttackData, Combatant> callback)
     {
+        attackData = attack;
         Button cancelButton = this.initialSelection.GetComponent<Button>();
         RecipientButton cancelRButton = this.initialSelection.GetComponent<RecipientButton>();
         buttons.Add(cancelRButton);
@@ -92,6 +93,22 @@ public class RecipientSelectMenu : Menu
             }
         }
         base.Open();
+    }
+
+    public void DisableButtons(int energy)
+    {
+        foreach (RecipientButton rButton in buttons)
+        {
+            Button button = rButton.GetComponent<Button>();
+            if (attackData.plantEnergyCost > energy && rButton.combatant is Plant)
+            {
+                button.interactable = false;
+            }
+            if (attackData.briarEnergyCost > energy && rButton.combatant is BriarBattle)
+            {
+                button.interactable = false;
+            }
+        }
     }
 
     private void DrawNullButton()

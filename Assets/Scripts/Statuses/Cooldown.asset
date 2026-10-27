@@ -15,11 +15,13 @@ MonoBehaviour:
   statusName: Cooldown
   description: Unable to attack while recovering from a big attack.
   icon: {fileID: 21300000, guid: 0e3d1b3be18903944a499d7d560b3490, type: 3}
-  attackMultiplier: 0
+  attackMultiplier: 1
   addToAttack: 0
   addToDefense: 0
   healEachTurn: 0
+  damageEachTurn: 0
   skipTurn: 1
+  energyBoost: 0
   stuckChance: 0
   missChance: 0
   invulnerable: 0
