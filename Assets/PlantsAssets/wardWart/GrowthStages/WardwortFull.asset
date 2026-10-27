@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6a8584553e79dad4c9a67452a5d350b2, type: 3}
   m_Name: WardwortFull
   m_EditorClassIdentifier: 
-  prefab: {fileID: 912840005949767666, guid: 0f86e517e20720746963a2f2da6feaa9, type: 3}
+  prefab: {fileID: 1862797312518217269, guid: c708be390339dd944a6de0ca7a5356a5, type: 3}
   baseDefense: 3
   baseMaxHealth: 6
   baseFatigueHealth: 2
