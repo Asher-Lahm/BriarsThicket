@@ -14,7 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   itemName: STICKY PLANT seed
   itemDescription: Plant this seed in your garden to grow a STICKY PLANT.
-  texture: {fileID: 21300000, guid: b51346d1be76fc44c945c61b15682b3f, type: 3}
+  texture: {fileID: 21300000, guid: b18c779083dcb1b4c82cc565d88f6ccc, type: 3}
   purchasePrice: 15
   sellPrice: 7
   plantToGrow: {fileID: 11400000, guid: 10d068bd0aedcd948bbdb31455144ebb, type: 2}

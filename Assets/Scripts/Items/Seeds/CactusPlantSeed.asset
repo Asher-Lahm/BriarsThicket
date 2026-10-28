@@ -14,7 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   itemName: CACTUS seed
   itemDescription: Plant this seed in your garden to grow a CACTUS.
-  texture: {fileID: 21300000, guid: b51346d1be76fc44c945c61b15682b3f, type: 3}
+  texture: {fileID: 21300000, guid: cbc65352a70c7114d84fbe150fe33d04, type: 3}
   purchasePrice: 15
   sellPrice: 7
-  plantToGrow: {fileID: 11400000, guid: 10d068bd0aedcd948bbdb31455144ebb, type: 2}
+  plantToGrow: {fileID: 11400000, guid: ee610eebc7cc51348ad0e57f56831399, type: 2}
