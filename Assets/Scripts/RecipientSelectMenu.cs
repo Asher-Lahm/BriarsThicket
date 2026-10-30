@@ -16,7 +16,7 @@ public class RecipientSelectMenu : Menu
     RectTransform recipRectTransform;
     List<RecipientButton> buttons = new List<RecipientButton>();
     BriarAttackData attackData;
-    [SerializeField] BriarBattle briar;
+    [SerializeField] Button briarButton;
     public Action<RecipientButton> RecipientUpdated;
     RecipientButton selectedRecipient;
     [SerializeField] protected Button clickBlock;
@@ -27,13 +27,28 @@ public class RecipientSelectMenu : Menu
         RecipientUpdated?.Invoke(selectedRecipient);
     }
 
-    public void Initialize(BriarAttackData attack, PlantBed inBed, Action<BriarAttackData, Combatant> callback)
+    public void Initialize(BriarAttackData attack, PlantBed inBed, BriarBattle inBriar, Action<BriarAttackData, Combatant> callback)
     {
+        attackData = attack;
         Button cancelButton = this.initialSelection.GetComponent<Button>();
         RecipientButton cancelRButton = this.initialSelection.GetComponent<RecipientButton>();
         buttons.Add(cancelRButton);
         cancelButton.onClick.AddListener(() => SelectRecipient(null, null));
         cancelRButton.Initialize(null, this);
+
+        RecipientButton rBriarButton = briarButton.GetComponent<RecipientButton>();
+        buttons.Add(rBriarButton);
+        briarButton.onClick.AddListener(() => SelectRecipient(attack, inBriar));
+        rBriarButton.Initialize(inBriar, this);
+        if (attack.attackOnBriar == null)
+        {
+            briarButton.gameObject.SetActive(false);
+        } else
+        {
+            briarButton.gameObject.SetActive(true);
+        }
+
+
         if (clickBlock != null)
             clickBlock.onClick.AddListener(() => SelectRecipient(null, null));
         recipGrid = recipientTransform.GetComponent<GridLayoutGroup>();
@@ -78,6 +93,22 @@ public class RecipientSelectMenu : Menu
             }
         }
         base.Open();
+    }
+
+    public void DisableButtons(int energy)
+    {
+        foreach (RecipientButton rButton in buttons)
+        {
+            Button button = rButton.GetComponent<Button>();
+            if (attackData.plantEnergyCost > energy && rButton.combatant is Plant)
+            {
+                button.interactable = false;
+            }
+            if (attackData.briarEnergyCost > energy && rButton.combatant is BriarBattle)
+            {
+                button.interactable = false;
+            }
+        }
     }
 
     private void DrawNullButton()

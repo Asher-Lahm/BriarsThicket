@@ -16,6 +16,7 @@ public abstract class Combatant : MonoBehaviour
     public bool isInvulnerable = false;
     public float hitChance = 1;
     public float notStuckChance = 1;
+    public int bonusEnergy = 0;
     public int healthEachTurn = 0;
     public int damageEachTurn = 0;
     public bool skipTurn;
@@ -37,7 +38,7 @@ public abstract class Combatant : MonoBehaviour
         isAttackable = true;
     }
 
-    public void NewTurn()
+    public virtual void NewTurn()
     {
         TakeDamage(damageEachTurn, null);
         Heal(healthEachTurn);
@@ -114,6 +115,7 @@ public abstract class Combatant : MonoBehaviour
         isInvulnerable = false;
         hitChance = 1;
         notStuckChance = 1;
+        bonusEnergy = 0;
         healthEachTurn = 0;
         damageEachTurn = 0;
         skipTurn = false;
@@ -121,6 +123,7 @@ public abstract class Combatant : MonoBehaviour
         {
             if (newTurn && !status.infinite)
                 status.turns -= 1;
+            print($"{this.combatName} {status.status.statusName} ticked down.");
         }
         statusConditions.RemoveAll(status => status.turns <= 0 && !status.infinite);
         foreach (StatusCondition status in statusConditions)

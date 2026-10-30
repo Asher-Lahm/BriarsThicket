@@ -1,0 +1,23 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6a8584553e79dad4c9a67452a5d350b2, type: 3}
+  m_Name: cactusFull
+  m_EditorClassIdentifier: 
+  prefab: {fileID: 6799320638769780367, guid: 17970e51c1a7c6b49a3e7c31bd7d05ba, type: 3}
+  baseDefense: 1
+  baseMaxHealth: 9
+  baseFatigueHealth: 3
+  attacks:
+  - {fileID: 11400000, guid: 69bdb33c25c156b458b4b17e9e09fa1d, type: 2}
+  isFightable: 1
+  dayMaterial: {fileID: 2100000, guid: 27fe7354d82c61d4f80e2d14c8193d5c, type: 2}
+  nightMaterial: {fileID: 2100000, guid: fac28a87855b7cc4bbe88fd6b5cbc6bb, type: 2}

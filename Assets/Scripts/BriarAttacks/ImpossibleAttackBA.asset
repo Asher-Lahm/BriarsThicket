@@ -15,7 +15,9 @@ MonoBehaviour:
   itemName: Special Shears Attack
   itemDescription: Does a MILLION damage.
   texture: {fileID: 21300000, guid: 94f680e2ffb750441971912ccb2de463, type: 3}
-  attack: {fileID: 11400000, guid: 4eb697c21d6fa3c43ad5b5ae470c4bb1, type: 2}
-  energyCost: 5
+  attackOnPlant: {fileID: 0}
+  attackOnBriar: {fileID: 0}
+  plantEnergyCost: 5
+  briarEnergyCost: 5
   attacksAllEnemies: 0
   affectsSelf: 0
