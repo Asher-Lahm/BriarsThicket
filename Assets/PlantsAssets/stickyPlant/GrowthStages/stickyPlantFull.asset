@@ -19,5 +19,5 @@ MonoBehaviour:
   attacks:
   - {fileID: 11400000, guid: 69bdb33c25c156b458b4b17e9e09fa1d, type: 2}
   isFightable: 1
-  dayMaterial: {fileID: 2100000, guid: 27fe7354d82c61d4f80e2d14c8193d5c, type: 2}
-  nightMaterial: {fileID: 2100000, guid: fac28a87855b7cc4bbe88fd6b5cbc6bb, type: 2}
+  dayMaterial: {fileID: 2100000, guid: 9d8e8647721262246ae5532214de750f, type: 2}
+  nightMaterial: {fileID: 2100000, guid: dc2d5c87344e6b64dbffbd2ba06c34a3, type: 2}
