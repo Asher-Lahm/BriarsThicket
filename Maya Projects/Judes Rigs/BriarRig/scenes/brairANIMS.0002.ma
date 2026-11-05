@@ -1,13 +1,10 @@
 //Maya ASCII 2024 scene
 //Name: brairANIMS.0002.ma
-//Last modified: Fri, Oct 23, 2026 01:38:23 PM
-//Codeset: 1252
-file -rdi 1 -ns "briar_v06" -rfn "briar_v06RN" -op "v=0;" -typ "mayaAscii" "E:/Briar's Thicket/BriarRig//scenes/briar_v06.ma";
-file -rdi 2 -ns "model" -rfn "briar_v06:modelRN" -op "v=0;" -typ "mayaAscii"
-		 "/Users/jkroeze2/Desktop/Briar//scenes/briar_model_cleaned.ma";
-file -r -ns "briar_v06" -dr 1 -rfn "briar_v06RN" -op "v=0;" -typ "mayaAscii" "E:/Briar's Thicket/BriarRig//scenes/briar_v06.ma";
+//Last modified: Tue, Nov 03, 2026 08:49:55 PM
+//Codeset: UTF-8
+file -rdi 1 -ns "BriarRig" -rfn "briar_v06RN" -op "v=0;" -typ "mayaAscii" "/Users/jkroeze2/Desktop/BriarsThicket/Maya Projects/Judes Rigs/BriarRig//scenes/briarRigTEST.ma";
+file -r -ns "BriarRig" -dr 1 -rfn "briar_v06RN" -op "v=0;" -typ "mayaAscii" "/Users/jkroeze2/Desktop/BriarsThicket/Maya Projects/Judes Rigs/BriarRig//scenes/briarRigTEST.ma";
 requires maya "2024";
-requires "stereoCamera" "10.0";
 requires -nodeType "aiOptions" -nodeType "aiAOVDriver" -nodeType "aiAOVFilter" "mtoa" "5.3.4.1";
 requires -nodeType "mayaUsdLayerManager" -dataType "pxrUsdStageData" "mayaUsdPlugin" "0.25.0";
 requires "stereoCamera" "10.0";
@@ -15,24 +12,24 @@ currentUnit -l centimeter -a degree -t ntsc;
 fileInfo "application" "maya";
 fileInfo "product" "Maya 2024";
 fileInfo "version" "2024";
-fileInfo "cutIdentifier" "202310181224-69282f2959";
-fileInfo "osv" "Windows 11 Enterprise v2009 (Build: 26200)";
-fileInfo "UUID" "3378F2FA-42E4-D9AD-55DA-C08FDB924D2B";
+fileInfo "cutIdentifier" "202607291313-3616f93589";
+fileInfo "osv" "Mac OS X 20.7.2";
+fileInfo "UUID" "7084832C-6A41-8FCD-FA04-FC8A17834D49";
 fileInfo "license" "education";
 createNode transform -s -n "persp";
 	rename -uid "1CA20DA3-40FF-F168-1F44-6480EFA6CBB7";
 	setAttr ".v" no;
-	setAttr ".t" -type "double3" 4.9195046079853926 12.845563063845248 40.567226378339548 ;
-	setAttr ".r" -type "double3" -5.7383527285303506 6.200000000000073 4.9988551737954525e-17 ;
+	setAttr ".t" -type "double3" 35.190084068504824 9.87820733635143 5.6331716407932539 ;
+	setAttr ".r" -type "double3" -15.338352727001118 444.5999999997008 0 ;
 createNode camera -s -n "perspShape" -p "persp";
 	rename -uid "CBA2F00B-4A8A-8FB9-8571-DE841F4BB881";
 	setAttr -k off ".v" no;
 	setAttr ".fl" 34.999999999999993;
-	setAttr ".coi" 40.514529148149613;
+	setAttr ".coi" 35.854174040216328;
 	setAttr ".imn" -type "string" "persp";
 	setAttr ".den" -type "string" "persp_depth";
 	setAttr ".man" -type "string" "persp_mask";
-	setAttr ".tp" -type "double3" 1.4400549888954712 0.08849206301771928 0.53512534161360437 ;
+	setAttr ".tp" -type "double3" 0.7664695019362413 0.39410970985620408 2.3791820142821338 ;
 	setAttr ".hc" -type "string" "viewSet -p %camera";
 createNode transform -s -n "top";
 	rename -uid "49828BC6-4B70-8998-5B60-6CBD9F908E1A";
@@ -87,21 +84,21 @@ createNode camera -s -n "sideShape" -p "side";
 	setAttr ".o" yes;
 	setAttr ".ai_translator" -type "string" "orthographic";
 createNode lightLinker -s -n "lightLinker1";
-	rename -uid "B03BF7E4-40E9-0E46-F409-C99B63997A99";
-	setAttr -s 31 ".lnk";
-	setAttr -s 31 ".slnk";
+	rename -uid "90C4368B-4246-3792-65F8-E1B719DE54BB";
+	setAttr -s 32 ".lnk";
+	setAttr -s 32 ".slnk";
 createNode shapeEditorManager -n "shapeEditorManager";
-	rename -uid "CA31EE77-4317-6446-7310-32AEB102D314";
+	rename -uid "5CF5ADC1-2C42-730B-FB9E-B79AC1340502";
 	setAttr ".bsdt[0].bscd" -type "Int32Array" 1 0 ;
 createNode poseInterpolatorManager -n "poseInterpolatorManager";
-	rename -uid "C30A31B1-4B00-C93D-02D8-DD8FC23509ED";
+	rename -uid "6765ECCD-6444-E18E-24C7-C68354CAC107";
 createNode displayLayerManager -n "layerManager";
-	rename -uid "CD5D28DD-49F9-2B03-F9DD-3B99329A7335";
+	rename -uid "C642D001-F543-FBFD-1477-A99EF768B1BF";
 createNode displayLayer -n "defaultLayer";
 	rename -uid "5602E6C8-4919-3CF1-0745-FC89425277F9";
 	setAttr ".ufem" -type "stringArray" 0  ;
 createNode renderLayerManager -n "renderLayerManager";
-	rename -uid "3D9CDDA5-464D-C8B7-4A19-58A2A045B5CA";
+	rename -uid "B58DFFC3-E044-4769-306F-3C908846B487";
 createNode renderLayer -n "defaultRenderLayer";
 	rename -uid "1D27116F-45E8-6062-974E-7E85BC658A1F";
 	setAttr ".g" yes;
@@ -120,7 +117,10 @@ createNode aiAOVDriver -s -n "defaultArnoldDisplayDriver";
 	setAttr ".output_mode" 0;
 createNode reference -n "briar_v06RN";
 	rename -uid "2E3E4A9B-4CA3-CBB9-C44E-85AF0D1416F7";
-	setAttr -s 275 ".phl";
+	setAttr -s 2 ".fn";
+	setAttr ".fn[0]" -type "string" "/Users/jkroeze2/Desktop/BriarsThicket/Maya Projects/Judes Rigs/BriarRig//scenes/briarRigTEST.ma";
+	setAttr ".fn[1]" -type "string" "/Users/jkroeze2/Desktop/BriarsThicket/Maya Projects/Judes Rigs/BriarRig//scenes/briarRig.ma";
+	setAttr -s 284 ".phl";
 	setAttr ".phl[1]" 0;
 	setAttr ".phl[2]" 0;
 	setAttr ".phl[3]" 0;
@@ -396,605 +396,647 @@ createNode reference -n "briar_v06RN";
 	setAttr ".phl[273]" 0;
 	setAttr ".phl[274]" 0;
 	setAttr ".phl[275]" 0;
+	setAttr ".phl[276]" 0;
+	setAttr ".phl[277]" 0;
+	setAttr ".phl[278]" 0;
+	setAttr ".phl[279]" 0;
+	setAttr ".phl[280]" 0;
+	setAttr ".phl[281]" 0;
+	setAttr ".phl[282]" 0;
+	setAttr ".phl[283]" 0;
+	setAttr ".phl[284]" 0;
 	setAttr ".ed" -type "dataReferenceEdits" 
 		"briar_v06RN"
+		"BriarRig:modelRN" 0
 		"briar_v06RN" 0
 		"briar_v06:modelRN" 0
-		"briar_v06RN" 297
-		2 "|briar_v06:Group|briar_v06:MotionSystem|briar_v06:FKSystem|briar_v06:FKParentConstraintToChest_M|briar_v06:FKOffsetNeck_M|briar_v06:FKXNeck_M|briar_v06:FKOffsetNeckPart1_M|briar_v06:FKExtraNeckPart1_M|briar_v06:FKNeckPart1_M|briar_v06:FKXNeckPart1_M|briar_v06:FKOffsetNeckPart2_M|briar_v06:FKExtraNeckPart2_M|briar_v06:FKNeckPart2_M|briar_v06:FKXNeckPart2_M|briar_v06:FKOffsetHead_M|briar_v06:FKGlobalHead_M|briar_v06:FKExtraHead_M|briar_v06:FKHead_M|briar_v06:FKXHead_M|briar_v06:FKOffsetjoint1_M|briar_v06:FKExtrajoint1_M|briar_v06:FKjoint1_M|briar_v06:FKXjoint1_M|briar_v06:FKOffsetjoint2_L|briar_v06:FKExtrajoint2_L|briar_v06:FKjoint2_L|briar_v06:FKXjoint2_L" 
+		"briar_v06RN" 313
+		2 "|BriarRig:Group|BriarRig:MotionSystem|BriarRig:FKSystem|BriarRig:FKParentConstraintToChest_M|BriarRig:FKOffsetNeck_M|BriarRig:FKXNeck_M|BriarRig:FKOffsetNeckPart1_M|BriarRig:FKExtraNeckPart1_M|BriarRig:FKNeckPart1_M|BriarRig:FKXNeckPart1_M|BriarRig:FKOffsetNeckPart2_M|BriarRig:FKExtraNeckPart2_M|BriarRig:FKNeckPart2_M|BriarRig:FKXNeckPart2_M|BriarRig:FKOffsetHead_M|BriarRig:FKGlobalHead_M|BriarRig:FKExtraHead_M|BriarRig:FKHead_M|BriarRig:FKXHead_M|BriarRig:FKOffsetjoint1_M|BriarRig:FKExtrajoint1_M|BriarRig:FKjoint1_M|BriarRig:FKXjoint1_M|BriarRig:FKOffsetjoint2_L|BriarRig:FKExtrajoint2_L|BriarRig:FKjoint2_L|BriarRig:FKXjoint2_L" 
 		"rotate" " -type \"double3\" 0 -1.12598771282246068 0"
-		2 "|briar_v06:Group|briar_v06:MotionSystem|briar_v06:FKSystem|briar_v06:FKParentConstraintToChest_M|briar_v06:FKOffsetNeck_M|briar_v06:FKXNeck_M|briar_v06:FKOffsetNeckPart1_M|briar_v06:FKExtraNeckPart1_M|briar_v06:FKNeckPart1_M|briar_v06:FKXNeckPart1_M|briar_v06:FKOffsetNeckPart2_M|briar_v06:FKExtraNeckPart2_M|briar_v06:FKNeckPart2_M|briar_v06:FKXNeckPart2_M|briar_v06:FKOffsetHead_M|briar_v06:FKGlobalHead_M|briar_v06:FKExtraHead_M|briar_v06:FKHead_M|briar_v06:FKXHead_M|briar_v06:FKOffsetjoint1_M|briar_v06:FKExtrajoint1_M|briar_v06:FKjoint1_M|briar_v06:FKXjoint1_M|briar_v06:FKOffsetjoint2_L|briar_v06:FKExtrajoint2_L|briar_v06:FKjoint2_L|briar_v06:FKXjoint2_L|briar_v06:FKOffsetjoint3_L|briar_v06:FKExtrajoint3_L|briar_v06:FKjoint3_L|briar_v06:FKXjoint3_L" 
+		2 "|BriarRig:Group|BriarRig:MotionSystem|BriarRig:FKSystem|BriarRig:FKParentConstraintToChest_M|BriarRig:FKOffsetNeck_M|BriarRig:FKXNeck_M|BriarRig:FKOffsetNeckPart1_M|BriarRig:FKExtraNeckPart1_M|BriarRig:FKNeckPart1_M|BriarRig:FKXNeckPart1_M|BriarRig:FKOffsetNeckPart2_M|BriarRig:FKExtraNeckPart2_M|BriarRig:FKNeckPart2_M|BriarRig:FKXNeckPart2_M|BriarRig:FKOffsetHead_M|BriarRig:FKGlobalHead_M|BriarRig:FKExtraHead_M|BriarRig:FKHead_M|BriarRig:FKXHead_M|BriarRig:FKOffsetjoint1_M|BriarRig:FKExtrajoint1_M|BriarRig:FKjoint1_M|BriarRig:FKXjoint1_M|BriarRig:FKOffsetjoint2_L|BriarRig:FKExtrajoint2_L|BriarRig:FKjoint2_L|BriarRig:FKXjoint2_L|BriarRig:FKOffsetjoint3_L|BriarRig:FKExtrajoint3_L|BriarRig:FKjoint3_L|BriarRig:FKXjoint3_L" 
 		"rotate" " -type \"double3\" 0 -1.12598771282246068 0"
-		2 "|briar_v06:Group|briar_v06:MotionSystem|briar_v06:FKSystem|briar_v06:FKParentConstraintToChest_M|briar_v06:FKOffsetNeck_M|briar_v06:FKXNeck_M|briar_v06:FKOffsetNeckPart1_M|briar_v06:FKExtraNeckPart1_M|briar_v06:FKNeckPart1_M|briar_v06:FKXNeckPart1_M|briar_v06:FKOffsetNeckPart2_M|briar_v06:FKExtraNeckPart2_M|briar_v06:FKNeckPart2_M|briar_v06:FKXNeckPart2_M|briar_v06:FKOffsetHead_M|briar_v06:FKGlobalHead_M|briar_v06:FKExtraHead_M|briar_v06:FKHead_M|briar_v06:FKXHead_M|briar_v06:FKOffsetjoint1_M|briar_v06:FKExtrajoint1_M|briar_v06:FKjoint1_M|briar_v06:FKXjoint1_M|briar_v06:FKOffsetjoint2_L|briar_v06:FKExtrajoint2_L|briar_v06:FKjoint2_L|briar_v06:FKXjoint2_L|briar_v06:FKOffsetjoint3_L|briar_v06:FKExtrajoint3_L|briar_v06:FKjoint3_L|briar_v06:FKXjoint3_L|briar_v06:FKOffsetjoint4_L|briar_v06:FKExtrajoint4_L|briar_v06:FKjoint4_L|briar_v06:FKXjoint4_L" 
+		2 "|BriarRig:Group|BriarRig:MotionSystem|BriarRig:FKSystem|BriarRig:FKParentConstraintToChest_M|BriarRig:FKOffsetNeck_M|BriarRig:FKXNeck_M|BriarRig:FKOffsetNeckPart1_M|BriarRig:FKExtraNeckPart1_M|BriarRig:FKNeckPart1_M|BriarRig:FKXNeckPart1_M|BriarRig:FKOffsetNeckPart2_M|BriarRig:FKExtraNeckPart2_M|BriarRig:FKNeckPart2_M|BriarRig:FKXNeckPart2_M|BriarRig:FKOffsetHead_M|BriarRig:FKGlobalHead_M|BriarRig:FKExtraHead_M|BriarRig:FKHead_M|BriarRig:FKXHead_M|BriarRig:FKOffsetjoint1_M|BriarRig:FKExtrajoint1_M|BriarRig:FKjoint1_M|BriarRig:FKXjoint1_M|BriarRig:FKOffsetjoint2_L|BriarRig:FKExtrajoint2_L|BriarRig:FKjoint2_L|BriarRig:FKXjoint2_L|BriarRig:FKOffsetjoint3_L|BriarRig:FKExtrajoint3_L|BriarRig:FKjoint3_L|BriarRig:FKXjoint3_L|BriarRig:FKOffsetjoint4_L|BriarRig:FKExtrajoint4_L|BriarRig:FKjoint4_L|BriarRig:FKXjoint4_L" 
 		"rotate" " -type \"double3\" 0 -1.12598771282246068 0"
-		2 "|briar_v06:Group|briar_v06:MotionSystem|briar_v06:FKSystem|briar_v06:FKParentConstraintToChest_M|briar_v06:FKOffsetNeck_M|briar_v06:FKXNeck_M|briar_v06:FKOffsetNeckPart1_M|briar_v06:FKExtraNeckPart1_M|briar_v06:FKNeckPart1_M|briar_v06:FKXNeckPart1_M|briar_v06:FKOffsetNeckPart2_M|briar_v06:FKExtraNeckPart2_M|briar_v06:FKNeckPart2_M|briar_v06:FKXNeckPart2_M|briar_v06:FKOffsetHead_M|briar_v06:FKGlobalHead_M|briar_v06:FKExtraHead_M|briar_v06:FKHead_M|briar_v06:FKXHead_M|briar_v06:FKOffsetjoint1_M|briar_v06:FKExtrajoint1_M|briar_v06:FKjoint1_M|briar_v06:FKXjoint1_M|briar_v06:FKOffsetjoint2_L|briar_v06:FKExtrajoint2_L|briar_v06:FKjoint2_L|briar_v06:FKXjoint2_L|briar_v06:FKOffsetjoint3_L|briar_v06:FKExtrajoint3_L|briar_v06:FKjoint3_L|briar_v06:FKXjoint3_L|briar_v06:FKOffsetjoint4_L|briar_v06:FKExtrajoint4_L|briar_v06:FKjoint4_L|briar_v06:FKXjoint4_L|briar_v06:FKOffsetjoint5_L|briar_v06:FKExtrajoint5_L|briar_v06:FKjoint5_L|briar_v06:FKXjoint5_L" 
+		2 "|BriarRig:Group|BriarRig:MotionSystem|BriarRig:FKSystem|BriarRig:FKParentConstraintToChest_M|BriarRig:FKOffsetNeck_M|BriarRig:FKXNeck_M|BriarRig:FKOffsetNeckPart1_M|BriarRig:FKExtraNeckPart1_M|BriarRig:FKNeckPart1_M|BriarRig:FKXNeckPart1_M|BriarRig:FKOffsetNeckPart2_M|BriarRig:FKExtraNeckPart2_M|BriarRig:FKNeckPart2_M|BriarRig:FKXNeckPart2_M|BriarRig:FKOffsetHead_M|BriarRig:FKGlobalHead_M|BriarRig:FKExtraHead_M|BriarRig:FKHead_M|BriarRig:FKXHead_M|BriarRig:FKOffsetjoint1_M|BriarRig:FKExtrajoint1_M|BriarRig:FKjoint1_M|BriarRig:FKXjoint1_M|BriarRig:FKOffsetjoint2_L|BriarRig:FKExtrajoint2_L|BriarRig:FKjoint2_L|BriarRig:FKXjoint2_L|BriarRig:FKOffsetjoint3_L|BriarRig:FKExtrajoint3_L|BriarRig:FKjoint3_L|BriarRig:FKXjoint3_L|BriarRig:FKOffsetjoint4_L|BriarRig:FKExtrajoint4_L|BriarRig:FKjoint4_L|BriarRig:FKXjoint4_L|BriarRig:FKOffsetjoint5_L|BriarRig:FKExtrajoint5_L|BriarRig:FKjoint5_L|BriarRig:FKXjoint5_L" 
 		"rotate" " -type \"double3\" 0 -1.12598771282246068 0"
-		2 "|briar_v06:Group|briar_v06:MotionSystem|briar_v06:FKSystem|briar_v06:FKParentConstraintToChest_M|briar_v06:FKOffsetNeck_M|briar_v06:FKXNeck_M|briar_v06:FKOffsetNeckPart1_M|briar_v06:FKExtraNeckPart1_M|briar_v06:FKNeckPart1_M|briar_v06:FKXNeckPart1_M|briar_v06:FKOffsetNeckPart2_M|briar_v06:FKExtraNeckPart2_M|briar_v06:FKNeckPart2_M|briar_v06:FKXNeckPart2_M|briar_v06:FKOffsetHead_M|briar_v06:FKGlobalHead_M|briar_v06:FKExtraHead_M|briar_v06:FKHead_M|briar_v06:FKXHead_M|briar_v06:FKOffsetjoint1_M|briar_v06:FKExtrajoint1_M|briar_v06:FKjoint1_M|briar_v06:FKXjoint1_M|briar_v06:FKOffsetjoint2_L|briar_v06:FKExtrajoint2_L|briar_v06:FKjoint2_L|briar_v06:FKXjoint2_L|briar_v06:FKOffsetjoint3_L|briar_v06:FKExtrajoint3_L|briar_v06:FKjoint3_L|briar_v06:FKXjoint3_L|briar_v06:FKOffsetjoint4_L|briar_v06:FKExtrajoint4_L|briar_v06:FKjoint4_L|briar_v06:FKXjoint4_L|briar_v06:FKOffsetjoint5_L|briar_v06:FKExtrajoint5_L|briar_v06:FKjoint5_L|briar_v06:FKXjoint5_L|briar_v06:FKOffsetjoint6_L|briar_v06:FKExtrajoint6_L|briar_v06:FKjoint6_L|briar_v06:FKXjoint6_L|briar_v06:FKOffsetjoint7_L|briar_v06:FKExtrajoint7_L|briar_v06:FKjoint7_L|briar_v06:FKXjoint7_L" 
+		2 "|BriarRig:Group|BriarRig:MotionSystem|BriarRig:FKSystem|BriarRig:FKParentConstraintToChest_M|BriarRig:FKOffsetNeck_M|BriarRig:FKXNeck_M|BriarRig:FKOffsetNeckPart1_M|BriarRig:FKExtraNeckPart1_M|BriarRig:FKNeckPart1_M|BriarRig:FKXNeckPart1_M|BriarRig:FKOffsetNeckPart2_M|BriarRig:FKExtraNeckPart2_M|BriarRig:FKNeckPart2_M|BriarRig:FKXNeckPart2_M|BriarRig:FKOffsetHead_M|BriarRig:FKGlobalHead_M|BriarRig:FKExtraHead_M|BriarRig:FKHead_M|BriarRig:FKXHead_M|BriarRig:FKOffsetjoint1_M|BriarRig:FKExtrajoint1_M|BriarRig:FKjoint1_M|BriarRig:FKXjoint1_M|BriarRig:FKOffsetjoint2_L|BriarRig:FKExtrajoint2_L|BriarRig:FKjoint2_L|BriarRig:FKXjoint2_L|BriarRig:FKOffsetjoint3_L|BriarRig:FKExtrajoint3_L|BriarRig:FKjoint3_L|BriarRig:FKXjoint3_L|BriarRig:FKOffsetjoint4_L|BriarRig:FKExtrajoint4_L|BriarRig:FKjoint4_L|BriarRig:FKXjoint4_L|BriarRig:FKOffsetjoint5_L|BriarRig:FKExtrajoint5_L|BriarRig:FKjoint5_L|BriarRig:FKXjoint5_L|BriarRig:FKOffsetjoint6_L|BriarRig:FKExtrajoint6_L|BriarRig:FKjoint6_L|BriarRig:FKXjoint6_L|BriarRig:FKOffsetjoint7_L|BriarRig:FKExtrajoint7_L|BriarRig:FKjoint7_L|BriarRig:FKXjoint7_L" 
 		"rotate" " -type \"double3\" 0 -1.12598771282246068 0"
-		2 "|briar_v06:Group|briar_v06:MotionSystem|briar_v06:FKSystem|briar_v06:FKParentConstraintToWrist_R|briar_v06:FKOffsetThumbFinger1_R|briar_v06:FKExtraThumbFinger1_R|briar_v06:FKThumbFinger1_R|briar_v06:FKXThumbFinger1_R|briar_v06:FKOffsetThumbFinger2_R|briar_v06:SDKFKThumbFinger2_R|briar_v06:FKExtraThumbFinger2_R|briar_v06:FKThumbFinger2_R" 
+		2 "|BriarRig:Group|BriarRig:MotionSystem|BriarRig:FKSystem|BriarRig:FKParentConstraintToWrist_R|BriarRig:FKOffsetThumbFinger1_R|BriarRig:FKExtraThumbFinger1_R|BriarRig:FKThumbFinger1_R|BriarRig:FKXThumbFinger1_R|BriarRig:FKOffsetThumbFinger2_R|BriarRig:SDKFKThumbFinger2_R|BriarRig:FKExtraThumbFinger2_R|BriarRig:FKThumbFinger2_R" 
 		"rotate" " -type \"double3\" 0 0 0"
-		2 "|briar_v06:Group|briar_v06:MotionSystem|briar_v06:FKSystem|briar_v06:FKOffsetRoot_M|briar_v06:FKExtraRoot_M|briar_v06:FKRoot_M|briar_v06:HipSwingerOffset_M|briar_v06:HipSwinger_M" 
+		2 "|BriarRig:Group|BriarRig:MotionSystem|BriarRig:FKSystem|BriarRig:FKOffsetRoot_M|BriarRig:FKExtraRoot_M|BriarRig:FKRoot_M|BriarRig:HipSwingerOffset_M|BriarRig:HipSwinger_M" 
 		"rotate" " -type \"double3\" 0 0 0"
-		2 "|briar_v06:Group|briar_v06:MotionSystem|briar_v06:IKSystem|briar_v06:IKHandle|briar_v06:IKOffsetLeg_R|briar_v06:IKExtraLeg_R|briar_v06:IKLeg_R|briar_v06:IKLegFootRockInnerPivot_R|briar_v06:IKLegFootRockOuterPivot_R|briar_v06:RollOffsetHeel_R|briar_v06:RollRollerHeel_R|briar_v06:RollExtraHeel_R|briar_v06:RollHeel_R" 
+		2 "|BriarRig:Group|BriarRig:MotionSystem|BriarRig:IKSystem|BriarRig:IKHandle|BriarRig:IKOffsetLeg_R|BriarRig:IKExtraLeg_R|BriarRig:IKLeg_R|BriarRig:IKLegFootRockInnerPivot_R|BriarRig:IKLegFootRockOuterPivot_R|BriarRig:RollOffsetHeel_R|BriarRig:RollRollerHeel_R|BriarRig:RollExtraHeel_R|BriarRig:RollHeel_R" 
 		"translate" " -type \"double3\" 0 0 0"
-		2 "|briar_v06:Group|briar_v06:MotionSystem|briar_v06:IKSystem|briar_v06:IKHandle|briar_v06:IKOffsetLeg_R|briar_v06:IKExtraLeg_R|briar_v06:IKLeg_R|briar_v06:IKLegFootRockInnerPivot_R|briar_v06:IKLegFootRockOuterPivot_R|briar_v06:RollOffsetHeel_R|briar_v06:RollRollerHeel_R|briar_v06:RollExtraHeel_R|briar_v06:RollHeel_R" 
+		2 "|BriarRig:Group|BriarRig:MotionSystem|BriarRig:IKSystem|BriarRig:IKHandle|BriarRig:IKOffsetLeg_R|BriarRig:IKExtraLeg_R|BriarRig:IKLeg_R|BriarRig:IKLegFootRockInnerPivot_R|BriarRig:IKLegFootRockOuterPivot_R|BriarRig:RollOffsetHeel_R|BriarRig:RollRollerHeel_R|BriarRig:RollExtraHeel_R|BriarRig:RollHeel_R" 
 		"rotate" " -type \"double3\" 0 0 0"
-		2 "|briar_v06:Group|briar_v06:MotionSystem|briar_v06:IKSystem|briar_v06:IKHandle|briar_v06:IKOffsetLeg_L|briar_v06:IKExtraLeg_L|briar_v06:IKLeg_L|briar_v06:IKLegFootRockInnerPivot_L|briar_v06:IKLegFootRockOuterPivot_L|briar_v06:RollOffsetHeel_L|briar_v06:RollRollerHeel_L|briar_v06:RollExtraHeel_L|briar_v06:RollHeel_L" 
+		2 "|BriarRig:Group|BriarRig:MotionSystem|BriarRig:IKSystem|BriarRig:IKHandle|BriarRig:IKOffsetLeg_L|BriarRig:IKExtraLeg_L|BriarRig:IKLeg_L" 
+		"followMain" " -k 1"
+		2 "|BriarRig:Group|BriarRig:MotionSystem|BriarRig:IKSystem|BriarRig:IKHandle|BriarRig:IKOffsetLeg_L|BriarRig:IKExtraLeg_L|BriarRig:IKLeg_L" 
+		"followRoot" " -k 1"
+		2 "|BriarRig:Group|BriarRig:MotionSystem|BriarRig:IKSystem|BriarRig:IKHandle|BriarRig:IKOffsetLeg_L|BriarRig:IKExtraLeg_L|BriarRig:IKLeg_L" 
+		"swivel" " -k 1"
+		2 "|BriarRig:Group|BriarRig:MotionSystem|BriarRig:IKSystem|BriarRig:IKHandle|BriarRig:IKOffsetLeg_L|BriarRig:IKExtraLeg_L|BriarRig:IKLeg_L" 
+		"roll" " -k 1"
+		2 "|BriarRig:Group|BriarRig:MotionSystem|BriarRig:IKSystem|BriarRig:IKHandle|BriarRig:IKOffsetLeg_L|BriarRig:IKExtraLeg_L|BriarRig:IKLeg_L" 
+		"rollStartAngle" " -k 1"
+		2 "|BriarRig:Group|BriarRig:MotionSystem|BriarRig:IKSystem|BriarRig:IKHandle|BriarRig:IKOffsetLeg_L|BriarRig:IKExtraLeg_L|BriarRig:IKLeg_L" 
+		"rollEndAngle" " -k 1"
+		2 "|BriarRig:Group|BriarRig:MotionSystem|BriarRig:IKSystem|BriarRig:IKHandle|BriarRig:IKOffsetLeg_L|BriarRig:IKExtraLeg_L|BriarRig:IKLeg_L" 
+		"rock" " -k 1"
+		2 "|BriarRig:Group|BriarRig:MotionSystem|BriarRig:IKSystem|BriarRig:IKHandle|BriarRig:IKOffsetLeg_L|BriarRig:IKExtraLeg_L|BriarRig:IKLeg_L" 
+		"volume" " -k 1"
+		2 "|BriarRig:Group|BriarRig:MotionSystem|BriarRig:IKSystem|BriarRig:IKHandle|BriarRig:IKOffsetLeg_L|BriarRig:IKExtraLeg_L|BriarRig:IKLeg_L|BriarRig:IKLegFootRockInnerPivot_L|BriarRig:IKLegFootRockOuterPivot_L|BriarRig:RollOffsetHeel_L|BriarRig:RollRollerHeel_L|BriarRig:RollExtraHeel_L|BriarRig:RollHeel_L|BriarRig:RollOffsetToesEnd_L|BriarRig:RollRollerToesEnd_L|BriarRig:RollExtraToesEnd_L|BriarRig:RollToesEnd_L" 
 		"rotate" " -type \"double3\" 0 0 0"
-		2 "|briar_v06:Group|briar_v06:MotionSystem|briar_v06:IKSystem|briar_v06:IKHandle|briar_v06:IKOffsetLeg_L|briar_v06:IKExtraLeg_L|briar_v06:IKLeg_L|briar_v06:IKLegFootRockInnerPivot_L|briar_v06:IKLegFootRockOuterPivot_L|briar_v06:RollOffsetHeel_L|briar_v06:RollRollerHeel_L|briar_v06:RollExtraHeel_L|briar_v06:RollHeel_L|briar_v06:RollOffsetToesEnd_L|briar_v06:RollRollerToesEnd_L|briar_v06:RollExtraToesEnd_L|briar_v06:RollToesEnd_L" 
-		"rotate" " -type \"double3\" 0 0 0"
-		2 "|briar_v06:Group|briar_v06:MotionSystem|briar_v06:IKSystem|briar_v06:IKPoleVector|briar_v06:PoleOffsetLeg_L|briar_v06:PoleExtraLeg_L|briar_v06:PoleLeg_L" 
+		2 "|BriarRig:Group|BriarRig:MotionSystem|BriarRig:IKSystem|BriarRig:IKPoleVector|BriarRig:PoleOffsetLeg_L|BriarRig:PoleExtraLeg_L|BriarRig:PoleLeg_L" 
 		"translate" " -type \"double3\" 0 0 0"
-		2 "|briar_v06:Group|briar_v06:FaceGroup|briar_v06:FaceMotionSystem|briar_v06:ControlsSetup|briar_v06:Aimcontrols|briar_v06:AimEyeFollow_M|briar_v06:AimEyeOffset_M|briar_v06:AimEye_M" 
+		2 "|BriarRig:Group|BriarRig:FaceGroup|BriarRig:FaceMotionSystem|BriarRig:ControlsSetup|BriarRig:Aimcontrols|BriarRig:AimEyeFollow_M|BriarRig:AimEyeOffset_M|BriarRig:AimEye_M" 
 		"translate" " -type \"double3\" 0 0 0"
-		2 "|briar_v06:Group|briar_v06:FaceGroup|briar_v06:FaceMotionSystem|briar_v06:ControlsSetup|briar_v06:ctrlBoxOffset|briar_v06:ctrlBox|briar_v06:ctrlBoxCheek_R|briar_v06:ctrlCheek_R" 
+		2 "|BriarRig:Group|BriarRig:FaceGroup|BriarRig:FaceMotionSystem|BriarRig:ControlsSetup|BriarRig:ctrlBoxOffset|BriarRig:ctrlBox|BriarRig:ctrlBoxCheek_R|BriarRig:ctrlCheek_R" 
 		"translateX" " 0"
-		2 "|briar_v06:Group|briar_v06:FaceGroup|briar_v06:FaceMotionSystem|briar_v06:ControlsSetup|briar_v06:ctrlBoxOffset|briar_v06:ctrlBox|briar_v06:ctrlBoxCheek_R|briar_v06:ctrlCheek_R" 
+		2 "|BriarRig:Group|BriarRig:FaceGroup|BriarRig:FaceMotionSystem|BriarRig:ControlsSetup|BriarRig:ctrlBoxOffset|BriarRig:ctrlBox|BriarRig:ctrlBoxCheek_R|BriarRig:ctrlCheek_R" 
 		"translateY" " 0"
-		2 "|briar_v06:Group|briar_v06:FaceGroup|briar_v06:FaceMotionSystem|briar_v06:ControlsSetup|briar_v06:ctrlBoxOffset|briar_v06:ctrlBox|briar_v06:ctrlBoxCheek_L|briar_v06:ctrlCheek_L" 
+		2 "|BriarRig:Group|BriarRig:FaceGroup|BriarRig:FaceMotionSystem|BriarRig:ControlsSetup|BriarRig:ctrlBoxOffset|BriarRig:ctrlBox|BriarRig:ctrlBoxCheek_L|BriarRig:ctrlCheek_L" 
 		"translateX" " 0"
-		2 "|briar_v06:Group|briar_v06:FaceGroup|briar_v06:FaceMotionSystem|briar_v06:ControlsSetup|briar_v06:ctrlBoxOffset|briar_v06:ctrlBox|briar_v06:ctrlBoxCheek_L|briar_v06:ctrlCheek_L" 
+		2 "|BriarRig:Group|BriarRig:FaceGroup|BriarRig:FaceMotionSystem|BriarRig:ControlsSetup|BriarRig:ctrlBoxOffset|BriarRig:ctrlBox|BriarRig:ctrlBoxCheek_L|BriarRig:ctrlCheek_L" 
 		"translateY" " 0"
-		2 "|briar_v06:Group|briar_v06:FaceGroup|briar_v06:FaceMotionSystem|briar_v06:ControlsSetup|briar_v06:ctrlBoxOffset|briar_v06:ctrlBox|briar_v06:ctrlBoxNose_R|briar_v06:ctrlNose_R" 
+		2 "|BriarRig:Group|BriarRig:FaceGroup|BriarRig:FaceMotionSystem|BriarRig:ControlsSetup|BriarRig:ctrlBoxOffset|BriarRig:ctrlBox|BriarRig:ctrlBoxNose_R|BriarRig:ctrlNose_R" 
 		"translateX" " 0"
-		2 "|briar_v06:Group|briar_v06:FaceGroup|briar_v06:FaceMotionSystem|briar_v06:ControlsSetup|briar_v06:ctrlBoxOffset|briar_v06:ctrlBox|briar_v06:ctrlBoxNose_R|briar_v06:ctrlNose_R" 
+		2 "|BriarRig:Group|BriarRig:FaceGroup|BriarRig:FaceMotionSystem|BriarRig:ControlsSetup|BriarRig:ctrlBoxOffset|BriarRig:ctrlBox|BriarRig:ctrlBoxNose_R|BriarRig:ctrlNose_R" 
 		"translateY" " 0"
-		2 "|briar_v06:Group|briar_v06:FaceGroup|briar_v06:FaceMotionSystem|briar_v06:ControlsSetup|briar_v06:ctrlBoxOffset|briar_v06:ctrlBox|briar_v06:ctrlBoxNose_L|briar_v06:ctrlNose_L" 
+		2 "|BriarRig:Group|BriarRig:FaceGroup|BriarRig:FaceMotionSystem|BriarRig:ControlsSetup|BriarRig:ctrlBoxOffset|BriarRig:ctrlBox|BriarRig:ctrlBoxNose_L|BriarRig:ctrlNose_L" 
 		"translateX" " 0"
-		2 "|briar_v06:Group|briar_v06:FaceGroup|briar_v06:FaceMotionSystem|briar_v06:ControlsSetup|briar_v06:ctrlBoxOffset|briar_v06:ctrlBox|briar_v06:ctrlBoxNose_L|briar_v06:ctrlNose_L" 
+		2 "|BriarRig:Group|BriarRig:FaceGroup|BriarRig:FaceMotionSystem|BriarRig:ControlsSetup|BriarRig:ctrlBoxOffset|BriarRig:ctrlBox|BriarRig:ctrlBoxNose_L|BriarRig:ctrlNose_L" 
 		"translateY" " 0"
-		2 "|briar_v06:Group|briar_v06:FaceGroup|briar_v06:FaceMotionSystem|briar_v06:ControlsSetup|briar_v06:ctrlBoxOffset|briar_v06:ctrlBox|briar_v06:ctrlBoxMouthCorner_R|briar_v06:ctrlMouthCorner_R" 
+		2 "|BriarRig:Group|BriarRig:FaceGroup|BriarRig:FaceMotionSystem|BriarRig:ControlsSetup|BriarRig:ctrlBoxOffset|BriarRig:ctrlBox|BriarRig:ctrlBoxMouthCorner_R|BriarRig:ctrlMouthCorner_R" 
 		"translateY" " 0"
-		5 4 "briar_v06RN" "|briar_v06:Group|briar_v06:MotionSystem|briar_v06:FKSystem|briar_v06:FKParentConstraintToChest_M|briar_v06:FKOffsetNeck_M|briar_v06:FKXNeck_M|briar_v06:FKOffsetNeckPart1_M|briar_v06:FKExtraNeckPart1_M|briar_v06:FKNeckPart1_M|briar_v06:FKXNeckPart1_M|briar_v06:FKOffsetNeckPart2_M|briar_v06:FKExtraNeckPart2_M|briar_v06:FKNeckPart2_M|briar_v06:FKXNeckPart2_M|briar_v06:FKOffsetHead_M|briar_v06:FKGlobalHead_M|briar_v06:FKExtraHead_M|briar_v06:FKHead_M.scaleX" 
+		5 4 "briar_v06RN" "|BriarRig:Group|BriarRig:MotionSystem|BriarRig:FKSystem|BriarRig:FKParentConstraintToChest_M|BriarRig:FKOffsetNeck_M|BriarRig:FKXNeck_M|BriarRig:FKOffsetNeckPart1_M|BriarRig:FKExtraNeckPart1_M|BriarRig:FKNeckPart1_M|BriarRig:FKXNeckPart1_M|BriarRig:FKOffsetNeckPart2_M|BriarRig:FKExtraNeckPart2_M|BriarRig:FKNeckPart2_M|BriarRig:FKXNeckPart2_M|BriarRig:FKOffsetHead_M|BriarRig:FKGlobalHead_M|BriarRig:FKExtraHead_M|BriarRig:FKHead_M.scaleX" 
 		"briar_v06RN.placeHolderList[1]" ""
-		5 4 "briar_v06RN" "|briar_v06:Group|briar_v06:MotionSystem|briar_v06:FKSystem|briar_v06:FKParentConstraintToChest_M|briar_v06:FKOffsetNeck_M|briar_v06:FKXNeck_M|briar_v06:FKOffsetNeckPart1_M|briar_v06:FKExtraNeckPart1_M|briar_v06:FKNeckPart1_M|briar_v06:FKXNeckPart1_M|briar_v06:FKOffsetNeckPart2_M|briar_v06:FKExtraNeckPart2_M|briar_v06:FKNeckPart2_M|briar_v06:FKXNeckPart2_M|briar_v06:FKOffsetHead_M|briar_v06:FKGlobalHead_M|briar_v06:FKExtraHead_M|briar_v06:FKHead_M.scaleY" 
+		5 4 "briar_v06RN" "|BriarRig:Group|BriarRig:MotionSystem|BriarRig:FKSystem|BriarRig:FKParentConstraintToChest_M|BriarRig:FKOffsetNeck_M|BriarRig:FKXNeck_M|BriarRig:FKOffsetNeckPart1_M|BriarRig:FKExtraNeckPart1_M|BriarRig:FKNeckPart1_M|BriarRig:FKXNeckPart1_M|BriarRig:FKOffsetNeckPart2_M|BriarRig:FKExtraNeckPart2_M|BriarRig:FKNeckPart2_M|BriarRig:FKXNeckPart2_M|BriarRig:FKOffsetHead_M|BriarRig:FKGlobalHead_M|BriarRig:FKExtraHead_M|BriarRig:FKHead_M.scaleY" 
 		"briar_v06RN.placeHolderList[2]" ""
-		5 4 "briar_v06RN" "|briar_v06:Group|briar_v06:MotionSystem|briar_v06:FKSystem|briar_v06:FKParentConstraintToChest_M|briar_v06:FKOffsetNeck_M|briar_v06:FKXNeck_M|briar_v06:FKOffsetNeckPart1_M|briar_v06:FKExtraNeckPart1_M|briar_v06:FKNeckPart1_M|briar_v06:FKXNeckPart1_M|briar_v06:FKOffsetNeckPart2_M|briar_v06:FKExtraNeckPart2_M|briar_v06:FKNeckPart2_M|briar_v06:FKXNeckPart2_M|briar_v06:FKOffsetHead_M|briar_v06:FKGlobalHead_M|briar_v06:FKExtraHead_M|briar_v06:FKHead_M.scaleZ" 
+		5 4 "briar_v06RN" "|BriarRig:Group|BriarRig:MotionSystem|BriarRig:FKSystem|BriarRig:FKParentConstraintToChest_M|BriarRig:FKOffsetNeck_M|BriarRig:FKXNeck_M|BriarRig:FKOffsetNeckPart1_M|BriarRig:FKExtraNeckPart1_M|BriarRig:FKNeckPart1_M|BriarRig:FKXNeckPart1_M|BriarRig:FKOffsetNeckPart2_M|BriarRig:FKExtraNeckPart2_M|BriarRig:FKNeckPart2_M|BriarRig:FKXNeckPart2_M|BriarRig:FKOffsetHead_M|BriarRig:FKGlobalHead_M|BriarRig:FKExtraHead_M|BriarRig:FKHead_M.scaleZ" 
 		"briar_v06RN.placeHolderList[3]" ""
-		5 4 "briar_v06RN" "|briar_v06:Group|briar_v06:MotionSystem|briar_v06:FKSystem|briar_v06:FKParentConstraintToChest_M|briar_v06:FKOffsetNeck_M|briar_v06:FKXNeck_M|briar_v06:FKOffsetNeckPart1_M|briar_v06:FKExtraNeckPart1_M|briar_v06:FKNeckPart1_M|briar_v06:FKXNeckPart1_M|briar_v06:FKOffsetNeckPart2_M|briar_v06:FKExtraNeckPart2_M|briar_v06:FKNeckPart2_M|briar_v06:FKXNeckPart2_M|briar_v06:FKOffsetHead_M|briar_v06:FKGlobalHead_M|briar_v06:FKExtraHead_M|briar_v06:FKHead_M.Global" 
+		5 4 "briar_v06RN" "|BriarRig:Group|BriarRig:MotionSystem|BriarRig:FKSystem|BriarRig:FKParentConstraintToChest_M|BriarRig:FKOffsetNeck_M|BriarRig:FKXNeck_M|BriarRig:FKOffsetNeckPart1_M|BriarRig:FKExtraNeckPart1_M|BriarRig:FKNeckPart1_M|BriarRig:FKXNeckPart1_M|BriarRig:FKOffsetNeckPart2_M|BriarRig:FKExtraNeckPart2_M|BriarRig:FKNeckPart2_M|BriarRig:FKXNeckPart2_M|BriarRig:FKOffsetHead_M|BriarRig:FKGlobalHead_M|BriarRig:FKExtraHead_M|BriarRig:FKHead_M.Global" 
 		"briar_v06RN.placeHolderList[4]" ""
-		5 4 "briar_v06RN" "|briar_v06:Group|briar_v06:MotionSystem|briar_v06:FKSystem|briar_v06:FKParentConstraintToChest_M|briar_v06:FKOffsetNeck_M|briar_v06:FKXNeck_M|briar_v06:FKOffsetNeckPart1_M|briar_v06:FKExtraNeckPart1_M|briar_v06:FKNeckPart1_M|briar_v06:FKXNeckPart1_M|briar_v06:FKOffsetNeckPart2_M|briar_v06:FKExtraNeckPart2_M|briar_v06:FKNeckPart2_M|briar_v06:FKXNeckPart2_M|briar_v06:FKOffsetHead_M|briar_v06:FKGlobalHead_M|briar_v06:FKExtraHead_M|briar_v06:FKHead_M.rotateZ" 
+		5 4 "briar_v06RN" "|BriarRig:Group|BriarRig:MotionSystem|BriarRig:FKSystem|BriarRig:FKParentConstraintToChest_M|BriarRig:FKOffsetNeck_M|BriarRig:FKXNeck_M|BriarRig:FKOffsetNeckPart1_M|BriarRig:FKExtraNeckPart1_M|BriarRig:FKNeckPart1_M|BriarRig:FKXNeckPart1_M|BriarRig:FKOffsetNeckPart2_M|BriarRig:FKExtraNeckPart2_M|BriarRig:FKNeckPart2_M|BriarRig:FKXNeckPart2_M|BriarRig:FKOffsetHead_M|BriarRig:FKGlobalHead_M|BriarRig:FKExtraHead_M|BriarRig:FKHead_M.rotateZ" 
 		"briar_v06RN.placeHolderList[5]" ""
-		5 4 "briar_v06RN" "|briar_v06:Group|briar_v06:MotionSystem|briar_v06:FKSystem|briar_v06:FKParentConstraintToChest_M|briar_v06:FKOffsetNeck_M|briar_v06:FKXNeck_M|briar_v06:FKOffsetNeckPart1_M|briar_v06:FKExtraNeckPart1_M|briar_v06:FKNeckPart1_M|briar_v06:FKXNeckPart1_M|briar_v06:FKOffsetNeckPart2_M|briar_v06:FKExtraNeckPart2_M|briar_v06:FKNeckPart2_M|briar_v06:FKXNeckPart2_M|briar_v06:FKOffsetHead_M|briar_v06:FKGlobalHead_M|briar_v06:FKExtraHead_M|briar_v06:FKHead_M.rotateY" 
+		5 4 "briar_v06RN" "|BriarRig:Group|BriarRig:MotionSystem|BriarRig:FKSystem|BriarRig:FKParentConstraintToChest_M|BriarRig:FKOffsetNeck_M|BriarRig:FKXNeck_M|BriarRig:FKOffsetNeckPart1_M|BriarRig:FKExtraNeckPart1_M|BriarRig:FKNeckPart1_M|BriarRig:FKXNeckPart1_M|BriarRig:FKOffsetNeckPart2_M|BriarRig:FKExtraNeckPart2_M|BriarRig:FKNeckPart2_M|BriarRig:FKXNeckPart2_M|BriarRig:FKOffsetHead_M|BriarRig:FKGlobalHead_M|BriarRig:FKExtraHead_M|BriarRig:FKHead_M.rotateY" 
 		"briar_v06RN.placeHolderList[6]" ""
-		5 4 "briar_v06RN" "|briar_v06:Group|briar_v06:MotionSystem|briar_v06:FKSystem|briar_v06:FKParentConstraintToChest_M|briar_v06:FKOffsetNeck_M|briar_v06:FKXNeck_M|briar_v06:FKOffsetNeckPart1_M|briar_v06:FKExtraNeckPart1_M|briar_v06:FKNeckPart1_M|briar_v06:FKXNeckPart1_M|briar_v06:FKOffsetNeckPart2_M|briar_v06:FKExtraNeckPart2_M|briar_v06:FKNeckPart2_M|briar_v06:FKXNeckPart2_M|briar_v06:FKOffsetHead_M|briar_v06:FKGlobalHead_M|briar_v06:FKExtraHead_M|briar_v06:FKHead_M.rotateX" 
+		5 4 "briar_v06RN" "|BriarRig:Group|BriarRig:MotionSystem|BriarRig:FKSystem|BriarRig:FKParentConstraintToChest_M|BriarRig:FKOffsetNeck_M|BriarRig:FKXNeck_M|BriarRig:FKOffsetNeckPart1_M|BriarRig:FKExtraNeckPart1_M|BriarRig:FKNeckPart1_M|BriarRig:FKXNeckPart1_M|BriarRig:FKOffsetNeckPart2_M|BriarRig:FKExtraNeckPart2_M|BriarRig:FKNeckPart2_M|BriarRig:FKXNeckPart2_M|BriarRig:FKOffsetHead_M|BriarRig:FKGlobalHead_M|BriarRig:FKExtraHead_M|BriarRig:FKHead_M.rotateX" 
 		"briar_v06RN.placeHolderList[7]" ""
-		5 4 "briar_v06RN" "|briar_v06:Group|briar_v06:MotionSystem|briar_v06:FKSystem|briar_v06:FKParentConstraintToChest_M|briar_v06:FKOffsetNeck_M|briar_v06:FKXNeck_M|briar_v06:FKOffsetNeckPart1_M|briar_v06:FKExtraNeckPart1_M|briar_v06:FKNeckPart1_M|briar_v06:FKXNeckPart1_M|briar_v06:FKOffsetNeckPart2_M|briar_v06:FKExtraNeckPart2_M|briar_v06:FKNeckPart2_M|briar_v06:FKXNeckPart2_M|briar_v06:FKOffsetHead_M|briar_v06:FKGlobalHead_M|briar_v06:FKExtraHead_M|briar_v06:FKHead_M.translateX" 
+		5 4 "briar_v06RN" "|BriarRig:Group|BriarRig:MotionSystem|BriarRig:FKSystem|BriarRig:FKParentConstraintToChest_M|BriarRig:FKOffsetNeck_M|BriarRig:FKXNeck_M|BriarRig:FKOffsetNeckPart1_M|BriarRig:FKExtraNeckPart1_M|BriarRig:FKNeckPart1_M|BriarRig:FKXNeckPart1_M|BriarRig:FKOffsetNeckPart2_M|BriarRig:FKExtraNeckPart2_M|BriarRig:FKNeckPart2_M|BriarRig:FKXNeckPart2_M|BriarRig:FKOffsetHead_M|BriarRig:FKGlobalHead_M|BriarRig:FKExtraHead_M|BriarRig:FKHead_M.translateX" 
 		"briar_v06RN.placeHolderList[8]" ""
-		5 4 "briar_v06RN" "|briar_v06:Group|briar_v06:MotionSystem|briar_v06:FKSystem|briar_v06:FKParentConstraintToChest_M|briar_v06:FKOffsetNeck_M|briar_v06:FKXNeck_M|briar_v06:FKOffsetNeckPart1_M|briar_v06:FKExtraNeckPart1_M|briar_v06:FKNeckPart1_M|briar_v06:FKXNeckPart1_M|briar_v06:FKOffsetNeckPart2_M|briar_v06:FKExtraNeckPart2_M|briar_v06:FKNeckPart2_M|briar_v06:FKXNeckPart2_M|briar_v06:FKOffsetHead_M|briar_v06:FKGlobalHead_M|briar_v06:FKExtraHead_M|briar_v06:FKHead_M.translateY" 
+		5 4 "briar_v06RN" "|BriarRig:Group|BriarRig:MotionSystem|BriarRig:FKSystem|BriarRig:FKParentConstraintToChest_M|BriarRig:FKOffsetNeck_M|BriarRig:FKXNeck_M|BriarRig:FKOffsetNeckPart1_M|BriarRig:FKExtraNeckPart1_M|BriarRig:FKNeckPart1_M|BriarRig:FKXNeckPart1_M|BriarRig:FKOffsetNeckPart2_M|BriarRig:FKExtraNeckPart2_M|BriarRig:FKNeckPart2_M|BriarRig:FKXNeckPart2_M|BriarRig:FKOffsetHead_M|BriarRig:FKGlobalHead_M|BriarRig:FKExtraHead_M|BriarRig:FKHead_M.translateY" 
 		"briar_v06RN.placeHolderList[9]" ""
-		5 4 "briar_v06RN" "|briar_v06:Group|briar_v06:MotionSystem|briar_v06:FKSystem|briar_v06:FKParentConstraintToChest_M|briar_v06:FKOffsetNeck_M|briar_v06:FKXNeck_M|briar_v06:FKOffsetNeckPart1_M|briar_v06:FKExtraNeckPart1_M|briar_v06:FKNeckPart1_M|briar_v06:FKXNeckPart1_M|briar_v06:FKOffsetNeckPart2_M|briar_v06:FKExtraNeckPart2_M|briar_v06:FKNeckPart2_M|briar_v06:FKXNeckPart2_M|briar_v06:FKOffsetHead_M|briar_v06:FKGlobalHead_M|briar_v06:FKExtraHead_M|briar_v06:FKHead_M.translateZ" 
+		5 4 "briar_v06RN" "|BriarRig:Group|BriarRig:MotionSystem|BriarRig:FKSystem|BriarRig:FKParentConstraintToChest_M|BriarRig:FKOffsetNeck_M|BriarRig:FKXNeck_M|BriarRig:FKOffsetNeckPart1_M|BriarRig:FKExtraNeckPart1_M|BriarRig:FKNeckPart1_M|BriarRig:FKXNeckPart1_M|BriarRig:FKOffsetNeckPart2_M|BriarRig:FKExtraNeckPart2_M|BriarRig:FKNeckPart2_M|BriarRig:FKXNeckPart2_M|BriarRig:FKOffsetHead_M|BriarRig:FKGlobalHead_M|BriarRig:FKExtraHead_M|BriarRig:FKHead_M.translateZ" 
 		"briar_v06RN.placeHolderList[10]" ""
-		5 4 "briar_v06RN" "|briar_v06:Group|briar_v06:MotionSystem|briar_v06:FKSystem|briar_v06:FKParentConstraintToChest_M|briar_v06:FKOffsetNeck_M|briar_v06:FKXNeck_M|briar_v06:FKOffsetNeckPart1_M|briar_v06:FKExtraNeckPart1_M|briar_v06:FKNeckPart1_M|briar_v06:FKXNeckPart1_M|briar_v06:FKOffsetNeckPart2_M|briar_v06:FKExtraNeckPart2_M|briar_v06:FKNeckPart2_M|briar_v06:FKXNeckPart2_M|briar_v06:FKOffsetHead_M|briar_v06:FKGlobalHead_M|briar_v06:FKExtraHead_M|briar_v06:FKHead_M|briar_v06:FKXHead_M|briar_v06:FKOffsetjoint1_M|briar_v06:FKExtrajoint1_M|briar_v06:FKjoint1_M|briar_v06:FKXjoint1_M|briar_v06:FKOffsetjoint2_L|briar_v06:FKExtrajoint2_L|briar_v06:FKjoint2_L.scaleX" 
+		5 4 "briar_v06RN" "|BriarRig:Group|BriarRig:MotionSystem|BriarRig:FKSystem|BriarRig:FKParentConstraintToChest_M|BriarRig:FKOffsetNeck_M|BriarRig:FKXNeck_M|BriarRig:FKOffsetNeckPart1_M|BriarRig:FKExtraNeckPart1_M|BriarRig:FKNeckPart1_M|BriarRig:FKXNeckPart1_M|BriarRig:FKOffsetNeckPart2_M|BriarRig:FKExtraNeckPart2_M|BriarRig:FKNeckPart2_M|BriarRig:FKXNeckPart2_M|BriarRig:FKOffsetHead_M|BriarRig:FKGlobalHead_M|BriarRig:FKExtraHead_M|BriarRig:FKHead_M|BriarRig:FKXHead_M|BriarRig:FKOffsetjoint1_M|BriarRig:FKExtrajoint1_M|BriarRig:FKjoint1_M|BriarRig:FKXjoint1_M|BriarRig:FKOffsetjoint2_L|BriarRig:FKExtrajoint2_L|BriarRig:FKjoint2_L.scaleX" 
 		"briar_v06RN.placeHolderList[11]" ""
-		5 4 "briar_v06RN" "|briar_v06:Group|briar_v06:MotionSystem|briar_v06:FKSystem|briar_v06:FKParentConstraintToChest_M|briar_v06:FKOffsetNeck_M|briar_v06:FKXNeck_M|briar_v06:FKOffsetNeckPart1_M|briar_v06:FKExtraNeckPart1_M|briar_v06:FKNeckPart1_M|briar_v06:FKXNeckPart1_M|briar_v06:FKOffsetNeckPart2_M|briar_v06:FKExtraNeckPart2_M|briar_v06:FKNeckPart2_M|briar_v06:FKXNeckPart2_M|briar_v06:FKOffsetHead_M|briar_v06:FKGlobalHead_M|briar_v06:FKExtraHead_M|briar_v06:FKHead_M|briar_v06:FKXHead_M|briar_v06:FKOffsetjoint1_M|briar_v06:FKExtrajoint1_M|briar_v06:FKjoint1_M|briar_v06:FKXjoint1_M|briar_v06:FKOffsetjoint2_L|briar_v06:FKExtrajoint2_L|briar_v06:FKjoint2_L.scaleY" 
+		5 4 "briar_v06RN" "|BriarRig:Group|BriarRig:MotionSystem|BriarRig:FKSystem|BriarRig:FKParentConstraintToChest_M|BriarRig:FKOffsetNeck_M|BriarRig:FKXNeck_M|BriarRig:FKOffsetNeckPart1_M|BriarRig:FKExtraNeckPart1_M|BriarRig:FKNeckPart1_M|BriarRig:FKXNeckPart1_M|BriarRig:FKOffsetNeckPart2_M|BriarRig:FKExtraNeckPart2_M|BriarRig:FKNeckPart2_M|BriarRig:FKXNeckPart2_M|BriarRig:FKOffsetHead_M|BriarRig:FKGlobalHead_M|BriarRig:FKExtraHead_M|BriarRig:FKHead_M|BriarRig:FKXHead_M|BriarRig:FKOffsetjoint1_M|BriarRig:FKExtrajoint1_M|BriarRig:FKjoint1_M|BriarRig:FKXjoint1_M|BriarRig:FKOffsetjoint2_L|BriarRig:FKExtrajoint2_L|BriarRig:FKjoint2_L.scaleY" 
 		"briar_v06RN.placeHolderList[12]" ""
-		5 4 "briar_v06RN" "|briar_v06:Group|briar_v06:MotionSystem|briar_v06:FKSystem|briar_v06:FKParentConstraintToChest_M|briar_v06:FKOffsetNeck_M|briar_v06:FKXNeck_M|briar_v06:FKOffsetNeckPart1_M|briar_v06:FKExtraNeckPart1_M|briar_v06:FKNeckPart1_M|briar_v06:FKXNeckPart1_M|briar_v06:FKOffsetNeckPart2_M|briar_v06:FKExtraNeckPart2_M|briar_v06:FKNeckPart2_M|briar_v06:FKXNeckPart2_M|briar_v06:FKOffsetHead_M|briar_v06:FKGlobalHead_M|briar_v06:FKExtraHead_M|briar_v06:FKHead_M|briar_v06:FKXHead_M|briar_v06:FKOffsetjoint1_M|briar_v06:FKExtrajoint1_M|briar_v06:FKjoint1_M|briar_v06:FKXjoint1_M|briar_v06:FKOffsetjoint2_L|briar_v06:FKExtrajoint2_L|briar_v06:FKjoint2_L.scaleZ" 
+		5 4 "briar_v06RN" "|BriarRig:Group|BriarRig:MotionSystem|BriarRig:FKSystem|BriarRig:FKParentConstraintToChest_M|BriarRig:FKOffsetNeck_M|BriarRig:FKXNeck_M|BriarRig:FKOffsetNeckPart1_M|BriarRig:FKExtraNeckPart1_M|BriarRig:FKNeckPart1_M|BriarRig:FKXNeckPart1_M|BriarRig:FKOffsetNeckPart2_M|BriarRig:FKExtraNeckPart2_M|BriarRig:FKNeckPart2_M|BriarRig:FKXNeckPart2_M|BriarRig:FKOffsetHead_M|BriarRig:FKGlobalHead_M|BriarRig:FKExtraHead_M|BriarRig:FKHead_M|BriarRig:FKXHead_M|BriarRig:FKOffsetjoint1_M|BriarRig:FKExtrajoint1_M|BriarRig:FKjoint1_M|BriarRig:FKXjoint1_M|BriarRig:FKOffsetjoint2_L|BriarRig:FKExtrajoint2_L|BriarRig:FKjoint2_L.scaleZ" 
 		"briar_v06RN.placeHolderList[13]" ""
-		5 4 "briar_v06RN" "|briar_v06:Group|briar_v06:MotionSystem|briar_v06:FKSystem|briar_v06:FKParentConstraintToChest_M|briar_v06:FKOffsetNeck_M|briar_v06:FKXNeck_M|briar_v06:FKOffsetNeckPart1_M|briar_v06:FKExtraNeckPart1_M|briar_v06:FKNeckPart1_M|briar_v06:FKXNeckPart1_M|briar_v06:FKOffsetNeckPart2_M|briar_v06:FKExtraNeckPart2_M|briar_v06:FKNeckPart2_M|briar_v06:FKXNeckPart2_M|briar_v06:FKOffsetHead_M|briar_v06:FKGlobalHead_M|briar_v06:FKExtraHead_M|briar_v06:FKHead_M|briar_v06:FKXHead_M|briar_v06:FKOffsetjoint1_M|briar_v06:FKExtrajoint1_M|briar_v06:FKjoint1_M|briar_v06:FKXjoint1_M|briar_v06:FKOffsetjoint2_L|briar_v06:FKExtrajoint2_L|briar_v06:FKjoint2_L.rotateY" 
+		5 4 "briar_v06RN" "|BriarRig:Group|BriarRig:MotionSystem|BriarRig:FKSystem|BriarRig:FKParentConstraintToChest_M|BriarRig:FKOffsetNeck_M|BriarRig:FKXNeck_M|BriarRig:FKOffsetNeckPart1_M|BriarRig:FKExtraNeckPart1_M|BriarRig:FKNeckPart1_M|BriarRig:FKXNeckPart1_M|BriarRig:FKOffsetNeckPart2_M|BriarRig:FKExtraNeckPart2_M|BriarRig:FKNeckPart2_M|BriarRig:FKXNeckPart2_M|BriarRig:FKOffsetHead_M|BriarRig:FKGlobalHead_M|BriarRig:FKExtraHead_M|BriarRig:FKHead_M|BriarRig:FKXHead_M|BriarRig:FKOffsetjoint1_M|BriarRig:FKExtrajoint1_M|BriarRig:FKjoint1_M|BriarRig:FKXjoint1_M|BriarRig:FKOffsetjoint2_L|BriarRig:FKExtrajoint2_L|BriarRig:FKjoint2_L.rotateY" 
 		"briar_v06RN.placeHolderList[14]" ""
-		5 4 "briar_v06RN" "|briar_v06:Group|briar_v06:MotionSystem|briar_v06:FKSystem|briar_v06:FKParentConstraintToChest_M|briar_v06:FKOffsetNeck_M|briar_v06:FKXNeck_M|briar_v06:FKOffsetNeckPart1_M|briar_v06:FKExtraNeckPart1_M|briar_v06:FKNeckPart1_M|briar_v06:FKXNeckPart1_M|briar_v06:FKOffsetNeckPart2_M|briar_v06:FKExtraNeckPart2_M|briar_v06:FKNeckPart2_M|briar_v06:FKXNeckPart2_M|briar_v06:FKOffsetHead_M|briar_v06:FKGlobalHead_M|briar_v06:FKExtraHead_M|briar_v06:FKHead_M|briar_v06:FKXHead_M|briar_v06:FKOffsetjoint1_M|briar_v06:FKExtrajoint1_M|briar_v06:FKjoint1_M|briar_v06:FKXjoint1_M|briar_v06:FKOffsetjoint2_L|briar_v06:FKExtrajoint2_L|briar_v06:FKjoint2_L.rotateX" 
+		5 4 "briar_v06RN" "|BriarRig:Group|BriarRig:MotionSystem|BriarRig:FKSystem|BriarRig:FKParentConstraintToChest_M|BriarRig:FKOffsetNeck_M|BriarRig:FKXNeck_M|BriarRig:FKOffsetNeckPart1_M|BriarRig:FKExtraNeckPart1_M|BriarRig:FKNeckPart1_M|BriarRig:FKXNeckPart1_M|BriarRig:FKOffsetNeckPart2_M|BriarRig:FKExtraNeckPart2_M|BriarRig:FKNeckPart2_M|BriarRig:FKXNeckPart2_M|BriarRig:FKOffsetHead_M|BriarRig:FKGlobalHead_M|BriarRig:FKExtraHead_M|BriarRig:FKHead_M|BriarRig:FKXHead_M|BriarRig:FKOffsetjoint1_M|BriarRig:FKExtrajoint1_M|BriarRig:FKjoint1_M|BriarRig:FKXjoint1_M|BriarRig:FKOffsetjoint2_L|BriarRig:FKExtrajoint2_L|BriarRig:FKjoint2_L.rotateX" 
 		"briar_v06RN.placeHolderList[15]" ""
-		5 4 "briar_v06RN" "|briar_v06:Group|briar_v06:MotionSystem|briar_v06:FKSystem|briar_v06:FKParentConstraintToChest_M|briar_v06:FKOffsetNeck_M|briar_v06:FKXNeck_M|briar_v06:FKOffsetNeckPart1_M|briar_v06:FKExtraNeckPart1_M|briar_v06:FKNeckPart1_M|briar_v06:FKXNeckPart1_M|briar_v06:FKOffsetNeckPart2_M|briar_v06:FKExtraNeckPart2_M|briar_v06:FKNeckPart2_M|briar_v06:FKXNeckPart2_M|briar_v06:FKOffsetHead_M|briar_v06:FKGlobalHead_M|briar_v06:FKExtraHead_M|briar_v06:FKHead_M|briar_v06:FKXHead_M|briar_v06:FKOffsetjoint1_M|briar_v06:FKExtrajoint1_M|briar_v06:FKjoint1_M|briar_v06:FKXjoint1_M|briar_v06:FKOffsetjoint2_L|briar_v06:FKExtrajoint2_L|briar_v06:FKjoint2_L.rotateZ" 
+		5 4 "briar_v06RN" "|BriarRig:Group|BriarRig:MotionSystem|BriarRig:FKSystem|BriarRig:FKParentConstraintToChest_M|BriarRig:FKOffsetNeck_M|BriarRig:FKXNeck_M|BriarRig:FKOffsetNeckPart1_M|BriarRig:FKExtraNeckPart1_M|BriarRig:FKNeckPart1_M|BriarRig:FKXNeckPart1_M|BriarRig:FKOffsetNeckPart2_M|BriarRig:FKExtraNeckPart2_M|BriarRig:FKNeckPart2_M|BriarRig:FKXNeckPart2_M|BriarRig:FKOffsetHead_M|BriarRig:FKGlobalHead_M|BriarRig:FKExtraHead_M|BriarRig:FKHead_M|BriarRig:FKXHead_M|BriarRig:FKOffsetjoint1_M|BriarRig:FKExtrajoint1_M|BriarRig:FKjoint1_M|BriarRig:FKXjoint1_M|BriarRig:FKOffsetjoint2_L|BriarRig:FKExtrajoint2_L|BriarRig:FKjoint2_L.rotateZ" 
 		"briar_v06RN.placeHolderList[16]" ""
-		5 4 "briar_v06RN" "|briar_v06:Group|briar_v06:MotionSystem|briar_v06:FKSystem|briar_v06:FKParentConstraintToChest_M|briar_v06:FKOffsetNeck_M|briar_v06:FKXNeck_M|briar_v06:FKOffsetNeckPart1_M|briar_v06:FKExtraNeckPart1_M|briar_v06:FKNeckPart1_M|briar_v06:FKXNeckPart1_M|briar_v06:FKOffsetNeckPart2_M|briar_v06:FKExtraNeckPart2_M|briar_v06:FKNeckPart2_M|briar_v06:FKXNeckPart2_M|briar_v06:FKOffsetHead_M|briar_v06:FKGlobalHead_M|briar_v06:FKExtraHead_M|briar_v06:FKHead_M|briar_v06:FKXHead_M|briar_v06:FKOffsetjoint1_M|briar_v06:FKExtrajoint1_M|briar_v06:FKjoint1_M|briar_v06:FKXjoint1_M|briar_v06:FKOffsetjoint2_L|briar_v06:FKExtrajoint2_L|briar_v06:FKjoint2_L.translateX" 
+		5 4 "briar_v06RN" "|BriarRig:Group|BriarRig:MotionSystem|BriarRig:FKSystem|BriarRig:FKParentConstraintToChest_M|BriarRig:FKOffsetNeck_M|BriarRig:FKXNeck_M|BriarRig:FKOffsetNeckPart1_M|BriarRig:FKExtraNeckPart1_M|BriarRig:FKNeckPart1_M|BriarRig:FKXNeckPart1_M|BriarRig:FKOffsetNeckPart2_M|BriarRig:FKExtraNeckPart2_M|BriarRig:FKNeckPart2_M|BriarRig:FKXNeckPart2_M|BriarRig:FKOffsetHead_M|BriarRig:FKGlobalHead_M|BriarRig:FKExtraHead_M|BriarRig:FKHead_M|BriarRig:FKXHead_M|BriarRig:FKOffsetjoint1_M|BriarRig:FKExtrajoint1_M|BriarRig:FKjoint1_M|BriarRig:FKXjoint1_M|BriarRig:FKOffsetjoint2_L|BriarRig:FKExtrajoint2_L|BriarRig:FKjoint2_L.translateX" 
 		"briar_v06RN.placeHolderList[17]" ""
-		5 4 "briar_v06RN" "|briar_v06:Group|briar_v06:MotionSystem|briar_v06:FKSystem|briar_v06:FKParentConstraintToChest_M|briar_v06:FKOffsetNeck_M|briar_v06:FKXNeck_M|briar_v06:FKOffsetNeckPart1_M|briar_v06:FKExtraNeckPart1_M|briar_v06:FKNeckPart1_M|briar_v06:FKXNeckPart1_M|briar_v06:FKOffsetNeckPart2_M|briar_v06:FKExtraNeckPart2_M|briar_v06:FKNeckPart2_M|briar_v06:FKXNeckPart2_M|briar_v06:FKOffsetHead_M|briar_v06:FKGlobalHead_M|briar_v06:FKExtraHead_M|briar_v06:FKHead_M|briar_v06:FKXHead_M|briar_v06:FKOffsetjoint1_M|briar_v06:FKExtrajoint1_M|briar_v06:FKjoint1_M|briar_v06:FKXjoint1_M|briar_v06:FKOffsetjoint2_L|briar_v06:FKExtrajoint2_L|briar_v06:FKjoint2_L.translateY" 
+		5 4 "briar_v06RN" "|BriarRig:Group|BriarRig:MotionSystem|BriarRig:FKSystem|BriarRig:FKParentConstraintToChest_M|BriarRig:FKOffsetNeck_M|BriarRig:FKXNeck_M|BriarRig:FKOffsetNeckPart1_M|BriarRig:FKExtraNeckPart1_M|BriarRig:FKNeckPart1_M|BriarRig:FKXNeckPart1_M|BriarRig:FKOffsetNeckPart2_M|BriarRig:FKExtraNeckPart2_M|BriarRig:FKNeckPart2_M|BriarRig:FKXNeckPart2_M|BriarRig:FKOffsetHead_M|BriarRig:FKGlobalHead_M|BriarRig:FKExtraHead_M|BriarRig:FKHead_M|BriarRig:FKXHead_M|BriarRig:FKOffsetjoint1_M|BriarRig:FKExtrajoint1_M|BriarRig:FKjoint1_M|BriarRig:FKXjoint1_M|BriarRig:FKOffsetjoint2_L|BriarRig:FKExtrajoint2_L|BriarRig:FKjoint2_L.translateY" 
 		"briar_v06RN.placeHolderList[18]" ""
-		5 4 "briar_v06RN" "|briar_v06:Group|briar_v06:MotionSystem|briar_v06:FKSystem|briar_v06:FKParentConstraintToChest_M|briar_v06:FKOffsetNeck_M|briar_v06:FKXNeck_M|briar_v06:FKOffsetNeckPart1_M|briar_v06:FKExtraNeckPart1_M|briar_v06:FKNeckPart1_M|briar_v06:FKXNeckPart1_M|briar_v06:FKOffsetNeckPart2_M|briar_v06:FKExtraNeckPart2_M|briar_v06:FKNeckPart2_M|briar_v06:FKXNeckPart2_M|briar_v06:FKOffsetHead_M|briar_v06:FKGlobalHead_M|briar_v06:FKExtraHead_M|briar_v06:FKHead_M|briar_v06:FKXHead_M|briar_v06:FKOffsetjoint1_M|briar_v06:FKExtrajoint1_M|briar_v06:FKjoint1_M|briar_v06:FKXjoint1_M|briar_v06:FKOffsetjoint2_L|briar_v06:FKExtrajoint2_L|briar_v06:FKjoint2_L.translateZ" 
+		5 4 "briar_v06RN" "|BriarRig:Group|BriarRig:MotionSystem|BriarRig:FKSystem|BriarRig:FKParentConstraintToChest_M|BriarRig:FKOffsetNeck_M|BriarRig:FKXNeck_M|BriarRig:FKOffsetNeckPart1_M|BriarRig:FKExtraNeckPart1_M|BriarRig:FKNeckPart1_M|BriarRig:FKXNeckPart1_M|BriarRig:FKOffsetNeckPart2_M|BriarRig:FKExtraNeckPart2_M|BriarRig:FKNeckPart2_M|BriarRig:FKXNeckPart2_M|BriarRig:FKOffsetHead_M|BriarRig:FKGlobalHead_M|BriarRig:FKExtraHead_M|BriarRig:FKHead_M|BriarRig:FKXHead_M|BriarRig:FKOffsetjoint1_M|BriarRig:FKExtrajoint1_M|BriarRig:FKjoint1_M|BriarRig:FKXjoint1_M|BriarRig:FKOffsetjoint2_L|BriarRig:FKExtrajoint2_L|BriarRig:FKjoint2_L.translateZ" 
 		"briar_v06RN.placeHolderList[19]" ""
-		5 4 "briar_v06RN" "|briar_v06:Group|briar_v06:MotionSystem|briar_v06:FKSystem|briar_v06:FKParentConstraintToChest_M|briar_v06:FKOffsetNeck_M|briar_v06:FKXNeck_M|briar_v06:FKOffsetNeckPart1_M|briar_v06:FKExtraNeckPart1_M|briar_v06:FKNeckPart1_M|briar_v06:FKXNeckPart1_M|briar_v06:FKOffsetNeckPart2_M|briar_v06:FKExtraNeckPart2_M|briar_v06:FKNeckPart2_M|briar_v06:FKXNeckPart2_M|briar_v06:FKOffsetHead_M|briar_v06:FKGlobalHead_M|briar_v06:FKExtraHead_M|briar_v06:FKHead_M|briar_v06:FKXHead_M|briar_v06:FKOffsetjoint1_M|briar_v06:FKExtrajoint1_M|briar_v06:FKjoint1_M|briar_v06:FKXjoint1_M|briar_v06:FKOffsetjoint2_L|briar_v06:FKExtrajoint2_L|briar_v06:FKjoint2_L|briar_v06:FKXjoint2_L.rotateY" 
+		5 4 "briar_v06RN" "|BriarRig:Group|BriarRig:MotionSystem|BriarRig:FKSystem|BriarRig:FKParentConstraintToChest_M|BriarRig:FKOffsetNeck_M|BriarRig:FKXNeck_M|BriarRig:FKOffsetNeckPart1_M|BriarRig:FKExtraNeckPart1_M|BriarRig:FKNeckPart1_M|BriarRig:FKXNeckPart1_M|BriarRig:FKOffsetNeckPart2_M|BriarRig:FKExtraNeckPart2_M|BriarRig:FKNeckPart2_M|BriarRig:FKXNeckPart2_M|BriarRig:FKOffsetHead_M|BriarRig:FKGlobalHead_M|BriarRig:FKExtraHead_M|BriarRig:FKHead_M|BriarRig:FKXHead_M|BriarRig:FKOffsetjoint1_M|BriarRig:FKExtrajoint1_M|BriarRig:FKjoint1_M|BriarRig:FKXjoint1_M|BriarRig:FKOffsetjoint2_L|BriarRig:FKExtrajoint2_L|BriarRig:FKjoint2_L|BriarRig:FKXjoint2_L.rotateY" 
 		"briar_v06RN.placeHolderList[20]" ""
-		5 4 "briar_v06RN" "|briar_v06:Group|briar_v06:MotionSystem|briar_v06:FKSystem|briar_v06:FKParentConstraintToChest_M|briar_v06:FKOffsetNeck_M|briar_v06:FKXNeck_M|briar_v06:FKOffsetNeckPart1_M|briar_v06:FKExtraNeckPart1_M|briar_v06:FKNeckPart1_M|briar_v06:FKXNeckPart1_M|briar_v06:FKOffsetNeckPart2_M|briar_v06:FKExtraNeckPart2_M|briar_v06:FKNeckPart2_M|briar_v06:FKXNeckPart2_M|briar_v06:FKOffsetHead_M|briar_v06:FKGlobalHead_M|briar_v06:FKExtraHead_M|briar_v06:FKHead_M|briar_v06:FKXHead_M|briar_v06:FKOffsetjoint1_M|briar_v06:FKExtrajoint1_M|briar_v06:FKjoint1_M|briar_v06:FKXjoint1_M|briar_v06:FKOffsetjoint2_L|briar_v06:FKExtrajoint2_L|briar_v06:FKjoint2_L|briar_v06:FKXjoint2_L|briar_v06:FKOffsetjoint3_L|briar_v06:FKExtrajoint3_L|briar_v06:FKjoint3_L.scaleX" 
+		5 4 "briar_v06RN" "|BriarRig:Group|BriarRig:MotionSystem|BriarRig:FKSystem|BriarRig:FKParentConstraintToChest_M|BriarRig:FKOffsetNeck_M|BriarRig:FKXNeck_M|BriarRig:FKOffsetNeckPart1_M|BriarRig:FKExtraNeckPart1_M|BriarRig:FKNeckPart1_M|BriarRig:FKXNeckPart1_M|BriarRig:FKOffsetNeckPart2_M|BriarRig:FKExtraNeckPart2_M|BriarRig:FKNeckPart2_M|BriarRig:FKXNeckPart2_M|BriarRig:FKOffsetHead_M|BriarRig:FKGlobalHead_M|BriarRig:FKExtraHead_M|BriarRig:FKHead_M|BriarRig:FKXHead_M|BriarRig:FKOffsetjoint1_M|BriarRig:FKExtrajoint1_M|BriarRig:FKjoint1_M|BriarRig:FKXjoint1_M|BriarRig:FKOffsetjoint2_L|BriarRig:FKExtrajoint2_L|BriarRig:FKjoint2_L|BriarRig:FKXjoint2_L|BriarRig:FKOffsetjoint3_L|BriarRig:FKExtrajoint3_L|BriarRig:FKjoint3_L.scaleX" 
 		"briar_v06RN.placeHolderList[21]" ""
-		5 4 "briar_v06RN" "|briar_v06:Group|briar_v06:MotionSystem|briar_v06:FKSystem|briar_v06:FKParentConstraintToChest_M|briar_v06:FKOffsetNeck_M|briar_v06:FKXNeck_M|briar_v06:FKOffsetNeckPart1_M|briar_v06:FKExtraNeckPart1_M|briar_v06:FKNeckPart1_M|briar_v06:FKXNeckPart1_M|briar_v06:FKOffsetNeckPart2_M|briar_v06:FKExtraNeckPart2_M|briar_v06:FKNeckPart2_M|briar_v06:FKXNeckPart2_M|briar_v06:FKOffsetHead_M|briar_v06:FKGlobalHead_M|briar_v06:FKExtraHead_M|briar_v06:FKHead_M|briar_v06:FKXHead_M|briar_v06:FKOffsetjoint1_M|briar_v06:FKExtrajoint1_M|briar_v06:FKjoint1_M|briar_v06:FKXjoint1_M|briar_v06:FKOffsetjoint2_L|briar_v06:FKExtrajoint2_L|briar_v06:FKjoint2_L|briar_v06:FKXjoint2_L|briar_v06:FKOffsetjoint3_L|briar_v06:FKExtrajoint3_L|briar_v06:FKjoint3_L.scaleY" 
+		5 4 "briar_v06RN" "|BriarRig:Group|BriarRig:MotionSystem|BriarRig:FKSystem|BriarRig:FKParentConstraintToChest_M|BriarRig:FKOffsetNeck_M|BriarRig:FKXNeck_M|BriarRig:FKOffsetNeckPart1_M|BriarRig:FKExtraNeckPart1_M|BriarRig:FKNeckPart1_M|BriarRig:FKXNeckPart1_M|BriarRig:FKOffsetNeckPart2_M|BriarRig:FKExtraNeckPart2_M|BriarRig:FKNeckPart2_M|BriarRig:FKXNeckPart2_M|BriarRig:FKOffsetHead_M|BriarRig:FKGlobalHead_M|BriarRig:FKExtraHead_M|BriarRig:FKHead_M|BriarRig:FKXHead_M|BriarRig:FKOffsetjoint1_M|BriarRig:FKExtrajoint1_M|BriarRig:FKjoint1_M|BriarRig:FKXjoint1_M|BriarRig:FKOffsetjoint2_L|BriarRig:FKExtrajoint2_L|BriarRig:FKjoint2_L|BriarRig:FKXjoint2_L|BriarRig:FKOffsetjoint3_L|BriarRig:FKExtrajoint3_L|BriarRig:FKjoint3_L.scaleY" 
 		"briar_v06RN.placeHolderList[22]" ""
-		5 4 "briar_v06RN" "|briar_v06:Group|briar_v06:MotionSystem|briar_v06:FKSystem|briar_v06:FKParentConstraintToChest_M|briar_v06:FKOffsetNeck_M|briar_v06:FKXNeck_M|briar_v06:FKOffsetNeckPart1_M|briar_v06:FKExtraNeckPart1_M|briar_v06:FKNeckPart1_M|briar_v06:FKXNeckPart1_M|briar_v06:FKOffsetNeckPart2_M|briar_v06:FKExtraNeckPart2_M|briar_v06:FKNeckPart2_M|briar_v06:FKXNeckPart2_M|briar_v06:FKOffsetHead_M|briar_v06:FKGlobalHead_M|briar_v06:FKExtraHead_M|briar_v06:FKHead_M|briar_v06:FKXHead_M|briar_v06:FKOffsetjoint1_M|briar_v06:FKExtrajoint1_M|briar_v06:FKjoint1_M|briar_v06:FKXjoint1_M|briar_v06:FKOffsetjoint2_L|briar_v06:FKExtrajoint2_L|briar_v06:FKjoint2_L|briar_v06:FKXjoint2_L|briar_v06:FKOffsetjoint3_L|briar_v06:FKExtrajoint3_L|briar_v06:FKjoint3_L.scaleZ" 
+		5 4 "briar_v06RN" "|BriarRig:Group|BriarRig:MotionSystem|BriarRig:FKSystem|BriarRig:FKParentConstraintToChest_M|BriarRig:FKOffsetNeck_M|BriarRig:FKXNeck_M|BriarRig:FKOffsetNeckPart1_M|BriarRig:FKExtraNeckPart1_M|BriarRig:FKNeckPart1_M|BriarRig:FKXNeckPart1_M|BriarRig:FKOffsetNeckPart2_M|BriarRig:FKExtraNeckPart2_M|BriarRig:FKNeckPart2_M|BriarRig:FKXNeckPart2_M|BriarRig:FKOffsetHead_M|BriarRig:FKGlobalHead_M|BriarRig:FKExtraHead_M|BriarRig:FKHead_M|BriarRig:FKXHead_M|BriarRig:FKOffsetjoint1_M|BriarRig:FKExtrajoint1_M|BriarRig:FKjoint1_M|BriarRig:FKXjoint1_M|BriarRig:FKOffsetjoint2_L|BriarRig:FKExtrajoint2_L|BriarRig:FKjoint2_L|BriarRig:FKXjoint2_L|BriarRig:FKOffsetjoint3_L|BriarRig:FKExtrajoint3_L|BriarRig:FKjoint3_L.scaleZ" 
 		"briar_v06RN.placeHolderList[23]" ""
-		5 4 "briar_v06RN" "|briar_v06:Group|briar_v06:MotionSystem|briar_v06:FKSystem|briar_v06:FKParentConstraintToChest_M|briar_v06:FKOffsetNeck_M|briar_v06:FKXNeck_M|briar_v06:FKOffsetNeckPart1_M|briar_v06:FKExtraNeckPart1_M|briar_v06:FKNeckPart1_M|briar_v06:FKXNeckPart1_M|briar_v06:FKOffsetNeckPart2_M|briar_v06:FKExtraNeckPart2_M|briar_v06:FKNeckPart2_M|briar_v06:FKXNeckPart2_M|briar_v06:FKOffsetHead_M|briar_v06:FKGlobalHead_M|briar_v06:FKExtraHead_M|briar_v06:FKHead_M|briar_v06:FKXHead_M|briar_v06:FKOffsetjoint1_M|briar_v06:FKExtrajoint1_M|briar_v06:FKjoint1_M|briar_v06:FKXjoint1_M|briar_v06:FKOffsetjoint2_L|briar_v06:FKExtrajoint2_L|briar_v06:FKjoint2_L|briar_v06:FKXjoint2_L|briar_v06:FKOffsetjoint3_L|briar_v06:FKExtrajoint3_L|briar_v06:FKjoint3_L.rotateY" 
+		5 4 "briar_v06RN" "|BriarRig:Group|BriarRig:MotionSystem|BriarRig:FKSystem|BriarRig:FKParentConstraintToChest_M|BriarRig:FKOffsetNeck_M|BriarRig:FKXNeck_M|BriarRig:FKOffsetNeckPart1_M|BriarRig:FKExtraNeckPart1_M|BriarRig:FKNeckPart1_M|BriarRig:FKXNeckPart1_M|BriarRig:FKOffsetNeckPart2_M|BriarRig:FKExtraNeckPart2_M|BriarRig:FKNeckPart2_M|BriarRig:FKXNeckPart2_M|BriarRig:FKOffsetHead_M|BriarRig:FKGlobalHead_M|BriarRig:FKExtraHead_M|BriarRig:FKHead_M|BriarRig:FKXHead_M|BriarRig:FKOffsetjoint1_M|BriarRig:FKExtrajoint1_M|BriarRig:FKjoint1_M|BriarRig:FKXjoint1_M|BriarRig:FKOffsetjoint2_L|BriarRig:FKExtrajoint2_L|BriarRig:FKjoint2_L|BriarRig:FKXjoint2_L|BriarRig:FKOffsetjoint3_L|BriarRig:FKExtrajoint3_L|BriarRig:FKjoint3_L.rotateY" 
 		"briar_v06RN.placeHolderList[24]" ""
-		5 4 "briar_v06RN" "|briar_v06:Group|briar_v06:MotionSystem|briar_v06:FKSystem|briar_v06:FKParentConstraintToChest_M|briar_v06:FKOffsetNeck_M|briar_v06:FKXNeck_M|briar_v06:FKOffsetNeckPart1_M|briar_v06:FKExtraNeckPart1_M|briar_v06:FKNeckPart1_M|briar_v06:FKXNeckPart1_M|briar_v06:FKOffsetNeckPart2_M|briar_v06:FKExtraNeckPart2_M|briar_v06:FKNeckPart2_M|briar_v06:FKXNeckPart2_M|briar_v06:FKOffsetHead_M|briar_v06:FKGlobalHead_M|briar_v06:FKExtraHead_M|briar_v06:FKHead_M|briar_v06:FKXHead_M|briar_v06:FKOffsetjoint1_M|briar_v06:FKExtrajoint1_M|briar_v06:FKjoint1_M|briar_v06:FKXjoint1_M|briar_v06:FKOffsetjoint2_L|briar_v06:FKExtrajoint2_L|briar_v06:FKjoint2_L|briar_v06:FKXjoint2_L|briar_v06:FKOffsetjoint3_L|briar_v06:FKExtrajoint3_L|briar_v06:FKjoint3_L.rotateX" 
+		5 4 "briar_v06RN" "|BriarRig:Group|BriarRig:MotionSystem|BriarRig:FKSystem|BriarRig:FKParentConstraintToChest_M|BriarRig:FKOffsetNeck_M|BriarRig:FKXNeck_M|BriarRig:FKOffsetNeckPart1_M|BriarRig:FKExtraNeckPart1_M|BriarRig:FKNeckPart1_M|BriarRig:FKXNeckPart1_M|BriarRig:FKOffsetNeckPart2_M|BriarRig:FKExtraNeckPart2_M|BriarRig:FKNeckPart2_M|BriarRig:FKXNeckPart2_M|BriarRig:FKOffsetHead_M|BriarRig:FKGlobalHead_M|BriarRig:FKExtraHead_M|BriarRig:FKHead_M|BriarRig:FKXHead_M|BriarRig:FKOffsetjoint1_M|BriarRig:FKExtrajoint1_M|BriarRig:FKjoint1_M|BriarRig:FKXjoint1_M|BriarRig:FKOffsetjoint2_L|BriarRig:FKExtrajoint2_L|BriarRig:FKjoint2_L|BriarRig:FKXjoint2_L|BriarRig:FKOffsetjoint3_L|BriarRig:FKExtrajoint3_L|BriarRig:FKjoint3_L.rotateX" 
 		"briar_v06RN.placeHolderList[25]" ""
-		5 4 "briar_v06RN" "|briar_v06:Group|briar_v06:MotionSystem|briar_v06:FKSystem|briar_v06:FKParentConstraintToChest_M|briar_v06:FKOffsetNeck_M|briar_v06:FKXNeck_M|briar_v06:FKOffsetNeckPart1_M|briar_v06:FKExtraNeckPart1_M|briar_v06:FKNeckPart1_M|briar_v06:FKXNeckPart1_M|briar_v06:FKOffsetNeckPart2_M|briar_v06:FKExtraNeckPart2_M|briar_v06:FKNeckPart2_M|briar_v06:FKXNeckPart2_M|briar_v06:FKOffsetHead_M|briar_v06:FKGlobalHead_M|briar_v06:FKExtraHead_M|briar_v06:FKHead_M|briar_v06:FKXHead_M|briar_v06:FKOffsetjoint1_M|briar_v06:FKExtrajoint1_M|briar_v06:FKjoint1_M|briar_v06:FKXjoint1_M|briar_v06:FKOffsetjoint2_L|briar_v06:FKExtrajoint2_L|briar_v06:FKjoint2_L|briar_v06:FKXjoint2_L|briar_v06:FKOffsetjoint3_L|briar_v06:FKExtrajoint3_L|briar_v06:FKjoint3_L.rotateZ" 
+		5 4 "briar_v06RN" "|BriarRig:Group|BriarRig:MotionSystem|BriarRig:FKSystem|BriarRig:FKParentConstraintToChest_M|BriarRig:FKOffsetNeck_M|BriarRig:FKXNeck_M|BriarRig:FKOffsetNeckPart1_M|BriarRig:FKExtraNeckPart1_M|BriarRig:FKNeckPart1_M|BriarRig:FKXNeckPart1_M|BriarRig:FKOffsetNeckPart2_M|BriarRig:FKExtraNeckPart2_M|BriarRig:FKNeckPart2_M|BriarRig:FKXNeckPart2_M|BriarRig:FKOffsetHead_M|BriarRig:FKGlobalHead_M|BriarRig:FKExtraHead_M|BriarRig:FKHead_M|BriarRig:FKXHead_M|BriarRig:FKOffsetjoint1_M|BriarRig:FKExtrajoint1_M|BriarRig:FKjoint1_M|BriarRig:FKXjoint1_M|BriarRig:FKOffsetjoint2_L|BriarRig:FKExtrajoint2_L|BriarRig:FKjoint2_L|BriarRig:FKXjoint2_L|BriarRig:FKOffsetjoint3_L|BriarRig:FKExtrajoint3_L|BriarRig:FKjoint3_L.rotateZ" 
 		"briar_v06RN.placeHolderList[26]" ""
-		5 4 "briar_v06RN" "|briar_v06:Group|briar_v06:MotionSystem|briar_v06:FKSystem|briar_v06:FKParentConstraintToChest_M|briar_v06:FKOffsetNeck_M|briar_v06:FKXNeck_M|briar_v06:FKOffsetNeckPart1_M|briar_v06:FKExtraNeckPart1_M|briar_v06:FKNeckPart1_M|briar_v06:FKXNeckPart1_M|briar_v06:FKOffsetNeckPart2_M|briar_v06:FKExtraNeckPart2_M|briar_v06:FKNeckPart2_M|briar_v06:FKXNeckPart2_M|briar_v06:FKOffsetHead_M|briar_v06:FKGlobalHead_M|briar_v06:FKExtraHead_M|briar_v06:FKHead_M|briar_v06:FKXHead_M|briar_v06:FKOffsetjoint1_M|briar_v06:FKExtrajoint1_M|briar_v06:FKjoint1_M|briar_v06:FKXjoint1_M|briar_v06:FKOffsetjoint2_L|briar_v06:FKExtrajoint2_L|briar_v06:FKjoint2_L|briar_v06:FKXjoint2_L|briar_v06:FKOffsetjoint3_L|briar_v06:FKExtrajoint3_L|briar_v06:FKjoint3_L.translateX" 
+		5 4 "briar_v06RN" "|BriarRig:Group|BriarRig:MotionSystem|BriarRig:FKSystem|BriarRig:FKParentConstraintToChest_M|BriarRig:FKOffsetNeck_M|BriarRig:FKXNeck_M|BriarRig:FKOffsetNeckPart1_M|BriarRig:FKExtraNeckPart1_M|BriarRig:FKNeckPart1_M|BriarRig:FKXNeckPart1_M|BriarRig:FKOffsetNeckPart2_M|BriarRig:FKExtraNeckPart2_M|BriarRig:FKNeckPart2_M|BriarRig:FKXNeckPart2_M|BriarRig:FKOffsetHead_M|BriarRig:FKGlobalHead_M|BriarRig:FKExtraHead_M|BriarRig:FKHead_M|BriarRig:FKXHead_M|BriarRig:FKOffsetjoint1_M|BriarRig:FKExtrajoint1_M|BriarRig:FKjoint1_M|BriarRig:FKXjoint1_M|BriarRig:FKOffsetjoint2_L|BriarRig:FKExtrajoint2_L|BriarRig:FKjoint2_L|BriarRig:FKXjoint2_L|BriarRig:FKOffsetjoint3_L|BriarRig:FKExtrajoint3_L|BriarRig:FKjoint3_L.translateX" 
 		"briar_v06RN.placeHolderList[27]" ""
-		5 4 "briar_v06RN" "|briar_v06:Group|briar_v06:MotionSystem|briar_v06:FKSystem|briar_v06:FKParentConstraintToChest_M|briar_v06:FKOffsetNeck_M|briar_v06:FKXNeck_M|briar_v06:FKOffsetNeckPart1_M|briar_v06:FKExtraNeckPart1_M|briar_v06:FKNeckPart1_M|briar_v06:FKXNeckPart1_M|briar_v06:FKOffsetNeckPart2_M|briar_v06:FKExtraNeckPart2_M|briar_v06:FKNeckPart2_M|briar_v06:FKXNeckPart2_M|briar_v06:FKOffsetHead_M|briar_v06:FKGlobalHead_M|briar_v06:FKExtraHead_M|briar_v06:FKHead_M|briar_v06:FKXHead_M|briar_v06:FKOffsetjoint1_M|briar_v06:FKExtrajoint1_M|briar_v06:FKjoint1_M|briar_v06:FKXjoint1_M|briar_v06:FKOffsetjoint2_L|briar_v06:FKExtrajoint2_L|briar_v06:FKjoint2_L|briar_v06:FKXjoint2_L|briar_v06:FKOffsetjoint3_L|briar_v06:FKExtrajoint3_L|briar_v06:FKjoint3_L.translateY" 
+		5 4 "briar_v06RN" "|BriarRig:Group|BriarRig:MotionSystem|BriarRig:FKSystem|BriarRig:FKParentConstraintToChest_M|BriarRig:FKOffsetNeck_M|BriarRig:FKXNeck_M|BriarRig:FKOffsetNeckPart1_M|BriarRig:FKExtraNeckPart1_M|BriarRig:FKNeckPart1_M|BriarRig:FKXNeckPart1_M|BriarRig:FKOffsetNeckPart2_M|BriarRig:FKExtraNeckPart2_M|BriarRig:FKNeckPart2_M|BriarRig:FKXNeckPart2_M|BriarRig:FKOffsetHead_M|BriarRig:FKGlobalHead_M|BriarRig:FKExtraHead_M|BriarRig:FKHead_M|BriarRig:FKXHead_M|BriarRig:FKOffsetjoint1_M|BriarRig:FKExtrajoint1_M|BriarRig:FKjoint1_M|BriarRig:FKXjoint1_M|BriarRig:FKOffsetjoint2_L|BriarRig:FKExtrajoint2_L|BriarRig:FKjoint2_L|BriarRig:FKXjoint2_L|BriarRig:FKOffsetjoint3_L|BriarRig:FKExtrajoint3_L|BriarRig:FKjoint3_L.translateY" 
 		"briar_v06RN.placeHolderList[28]" ""
-		5 4 "briar_v06RN" "|briar_v06:Group|briar_v06:MotionSystem|briar_v06:FKSystem|briar_v06:FKParentConstraintToChest_M|briar_v06:FKOffsetNeck_M|briar_v06:FKXNeck_M|briar_v06:FKOffsetNeckPart1_M|briar_v06:FKExtraNeckPart1_M|briar_v06:FKNeckPart1_M|briar_v06:FKXNeckPart1_M|briar_v06:FKOffsetNeckPart2_M|briar_v06:FKExtraNeckPart2_M|briar_v06:FKNeckPart2_M|briar_v06:FKXNeckPart2_M|briar_v06:FKOffsetHead_M|briar_v06:FKGlobalHead_M|briar_v06:FKExtraHead_M|briar_v06:FKHead_M|briar_v06:FKXHead_M|briar_v06:FKOffsetjoint1_M|briar_v06:FKExtrajoint1_M|briar_v06:FKjoint1_M|briar_v06:FKXjoint1_M|briar_v06:FKOffsetjoint2_L|briar_v06:FKExtrajoint2_L|briar_v06:FKjoint2_L|briar_v06:FKXjoint2_L|briar_v06:FKOffsetjoint3_L|briar_v06:FKExtrajoint3_L|briar_v06:FKjoint3_L.translateZ" 
+		5 4 "briar_v06RN" "|BriarRig:Group|BriarRig:MotionSystem|BriarRig:FKSystem|BriarRig:FKParentConstraintToChest_M|BriarRig:FKOffsetNeck_M|BriarRig:FKXNeck_M|BriarRig:FKOffsetNeckPart1_M|BriarRig:FKExtraNeckPart1_M|BriarRig:FKNeckPart1_M|BriarRig:FKXNeckPart1_M|BriarRig:FKOffsetNeckPart2_M|BriarRig:FKExtraNeckPart2_M|BriarRig:FKNeckPart2_M|BriarRig:FKXNeckPart2_M|BriarRig:FKOffsetHead_M|BriarRig:FKGlobalHead_M|BriarRig:FKExtraHead_M|BriarRig:FKHead_M|BriarRig:FKXHead_M|BriarRig:FKOffsetjoint1_M|BriarRig:FKExtrajoint1_M|BriarRig:FKjoint1_M|BriarRig:FKXjoint1_M|BriarRig:FKOffsetjoint2_L|BriarRig:FKExtrajoint2_L|BriarRig:FKjoint2_L|BriarRig:FKXjoint2_L|BriarRig:FKOffsetjoint3_L|BriarRig:FKExtrajoint3_L|BriarRig:FKjoint3_L.translateZ" 
 		"briar_v06RN.placeHolderList[29]" ""
-		5 4 "briar_v06RN" "|briar_v06:Group|briar_v06:MotionSystem|briar_v06:FKSystem|briar_v06:FKParentConstraintToChest_M|briar_v06:FKOffsetNeck_M|briar_v06:FKXNeck_M|briar_v06:FKOffsetNeckPart1_M|briar_v06:FKExtraNeckPart1_M|briar_v06:FKNeckPart1_M|briar_v06:FKXNeckPart1_M|briar_v06:FKOffsetNeckPart2_M|briar_v06:FKExtraNeckPart2_M|briar_v06:FKNeckPart2_M|briar_v06:FKXNeckPart2_M|briar_v06:FKOffsetHead_M|briar_v06:FKGlobalHead_M|briar_v06:FKExtraHead_M|briar_v06:FKHead_M|briar_v06:FKXHead_M|briar_v06:FKOffsetjoint1_M|briar_v06:FKExtrajoint1_M|briar_v06:FKjoint1_M|briar_v06:FKXjoint1_M|briar_v06:FKOffsetjoint2_L|briar_v06:FKExtrajoint2_L|briar_v06:FKjoint2_L|briar_v06:FKXjoint2_L|briar_v06:FKOffsetjoint3_L|briar_v06:FKExtrajoint3_L|briar_v06:FKjoint3_L|briar_v06:FKXjoint3_L.rotateY" 
+		5 4 "briar_v06RN" "|BriarRig:Group|BriarRig:MotionSystem|BriarRig:FKSystem|BriarRig:FKParentConstraintToChest_M|BriarRig:FKOffsetNeck_M|BriarRig:FKXNeck_M|BriarRig:FKOffsetNeckPart1_M|BriarRig:FKExtraNeckPart1_M|BriarRig:FKNeckPart1_M|BriarRig:FKXNeckPart1_M|BriarRig:FKOffsetNeckPart2_M|BriarRig:FKExtraNeckPart2_M|BriarRig:FKNeckPart2_M|BriarRig:FKXNeckPart2_M|BriarRig:FKOffsetHead_M|BriarRig:FKGlobalHead_M|BriarRig:FKExtraHead_M|BriarRig:FKHead_M|BriarRig:FKXHead_M|BriarRig:FKOffsetjoint1_M|BriarRig:FKExtrajoint1_M|BriarRig:FKjoint1_M|BriarRig:FKXjoint1_M|BriarRig:FKOffsetjoint2_L|BriarRig:FKExtrajoint2_L|BriarRig:FKjoint2_L|BriarRig:FKXjoint2_L|BriarRig:FKOffsetjoint3_L|BriarRig:FKExtrajoint3_L|BriarRig:FKjoint3_L|BriarRig:FKXjoint3_L.rotateY" 
 		"briar_v06RN.placeHolderList[30]" ""
-		5 4 "briar_v06RN" "|briar_v06:Group|briar_v06:MotionSystem|briar_v06:FKSystem|briar_v06:FKParentConstraintToChest_M|briar_v06:FKOffsetNeck_M|briar_v06:FKXNeck_M|briar_v06:FKOffsetNeckPart1_M|briar_v06:FKExtraNeckPart1_M|briar_v06:FKNeckPart1_M|briar_v06:FKXNeckPart1_M|briar_v06:FKOffsetNeckPart2_M|briar_v06:FKExtraNeckPart2_M|briar_v06:FKNeckPart2_M|briar_v06:FKXNeckPart2_M|briar_v06:FKOffsetHead_M|briar_v06:FKGlobalHead_M|briar_v06:FKExtraHead_M|briar_v06:FKHead_M|briar_v06:FKXHead_M|briar_v06:FKOffsetjoint1_M|briar_v06:FKExtrajoint1_M|briar_v06:FKjoint1_M|briar_v06:FKXjoint1_M|briar_v06:FKOffsetjoint2_L|briar_v06:FKExtrajoint2_L|briar_v06:FKjoint2_L|briar_v06:FKXjoint2_L|briar_v06:FKOffsetjoint3_L|briar_v06:FKExtrajoint3_L|briar_v06:FKjoint3_L|briar_v06:FKXjoint3_L|briar_v06:FKOffsetjoint4_L|briar_v06:FKExtrajoint4_L|briar_v06:FKjoint4_L.scaleX" 
+		5 4 "briar_v06RN" "|BriarRig:Group|BriarRig:MotionSystem|BriarRig:FKSystem|BriarRig:FKParentConstraintToChest_M|BriarRig:FKOffsetNeck_M|BriarRig:FKXNeck_M|BriarRig:FKOffsetNeckPart1_M|BriarRig:FKExtraNeckPart1_M|BriarRig:FKNeckPart1_M|BriarRig:FKXNeckPart1_M|BriarRig:FKOffsetNeckPart2_M|BriarRig:FKExtraNeckPart2_M|BriarRig:FKNeckPart2_M|BriarRig:FKXNeckPart2_M|BriarRig:FKOffsetHead_M|BriarRig:FKGlobalHead_M|BriarRig:FKExtraHead_M|BriarRig:FKHead_M|BriarRig:FKXHead_M|BriarRig:FKOffsetjoint1_M|BriarRig:FKExtrajoint1_M|BriarRig:FKjoint1_M|BriarRig:FKXjoint1_M|BriarRig:FKOffsetjoint2_L|BriarRig:FKExtrajoint2_L|BriarRig:FKjoint2_L|BriarRig:FKXjoint2_L|BriarRig:FKOffsetjoint3_L|BriarRig:FKExtrajoint3_L|BriarRig:FKjoint3_L|BriarRig:FKXjoint3_L|BriarRig:FKOffsetjoint4_L|BriarRig:FKExtrajoint4_L|BriarRig:FKjoint4_L.scaleX" 
 		"briar_v06RN.placeHolderList[31]" ""
-		5 4 "briar_v06RN" "|briar_v06:Group|briar_v06:MotionSystem|briar_v06:FKSystem|briar_v06:FKParentConstraintToChest_M|briar_v06:FKOffsetNeck_M|briar_v06:FKXNeck_M|briar_v06:FKOffsetNeckPart1_M|briar_v06:FKExtraNeckPart1_M|briar_v06:FKNeckPart1_M|briar_v06:FKXNeckPart1_M|briar_v06:FKOffsetNeckPart2_M|briar_v06:FKExtraNeckPart2_M|briar_v06:FKNeckPart2_M|briar_v06:FKXNeckPart2_M|briar_v06:FKOffsetHead_M|briar_v06:FKGlobalHead_M|briar_v06:FKExtraHead_M|briar_v06:FKHead_M|briar_v06:FKXHead_M|briar_v06:FKOffsetjoint1_M|briar_v06:FKExtrajoint1_M|briar_v06:FKjoint1_M|briar_v06:FKXjoint1_M|briar_v06:FKOffsetjoint2_L|briar_v06:FKExtrajoint2_L|briar_v06:FKjoint2_L|briar_v06:FKXjoint2_L|briar_v06:FKOffsetjoint3_L|briar_v06:FKExtrajoint3_L|briar_v06:FKjoint3_L|briar_v06:FKXjoint3_L|briar_v06:FKOffsetjoint4_L|briar_v06:FKExtrajoint4_L|briar_v06:FKjoint4_L.scaleY" 
+		5 4 "briar_v06RN" "|BriarRig:Group|BriarRig:MotionSystem|BriarRig:FKSystem|BriarRig:FKParentConstraintToChest_M|BriarRig:FKOffsetNeck_M|BriarRig:FKXNeck_M|BriarRig:FKOffsetNeckPart1_M|BriarRig:FKExtraNeckPart1_M|BriarRig:FKNeckPart1_M|BriarRig:FKXNeckPart1_M|BriarRig:FKOffsetNeckPart2_M|BriarRig:FKExtraNeckPart2_M|BriarRig:FKNeckPart2_M|BriarRig:FKXNeckPart2_M|BriarRig:FKOffsetHead_M|BriarRig:FKGlobalHead_M|BriarRig:FKExtraHead_M|BriarRig:FKHead_M|BriarRig:FKXHead_M|BriarRig:FKOffsetjoint1_M|BriarRig:FKExtrajoint1_M|BriarRig:FKjoint1_M|BriarRig:FKXjoint1_M|BriarRig:FKOffsetjoint2_L|BriarRig:FKExtrajoint2_L|BriarRig:FKjoint2_L|BriarRig:FKXjoint2_L|BriarRig:FKOffsetjoint3_L|BriarRig:FKExtrajoint3_L|BriarRig:FKjoint3_L|BriarRig:FKXjoint3_L|BriarRig:FKOffsetjoint4_L|BriarRig:FKExtrajoint4_L|BriarRig:FKjoint4_L.scaleY" 
 		"briar_v06RN.placeHolderList[32]" ""
-		5 4 "briar_v06RN" "|briar_v06:Group|briar_v06:MotionSystem|briar_v06:FKSystem|briar_v06:FKParentConstraintToChest_M|briar_v06:FKOffsetNeck_M|briar_v06:FKXNeck_M|briar_v06:FKOffsetNeckPart1_M|briar_v06:FKExtraNeckPart1_M|briar_v06:FKNeckPart1_M|briar_v06:FKXNeckPart1_M|briar_v06:FKOffsetNeckPart2_M|briar_v06:FKExtraNeckPart2_M|briar_v06:FKNeckPart2_M|briar_v06:FKXNeckPart2_M|briar_v06:FKOffsetHead_M|briar_v06:FKGlobalHead_M|briar_v06:FKExtraHead_M|briar_v06:FKHead_M|briar_v06:FKXHead_M|briar_v06:FKOffsetjoint1_M|briar_v06:FKExtrajoint1_M|briar_v06:FKjoint1_M|briar_v06:FKXjoint1_M|briar_v06:FKOffsetjoint2_L|briar_v06:FKExtrajoint2_L|briar_v06:FKjoint2_L|briar_v06:FKXjoint2_L|briar_v06:FKOffsetjoint3_L|briar_v06:FKExtrajoint3_L|briar_v06:FKjoint3_L|briar_v06:FKXjoint3_L|briar_v06:FKOffsetjoint4_L|briar_v06:FKExtrajoint4_L|briar_v06:FKjoint4_L.scaleZ" 
+		5 4 "briar_v06RN" "|BriarRig:Group|BriarRig:MotionSystem|BriarRig:FKSystem|BriarRig:FKParentConstraintToChest_M|BriarRig:FKOffsetNeck_M|BriarRig:FKXNeck_M|BriarRig:FKOffsetNeckPart1_M|BriarRig:FKExtraNeckPart1_M|BriarRig:FKNeckPart1_M|BriarRig:FKXNeckPart1_M|BriarRig:FKOffsetNeckPart2_M|BriarRig:FKExtraNeckPart2_M|BriarRig:FKNeckPart2_M|BriarRig:FKXNeckPart2_M|BriarRig:FKOffsetHead_M|BriarRig:FKGlobalHead_M|BriarRig:FKExtraHead_M|BriarRig:FKHead_M|BriarRig:FKXHead_M|BriarRig:FKOffsetjoint1_M|BriarRig:FKExtrajoint1_M|BriarRig:FKjoint1_M|BriarRig:FKXjoint1_M|BriarRig:FKOffsetjoint2_L|BriarRig:FKExtrajoint2_L|BriarRig:FKjoint2_L|BriarRig:FKXjoint2_L|BriarRig:FKOffsetjoint3_L|BriarRig:FKExtrajoint3_L|BriarRig:FKjoint3_L|BriarRig:FKXjoint3_L|BriarRig:FKOffsetjoint4_L|BriarRig:FKExtrajoint4_L|BriarRig:FKjoint4_L.scaleZ" 
 		"briar_v06RN.placeHolderList[33]" ""
-		5 4 "briar_v06RN" "|briar_v06:Group|briar_v06:MotionSystem|briar_v06:FKSystem|briar_v06:FKParentConstraintToChest_M|briar_v06:FKOffsetNeck_M|briar_v06:FKXNeck_M|briar_v06:FKOffsetNeckPart1_M|briar_v06:FKExtraNeckPart1_M|briar_v06:FKNeckPart1_M|briar_v06:FKXNeckPart1_M|briar_v06:FKOffsetNeckPart2_M|briar_v06:FKExtraNeckPart2_M|briar_v06:FKNeckPart2_M|briar_v06:FKXNeckPart2_M|briar_v06:FKOffsetHead_M|briar_v06:FKGlobalHead_M|briar_v06:FKExtraHead_M|briar_v06:FKHead_M|briar_v06:FKXHead_M|briar_v06:FKOffsetjoint1_M|briar_v06:FKExtrajoint1_M|briar_v06:FKjoint1_M|briar_v06:FKXjoint1_M|briar_v06:FKOffsetjoint2_L|briar_v06:FKExtrajoint2_L|briar_v06:FKjoint2_L|briar_v06:FKXjoint2_L|briar_v06:FKOffsetjoint3_L|briar_v06:FKExtrajoint3_L|briar_v06:FKjoint3_L|briar_v06:FKXjoint3_L|briar_v06:FKOffsetjoint4_L|briar_v06:FKExtrajoint4_L|briar_v06:FKjoint4_L.rotateY" 
+		5 4 "briar_v06RN" "|BriarRig:Group|BriarRig:MotionSystem|BriarRig:FKSystem|BriarRig:FKParentConstraintToChest_M|BriarRig:FKOffsetNeck_M|BriarRig:FKXNeck_M|BriarRig:FKOffsetNeckPart1_M|BriarRig:FKExtraNeckPart1_M|BriarRig:FKNeckPart1_M|BriarRig:FKXNeckPart1_M|BriarRig:FKOffsetNeckPart2_M|BriarRig:FKExtraNeckPart2_M|BriarRig:FKNeckPart2_M|BriarRig:FKXNeckPart2_M|BriarRig:FKOffsetHead_M|BriarRig:FKGlobalHead_M|BriarRig:FKExtraHead_M|BriarRig:FKHead_M|BriarRig:FKXHead_M|BriarRig:FKOffsetjoint1_M|BriarRig:FKExtrajoint1_M|BriarRig:FKjoint1_M|BriarRig:FKXjoint1_M|BriarRig:FKOffsetjoint2_L|BriarRig:FKExtrajoint2_L|BriarRig:FKjoint2_L|BriarRig:FKXjoint2_L|BriarRig:FKOffsetjoint3_L|BriarRig:FKExtrajoint3_L|BriarRig:FKjoint3_L|BriarRig:FKXjoint3_L|BriarRig:FKOffsetjoint4_L|BriarRig:FKExtrajoint4_L|BriarRig:FKjoint4_L.rotateY" 
 		"briar_v06RN.placeHolderList[34]" ""
-		5 4 "briar_v06RN" "|briar_v06:Group|briar_v06:MotionSystem|briar_v06:FKSystem|briar_v06:FKParentConstraintToChest_M|briar_v06:FKOffsetNeck_M|briar_v06:FKXNeck_M|briar_v06:FKOffsetNeckPart1_M|briar_v06:FKExtraNeckPart1_M|briar_v06:FKNeckPart1_M|briar_v06:FKXNeckPart1_M|briar_v06:FKOffsetNeckPart2_M|briar_v06:FKExtraNeckPart2_M|briar_v06:FKNeckPart2_M|briar_v06:FKXNeckPart2_M|briar_v06:FKOffsetHead_M|briar_v06:FKGlobalHead_M|briar_v06:FKExtraHead_M|briar_v06:FKHead_M|briar_v06:FKXHead_M|briar_v06:FKOffsetjoint1_M|briar_v06:FKExtrajoint1_M|briar_v06:FKjoint1_M|briar_v06:FKXjoint1_M|briar_v06:FKOffsetjoint2_L|briar_v06:FKExtrajoint2_L|briar_v06:FKjoint2_L|briar_v06:FKXjoint2_L|briar_v06:FKOffsetjoint3_L|briar_v06:FKExtrajoint3_L|briar_v06:FKjoint3_L|briar_v06:FKXjoint3_L|briar_v06:FKOffsetjoint4_L|briar_v06:FKExtrajoint4_L|briar_v06:FKjoint4_L.rotateX" 
+		5 4 "briar_v06RN" "|BriarRig:Group|BriarRig:MotionSystem|BriarRig:FKSystem|BriarRig:FKParentConstraintToChest_M|BriarRig:FKOffsetNeck_M|BriarRig:FKXNeck_M|BriarRig:FKOffsetNeckPart1_M|BriarRig:FKExtraNeckPart1_M|BriarRig:FKNeckPart1_M|BriarRig:FKXNeckPart1_M|BriarRig:FKOffsetNeckPart2_M|BriarRig:FKExtraNeckPart2_M|BriarRig:FKNeckPart2_M|BriarRig:FKXNeckPart2_M|BriarRig:FKOffsetHead_M|BriarRig:FKGlobalHead_M|BriarRig:FKExtraHead_M|BriarRig:FKHead_M|BriarRig:FKXHead_M|BriarRig:FKOffsetjoint1_M|BriarRig:FKExtrajoint1_M|BriarRig:FKjoint1_M|BriarRig:FKXjoint1_M|BriarRig:FKOffsetjoint2_L|BriarRig:FKExtrajoint2_L|BriarRig:FKjoint2_L|BriarRig:FKXjoint2_L|BriarRig:FKOffsetjoint3_L|BriarRig:FKExtrajoint3_L|BriarRig:FKjoint3_L|BriarRig:FKXjoint3_L|BriarRig:FKOffsetjoint4_L|BriarRig:FKExtrajoint4_L|BriarRig:FKjoint4_L.rotateX" 
 		"briar_v06RN.placeHolderList[35]" ""
-		5 4 "briar_v06RN" "|briar_v06:Group|briar_v06:MotionSystem|briar_v06:FKSystem|briar_v06:FKParentConstraintToChest_M|briar_v06:FKOffsetNeck_M|briar_v06:FKXNeck_M|briar_v06:FKOffsetNeckPart1_M|briar_v06:FKExtraNeckPart1_M|briar_v06:FKNeckPart1_M|briar_v06:FKXNeckPart1_M|briar_v06:FKOffsetNeckPart2_M|briar_v06:FKExtraNeckPart2_M|briar_v06:FKNeckPart2_M|briar_v06:FKXNeckPart2_M|briar_v06:FKOffsetHead_M|briar_v06:FKGlobalHead_M|briar_v06:FKExtraHead_M|briar_v06:FKHead_M|briar_v06:FKXHead_M|briar_v06:FKOffsetjoint1_M|briar_v06:FKExtrajoint1_M|briar_v06:FKjoint1_M|briar_v06:FKXjoint1_M|briar_v06:FKOffsetjoint2_L|briar_v06:FKExtrajoint2_L|briar_v06:FKjoint2_L|briar_v06:FKXjoint2_L|briar_v06:FKOffsetjoint3_L|briar_v06:FKExtrajoint3_L|briar_v06:FKjoint3_L|briar_v06:FKXjoint3_L|briar_v06:FKOffsetjoint4_L|briar_v06:FKExtrajoint4_L|briar_v06:FKjoint4_L.rotateZ" 
+		5 4 "briar_v06RN" "|BriarRig:Group|BriarRig:MotionSystem|BriarRig:FKSystem|BriarRig:FKParentConstraintToChest_M|BriarRig:FKOffsetNeck_M|BriarRig:FKXNeck_M|BriarRig:FKOffsetNeckPart1_M|BriarRig:FKExtraNeckPart1_M|BriarRig:FKNeckPart1_M|BriarRig:FKXNeckPart1_M|BriarRig:FKOffsetNeckPart2_M|BriarRig:FKExtraNeckPart2_M|BriarRig:FKNeckPart2_M|BriarRig:FKXNeckPart2_M|BriarRig:FKOffsetHead_M|BriarRig:FKGlobalHead_M|BriarRig:FKExtraHead_M|BriarRig:FKHead_M|BriarRig:FKXHead_M|BriarRig:FKOffsetjoint1_M|BriarRig:FKExtrajoint1_M|BriarRig:FKjoint1_M|BriarRig:FKXjoint1_M|BriarRig:FKOffsetjoint2_L|BriarRig:FKExtrajoint2_L|BriarRig:FKjoint2_L|BriarRig:FKXjoint2_L|BriarRig:FKOffsetjoint3_L|BriarRig:FKExtrajoint3_L|BriarRig:FKjoint3_L|BriarRig:FKXjoint3_L|BriarRig:FKOffsetjoint4_L|BriarRig:FKExtrajoint4_L|BriarRig:FKjoint4_L.rotateZ" 
 		"briar_v06RN.placeHolderList[36]" ""
-		5 4 "briar_v06RN" "|briar_v06:Group|briar_v06:MotionSystem|briar_v06:FKSystem|briar_v06:FKParentConstraintToChest_M|briar_v06:FKOffsetNeck_M|briar_v06:FKXNeck_M|briar_v06:FKOffsetNeckPart1_M|briar_v06:FKExtraNeckPart1_M|briar_v06:FKNeckPart1_M|briar_v06:FKXNeckPart1_M|briar_v06:FKOffsetNeckPart2_M|briar_v06:FKExtraNeckPart2_M|briar_v06:FKNeckPart2_M|briar_v06:FKXNeckPart2_M|briar_v06:FKOffsetHead_M|briar_v06:FKGlobalHead_M|briar_v06:FKExtraHead_M|briar_v06:FKHead_M|briar_v06:FKXHead_M|briar_v06:FKOffsetjoint1_M|briar_v06:FKExtrajoint1_M|briar_v06:FKjoint1_M|briar_v06:FKXjoint1_M|briar_v06:FKOffsetjoint2_L|briar_v06:FKExtrajoint2_L|briar_v06:FKjoint2_L|briar_v06:FKXjoint2_L|briar_v06:FKOffsetjoint3_L|briar_v06:FKExtrajoint3_L|briar_v06:FKjoint3_L|briar_v06:FKXjoint3_L|briar_v06:FKOffsetjoint4_L|briar_v06:FKExtrajoint4_L|briar_v06:FKjoint4_L.translateX" 
+		5 4 "briar_v06RN" "|BriarRig:Group|BriarRig:MotionSystem|BriarRig:FKSystem|BriarRig:FKParentConstraintToChest_M|BriarRig:FKOffsetNeck_M|BriarRig:FKXNeck_M|BriarRig:FKOffsetNeckPart1_M|BriarRig:FKExtraNeckPart1_M|BriarRig:FKNeckPart1_M|BriarRig:FKXNeckPart1_M|BriarRig:FKOffsetNeckPart2_M|BriarRig:FKExtraNeckPart2_M|BriarRig:FKNeckPart2_M|BriarRig:FKXNeckPart2_M|BriarRig:FKOffsetHead_M|BriarRig:FKGlobalHead_M|BriarRig:FKExtraHead_M|BriarRig:FKHead_M|BriarRig:FKXHead_M|BriarRig:FKOffsetjoint1_M|BriarRig:FKExtrajoint1_M|BriarRig:FKjoint1_M|BriarRig:FKXjoint1_M|BriarRig:FKOffsetjoint2_L|BriarRig:FKExtrajoint2_L|BriarRig:FKjoint2_L|BriarRig:FKXjoint2_L|BriarRig:FKOffsetjoint3_L|BriarRig:FKExtrajoint3_L|BriarRig:FKjoint3_L|BriarRig:FKXjoint3_L|BriarRig:FKOffsetjoint4_L|BriarRig:FKExtrajoint4_L|BriarRig:FKjoint4_L.translateX" 
 		"briar_v06RN.placeHolderList[37]" ""
-		5 4 "briar_v06RN" "|briar_v06:Group|briar_v06:MotionSystem|briar_v06:FKSystem|briar_v06:FKParentConstraintToChest_M|briar_v06:FKOffsetNeck_M|briar_v06:FKXNeck_M|briar_v06:FKOffsetNeckPart1_M|briar_v06:FKExtraNeckPart1_M|briar_v06:FKNeckPart1_M|briar_v06:FKXNeckPart1_M|briar_v06:FKOffsetNeckPart2_M|briar_v06:FKExtraNeckPart2_M|briar_v06:FKNeckPart2_M|briar_v06:FKXNeckPart2_M|briar_v06:FKOffsetHead_M|briar_v06:FKGlobalHead_M|briar_v06:FKExtraHead_M|briar_v06:FKHead_M|briar_v06:FKXHead_M|briar_v06:FKOffsetjoint1_M|briar_v06:FKExtrajoint1_M|briar_v06:FKjoint1_M|briar_v06:FKXjoint1_M|briar_v06:FKOffsetjoint2_L|briar_v06:FKExtrajoint2_L|briar_v06:FKjoint2_L|briar_v06:FKXjoint2_L|briar_v06:FKOffsetjoint3_L|briar_v06:FKExtrajoint3_L|briar_v06:FKjoint3_L|briar_v06:FKXjoint3_L|briar_v06:FKOffsetjoint4_L|briar_v06:FKExtrajoint4_L|briar_v06:FKjoint4_L.translateY" 
+		5 4 "briar_v06RN" "|BriarRig:Group|BriarRig:MotionSystem|BriarRig:FKSystem|BriarRig:FKParentConstraintToChest_M|BriarRig:FKOffsetNeck_M|BriarRig:FKXNeck_M|BriarRig:FKOffsetNeckPart1_M|BriarRig:FKExtraNeckPart1_M|BriarRig:FKNeckPart1_M|BriarRig:FKXNeckPart1_M|BriarRig:FKOffsetNeckPart2_M|BriarRig:FKExtraNeckPart2_M|BriarRig:FKNeckPart2_M|BriarRig:FKXNeckPart2_M|BriarRig:FKOffsetHead_M|BriarRig:FKGlobalHead_M|BriarRig:FKExtraHead_M|BriarRig:FKHead_M|BriarRig:FKXHead_M|BriarRig:FKOffsetjoint1_M|BriarRig:FKExtrajoint1_M|BriarRig:FKjoint1_M|BriarRig:FKXjoint1_M|BriarRig:FKOffsetjoint2_L|BriarRig:FKExtrajoint2_L|BriarRig:FKjoint2_L|BriarRig:FKXjoint2_L|BriarRig:FKOffsetjoint3_L|BriarRig:FKExtrajoint3_L|BriarRig:FKjoint3_L|BriarRig:FKXjoint3_L|BriarRig:FKOffsetjoint4_L|BriarRig:FKExtrajoint4_L|BriarRig:FKjoint4_L.translateY" 
 		"briar_v06RN.placeHolderList[38]" ""
-		5 4 "briar_v06RN" "|briar_v06:Group|briar_v06:MotionSystem|briar_v06:FKSystem|briar_v06:FKParentConstraintToChest_M|briar_v06:FKOffsetNeck_M|briar_v06:FKXNeck_M|briar_v06:FKOffsetNeckPart1_M|briar_v06:FKExtraNeckPart1_M|briar_v06:FKNeckPart1_M|briar_v06:FKXNeckPart1_M|briar_v06:FKOffsetNeckPart2_M|briar_v06:FKExtraNeckPart2_M|briar_v06:FKNeckPart2_M|briar_v06:FKXNeckPart2_M|briar_v06:FKOffsetHead_M|briar_v06:FKGlobalHead_M|briar_v06:FKExtraHead_M|briar_v06:FKHead_M|briar_v06:FKXHead_M|briar_v06:FKOffsetjoint1_M|briar_v06:FKExtrajoint1_M|briar_v06:FKjoint1_M|briar_v06:FKXjoint1_M|briar_v06:FKOffsetjoint2_L|briar_v06:FKExtrajoint2_L|briar_v06:FKjoint2_L|briar_v06:FKXjoint2_L|briar_v06:FKOffsetjoint3_L|briar_v06:FKExtrajoint3_L|briar_v06:FKjoint3_L|briar_v06:FKXjoint3_L|briar_v06:FKOffsetjoint4_L|briar_v06:FKExtrajoint4_L|briar_v06:FKjoint4_L.translateZ" 
+		5 4 "briar_v06RN" "|BriarRig:Group|BriarRig:MotionSystem|BriarRig:FKSystem|BriarRig:FKParentConstraintToChest_M|BriarRig:FKOffsetNeck_M|BriarRig:FKXNeck_M|BriarRig:FKOffsetNeckPart1_M|BriarRig:FKExtraNeckPart1_M|BriarRig:FKNeckPart1_M|BriarRig:FKXNeckPart1_M|BriarRig:FKOffsetNeckPart2_M|BriarRig:FKExtraNeckPart2_M|BriarRig:FKNeckPart2_M|BriarRig:FKXNeckPart2_M|BriarRig:FKOffsetHead_M|BriarRig:FKGlobalHead_M|BriarRig:FKExtraHead_M|BriarRig:FKHead_M|BriarRig:FKXHead_M|BriarRig:FKOffsetjoint1_M|BriarRig:FKExtrajoint1_M|BriarRig:FKjoint1_M|BriarRig:FKXjoint1_M|BriarRig:FKOffsetjoint2_L|BriarRig:FKExtrajoint2_L|BriarRig:FKjoint2_L|BriarRig:FKXjoint2_L|BriarRig:FKOffsetjoint3_L|BriarRig:FKExtrajoint3_L|BriarRig:FKjoint3_L|BriarRig:FKXjoint3_L|BriarRig:FKOffsetjoint4_L|BriarRig:FKExtrajoint4_L|BriarRig:FKjoint4_L.translateZ" 
 		"briar_v06RN.placeHolderList[39]" ""
-		5 4 "briar_v06RN" "|briar_v06:Group|briar_v06:MotionSystem|briar_v06:FKSystem|briar_v06:FKParentConstraintToChest_M|briar_v06:FKOffsetNeck_M|briar_v06:FKXNeck_M|briar_v06:FKOffsetNeckPart1_M|briar_v06:FKExtraNeckPart1_M|briar_v06:FKNeckPart1_M|briar_v06:FKXNeckPart1_M|briar_v06:FKOffsetNeckPart2_M|briar_v06:FKExtraNeckPart2_M|briar_v06:FKNeckPart2_M|briar_v06:FKXNeckPart2_M|briar_v06:FKOffsetHead_M|briar_v06:FKGlobalHead_M|briar_v06:FKExtraHead_M|briar_v06:FKHead_M|briar_v06:FKXHead_M|briar_v06:FKOffsetjoint1_M|briar_v06:FKExtrajoint1_M|briar_v06:FKjoint1_M|briar_v06:FKXjoint1_M|briar_v06:FKOffsetjoint2_L|briar_v06:FKExtrajoint2_L|briar_v06:FKjoint2_L|briar_v06:FKXjoint2_L|briar_v06:FKOffsetjoint3_L|briar_v06:FKExtrajoint3_L|briar_v06:FKjoint3_L|briar_v06:FKXjoint3_L|briar_v06:FKOffsetjoint4_L|briar_v06:FKExtrajoint4_L|briar_v06:FKjoint4_L|briar_v06:FKXjoint4_L.rotateY" 
+		5 4 "briar_v06RN" "|BriarRig:Group|BriarRig:MotionSystem|BriarRig:FKSystem|BriarRig:FKParentConstraintToChest_M|BriarRig:FKOffsetNeck_M|BriarRig:FKXNeck_M|BriarRig:FKOffsetNeckPart1_M|BriarRig:FKExtraNeckPart1_M|BriarRig:FKNeckPart1_M|BriarRig:FKXNeckPart1_M|BriarRig:FKOffsetNeckPart2_M|BriarRig:FKExtraNeckPart2_M|BriarRig:FKNeckPart2_M|BriarRig:FKXNeckPart2_M|BriarRig:FKOffsetHead_M|BriarRig:FKGlobalHead_M|BriarRig:FKExtraHead_M|BriarRig:FKHead_M|BriarRig:FKXHead_M|BriarRig:FKOffsetjoint1_M|BriarRig:FKExtrajoint1_M|BriarRig:FKjoint1_M|BriarRig:FKXjoint1_M|BriarRig:FKOffsetjoint2_L|BriarRig:FKExtrajoint2_L|BriarRig:FKjoint2_L|BriarRig:FKXjoint2_L|BriarRig:FKOffsetjoint3_L|BriarRig:FKExtrajoint3_L|BriarRig:FKjoint3_L|BriarRig:FKXjoint3_L|BriarRig:FKOffsetjoint4_L|BriarRig:FKExtrajoint4_L|BriarRig:FKjoint4_L|BriarRig:FKXjoint4_L.rotateY" 
 		"briar_v06RN.placeHolderList[40]" ""
-		5 4 "briar_v06RN" "|briar_v06:Group|briar_v06:MotionSystem|briar_v06:FKSystem|briar_v06:FKParentConstraintToChest_M|briar_v06:FKOffsetNeck_M|briar_v06:FKXNeck_M|briar_v06:FKOffsetNeckPart1_M|briar_v06:FKExtraNeckPart1_M|briar_v06:FKNeckPart1_M|briar_v06:FKXNeckPart1_M|briar_v06:FKOffsetNeckPart2_M|briar_v06:FKExtraNeckPart2_M|briar_v06:FKNeckPart2_M|briar_v06:FKXNeckPart2_M|briar_v06:FKOffsetHead_M|briar_v06:FKGlobalHead_M|briar_v06:FKExtraHead_M|briar_v06:FKHead_M|briar_v06:FKXHead_M|briar_v06:FKOffsetjoint1_M|briar_v06:FKExtrajoint1_M|briar_v06:FKjoint1_M|briar_v06:FKXjoint1_M|briar_v06:FKOffsetjoint2_L|briar_v06:FKExtrajoint2_L|briar_v06:FKjoint2_L|briar_v06:FKXjoint2_L|briar_v06:FKOffsetjoint3_L|briar_v06:FKExtrajoint3_L|briar_v06:FKjoint3_L|briar_v06:FKXjoint3_L|briar_v06:FKOffsetjoint4_L|briar_v06:FKExtrajoint4_L|briar_v06:FKjoint4_L|briar_v06:FKXjoint4_L|briar_v06:FKOffsetjoint5_L|briar_v06:FKExtrajoint5_L|briar_v06:FKjoint5_L.scaleX" 
+		5 4 "briar_v06RN" "|BriarRig:Group|BriarRig:MotionSystem|BriarRig:FKSystem|BriarRig:FKParentConstraintToChest_M|BriarRig:FKOffsetNeck_M|BriarRig:FKXNeck_M|BriarRig:FKOffsetNeckPart1_M|BriarRig:FKExtraNeckPart1_M|BriarRig:FKNeckPart1_M|BriarRig:FKXNeckPart1_M|BriarRig:FKOffsetNeckPart2_M|BriarRig:FKExtraNeckPart2_M|BriarRig:FKNeckPart2_M|BriarRig:FKXNeckPart2_M|BriarRig:FKOffsetHead_M|BriarRig:FKGlobalHead_M|BriarRig:FKExtraHead_M|BriarRig:FKHead_M|BriarRig:FKXHead_M|BriarRig:FKOffsetjoint1_M|BriarRig:FKExtrajoint1_M|BriarRig:FKjoint1_M|BriarRig:FKXjoint1_M|BriarRig:FKOffsetjoint2_L|BriarRig:FKExtrajoint2_L|BriarRig:FKjoint2_L|BriarRig:FKXjoint2_L|BriarRig:FKOffsetjoint3_L|BriarRig:FKExtrajoint3_L|BriarRig:FKjoint3_L|BriarRig:FKXjoint3_L|BriarRig:FKOffsetjoint4_L|BriarRig:FKExtrajoint4_L|BriarRig:FKjoint4_L|BriarRig:FKXjoint4_L|BriarRig:FKOffsetjoint5_L|BriarRig:FKExtrajoint5_L|BriarRig:FKjoint5_L.scaleX" 
 		"briar_v06RN.placeHolderList[41]" ""
-		5 4 "briar_v06RN" "|briar_v06:Group|briar_v06:MotionSystem|briar_v06:FKSystem|briar_v06:FKParentConstraintToChest_M|briar_v06:FKOffsetNeck_M|briar_v06:FKXNeck_M|briar_v06:FKOffsetNeckPart1_M|briar_v06:FKExtraNeckPart1_M|briar_v06:FKNeckPart1_M|briar_v06:FKXNeckPart1_M|briar_v06:FKOffsetNeckPart2_M|briar_v06:FKExtraNeckPart2_M|briar_v06:FKNeckPart2_M|briar_v06:FKXNeckPart2_M|briar_v06:FKOffsetHead_M|briar_v06:FKGlobalHead_M|briar_v06:FKExtraHead_M|briar_v06:FKHead_M|briar_v06:FKXHead_M|briar_v06:FKOffsetjoint1_M|briar_v06:FKExtrajoint1_M|briar_v06:FKjoint1_M|briar_v06:FKXjoint1_M|briar_v06:FKOffsetjoint2_L|briar_v06:FKExtrajoint2_L|briar_v06:FKjoint2_L|briar_v06:FKXjoint2_L|briar_v06:FKOffsetjoint3_L|briar_v06:FKExtrajoint3_L|briar_v06:FKjoint3_L|briar_v06:FKXjoint3_L|briar_v06:FKOffsetjoint4_L|briar_v06:FKExtrajoint4_L|briar_v06:FKjoint4_L|briar_v06:FKXjoint4_L|briar_v06:FKOffsetjoint5_L|briar_v06:FKExtrajoint5_L|briar_v06:FKjoint5_L.scaleY" 
+		5 4 "briar_v06RN" "|BriarRig:Group|BriarRig:MotionSystem|BriarRig:FKSystem|BriarRig:FKParentConstraintToChest_M|BriarRig:FKOffsetNeck_M|BriarRig:FKXNeck_M|BriarRig:FKOffsetNeckPart1_M|BriarRig:FKExtraNeckPart1_M|BriarRig:FKNeckPart1_M|BriarRig:FKXNeckPart1_M|BriarRig:FKOffsetNeckPart2_M|BriarRig:FKExtraNeckPart2_M|BriarRig:FKNeckPart2_M|BriarRig:FKXNeckPart2_M|BriarRig:FKOffsetHead_M|BriarRig:FKGlobalHead_M|BriarRig:FKExtraHead_M|BriarRig:FKHead_M|BriarRig:FKXHead_M|BriarRig:FKOffsetjoint1_M|BriarRig:FKExtrajoint1_M|BriarRig:FKjoint1_M|BriarRig:FKXjoint1_M|BriarRig:FKOffsetjoint2_L|BriarRig:FKExtrajoint2_L|BriarRig:FKjoint2_L|BriarRig:FKXjoint2_L|BriarRig:FKOffsetjoint3_L|BriarRig:FKExtrajoint3_L|BriarRig:FKjoint3_L|BriarRig:FKXjoint3_L|BriarRig:FKOffsetjoint4_L|BriarRig:FKExtrajoint4_L|BriarRig:FKjoint4_L|BriarRig:FKXjoint4_L|BriarRig:FKOffsetjoint5_L|BriarRig:FKExtrajoint5_L|BriarRig:FKjoint5_L.scaleY" 
 		"briar_v06RN.placeHolderList[42]" ""
-		5 4 "briar_v06RN" "|briar_v06:Group|briar_v06:MotionSystem|briar_v06:FKSystem|briar_v06:FKParentConstraintToChest_M|briar_v06:FKOffsetNeck_M|briar_v06:FKXNeck_M|briar_v06:FKOffsetNeckPart1_M|briar_v06:FKExtraNeckPart1_M|briar_v06:FKNeckPart1_M|briar_v06:FKXNeckPart1_M|briar_v06:FKOffsetNeckPart2_M|briar_v06:FKExtraNeckPart2_M|briar_v06:FKNeckPart2_M|briar_v06:FKXNeckPart2_M|briar_v06:FKOffsetHead_M|briar_v06:FKGlobalHead_M|briar_v06:FKExtraHead_M|briar_v06:FKHead_M|briar_v06:FKXHead_M|briar_v06:FKOffsetjoint1_M|briar_v06:FKExtrajoint1_M|briar_v06:FKjoint1_M|briar_v06:FKXjoint1_M|briar_v06:FKOffsetjoint2_L|briar_v06:FKExtrajoint2_L|briar_v06:FKjoint2_L|briar_v06:FKXjoint2_L|briar_v06:FKOffsetjoint3_L|briar_v06:FKExtrajoint3_L|briar_v06:FKjoint3_L|briar_v06:FKXjoint3_L|briar_v06:FKOffsetjoint4_L|briar_v06:FKExtrajoint4_L|briar_v06:FKjoint4_L|briar_v06:FKXjoint4_L|briar_v06:FKOffsetjoint5_L|briar_v06:FKExtrajoint5_L|briar_v06:FKjoint5_L.scaleZ" 
+		5 4 "briar_v06RN" "|BriarRig:Group|BriarRig:MotionSystem|BriarRig:FKSystem|BriarRig:FKParentConstraintToChest_M|BriarRig:FKOffsetNeck_M|BriarRig:FKXNeck_M|BriarRig:FKOffsetNeckPart1_M|BriarRig:FKExtraNeckPart1_M|BriarRig:FKNeckPart1_M|BriarRig:FKXNeckPart1_M|BriarRig:FKOffsetNeckPart2_M|BriarRig:FKExtraNeckPart2_M|BriarRig:FKNeckPart2_M|BriarRig:FKXNeckPart2_M|BriarRig:FKOffsetHead_M|BriarRig:FKGlobalHead_M|BriarRig:FKExtraHead_M|BriarRig:FKHead_M|BriarRig:FKXHead_M|BriarRig:FKOffsetjoint1_M|BriarRig:FKExtrajoint1_M|BriarRig:FKjoint1_M|BriarRig:FKXjoint1_M|BriarRig:FKOffsetjoint2_L|BriarRig:FKExtrajoint2_L|BriarRig:FKjoint2_L|BriarRig:FKXjoint2_L|BriarRig:FKOffsetjoint3_L|BriarRig:FKExtrajoint3_L|BriarRig:FKjoint3_L|BriarRig:FKXjoint3_L|BriarRig:FKOffsetjoint4_L|BriarRig:FKExtrajoint4_L|BriarRig:FKjoint4_L|BriarRig:FKXjoint4_L|BriarRig:FKOffsetjoint5_L|BriarRig:FKExtrajoint5_L|BriarRig:FKjoint5_L.scaleZ" 
 		"briar_v06RN.placeHolderList[43]" ""
-		5 4 "briar_v06RN" "|briar_v06:Group|briar_v06:MotionSystem|briar_v06:FKSystem|briar_v06:FKParentConstraintToChest_M|briar_v06:FKOffsetNeck_M|briar_v06:FKXNeck_M|briar_v06:FKOffsetNeckPart1_M|briar_v06:FKExtraNeckPart1_M|briar_v06:FKNeckPart1_M|briar_v06:FKXNeckPart1_M|briar_v06:FKOffsetNeckPart2_M|briar_v06:FKExtraNeckPart2_M|briar_v06:FKNeckPart2_M|briar_v06:FKXNeckPart2_M|briar_v06:FKOffsetHead_M|briar_v06:FKGlobalHead_M|briar_v06:FKExtraHead_M|briar_v06:FKHead_M|briar_v06:FKXHead_M|briar_v06:FKOffsetjoint1_M|briar_v06:FKExtrajoint1_M|briar_v06:FKjoint1_M|briar_v06:FKXjoint1_M|briar_v06:FKOffsetjoint2_L|briar_v06:FKExtrajoint2_L|briar_v06:FKjoint2_L|briar_v06:FKXjoint2_L|briar_v06:FKOffsetjoint3_L|briar_v06:FKExtrajoint3_L|briar_v06:FKjoint3_L|briar_v06:FKXjoint3_L|briar_v06:FKOffsetjoint4_L|briar_v06:FKExtrajoint4_L|briar_v06:FKjoint4_L|briar_v06:FKXjoint4_L|briar_v06:FKOffsetjoint5_L|briar_v06:FKExtrajoint5_L|briar_v06:FKjoint5_L.rotateY" 
+		5 4 "briar_v06RN" "|BriarRig:Group|BriarRig:MotionSystem|BriarRig:FKSystem|BriarRig:FKParentConstraintToChest_M|BriarRig:FKOffsetNeck_M|BriarRig:FKXNeck_M|BriarRig:FKOffsetNeckPart1_M|BriarRig:FKExtraNeckPart1_M|BriarRig:FKNeckPart1_M|BriarRig:FKXNeckPart1_M|BriarRig:FKOffsetNeckPart2_M|BriarRig:FKExtraNeckPart2_M|BriarRig:FKNeckPart2_M|BriarRig:FKXNeckPart2_M|BriarRig:FKOffsetHead_M|BriarRig:FKGlobalHead_M|BriarRig:FKExtraHead_M|BriarRig:FKHead_M|BriarRig:FKXHead_M|BriarRig:FKOffsetjoint1_M|BriarRig:FKExtrajoint1_M|BriarRig:FKjoint1_M|BriarRig:FKXjoint1_M|BriarRig:FKOffsetjoint2_L|BriarRig:FKExtrajoint2_L|BriarRig:FKjoint2_L|BriarRig:FKXjoint2_L|BriarRig:FKOffsetjoint3_L|BriarRig:FKExtrajoint3_L|BriarRig:FKjoint3_L|BriarRig:FKXjoint3_L|BriarRig:FKOffsetjoint4_L|BriarRig:FKExtrajoint4_L|BriarRig:FKjoint4_L|BriarRig:FKXjoint4_L|BriarRig:FKOffsetjoint5_L|BriarRig:FKExtrajoint5_L|BriarRig:FKjoint5_L.rotateY" 
 		"briar_v06RN.placeHolderList[44]" ""
-		5 4 "briar_v06RN" "|briar_v06:Group|briar_v06:MotionSystem|briar_v06:FKSystem|briar_v06:FKParentConstraintToChest_M|briar_v06:FKOffsetNeck_M|briar_v06:FKXNeck_M|briar_v06:FKOffsetNeckPart1_M|briar_v06:FKExtraNeckPart1_M|briar_v06:FKNeckPart1_M|briar_v06:FKXNeckPart1_M|briar_v06:FKOffsetNeckPart2_M|briar_v06:FKExtraNeckPart2_M|briar_v06:FKNeckPart2_M|briar_v06:FKXNeckPart2_M|briar_v06:FKOffsetHead_M|briar_v06:FKGlobalHead_M|briar_v06:FKExtraHead_M|briar_v06:FKHead_M|briar_v06:FKXHead_M|briar_v06:FKOffsetjoint1_M|briar_v06:FKExtrajoint1_M|briar_v06:FKjoint1_M|briar_v06:FKXjoint1_M|briar_v06:FKOffsetjoint2_L|briar_v06:FKExtrajoint2_L|briar_v06:FKjoint2_L|briar_v06:FKXjoint2_L|briar_v06:FKOffsetjoint3_L|briar_v06:FKExtrajoint3_L|briar_v06:FKjoint3_L|briar_v06:FKXjoint3_L|briar_v06:FKOffsetjoint4_L|briar_v06:FKExtrajoint4_L|briar_v06:FKjoint4_L|briar_v06:FKXjoint4_L|briar_v06:FKOffsetjoint5_L|briar_v06:FKExtrajoint5_L|briar_v06:FKjoint5_L.rotateX" 
+		5 4 "briar_v06RN" "|BriarRig:Group|BriarRig:MotionSystem|BriarRig:FKSystem|BriarRig:FKParentConstraintToChest_M|BriarRig:FKOffsetNeck_M|BriarRig:FKXNeck_M|BriarRig:FKOffsetNeckPart1_M|BriarRig:FKExtraNeckPart1_M|BriarRig:FKNeckPart1_M|BriarRig:FKXNeckPart1_M|BriarRig:FKOffsetNeckPart2_M|BriarRig:FKExtraNeckPart2_M|BriarRig:FKNeckPart2_M|BriarRig:FKXNeckPart2_M|BriarRig:FKOffsetHead_M|BriarRig:FKGlobalHead_M|BriarRig:FKExtraHead_M|BriarRig:FKHead_M|BriarRig:FKXHead_M|BriarRig:FKOffsetjoint1_M|BriarRig:FKExtrajoint1_M|BriarRig:FKjoint1_M|BriarRig:FKXjoint1_M|BriarRig:FKOffsetjoint2_L|BriarRig:FKExtrajoint2_L|BriarRig:FKjoint2_L|BriarRig:FKXjoint2_L|BriarRig:FKOffsetjoint3_L|BriarRig:FKExtrajoint3_L|BriarRig:FKjoint3_L|BriarRig:FKXjoint3_L|BriarRig:FKOffsetjoint4_L|BriarRig:FKExtrajoint4_L|BriarRig:FKjoint4_L|BriarRig:FKXjoint4_L|BriarRig:FKOffsetjoint5_L|BriarRig:FKExtrajoint5_L|BriarRig:FKjoint5_L.rotateX" 
 		"briar_v06RN.placeHolderList[45]" ""
-		5 4 "briar_v06RN" "|briar_v06:Group|briar_v06:MotionSystem|briar_v06:FKSystem|briar_v06:FKParentConstraintToChest_M|briar_v06:FKOffsetNeck_M|briar_v06:FKXNeck_M|briar_v06:FKOffsetNeckPart1_M|briar_v06:FKExtraNeckPart1_M|briar_v06:FKNeckPart1_M|briar_v06:FKXNeckPart1_M|briar_v06:FKOffsetNeckPart2_M|briar_v06:FKExtraNeckPart2_M|briar_v06:FKNeckPart2_M|briar_v06:FKXNeckPart2_M|briar_v06:FKOffsetHead_M|briar_v06:FKGlobalHead_M|briar_v06:FKExtraHead_M|briar_v06:FKHead_M|briar_v06:FKXHead_M|briar_v06:FKOffsetjoint1_M|briar_v06:FKExtrajoint1_M|briar_v06:FKjoint1_M|briar_v06:FKXjoint1_M|briar_v06:FKOffsetjoint2_L|briar_v06:FKExtrajoint2_L|briar_v06:FKjoint2_L|briar_v06:FKXjoint2_L|briar_v06:FKOffsetjoint3_L|briar_v06:FKExtrajoint3_L|briar_v06:FKjoint3_L|briar_v06:FKXjoint3_L|briar_v06:FKOffsetjoint4_L|briar_v06:FKExtrajoint4_L|briar_v06:FKjoint4_L|briar_v06:FKXjoint4_L|briar_v06:FKOffsetjoint5_L|briar_v06:FKExtrajoint5_L|briar_v06:FKjoint5_L.rotateZ" 
+		5 4 "briar_v06RN" "|BriarRig:Group|BriarRig:MotionSystem|BriarRig:FKSystem|BriarRig:FKParentConstraintToChest_M|BriarRig:FKOffsetNeck_M|BriarRig:FKXNeck_M|BriarRig:FKOffsetNeckPart1_M|BriarRig:FKExtraNeckPart1_M|BriarRig:FKNeckPart1_M|BriarRig:FKXNeckPart1_M|BriarRig:FKOffsetNeckPart2_M|BriarRig:FKExtraNeckPart2_M|BriarRig:FKNeckPart2_M|BriarRig:FKXNeckPart2_M|BriarRig:FKOffsetHead_M|BriarRig:FKGlobalHead_M|BriarRig:FKExtraHead_M|BriarRig:FKHead_M|BriarRig:FKXHead_M|BriarRig:FKOffsetjoint1_M|BriarRig:FKExtrajoint1_M|BriarRig:FKjoint1_M|BriarRig:FKXjoint1_M|BriarRig:FKOffsetjoint2_L|BriarRig:FKExtrajoint2_L|BriarRig:FKjoint2_L|BriarRig:FKXjoint2_L|BriarRig:FKOffsetjoint3_L|BriarRig:FKExtrajoint3_L|BriarRig:FKjoint3_L|BriarRig:FKXjoint3_L|BriarRig:FKOffsetjoint4_L|BriarRig:FKExtrajoint4_L|BriarRig:FKjoint4_L|BriarRig:FKXjoint4_L|BriarRig:FKOffsetjoint5_L|BriarRig:FKExtrajoint5_L|BriarRig:FKjoint5_L.rotateZ" 
 		"briar_v06RN.placeHolderList[46]" ""
-		5 4 "briar_v06RN" "|briar_v06:Group|briar_v06:MotionSystem|briar_v06:FKSystem|briar_v06:FKParentConstraintToChest_M|briar_v06:FKOffsetNeck_M|briar_v06:FKXNeck_M|briar_v06:FKOffsetNeckPart1_M|briar_v06:FKExtraNeckPart1_M|briar_v06:FKNeckPart1_M|briar_v06:FKXNeckPart1_M|briar_v06:FKOffsetNeckPart2_M|briar_v06:FKExtraNeckPart2_M|briar_v06:FKNeckPart2_M|briar_v06:FKXNeckPart2_M|briar_v06:FKOffsetHead_M|briar_v06:FKGlobalHead_M|briar_v06:FKExtraHead_M|briar_v06:FKHead_M|briar_v06:FKXHead_M|briar_v06:FKOffsetjoint1_M|briar_v06:FKExtrajoint1_M|briar_v06:FKjoint1_M|briar_v06:FKXjoint1_M|briar_v06:FKOffsetjoint2_L|briar_v06:FKExtrajoint2_L|briar_v06:FKjoint2_L|briar_v06:FKXjoint2_L|briar_v06:FKOffsetjoint3_L|briar_v06:FKExtrajoint3_L|briar_v06:FKjoint3_L|briar_v06:FKXjoint3_L|briar_v06:FKOffsetjoint4_L|briar_v06:FKExtrajoint4_L|briar_v06:FKjoint4_L|briar_v06:FKXjoint4_L|briar_v06:FKOffsetjoint5_L|briar_v06:FKExtrajoint5_L|briar_v06:FKjoint5_L.translateX" 
+		5 4 "briar_v06RN" "|BriarRig:Group|BriarRig:MotionSystem|BriarRig:FKSystem|BriarRig:FKParentConstraintToChest_M|BriarRig:FKOffsetNeck_M|BriarRig:FKXNeck_M|BriarRig:FKOffsetNeckPart1_M|BriarRig:FKExtraNeckPart1_M|BriarRig:FKNeckPart1_M|BriarRig:FKXNeckPart1_M|BriarRig:FKOffsetNeckPart2_M|BriarRig:FKExtraNeckPart2_M|BriarRig:FKNeckPart2_M|BriarRig:FKXNeckPart2_M|BriarRig:FKOffsetHead_M|BriarRig:FKGlobalHead_M|BriarRig:FKExtraHead_M|BriarRig:FKHead_M|BriarRig:FKXHead_M|BriarRig:FKOffsetjoint1_M|BriarRig:FKExtrajoint1_M|BriarRig:FKjoint1_M|BriarRig:FKXjoint1_M|BriarRig:FKOffsetjoint2_L|BriarRig:FKExtrajoint2_L|BriarRig:FKjoint2_L|BriarRig:FKXjoint2_L|BriarRig:FKOffsetjoint3_L|BriarRig:FKExtrajoint3_L|BriarRig:FKjoint3_L|BriarRig:FKXjoint3_L|BriarRig:FKOffsetjoint4_L|BriarRig:FKExtrajoint4_L|BriarRig:FKjoint4_L|BriarRig:FKXjoint4_L|BriarRig:FKOffsetjoint5_L|BriarRig:FKExtrajoint5_L|BriarRig:FKjoint5_L.translateX" 
 		"briar_v06RN.placeHolderList[47]" ""
-		5 4 "briar_v06RN" "|briar_v06:Group|briar_v06:MotionSystem|briar_v06:FKSystem|briar_v06:FKParentConstraintToChest_M|briar_v06:FKOffsetNeck_M|briar_v06:FKXNeck_M|briar_v06:FKOffsetNeckPart1_M|briar_v06:FKExtraNeckPart1_M|briar_v06:FKNeckPart1_M|briar_v06:FKXNeckPart1_M|briar_v06:FKOffsetNeckPart2_M|briar_v06:FKExtraNeckPart2_M|briar_v06:FKNeckPart2_M|briar_v06:FKXNeckPart2_M|briar_v06:FKOffsetHead_M|briar_v06:FKGlobalHead_M|briar_v06:FKExtraHead_M|briar_v06:FKHead_M|briar_v06:FKXHead_M|briar_v06:FKOffsetjoint1_M|briar_v06:FKExtrajoint1_M|briar_v06:FKjoint1_M|briar_v06:FKXjoint1_M|briar_v06:FKOffsetjoint2_L|briar_v06:FKExtrajoint2_L|briar_v06:FKjoint2_L|briar_v06:FKXjoint2_L|briar_v06:FKOffsetjoint3_L|briar_v06:FKExtrajoint3_L|briar_v06:FKjoint3_L|briar_v06:FKXjoint3_L|briar_v06:FKOffsetjoint4_L|briar_v06:FKExtrajoint4_L|briar_v06:FKjoint4_L|briar_v06:FKXjoint4_L|briar_v06:FKOffsetjoint5_L|briar_v06:FKExtrajoint5_L|briar_v06:FKjoint5_L.translateY" 
+		5 4 "briar_v06RN" "|BriarRig:Group|BriarRig:MotionSystem|BriarRig:FKSystem|BriarRig:FKParentConstraintToChest_M|BriarRig:FKOffsetNeck_M|BriarRig:FKXNeck_M|BriarRig:FKOffsetNeckPart1_M|BriarRig:FKExtraNeckPart1_M|BriarRig:FKNeckPart1_M|BriarRig:FKXNeckPart1_M|BriarRig:FKOffsetNeckPart2_M|BriarRig:FKExtraNeckPart2_M|BriarRig:FKNeckPart2_M|BriarRig:FKXNeckPart2_M|BriarRig:FKOffsetHead_M|BriarRig:FKGlobalHead_M|BriarRig:FKExtraHead_M|BriarRig:FKHead_M|BriarRig:FKXHead_M|BriarRig:FKOffsetjoint1_M|BriarRig:FKExtrajoint1_M|BriarRig:FKjoint1_M|BriarRig:FKXjoint1_M|BriarRig:FKOffsetjoint2_L|BriarRig:FKExtrajoint2_L|BriarRig:FKjoint2_L|BriarRig:FKXjoint2_L|BriarRig:FKOffsetjoint3_L|BriarRig:FKExtrajoint3_L|BriarRig:FKjoint3_L|BriarRig:FKXjoint3_L|BriarRig:FKOffsetjoint4_L|BriarRig:FKExtrajoint4_L|BriarRig:FKjoint4_L|BriarRig:FKXjoint4_L|BriarRig:FKOffsetjoint5_L|BriarRig:FKExtrajoint5_L|BriarRig:FKjoint5_L.translateY" 
 		"briar_v06RN.placeHolderList[48]" ""
-		5 4 "briar_v06RN" "|briar_v06:Group|briar_v06:MotionSystem|briar_v06:FKSystem|briar_v06:FKParentConstraintToChest_M|briar_v06:FKOffsetNeck_M|briar_v06:FKXNeck_M|briar_v06:FKOffsetNeckPart1_M|briar_v06:FKExtraNeckPart1_M|briar_v06:FKNeckPart1_M|briar_v06:FKXNeckPart1_M|briar_v06:FKOffsetNeckPart2_M|briar_v06:FKExtraNeckPart2_M|briar_v06:FKNeckPart2_M|briar_v06:FKXNeckPart2_M|briar_v06:FKOffsetHead_M|briar_v06:FKGlobalHead_M|briar_v06:FKExtraHead_M|briar_v06:FKHead_M|briar_v06:FKXHead_M|briar_v06:FKOffsetjoint1_M|briar_v06:FKExtrajoint1_M|briar_v06:FKjoint1_M|briar_v06:FKXjoint1_M|briar_v06:FKOffsetjoint2_L|briar_v06:FKExtrajoint2_L|briar_v06:FKjoint2_L|briar_v06:FKXjoint2_L|briar_v06:FKOffsetjoint3_L|briar_v06:FKExtrajoint3_L|briar_v06:FKjoint3_L|briar_v06:FKXjoint3_L|briar_v06:FKOffsetjoint4_L|briar_v06:FKExtrajoint4_L|briar_v06:FKjoint4_L|briar_v06:FKXjoint4_L|briar_v06:FKOffsetjoint5_L|briar_v06:FKExtrajoint5_L|briar_v06:FKjoint5_L.translateZ" 
+		5 4 "briar_v06RN" "|BriarRig:Group|BriarRig:MotionSystem|BriarRig:FKSystem|BriarRig:FKParentConstraintToChest_M|BriarRig:FKOffsetNeck_M|BriarRig:FKXNeck_M|BriarRig:FKOffsetNeckPart1_M|BriarRig:FKExtraNeckPart1_M|BriarRig:FKNeckPart1_M|BriarRig:FKXNeckPart1_M|BriarRig:FKOffsetNeckPart2_M|BriarRig:FKExtraNeckPart2_M|BriarRig:FKNeckPart2_M|BriarRig:FKXNeckPart2_M|BriarRig:FKOffsetHead_M|BriarRig:FKGlobalHead_M|BriarRig:FKExtraHead_M|BriarRig:FKHead_M|BriarRig:FKXHead_M|BriarRig:FKOffsetjoint1_M|BriarRig:FKExtrajoint1_M|BriarRig:FKjoint1_M|BriarRig:FKXjoint1_M|BriarRig:FKOffsetjoint2_L|BriarRig:FKExtrajoint2_L|BriarRig:FKjoint2_L|BriarRig:FKXjoint2_L|BriarRig:FKOffsetjoint3_L|BriarRig:FKExtrajoint3_L|BriarRig:FKjoint3_L|BriarRig:FKXjoint3_L|BriarRig:FKOffsetjoint4_L|BriarRig:FKExtrajoint4_L|BriarRig:FKjoint4_L|BriarRig:FKXjoint4_L|BriarRig:FKOffsetjoint5_L|BriarRig:FKExtrajoint5_L|BriarRig:FKjoint5_L.translateZ" 
 		"briar_v06RN.placeHolderList[49]" ""
-		5 4 "briar_v06RN" "|briar_v06:Group|briar_v06:MotionSystem|briar_v06:FKSystem|briar_v06:FKParentConstraintToChest_M|briar_v06:FKOffsetNeck_M|briar_v06:FKXNeck_M|briar_v06:FKOffsetNeckPart1_M|briar_v06:FKExtraNeckPart1_M|briar_v06:FKNeckPart1_M|briar_v06:FKXNeckPart1_M|briar_v06:FKOffsetNeckPart2_M|briar_v06:FKExtraNeckPart2_M|briar_v06:FKNeckPart2_M|briar_v06:FKXNeckPart2_M|briar_v06:FKOffsetHead_M|briar_v06:FKGlobalHead_M|briar_v06:FKExtraHead_M|briar_v06:FKHead_M|briar_v06:FKXHead_M|briar_v06:FKOffsetjoint1_M|briar_v06:FKExtrajoint1_M|briar_v06:FKjoint1_M|briar_v06:FKXjoint1_M|briar_v06:FKOffsetjoint2_L|briar_v06:FKExtrajoint2_L|briar_v06:FKjoint2_L|briar_v06:FKXjoint2_L|briar_v06:FKOffsetjoint3_L|briar_v06:FKExtrajoint3_L|briar_v06:FKjoint3_L|briar_v06:FKXjoint3_L|briar_v06:FKOffsetjoint4_L|briar_v06:FKExtrajoint4_L|briar_v06:FKjoint4_L|briar_v06:FKXjoint4_L|briar_v06:FKOffsetjoint5_L|briar_v06:FKExtrajoint5_L|briar_v06:FKjoint5_L|briar_v06:FKXjoint5_L.rotateY" 
+		5 4 "briar_v06RN" "|BriarRig:Group|BriarRig:MotionSystem|BriarRig:FKSystem|BriarRig:FKParentConstraintToChest_M|BriarRig:FKOffsetNeck_M|BriarRig:FKXNeck_M|BriarRig:FKOffsetNeckPart1_M|BriarRig:FKExtraNeckPart1_M|BriarRig:FKNeckPart1_M|BriarRig:FKXNeckPart1_M|BriarRig:FKOffsetNeckPart2_M|BriarRig:FKExtraNeckPart2_M|BriarRig:FKNeckPart2_M|BriarRig:FKXNeckPart2_M|BriarRig:FKOffsetHead_M|BriarRig:FKGlobalHead_M|BriarRig:FKExtraHead_M|BriarRig:FKHead_M|BriarRig:FKXHead_M|BriarRig:FKOffsetjoint1_M|BriarRig:FKExtrajoint1_M|BriarRig:FKjoint1_M|BriarRig:FKXjoint1_M|BriarRig:FKOffsetjoint2_L|BriarRig:FKExtrajoint2_L|BriarRig:FKjoint2_L|BriarRig:FKXjoint2_L|BriarRig:FKOffsetjoint3_L|BriarRig:FKExtrajoint3_L|BriarRig:FKjoint3_L|BriarRig:FKXjoint3_L|BriarRig:FKOffsetjoint4_L|BriarRig:FKExtrajoint4_L|BriarRig:FKjoint4_L|BriarRig:FKXjoint4_L|BriarRig:FKOffsetjoint5_L|BriarRig:FKExtrajoint5_L|BriarRig:FKjoint5_L|BriarRig:FKXjoint5_L.rotateY" 
 		"briar_v06RN.placeHolderList[50]" ""
-		5 4 "briar_v06RN" "|briar_v06:Group|briar_v06:MotionSystem|briar_v06:FKSystem|briar_v06:FKParentConstraintToChest_M|briar_v06:FKOffsetNeck_M|briar_v06:FKXNeck_M|briar_v06:FKOffsetNeckPart1_M|briar_v06:FKExtraNeckPart1_M|briar_v06:FKNeckPart1_M|briar_v06:FKXNeckPart1_M|briar_v06:FKOffsetNeckPart2_M|briar_v06:FKExtraNeckPart2_M|briar_v06:FKNeckPart2_M|briar_v06:FKXNeckPart2_M|briar_v06:FKOffsetHead_M|briar_v06:FKGlobalHead_M|briar_v06:FKExtraHead_M|briar_v06:FKHead_M|briar_v06:FKXHead_M|briar_v06:FKOffsetjoint1_M|briar_v06:FKExtrajoint1_M|briar_v06:FKjoint1_M|briar_v06:FKXjoint1_M|briar_v06:FKOffsetjoint2_L|briar_v06:FKExtrajoint2_L|briar_v06:FKjoint2_L|briar_v06:FKXjoint2_L|briar_v06:FKOffsetjoint3_L|briar_v06:FKExtrajoint3_L|briar_v06:FKjoint3_L|briar_v06:FKXjoint3_L|briar_v06:FKOffsetjoint4_L|briar_v06:FKExtrajoint4_L|briar_v06:FKjoint4_L|briar_v06:FKXjoint4_L|briar_v06:FKOffsetjoint5_L|briar_v06:FKExtrajoint5_L|briar_v06:FKjoint5_L|briar_v06:FKXjoint5_L|briar_v06:FKOffsetjoint6_L|briar_v06:FKExtrajoint6_L|briar_v06:FKjoint6_L|briar_v06:FKXjoint6_L|briar_v06:FKOffsetjoint7_L|briar_v06:FKExtrajoint7_L|briar_v06:FKjoint7_L.scaleX" 
+		5 4 "briar_v06RN" "|BriarRig:Group|BriarRig:MotionSystem|BriarRig:FKSystem|BriarRig:FKParentConstraintToChest_M|BriarRig:FKOffsetNeck_M|BriarRig:FKXNeck_M|BriarRig:FKOffsetNeckPart1_M|BriarRig:FKExtraNeckPart1_M|BriarRig:FKNeckPart1_M|BriarRig:FKXNeckPart1_M|BriarRig:FKOffsetNeckPart2_M|BriarRig:FKExtraNeckPart2_M|BriarRig:FKNeckPart2_M|BriarRig:FKXNeckPart2_M|BriarRig:FKOffsetHead_M|BriarRig:FKGlobalHead_M|BriarRig:FKExtraHead_M|BriarRig:FKHead_M|BriarRig:FKXHead_M|BriarRig:FKOffsetjoint1_M|BriarRig:FKExtrajoint1_M|BriarRig:FKjoint1_M|BriarRig:FKXjoint1_M|BriarRig:FKOffsetjoint2_L|BriarRig:FKExtrajoint2_L|BriarRig:FKjoint2_L|BriarRig:FKXjoint2_L|BriarRig:FKOffsetjoint3_L|BriarRig:FKExtrajoint3_L|BriarRig:FKjoint3_L|BriarRig:FKXjoint3_L|BriarRig:FKOffsetjoint4_L|BriarRig:FKExtrajoint4_L|BriarRig:FKjoint4_L|BriarRig:FKXjoint4_L|BriarRig:FKOffsetjoint5_L|BriarRig:FKExtrajoint5_L|BriarRig:FKjoint5_L|BriarRig:FKXjoint5_L|BriarRig:FKOffsetjoint6_L|BriarRig:FKExtrajoint6_L|BriarRig:FKjoint6_L|BriarRig:FKXjoint6_L|BriarRig:FKOffsetjoint7_L|BriarRig:FKExtrajoint7_L|BriarRig:FKjoint7_L.scaleX" 
 		"briar_v06RN.placeHolderList[51]" ""
-		5 4 "briar_v06RN" "|briar_v06:Group|briar_v06:MotionSystem|briar_v06:FKSystem|briar_v06:FKParentConstraintToChest_M|briar_v06:FKOffsetNeck_M|briar_v06:FKXNeck_M|briar_v06:FKOffsetNeckPart1_M|briar_v06:FKExtraNeckPart1_M|briar_v06:FKNeckPart1_M|briar_v06:FKXNeckPart1_M|briar_v06:FKOffsetNeckPart2_M|briar_v06:FKExtraNeckPart2_M|briar_v06:FKNeckPart2_M|briar_v06:FKXNeckPart2_M|briar_v06:FKOffsetHead_M|briar_v06:FKGlobalHead_M|briar_v06:FKExtraHead_M|briar_v06:FKHead_M|briar_v06:FKXHead_M|briar_v06:FKOffsetjoint1_M|briar_v06:FKExtrajoint1_M|briar_v06:FKjoint1_M|briar_v06:FKXjoint1_M|briar_v06:FKOffsetjoint2_L|briar_v06:FKExtrajoint2_L|briar_v06:FKjoint2_L|briar_v06:FKXjoint2_L|briar_v06:FKOffsetjoint3_L|briar_v06:FKExtrajoint3_L|briar_v06:FKjoint3_L|briar_v06:FKXjoint3_L|briar_v06:FKOffsetjoint4_L|briar_v06:FKExtrajoint4_L|briar_v06:FKjoint4_L|briar_v06:FKXjoint4_L|briar_v06:FKOffsetjoint5_L|briar_v06:FKExtrajoint5_L|briar_v06:FKjoint5_L|briar_v06:FKXjoint5_L|briar_v06:FKOffsetjoint6_L|briar_v06:FKExtrajoint6_L|briar_v06:FKjoint6_L|briar_v06:FKXjoint6_L|briar_v06:FKOffsetjoint7_L|briar_v06:FKExtrajoint7_L|briar_v06:FKjoint7_L.scaleY" 
+		5 4 "briar_v06RN" "|BriarRig:Group|BriarRig:MotionSystem|BriarRig:FKSystem|BriarRig:FKParentConstraintToChest_M|BriarRig:FKOffsetNeck_M|BriarRig:FKXNeck_M|BriarRig:FKOffsetNeckPart1_M|BriarRig:FKExtraNeckPart1_M|BriarRig:FKNeckPart1_M|BriarRig:FKXNeckPart1_M|BriarRig:FKOffsetNeckPart2_M|BriarRig:FKExtraNeckPart2_M|BriarRig:FKNeckPart2_M|BriarRig:FKXNeckPart2_M|BriarRig:FKOffsetHead_M|BriarRig:FKGlobalHead_M|BriarRig:FKExtraHead_M|BriarRig:FKHead_M|BriarRig:FKXHead_M|BriarRig:FKOffsetjoint1_M|BriarRig:FKExtrajoint1_M|BriarRig:FKjoint1_M|BriarRig:FKXjoint1_M|BriarRig:FKOffsetjoint2_L|BriarRig:FKExtrajoint2_L|BriarRig:FKjoint2_L|BriarRig:FKXjoint2_L|BriarRig:FKOffsetjoint3_L|BriarRig:FKExtrajoint3_L|BriarRig:FKjoint3_L|BriarRig:FKXjoint3_L|BriarRig:FKOffsetjoint4_L|BriarRig:FKExtrajoint4_L|BriarRig:FKjoint4_L|BriarRig:FKXjoint4_L|BriarRig:FKOffsetjoint5_L|BriarRig:FKExtrajoint5_L|BriarRig:FKjoint5_L|BriarRig:FKXjoint5_L|BriarRig:FKOffsetjoint6_L|BriarRig:FKExtrajoint6_L|BriarRig:FKjoint6_L|BriarRig:FKXjoint6_L|BriarRig:FKOffsetjoint7_L|BriarRig:FKExtrajoint7_L|BriarRig:FKjoint7_L.scaleY" 
 		"briar_v06RN.placeHolderList[52]" ""
-		5 4 "briar_v06RN" "|briar_v06:Group|briar_v06:MotionSystem|briar_v06:FKSystem|briar_v06:FKParentConstraintToChest_M|briar_v06:FKOffsetNeck_M|briar_v06:FKXNeck_M|briar_v06:FKOffsetNeckPart1_M|briar_v06:FKExtraNeckPart1_M|briar_v06:FKNeckPart1_M|briar_v06:FKXNeckPart1_M|briar_v06:FKOffsetNeckPart2_M|briar_v06:FKExtraNeckPart2_M|briar_v06:FKNeckPart2_M|briar_v06:FKXNeckPart2_M|briar_v06:FKOffsetHead_M|briar_v06:FKGlobalHead_M|briar_v06:FKExtraHead_M|briar_v06:FKHead_M|briar_v06:FKXHead_M|briar_v06:FKOffsetjoint1_M|briar_v06:FKExtrajoint1_M|briar_v06:FKjoint1_M|briar_v06:FKXjoint1_M|briar_v06:FKOffsetjoint2_L|briar_v06:FKExtrajoint2_L|briar_v06:FKjoint2_L|briar_v06:FKXjoint2_L|briar_v06:FKOffsetjoint3_L|briar_v06:FKExtrajoint3_L|briar_v06:FKjoint3_L|briar_v06:FKXjoint3_L|briar_v06:FKOffsetjoint4_L|briar_v06:FKExtrajoint4_L|briar_v06:FKjoint4_L|briar_v06:FKXjoint4_L|briar_v06:FKOffsetjoint5_L|briar_v06:FKExtrajoint5_L|briar_v06:FKjoint5_L|briar_v06:FKXjoint5_L|briar_v06:FKOffsetjoint6_L|briar_v06:FKExtrajoint6_L|briar_v06:FKjoint6_L|briar_v06:FKXjoint6_L|briar_v06:FKOffsetjoint7_L|briar_v06:FKExtrajoint7_L|briar_v06:FKjoint7_L.scaleZ" 
+		5 4 "briar_v06RN" "|BriarRig:Group|BriarRig:MotionSystem|BriarRig:FKSystem|BriarRig:FKParentConstraintToChest_M|BriarRig:FKOffsetNeck_M|BriarRig:FKXNeck_M|BriarRig:FKOffsetNeckPart1_M|BriarRig:FKExtraNeckPart1_M|BriarRig:FKNeckPart1_M|BriarRig:FKXNeckPart1_M|BriarRig:FKOffsetNeckPart2_M|BriarRig:FKExtraNeckPart2_M|BriarRig:FKNeckPart2_M|BriarRig:FKXNeckPart2_M|BriarRig:FKOffsetHead_M|BriarRig:FKGlobalHead_M|BriarRig:FKExtraHead_M|BriarRig:FKHead_M|BriarRig:FKXHead_M|BriarRig:FKOffsetjoint1_M|BriarRig:FKExtrajoint1_M|BriarRig:FKjoint1_M|BriarRig:FKXjoint1_M|BriarRig:FKOffsetjoint2_L|BriarRig:FKExtrajoint2_L|BriarRig:FKjoint2_L|BriarRig:FKXjoint2_L|BriarRig:FKOffsetjoint3_L|BriarRig:FKExtrajoint3_L|BriarRig:FKjoint3_L|BriarRig:FKXjoint3_L|BriarRig:FKOffsetjoint4_L|BriarRig:FKExtrajoint4_L|BriarRig:FKjoint4_L|BriarRig:FKXjoint4_L|BriarRig:FKOffsetjoint5_L|BriarRig:FKExtrajoint5_L|BriarRig:FKjoint5_L|BriarRig:FKXjoint5_L|BriarRig:FKOffsetjoint6_L|BriarRig:FKExtrajoint6_L|BriarRig:FKjoint6_L|BriarRig:FKXjoint6_L|BriarRig:FKOffsetjoint7_L|BriarRig:FKExtrajoint7_L|BriarRig:FKjoint7_L.scaleZ" 
 		"briar_v06RN.placeHolderList[53]" ""
-		5 4 "briar_v06RN" "|briar_v06:Group|briar_v06:MotionSystem|briar_v06:FKSystem|briar_v06:FKParentConstraintToChest_M|briar_v06:FKOffsetNeck_M|briar_v06:FKXNeck_M|briar_v06:FKOffsetNeckPart1_M|briar_v06:FKExtraNeckPart1_M|briar_v06:FKNeckPart1_M|briar_v06:FKXNeckPart1_M|briar_v06:FKOffsetNeckPart2_M|briar_v06:FKExtraNeckPart2_M|briar_v06:FKNeckPart2_M|briar_v06:FKXNeckPart2_M|briar_v06:FKOffsetHead_M|briar_v06:FKGlobalHead_M|briar_v06:FKExtraHead_M|briar_v06:FKHead_M|briar_v06:FKXHead_M|briar_v06:FKOffsetjoint1_M|briar_v06:FKExtrajoint1_M|briar_v06:FKjoint1_M|briar_v06:FKXjoint1_M|briar_v06:FKOffsetjoint2_L|briar_v06:FKExtrajoint2_L|briar_v06:FKjoint2_L|briar_v06:FKXjoint2_L|briar_v06:FKOffsetjoint3_L|briar_v06:FKExtrajoint3_L|briar_v06:FKjoint3_L|briar_v06:FKXjoint3_L|briar_v06:FKOffsetjoint4_L|briar_v06:FKExtrajoint4_L|briar_v06:FKjoint4_L|briar_v06:FKXjoint4_L|briar_v06:FKOffsetjoint5_L|briar_v06:FKExtrajoint5_L|briar_v06:FKjoint5_L|briar_v06:FKXjoint5_L|briar_v06:FKOffsetjoint6_L|briar_v06:FKExtrajoint6_L|briar_v06:FKjoint6_L|briar_v06:FKXjoint6_L|briar_v06:FKOffsetjoint7_L|briar_v06:FKExtrajoint7_L|briar_v06:FKjoint7_L.rotateY" 
+		5 4 "briar_v06RN" "|BriarRig:Group|BriarRig:MotionSystem|BriarRig:FKSystem|BriarRig:FKParentConstraintToChest_M|BriarRig:FKOffsetNeck_M|BriarRig:FKXNeck_M|BriarRig:FKOffsetNeckPart1_M|BriarRig:FKExtraNeckPart1_M|BriarRig:FKNeckPart1_M|BriarRig:FKXNeckPart1_M|BriarRig:FKOffsetNeckPart2_M|BriarRig:FKExtraNeckPart2_M|BriarRig:FKNeckPart2_M|BriarRig:FKXNeckPart2_M|BriarRig:FKOffsetHead_M|BriarRig:FKGlobalHead_M|BriarRig:FKExtraHead_M|BriarRig:FKHead_M|BriarRig:FKXHead_M|BriarRig:FKOffsetjoint1_M|BriarRig:FKExtrajoint1_M|BriarRig:FKjoint1_M|BriarRig:FKXjoint1_M|BriarRig:FKOffsetjoint2_L|BriarRig:FKExtrajoint2_L|BriarRig:FKjoint2_L|BriarRig:FKXjoint2_L|BriarRig:FKOffsetjoint3_L|BriarRig:FKExtrajoint3_L|BriarRig:FKjoint3_L|BriarRig:FKXjoint3_L|BriarRig:FKOffsetjoint4_L|BriarRig:FKExtrajoint4_L|BriarRig:FKjoint4_L|BriarRig:FKXjoint4_L|BriarRig:FKOffsetjoint5_L|BriarRig:FKExtrajoint5_L|BriarRig:FKjoint5_L|BriarRig:FKXjoint5_L|BriarRig:FKOffsetjoint6_L|BriarRig:FKExtrajoint6_L|BriarRig:FKjoint6_L|BriarRig:FKXjoint6_L|BriarRig:FKOffsetjoint7_L|BriarRig:FKExtrajoint7_L|BriarRig:FKjoint7_L.rotateY" 
 		"briar_v06RN.placeHolderList[54]" ""
-		5 4 "briar_v06RN" "|briar_v06:Group|briar_v06:MotionSystem|briar_v06:FKSystem|briar_v06:FKParentConstraintToChest_M|briar_v06:FKOffsetNeck_M|briar_v06:FKXNeck_M|briar_v06:FKOffsetNeckPart1_M|briar_v06:FKExtraNeckPart1_M|briar_v06:FKNeckPart1_M|briar_v06:FKXNeckPart1_M|briar_v06:FKOffsetNeckPart2_M|briar_v06:FKExtraNeckPart2_M|briar_v06:FKNeckPart2_M|briar_v06:FKXNeckPart2_M|briar_v06:FKOffsetHead_M|briar_v06:FKGlobalHead_M|briar_v06:FKExtraHead_M|briar_v06:FKHead_M|briar_v06:FKXHead_M|briar_v06:FKOffsetjoint1_M|briar_v06:FKExtrajoint1_M|briar_v06:FKjoint1_M|briar_v06:FKXjoint1_M|briar_v06:FKOffsetjoint2_L|briar_v06:FKExtrajoint2_L|briar_v06:FKjoint2_L|briar_v06:FKXjoint2_L|briar_v06:FKOffsetjoint3_L|briar_v06:FKExtrajoint3_L|briar_v06:FKjoint3_L|briar_v06:FKXjoint3_L|briar_v06:FKOffsetjoint4_L|briar_v06:FKExtrajoint4_L|briar_v06:FKjoint4_L|briar_v06:FKXjoint4_L|briar_v06:FKOffsetjoint5_L|briar_v06:FKExtrajoint5_L|briar_v06:FKjoint5_L|briar_v06:FKXjoint5_L|briar_v06:FKOffsetjoint6_L|briar_v06:FKExtrajoint6_L|briar_v06:FKjoint6_L|briar_v06:FKXjoint6_L|briar_v06:FKOffsetjoint7_L|briar_v06:FKExtrajoint7_L|briar_v06:FKjoint7_L.rotateX" 
+		5 4 "briar_v06RN" "|BriarRig:Group|BriarRig:MotionSystem|BriarRig:FKSystem|BriarRig:FKParentConstraintToChest_M|BriarRig:FKOffsetNeck_M|BriarRig:FKXNeck_M|BriarRig:FKOffsetNeckPart1_M|BriarRig:FKExtraNeckPart1_M|BriarRig:FKNeckPart1_M|BriarRig:FKXNeckPart1_M|BriarRig:FKOffsetNeckPart2_M|BriarRig:FKExtraNeckPart2_M|BriarRig:FKNeckPart2_M|BriarRig:FKXNeckPart2_M|BriarRig:FKOffsetHead_M|BriarRig:FKGlobalHead_M|BriarRig:FKExtraHead_M|BriarRig:FKHead_M|BriarRig:FKXHead_M|BriarRig:FKOffsetjoint1_M|BriarRig:FKExtrajoint1_M|BriarRig:FKjoint1_M|BriarRig:FKXjoint1_M|BriarRig:FKOffsetjoint2_L|BriarRig:FKExtrajoint2_L|BriarRig:FKjoint2_L|BriarRig:FKXjoint2_L|BriarRig:FKOffsetjoint3_L|BriarRig:FKExtrajoint3_L|BriarRig:FKjoint3_L|BriarRig:FKXjoint3_L|BriarRig:FKOffsetjoint4_L|BriarRig:FKExtrajoint4_L|BriarRig:FKjoint4_L|BriarRig:FKXjoint4_L|BriarRig:FKOffsetjoint5_L|BriarRig:FKExtrajoint5_L|BriarRig:FKjoint5_L|BriarRig:FKXjoint5_L|BriarRig:FKOffsetjoint6_L|BriarRig:FKExtrajoint6_L|BriarRig:FKjoint6_L|BriarRig:FKXjoint6_L|BriarRig:FKOffsetjoint7_L|BriarRig:FKExtrajoint7_L|BriarRig:FKjoint7_L.rotateX" 
 		"briar_v06RN.placeHolderList[55]" ""
-		5 4 "briar_v06RN" "|briar_v06:Group|briar_v06:MotionSystem|briar_v06:FKSystem|briar_v06:FKParentConstraintToChest_M|briar_v06:FKOffsetNeck_M|briar_v06:FKXNeck_M|briar_v06:FKOffsetNeckPart1_M|briar_v06:FKExtraNeckPart1_M|briar_v06:FKNeckPart1_M|briar_v06:FKXNeckPart1_M|briar_v06:FKOffsetNeckPart2_M|briar_v06:FKExtraNeckPart2_M|briar_v06:FKNeckPart2_M|briar_v06:FKXNeckPart2_M|briar_v06:FKOffsetHead_M|briar_v06:FKGlobalHead_M|briar_v06:FKExtraHead_M|briar_v06:FKHead_M|briar_v06:FKXHead_M|briar_v06:FKOffsetjoint1_M|briar_v06:FKExtrajoint1_M|briar_v06:FKjoint1_M|briar_v06:FKXjoint1_M|briar_v06:FKOffsetjoint2_L|briar_v06:FKExtrajoint2_L|briar_v06:FKjoint2_L|briar_v06:FKXjoint2_L|briar_v06:FKOffsetjoint3_L|briar_v06:FKExtrajoint3_L|briar_v06:FKjoint3_L|briar_v06:FKXjoint3_L|briar_v06:FKOffsetjoint4_L|briar_v06:FKExtrajoint4_L|briar_v06:FKjoint4_L|briar_v06:FKXjoint4_L|briar_v06:FKOffsetjoint5_L|briar_v06:FKExtrajoint5_L|briar_v06:FKjoint5_L|briar_v06:FKXjoint5_L|briar_v06:FKOffsetjoint6_L|briar_v06:FKExtrajoint6_L|briar_v06:FKjoint6_L|briar_v06:FKXjoint6_L|briar_v06:FKOffsetjoint7_L|briar_v06:FKExtrajoint7_L|briar_v06:FKjoint7_L.rotateZ" 
+		5 4 "briar_v06RN" "|BriarRig:Group|BriarRig:MotionSystem|BriarRig:FKSystem|BriarRig:FKParentConstraintToChest_M|BriarRig:FKOffsetNeck_M|BriarRig:FKXNeck_M|BriarRig:FKOffsetNeckPart1_M|BriarRig:FKExtraNeckPart1_M|BriarRig:FKNeckPart1_M|BriarRig:FKXNeckPart1_M|BriarRig:FKOffsetNeckPart2_M|BriarRig:FKExtraNeckPart2_M|BriarRig:FKNeckPart2_M|BriarRig:FKXNeckPart2_M|BriarRig:FKOffsetHead_M|BriarRig:FKGlobalHead_M|BriarRig:FKExtraHead_M|BriarRig:FKHead_M|BriarRig:FKXHead_M|BriarRig:FKOffsetjoint1_M|BriarRig:FKExtrajoint1_M|BriarRig:FKjoint1_M|BriarRig:FKXjoint1_M|BriarRig:FKOffsetjoint2_L|BriarRig:FKExtrajoint2_L|BriarRig:FKjoint2_L|BriarRig:FKXjoint2_L|BriarRig:FKOffsetjoint3_L|BriarRig:FKExtrajoint3_L|BriarRig:FKjoint3_L|BriarRig:FKXjoint3_L|BriarRig:FKOffsetjoint4_L|BriarRig:FKExtrajoint4_L|BriarRig:FKjoint4_L|BriarRig:FKXjoint4_L|BriarRig:FKOffsetjoint5_L|BriarRig:FKExtrajoint5_L|BriarRig:FKjoint5_L|BriarRig:FKXjoint5_L|BriarRig:FKOffsetjoint6_L|BriarRig:FKExtrajoint6_L|BriarRig:FKjoint6_L|BriarRig:FKXjoint6_L|BriarRig:FKOffsetjoint7_L|BriarRig:FKExtrajoint7_L|BriarRig:FKjoint7_L.rotateZ" 
 		"briar_v06RN.placeHolderList[56]" ""
-		5 4 "briar_v06RN" "|briar_v06:Group|briar_v06:MotionSystem|briar_v06:FKSystem|briar_v06:FKParentConstraintToChest_M|briar_v06:FKOffsetNeck_M|briar_v06:FKXNeck_M|briar_v06:FKOffsetNeckPart1_M|briar_v06:FKExtraNeckPart1_M|briar_v06:FKNeckPart1_M|briar_v06:FKXNeckPart1_M|briar_v06:FKOffsetNeckPart2_M|briar_v06:FKExtraNeckPart2_M|briar_v06:FKNeckPart2_M|briar_v06:FKXNeckPart2_M|briar_v06:FKOffsetHead_M|briar_v06:FKGlobalHead_M|briar_v06:FKExtraHead_M|briar_v06:FKHead_M|briar_v06:FKXHead_M|briar_v06:FKOffsetjoint1_M|briar_v06:FKExtrajoint1_M|briar_v06:FKjoint1_M|briar_v06:FKXjoint1_M|briar_v06:FKOffsetjoint2_L|briar_v06:FKExtrajoint2_L|briar_v06:FKjoint2_L|briar_v06:FKXjoint2_L|briar_v06:FKOffsetjoint3_L|briar_v06:FKExtrajoint3_L|briar_v06:FKjoint3_L|briar_v06:FKXjoint3_L|briar_v06:FKOffsetjoint4_L|briar_v06:FKExtrajoint4_L|briar_v06:FKjoint4_L|briar_v06:FKXjoint4_L|briar_v06:FKOffsetjoint5_L|briar_v06:FKExtrajoint5_L|briar_v06:FKjoint5_L|briar_v06:FKXjoint5_L|briar_v06:FKOffsetjoint6_L|briar_v06:FKExtrajoint6_L|briar_v06:FKjoint6_L|briar_v06:FKXjoint6_L|briar_v06:FKOffsetjoint7_L|briar_v06:FKExtrajoint7_L|briar_v06:FKjoint7_L.translateX" 
+		5 4 "briar_v06RN" "|BriarRig:Group|BriarRig:MotionSystem|BriarRig:FKSystem|BriarRig:FKParentConstraintToChest_M|BriarRig:FKOffsetNeck_M|BriarRig:FKXNeck_M|BriarRig:FKOffsetNeckPart1_M|BriarRig:FKExtraNeckPart1_M|BriarRig:FKNeckPart1_M|BriarRig:FKXNeckPart1_M|BriarRig:FKOffsetNeckPart2_M|BriarRig:FKExtraNeckPart2_M|BriarRig:FKNeckPart2_M|BriarRig:FKXNeckPart2_M|BriarRig:FKOffsetHead_M|BriarRig:FKGlobalHead_M|BriarRig:FKExtraHead_M|BriarRig:FKHead_M|BriarRig:FKXHead_M|BriarRig:FKOffsetjoint1_M|BriarRig:FKExtrajoint1_M|BriarRig:FKjoint1_M|BriarRig:FKXjoint1_M|BriarRig:FKOffsetjoint2_L|BriarRig:FKExtrajoint2_L|BriarRig:FKjoint2_L|BriarRig:FKXjoint2_L|BriarRig:FKOffsetjoint3_L|BriarRig:FKExtrajoint3_L|BriarRig:FKjoint3_L|BriarRig:FKXjoint3_L|BriarRig:FKOffsetjoint4_L|BriarRig:FKExtrajoint4_L|BriarRig:FKjoint4_L|BriarRig:FKXjoint4_L|BriarRig:FKOffsetjoint5_L|BriarRig:FKExtrajoint5_L|BriarRig:FKjoint5_L|BriarRig:FKXjoint5_L|BriarRig:FKOffsetjoint6_L|BriarRig:FKExtrajoint6_L|BriarRig:FKjoint6_L|BriarRig:FKXjoint6_L|BriarRig:FKOffsetjoint7_L|BriarRig:FKExtrajoint7_L|BriarRig:FKjoint7_L.translateX" 
 		"briar_v06RN.placeHolderList[57]" ""
-		5 4 "briar_v06RN" "|briar_v06:Group|briar_v06:MotionSystem|briar_v06:FKSystem|briar_v06:FKParentConstraintToChest_M|briar_v06:FKOffsetNeck_M|briar_v06:FKXNeck_M|briar_v06:FKOffsetNeckPart1_M|briar_v06:FKExtraNeckPart1_M|briar_v06:FKNeckPart1_M|briar_v06:FKXNeckPart1_M|briar_v06:FKOffsetNeckPart2_M|briar_v06:FKExtraNeckPart2_M|briar_v06:FKNeckPart2_M|briar_v06:FKXNeckPart2_M|briar_v06:FKOffsetHead_M|briar_v06:FKGlobalHead_M|briar_v06:FKExtraHead_M|briar_v06:FKHead_M|briar_v06:FKXHead_M|briar_v06:FKOffsetjoint1_M|briar_v06:FKExtrajoint1_M|briar_v06:FKjoint1_M|briar_v06:FKXjoint1_M|briar_v06:FKOffsetjoint2_L|briar_v06:FKExtrajoint2_L|briar_v06:FKjoint2_L|briar_v06:FKXjoint2_L|briar_v06:FKOffsetjoint3_L|briar_v06:FKExtrajoint3_L|briar_v06:FKjoint3_L|briar_v06:FKXjoint3_L|briar_v06:FKOffsetjoint4_L|briar_v06:FKExtrajoint4_L|briar_v06:FKjoint4_L|briar_v06:FKXjoint4_L|briar_v06:FKOffsetjoint5_L|briar_v06:FKExtrajoint5_L|briar_v06:FKjoint5_L|briar_v06:FKXjoint5_L|briar_v06:FKOffsetjoint6_L|briar_v06:FKExtrajoint6_L|briar_v06:FKjoint6_L|briar_v06:FKXjoint6_L|briar_v06:FKOffsetjoint7_L|briar_v06:FKExtrajoint7_L|briar_v06:FKjoint7_L.translateY" 
+		5 4 "briar_v06RN" "|BriarRig:Group|BriarRig:MotionSystem|BriarRig:FKSystem|BriarRig:FKParentConstraintToChest_M|BriarRig:FKOffsetNeck_M|BriarRig:FKXNeck_M|BriarRig:FKOffsetNeckPart1_M|BriarRig:FKExtraNeckPart1_M|BriarRig:FKNeckPart1_M|BriarRig:FKXNeckPart1_M|BriarRig:FKOffsetNeckPart2_M|BriarRig:FKExtraNeckPart2_M|BriarRig:FKNeckPart2_M|BriarRig:FKXNeckPart2_M|BriarRig:FKOffsetHead_M|BriarRig:FKGlobalHead_M|BriarRig:FKExtraHead_M|BriarRig:FKHead_M|BriarRig:FKXHead_M|BriarRig:FKOffsetjoint1_M|BriarRig:FKExtrajoint1_M|BriarRig:FKjoint1_M|BriarRig:FKXjoint1_M|BriarRig:FKOffsetjoint2_L|BriarRig:FKExtrajoint2_L|BriarRig:FKjoint2_L|BriarRig:FKXjoint2_L|BriarRig:FKOffsetjoint3_L|BriarRig:FKExtrajoint3_L|BriarRig:FKjoint3_L|BriarRig:FKXjoint3_L|BriarRig:FKOffsetjoint4_L|BriarRig:FKExtrajoint4_L|BriarRig:FKjoint4_L|BriarRig:FKXjoint4_L|BriarRig:FKOffsetjoint5_L|BriarRig:FKExtrajoint5_L|BriarRig:FKjoint5_L|BriarRig:FKXjoint5_L|BriarRig:FKOffsetjoint6_L|BriarRig:FKExtrajoint6_L|BriarRig:FKjoint6_L|BriarRig:FKXjoint6_L|BriarRig:FKOffsetjoint7_L|BriarRig:FKExtrajoint7_L|BriarRig:FKjoint7_L.translateY" 
 		"briar_v06RN.placeHolderList[58]" ""
-		5 4 "briar_v06RN" "|briar_v06:Group|briar_v06:MotionSystem|briar_v06:FKSystem|briar_v06:FKParentConstraintToChest_M|briar_v06:FKOffsetNeck_M|briar_v06:FKXNeck_M|briar_v06:FKOffsetNeckPart1_M|briar_v06:FKExtraNeckPart1_M|briar_v06:FKNeckPart1_M|briar_v06:FKXNeckPart1_M|briar_v06:FKOffsetNeckPart2_M|briar_v06:FKExtraNeckPart2_M|briar_v06:FKNeckPart2_M|briar_v06:FKXNeckPart2_M|briar_v06:FKOffsetHead_M|briar_v06:FKGlobalHead_M|briar_v06:FKExtraHead_M|briar_v06:FKHead_M|briar_v06:FKXHead_M|briar_v06:FKOffsetjoint1_M|briar_v06:FKExtrajoint1_M|briar_v06:FKjoint1_M|briar_v06:FKXjoint1_M|briar_v06:FKOffsetjoint2_L|briar_v06:FKExtrajoint2_L|briar_v06:FKjoint2_L|briar_v06:FKXjoint2_L|briar_v06:FKOffsetjoint3_L|briar_v06:FKExtrajoint3_L|briar_v06:FKjoint3_L|briar_v06:FKXjoint3_L|briar_v06:FKOffsetjoint4_L|briar_v06:FKExtrajoint4_L|briar_v06:FKjoint4_L|briar_v06:FKXjoint4_L|briar_v06:FKOffsetjoint5_L|briar_v06:FKExtrajoint5_L|briar_v06:FKjoint5_L|briar_v06:FKXjoint5_L|briar_v06:FKOffsetjoint6_L|briar_v06:FKExtrajoint6_L|briar_v06:FKjoint6_L|briar_v06:FKXjoint6_L|briar_v06:FKOffsetjoint7_L|briar_v06:FKExtrajoint7_L|briar_v06:FKjoint7_L.translateZ" 
+		5 4 "briar_v06RN" "|BriarRig:Group|BriarRig:MotionSystem|BriarRig:FKSystem|BriarRig:FKParentConstraintToChest_M|BriarRig:FKOffsetNeck_M|BriarRig:FKXNeck_M|BriarRig:FKOffsetNeckPart1_M|BriarRig:FKExtraNeckPart1_M|BriarRig:FKNeckPart1_M|BriarRig:FKXNeckPart1_M|BriarRig:FKOffsetNeckPart2_M|BriarRig:FKExtraNeckPart2_M|BriarRig:FKNeckPart2_M|BriarRig:FKXNeckPart2_M|BriarRig:FKOffsetHead_M|BriarRig:FKGlobalHead_M|BriarRig:FKExtraHead_M|BriarRig:FKHead_M|BriarRig:FKXHead_M|BriarRig:FKOffsetjoint1_M|BriarRig:FKExtrajoint1_M|BriarRig:FKjoint1_M|BriarRig:FKXjoint1_M|BriarRig:FKOffsetjoint2_L|BriarRig:FKExtrajoint2_L|BriarRig:FKjoint2_L|BriarRig:FKXjoint2_L|BriarRig:FKOffsetjoint3_L|BriarRig:FKExtrajoint3_L|BriarRig:FKjoint3_L|BriarRig:FKXjoint3_L|BriarRig:FKOffsetjoint4_L|BriarRig:FKExtrajoint4_L|BriarRig:FKjoint4_L|BriarRig:FKXjoint4_L|BriarRig:FKOffsetjoint5_L|BriarRig:FKExtrajoint5_L|BriarRig:FKjoint5_L|BriarRig:FKXjoint5_L|BriarRig:FKOffsetjoint6_L|BriarRig:FKExtrajoint6_L|BriarRig:FKjoint6_L|BriarRig:FKXjoint6_L|BriarRig:FKOffsetjoint7_L|BriarRig:FKExtrajoint7_L|BriarRig:FKjoint7_L.translateZ" 
 		"briar_v06RN.placeHolderList[59]" ""
-		5 4 "briar_v06RN" "|briar_v06:Group|briar_v06:MotionSystem|briar_v06:FKSystem|briar_v06:FKParentConstraintToChest_M|briar_v06:FKOffsetNeck_M|briar_v06:FKXNeck_M|briar_v06:FKOffsetNeckPart1_M|briar_v06:FKExtraNeckPart1_M|briar_v06:FKNeckPart1_M|briar_v06:FKXNeckPart1_M|briar_v06:FKOffsetNeckPart2_M|briar_v06:FKExtraNeckPart2_M|briar_v06:FKNeckPart2_M|briar_v06:FKXNeckPart2_M|briar_v06:FKOffsetHead_M|briar_v06:FKGlobalHead_M|briar_v06:FKExtraHead_M|briar_v06:FKHead_M|briar_v06:FKXHead_M|briar_v06:FKOffsetjoint1_M|briar_v06:FKExtrajoint1_M|briar_v06:FKjoint1_M|briar_v06:FKXjoint1_M|briar_v06:FKOffsetjoint2_L|briar_v06:FKExtrajoint2_L|briar_v06:FKjoint2_L|briar_v06:FKXjoint2_L|briar_v06:FKOffsetjoint3_L|briar_v06:FKExtrajoint3_L|briar_v06:FKjoint3_L|briar_v06:FKXjoint3_L|briar_v06:FKOffsetjoint4_L|briar_v06:FKExtrajoint4_L|briar_v06:FKjoint4_L|briar_v06:FKXjoint4_L|briar_v06:FKOffsetjoint5_L|briar_v06:FKExtrajoint5_L|briar_v06:FKjoint5_L|briar_v06:FKXjoint5_L|briar_v06:FKOffsetjoint6_L|briar_v06:FKExtrajoint6_L|briar_v06:FKjoint6_L|briar_v06:FKXjoint6_L|briar_v06:FKOffsetjoint7_L|briar_v06:FKExtrajoint7_L|briar_v06:FKjoint7_L|briar_v06:FKXjoint7_L.rotateY" 
+		5 4 "briar_v06RN" "|BriarRig:Group|BriarRig:MotionSystem|BriarRig:FKSystem|BriarRig:FKParentConstraintToChest_M|BriarRig:FKOffsetNeck_M|BriarRig:FKXNeck_M|BriarRig:FKOffsetNeckPart1_M|BriarRig:FKExtraNeckPart1_M|BriarRig:FKNeckPart1_M|BriarRig:FKXNeckPart1_M|BriarRig:FKOffsetNeckPart2_M|BriarRig:FKExtraNeckPart2_M|BriarRig:FKNeckPart2_M|BriarRig:FKXNeckPart2_M|BriarRig:FKOffsetHead_M|BriarRig:FKGlobalHead_M|BriarRig:FKExtraHead_M|BriarRig:FKHead_M|BriarRig:FKXHead_M|BriarRig:FKOffsetjoint1_M|BriarRig:FKExtrajoint1_M|BriarRig:FKjoint1_M|BriarRig:FKXjoint1_M|BriarRig:FKOffsetjoint2_L|BriarRig:FKExtrajoint2_L|BriarRig:FKjoint2_L|BriarRig:FKXjoint2_L|BriarRig:FKOffsetjoint3_L|BriarRig:FKExtrajoint3_L|BriarRig:FKjoint3_L|BriarRig:FKXjoint3_L|BriarRig:FKOffsetjoint4_L|BriarRig:FKExtrajoint4_L|BriarRig:FKjoint4_L|BriarRig:FKXjoint4_L|BriarRig:FKOffsetjoint5_L|BriarRig:FKExtrajoint5_L|BriarRig:FKjoint5_L|BriarRig:FKXjoint5_L|BriarRig:FKOffsetjoint6_L|BriarRig:FKExtrajoint6_L|BriarRig:FKjoint6_L|BriarRig:FKXjoint6_L|BriarRig:FKOffsetjoint7_L|BriarRig:FKExtrajoint7_L|BriarRig:FKjoint7_L|BriarRig:FKXjoint7_L.rotateY" 
 		"briar_v06RN.placeHolderList[60]" ""
-		5 4 "briar_v06RN" "|briar_v06:Group|briar_v06:MotionSystem|briar_v06:FKSystem|briar_v06:FKParentConstraintToChest_M|briar_v06:FKOffsetScapula_R|briar_v06:FKExtraScapula_R|briar_v06:FKScapula_R.scaleX" 
+		5 4 "briar_v06RN" "|BriarRig:Group|BriarRig:MotionSystem|BriarRig:FKSystem|BriarRig:FKParentConstraintToChest_M|BriarRig:FKOffsetScapula_R|BriarRig:FKExtraScapula_R|BriarRig:FKScapula_R.scaleX" 
 		"briar_v06RN.placeHolderList[61]" ""
-		5 4 "briar_v06RN" "|briar_v06:Group|briar_v06:MotionSystem|briar_v06:FKSystem|briar_v06:FKParentConstraintToChest_M|briar_v06:FKOffsetScapula_R|briar_v06:FKExtraScapula_R|briar_v06:FKScapula_R.scaleY" 
+		5 4 "briar_v06RN" "|BriarRig:Group|BriarRig:MotionSystem|BriarRig:FKSystem|BriarRig:FKParentConstraintToChest_M|BriarRig:FKOffsetScapula_R|BriarRig:FKExtraScapula_R|BriarRig:FKScapula_R.scaleY" 
 		"briar_v06RN.placeHolderList[62]" ""
-		5 4 "briar_v06RN" "|briar_v06:Group|briar_v06:MotionSystem|briar_v06:FKSystem|briar_v06:FKParentConstraintToChest_M|briar_v06:FKOffsetScapula_R|briar_v06:FKExtraScapula_R|briar_v06:FKScapula_R.scaleZ" 
+		5 4 "briar_v06RN" "|BriarRig:Group|BriarRig:MotionSystem|BriarRig:FKSystem|BriarRig:FKParentConstraintToChest_M|BriarRig:FKOffsetScapula_R|BriarRig:FKExtraScapula_R|BriarRig:FKScapula_R.scaleZ" 
 		"briar_v06RN.placeHolderList[63]" ""
-		5 4 "briar_v06RN" "|briar_v06:Group|briar_v06:MotionSystem|briar_v06:FKSystem|briar_v06:FKParentConstraintToChest_M|briar_v06:FKOffsetScapula_R|briar_v06:FKExtraScapula_R|briar_v06:FKScapula_R.rotateX" 
+		5 4 "briar_v06RN" "|BriarRig:Group|BriarRig:MotionSystem|BriarRig:FKSystem|BriarRig:FKParentConstraintToChest_M|BriarRig:FKOffsetScapula_R|BriarRig:FKExtraScapula_R|BriarRig:FKScapula_R.rotateX" 
 		"briar_v06RN.placeHolderList[64]" ""
-		5 4 "briar_v06RN" "|briar_v06:Group|briar_v06:MotionSystem|briar_v06:FKSystem|briar_v06:FKParentConstraintToChest_M|briar_v06:FKOffsetScapula_R|briar_v06:FKExtraScapula_R|briar_v06:FKScapula_R.rotateY" 
+		5 4 "briar_v06RN" "|BriarRig:Group|BriarRig:MotionSystem|BriarRig:FKSystem|BriarRig:FKParentConstraintToChest_M|BriarRig:FKOffsetScapula_R|BriarRig:FKExtraScapula_R|BriarRig:FKScapula_R.rotateY" 
 		"briar_v06RN.placeHolderList[65]" ""
-		5 4 "briar_v06RN" "|briar_v06:Group|briar_v06:MotionSystem|briar_v06:FKSystem|briar_v06:FKParentConstraintToChest_M|briar_v06:FKOffsetScapula_R|briar_v06:FKExtraScapula_R|briar_v06:FKScapula_R.rotateZ" 
+		5 4 "briar_v06RN" "|BriarRig:Group|BriarRig:MotionSystem|BriarRig:FKSystem|BriarRig:FKParentConstraintToChest_M|BriarRig:FKOffsetScapula_R|BriarRig:FKExtraScapula_R|BriarRig:FKScapula_R.rotateZ" 
 		"briar_v06RN.placeHolderList[66]" ""
-		5 4 "briar_v06RN" "|briar_v06:Group|briar_v06:MotionSystem|briar_v06:FKSystem|briar_v06:FKParentConstraintToChest_M|briar_v06:FKOffsetScapula_R|briar_v06:FKExtraScapula_R|briar_v06:FKScapula_R.translateX" 
+		5 4 "briar_v06RN" "|BriarRig:Group|BriarRig:MotionSystem|BriarRig:FKSystem|BriarRig:FKParentConstraintToChest_M|BriarRig:FKOffsetScapula_R|BriarRig:FKExtraScapula_R|BriarRig:FKScapula_R.translateX" 
 		"briar_v06RN.placeHolderList[67]" ""
-		5 4 "briar_v06RN" "|briar_v06:Group|briar_v06:MotionSystem|briar_v06:FKSystem|briar_v06:FKParentConstraintToChest_M|briar_v06:FKOffsetScapula_R|briar_v06:FKExtraScapula_R|briar_v06:FKScapula_R.translateY" 
+		5 4 "briar_v06RN" "|BriarRig:Group|BriarRig:MotionSystem|BriarRig:FKSystem|BriarRig:FKParentConstraintToChest_M|BriarRig:FKOffsetScapula_R|BriarRig:FKExtraScapula_R|BriarRig:FKScapula_R.translateY" 
 		"briar_v06RN.placeHolderList[68]" ""
-		5 4 "briar_v06RN" "|briar_v06:Group|briar_v06:MotionSystem|briar_v06:FKSystem|briar_v06:FKParentConstraintToChest_M|briar_v06:FKOffsetScapula_R|briar_v06:FKExtraScapula_R|briar_v06:FKScapula_R.translateZ" 
+		5 4 "briar_v06RN" "|BriarRig:Group|BriarRig:MotionSystem|BriarRig:FKSystem|BriarRig:FKParentConstraintToChest_M|BriarRig:FKOffsetScapula_R|BriarRig:FKExtraScapula_R|BriarRig:FKScapula_R.translateZ" 
 		"briar_v06RN.placeHolderList[69]" ""
-		5 4 "briar_v06RN" "|briar_v06:Group|briar_v06:MotionSystem|briar_v06:FKSystem|briar_v06:FKParentConstraintToChest_M|briar_v06:FKOffsetScapula_R|briar_v06:FKExtraScapula_R|briar_v06:FKScapula_R|briar_v06:FKXScapula_R|briar_v06:FKOffsetShoulder_R|briar_v06:FKExtraShoulder_R|briar_v06:FKShoulder_R.scaleX" 
+		5 4 "briar_v06RN" "|BriarRig:Group|BriarRig:MotionSystem|BriarRig:FKSystem|BriarRig:FKParentConstraintToChest_M|BriarRig:FKOffsetScapula_R|BriarRig:FKExtraScapula_R|BriarRig:FKScapula_R|BriarRig:FKXScapula_R|BriarRig:FKOffsetShoulder_R|BriarRig:FKExtraShoulder_R|BriarRig:FKShoulder_R.scaleX" 
 		"briar_v06RN.placeHolderList[70]" ""
-		5 4 "briar_v06RN" "|briar_v06:Group|briar_v06:MotionSystem|briar_v06:FKSystem|briar_v06:FKParentConstraintToChest_M|briar_v06:FKOffsetScapula_R|briar_v06:FKExtraScapula_R|briar_v06:FKScapula_R|briar_v06:FKXScapula_R|briar_v06:FKOffsetShoulder_R|briar_v06:FKExtraShoulder_R|briar_v06:FKShoulder_R.scaleY" 
+		5 4 "briar_v06RN" "|BriarRig:Group|BriarRig:MotionSystem|BriarRig:FKSystem|BriarRig:FKParentConstraintToChest_M|BriarRig:FKOffsetScapula_R|BriarRig:FKExtraScapula_R|BriarRig:FKScapula_R|BriarRig:FKXScapula_R|BriarRig:FKOffsetShoulder_R|BriarRig:FKExtraShoulder_R|BriarRig:FKShoulder_R.scaleY" 
 		"briar_v06RN.placeHolderList[71]" ""
-		5 4 "briar_v06RN" "|briar_v06:Group|briar_v06:MotionSystem|briar_v06:FKSystem|briar_v06:FKParentConstraintToChest_M|briar_v06:FKOffsetScapula_R|briar_v06:FKExtraScapula_R|briar_v06:FKScapula_R|briar_v06:FKXScapula_R|briar_v06:FKOffsetShoulder_R|briar_v06:FKExtraShoulder_R|briar_v06:FKShoulder_R.scaleZ" 
+		5 4 "briar_v06RN" "|BriarRig:Group|BriarRig:MotionSystem|BriarRig:FKSystem|BriarRig:FKParentConstraintToChest_M|BriarRig:FKOffsetScapula_R|BriarRig:FKExtraScapula_R|BriarRig:FKScapula_R|BriarRig:FKXScapula_R|BriarRig:FKOffsetShoulder_R|BriarRig:FKExtraShoulder_R|BriarRig:FKShoulder_R.scaleZ" 
 		"briar_v06RN.placeHolderList[72]" ""
-		5 4 "briar_v06RN" "|briar_v06:Group|briar_v06:MotionSystem|briar_v06:FKSystem|briar_v06:FKParentConstraintToChest_M|briar_v06:FKOffsetScapula_R|briar_v06:FKExtraScapula_R|briar_v06:FKScapula_R|briar_v06:FKXScapula_R|briar_v06:FKOffsetShoulder_R|briar_v06:FKExtraShoulder_R|briar_v06:FKShoulder_R.rotateY" 
+		5 4 "briar_v06RN" "|BriarRig:Group|BriarRig:MotionSystem|BriarRig:FKSystem|BriarRig:FKParentConstraintToChest_M|BriarRig:FKOffsetScapula_R|BriarRig:FKExtraScapula_R|BriarRig:FKScapula_R|BriarRig:FKXScapula_R|BriarRig:FKOffsetShoulder_R|BriarRig:FKExtraShoulder_R|BriarRig:FKShoulder_R.rotateY" 
 		"briar_v06RN.placeHolderList[73]" ""
-		5 4 "briar_v06RN" "|briar_v06:Group|briar_v06:MotionSystem|briar_v06:FKSystem|briar_v06:FKParentConstraintToChest_M|briar_v06:FKOffsetScapula_R|briar_v06:FKExtraScapula_R|briar_v06:FKScapula_R|briar_v06:FKXScapula_R|briar_v06:FKOffsetShoulder_R|briar_v06:FKExtraShoulder_R|briar_v06:FKShoulder_R.rotateX" 
+		5 4 "briar_v06RN" "|BriarRig:Group|BriarRig:MotionSystem|BriarRig:FKSystem|BriarRig:FKParentConstraintToChest_M|BriarRig:FKOffsetScapula_R|BriarRig:FKExtraScapula_R|BriarRig:FKScapula_R|BriarRig:FKXScapula_R|BriarRig:FKOffsetShoulder_R|BriarRig:FKExtraShoulder_R|BriarRig:FKShoulder_R.rotateX" 
 		"briar_v06RN.placeHolderList[74]" ""
-		5 4 "briar_v06RN" "|briar_v06:Group|briar_v06:MotionSystem|briar_v06:FKSystem|briar_v06:FKParentConstraintToChest_M|briar_v06:FKOffsetScapula_R|briar_v06:FKExtraScapula_R|briar_v06:FKScapula_R|briar_v06:FKXScapula_R|briar_v06:FKOffsetShoulder_R|briar_v06:FKExtraShoulder_R|briar_v06:FKShoulder_R.rotateZ" 
+		5 4 "briar_v06RN" "|BriarRig:Group|BriarRig:MotionSystem|BriarRig:FKSystem|BriarRig:FKParentConstraintToChest_M|BriarRig:FKOffsetScapula_R|BriarRig:FKExtraScapula_R|BriarRig:FKScapula_R|BriarRig:FKXScapula_R|BriarRig:FKOffsetShoulder_R|BriarRig:FKExtraShoulder_R|BriarRig:FKShoulder_R.rotateZ" 
 		"briar_v06RN.placeHolderList[75]" ""
-		5 4 "briar_v06RN" "|briar_v06:Group|briar_v06:MotionSystem|briar_v06:FKSystem|briar_v06:FKParentConstraintToChest_M|briar_v06:FKOffsetScapula_R|briar_v06:FKExtraScapula_R|briar_v06:FKScapula_R|briar_v06:FKXScapula_R|briar_v06:FKOffsetShoulder_R|briar_v06:FKExtraShoulder_R|briar_v06:FKShoulder_R.translateX" 
+		5 4 "briar_v06RN" "|BriarRig:Group|BriarRig:MotionSystem|BriarRig:FKSystem|BriarRig:FKParentConstraintToChest_M|BriarRig:FKOffsetScapula_R|BriarRig:FKExtraScapula_R|BriarRig:FKScapula_R|BriarRig:FKXScapula_R|BriarRig:FKOffsetShoulder_R|BriarRig:FKExtraShoulder_R|BriarRig:FKShoulder_R.translateX" 
 		"briar_v06RN.placeHolderList[76]" ""
-		5 4 "briar_v06RN" "|briar_v06:Group|briar_v06:MotionSystem|briar_v06:FKSystem|briar_v06:FKParentConstraintToChest_M|briar_v06:FKOffsetScapula_R|briar_v06:FKExtraScapula_R|briar_v06:FKScapula_R|briar_v06:FKXScapula_R|briar_v06:FKOffsetShoulder_R|briar_v06:FKExtraShoulder_R|briar_v06:FKShoulder_R.translateY" 
+		5 4 "briar_v06RN" "|BriarRig:Group|BriarRig:MotionSystem|BriarRig:FKSystem|BriarRig:FKParentConstraintToChest_M|BriarRig:FKOffsetScapula_R|BriarRig:FKExtraScapula_R|BriarRig:FKScapula_R|BriarRig:FKXScapula_R|BriarRig:FKOffsetShoulder_R|BriarRig:FKExtraShoulder_R|BriarRig:FKShoulder_R.translateY" 
 		"briar_v06RN.placeHolderList[77]" ""
-		5 4 "briar_v06RN" "|briar_v06:Group|briar_v06:MotionSystem|briar_v06:FKSystem|briar_v06:FKParentConstraintToChest_M|briar_v06:FKOffsetScapula_R|briar_v06:FKExtraScapula_R|briar_v06:FKScapula_R|briar_v06:FKXScapula_R|briar_v06:FKOffsetShoulder_R|briar_v06:FKExtraShoulder_R|briar_v06:FKShoulder_R.translateZ" 
+		5 4 "briar_v06RN" "|BriarRig:Group|BriarRig:MotionSystem|BriarRig:FKSystem|BriarRig:FKParentConstraintToChest_M|BriarRig:FKOffsetScapula_R|BriarRig:FKExtraScapula_R|BriarRig:FKScapula_R|BriarRig:FKXScapula_R|BriarRig:FKOffsetShoulder_R|BriarRig:FKExtraShoulder_R|BriarRig:FKShoulder_R.translateZ" 
 		"briar_v06RN.placeHolderList[78]" ""
-		5 4 "briar_v06RN" "|briar_v06:Group|briar_v06:MotionSystem|briar_v06:FKSystem|briar_v06:FKParentConstraintToChest_M|briar_v06:FKOffsetScapula_R|briar_v06:FKExtraScapula_R|briar_v06:FKScapula_R|briar_v06:FKXScapula_R|briar_v06:FKOffsetShoulder_R|briar_v06:FKExtraShoulder_R|briar_v06:FKShoulder_R|briar_v06:FKXShoulder_R|briar_v06:FKOffsetElbow_R|briar_v06:FKExtraElbow_R|briar_v06:FKElbow_R.scaleX" 
+		5 4 "briar_v06RN" "|BriarRig:Group|BriarRig:MotionSystem|BriarRig:FKSystem|BriarRig:FKParentConstraintToChest_M|BriarRig:FKOffsetScapula_R|BriarRig:FKExtraScapula_R|BriarRig:FKScapula_R|BriarRig:FKXScapula_R|BriarRig:FKOffsetShoulder_R|BriarRig:FKExtraShoulder_R|BriarRig:FKShoulder_R|BriarRig:FKXShoulder_R|BriarRig:FKOffsetElbow_R|BriarRig:FKExtraElbow_R|BriarRig:FKElbow_R.scaleX" 
 		"briar_v06RN.placeHolderList[79]" ""
-		5 4 "briar_v06RN" "|briar_v06:Group|briar_v06:MotionSystem|briar_v06:FKSystem|briar_v06:FKParentConstraintToChest_M|briar_v06:FKOffsetScapula_R|briar_v06:FKExtraScapula_R|briar_v06:FKScapula_R|briar_v06:FKXScapula_R|briar_v06:FKOffsetShoulder_R|briar_v06:FKExtraShoulder_R|briar_v06:FKShoulder_R|briar_v06:FKXShoulder_R|briar_v06:FKOffsetElbow_R|briar_v06:FKExtraElbow_R|briar_v06:FKElbow_R.scaleY" 
+		5 4 "briar_v06RN" "|BriarRig:Group|BriarRig:MotionSystem|BriarRig:FKSystem|BriarRig:FKParentConstraintToChest_M|BriarRig:FKOffsetScapula_R|BriarRig:FKExtraScapula_R|BriarRig:FKScapula_R|BriarRig:FKXScapula_R|BriarRig:FKOffsetShoulder_R|BriarRig:FKExtraShoulder_R|BriarRig:FKShoulder_R|BriarRig:FKXShoulder_R|BriarRig:FKOffsetElbow_R|BriarRig:FKExtraElbow_R|BriarRig:FKElbow_R.scaleY" 
 		"briar_v06RN.placeHolderList[80]" ""
-		5 4 "briar_v06RN" "|briar_v06:Group|briar_v06:MotionSystem|briar_v06:FKSystem|briar_v06:FKParentConstraintToChest_M|briar_v06:FKOffsetScapula_R|briar_v06:FKExtraScapula_R|briar_v06:FKScapula_R|briar_v06:FKXScapula_R|briar_v06:FKOffsetShoulder_R|briar_v06:FKExtraShoulder_R|briar_v06:FKShoulder_R|briar_v06:FKXShoulder_R|briar_v06:FKOffsetElbow_R|briar_v06:FKExtraElbow_R|briar_v06:FKElbow_R.scaleZ" 
+		5 4 "briar_v06RN" "|BriarRig:Group|BriarRig:MotionSystem|BriarRig:FKSystem|BriarRig:FKParentConstraintToChest_M|BriarRig:FKOffsetScapula_R|BriarRig:FKExtraScapula_R|BriarRig:FKScapula_R|BriarRig:FKXScapula_R|BriarRig:FKOffsetShoulder_R|BriarRig:FKExtraShoulder_R|BriarRig:FKShoulder_R|BriarRig:FKXShoulder_R|BriarRig:FKOffsetElbow_R|BriarRig:FKExtraElbow_R|BriarRig:FKElbow_R.scaleZ" 
 		"briar_v06RN.placeHolderList[81]" ""
-		5 4 "briar_v06RN" "|briar_v06:Group|briar_v06:MotionSystem|briar_v06:FKSystem|briar_v06:FKParentConstraintToChest_M|briar_v06:FKOffsetScapula_R|briar_v06:FKExtraScapula_R|briar_v06:FKScapula_R|briar_v06:FKXScapula_R|briar_v06:FKOffsetShoulder_R|briar_v06:FKExtraShoulder_R|briar_v06:FKShoulder_R|briar_v06:FKXShoulder_R|briar_v06:FKOffsetElbow_R|briar_v06:FKExtraElbow_R|briar_v06:FKElbow_R.rotateX" 
+		5 4 "briar_v06RN" "|BriarRig:Group|BriarRig:MotionSystem|BriarRig:FKSystem|BriarRig:FKParentConstraintToChest_M|BriarRig:FKOffsetScapula_R|BriarRig:FKExtraScapula_R|BriarRig:FKScapula_R|BriarRig:FKXScapula_R|BriarRig:FKOffsetShoulder_R|BriarRig:FKExtraShoulder_R|BriarRig:FKShoulder_R|BriarRig:FKXShoulder_R|BriarRig:FKOffsetElbow_R|BriarRig:FKExtraElbow_R|BriarRig:FKElbow_R.rotateX" 
 		"briar_v06RN.placeHolderList[82]" ""
-		5 4 "briar_v06RN" "|briar_v06:Group|briar_v06:MotionSystem|briar_v06:FKSystem|briar_v06:FKParentConstraintToChest_M|briar_v06:FKOffsetScapula_R|briar_v06:FKExtraScapula_R|briar_v06:FKScapula_R|briar_v06:FKXScapula_R|briar_v06:FKOffsetShoulder_R|briar_v06:FKExtraShoulder_R|briar_v06:FKShoulder_R|briar_v06:FKXShoulder_R|briar_v06:FKOffsetElbow_R|briar_v06:FKExtraElbow_R|briar_v06:FKElbow_R.rotateY" 
+		5 4 "briar_v06RN" "|BriarRig:Group|BriarRig:MotionSystem|BriarRig:FKSystem|BriarRig:FKParentConstraintToChest_M|BriarRig:FKOffsetScapula_R|BriarRig:FKExtraScapula_R|BriarRig:FKScapula_R|BriarRig:FKXScapula_R|BriarRig:FKOffsetShoulder_R|BriarRig:FKExtraShoulder_R|BriarRig:FKShoulder_R|BriarRig:FKXShoulder_R|BriarRig:FKOffsetElbow_R|BriarRig:FKExtraElbow_R|BriarRig:FKElbow_R.rotateY" 
 		"briar_v06RN.placeHolderList[83]" ""
-		5 4 "briar_v06RN" "|briar_v06:Group|briar_v06:MotionSystem|briar_v06:FKSystem|briar_v06:FKParentConstraintToChest_M|briar_v06:FKOffsetScapula_R|briar_v06:FKExtraScapula_R|briar_v06:FKScapula_R|briar_v06:FKXScapula_R|briar_v06:FKOffsetShoulder_R|briar_v06:FKExtraShoulder_R|briar_v06:FKShoulder_R|briar_v06:FKXShoulder_R|briar_v06:FKOffsetElbow_R|briar_v06:FKExtraElbow_R|briar_v06:FKElbow_R.rotateZ" 
+		5 4 "briar_v06RN" "|BriarRig:Group|BriarRig:MotionSystem|BriarRig:FKSystem|BriarRig:FKParentConstraintToChest_M|BriarRig:FKOffsetScapula_R|BriarRig:FKExtraScapula_R|BriarRig:FKScapula_R|BriarRig:FKXScapula_R|BriarRig:FKOffsetShoulder_R|BriarRig:FKExtraShoulder_R|BriarRig:FKShoulder_R|BriarRig:FKXShoulder_R|BriarRig:FKOffsetElbow_R|BriarRig:FKExtraElbow_R|BriarRig:FKElbow_R.rotateZ" 
 		"briar_v06RN.placeHolderList[84]" ""
-		5 4 "briar_v06RN" "|briar_v06:Group|briar_v06:MotionSystem|briar_v06:FKSystem|briar_v06:FKParentConstraintToChest_M|briar_v06:FKOffsetScapula_R|briar_v06:FKExtraScapula_R|briar_v06:FKScapula_R|briar_v06:FKXScapula_R|briar_v06:FKOffsetShoulder_R|briar_v06:FKExtraShoulder_R|briar_v06:FKShoulder_R|briar_v06:FKXShoulder_R|briar_v06:FKOffsetElbow_R|briar_v06:FKExtraElbow_R|briar_v06:FKElbow_R.translateX" 
+		5 4 "briar_v06RN" "|BriarRig:Group|BriarRig:MotionSystem|BriarRig:FKSystem|BriarRig:FKParentConstraintToChest_M|BriarRig:FKOffsetScapula_R|BriarRig:FKExtraScapula_R|BriarRig:FKScapula_R|BriarRig:FKXScapula_R|BriarRig:FKOffsetShoulder_R|BriarRig:FKExtraShoulder_R|BriarRig:FKShoulder_R|BriarRig:FKXShoulder_R|BriarRig:FKOffsetElbow_R|BriarRig:FKExtraElbow_R|BriarRig:FKElbow_R.translateX" 
 		"briar_v06RN.placeHolderList[85]" ""
-		5 4 "briar_v06RN" "|briar_v06:Group|briar_v06:MotionSystem|briar_v06:FKSystem|briar_v06:FKParentConstraintToChest_M|briar_v06:FKOffsetScapula_R|briar_v06:FKExtraScapula_R|briar_v06:FKScapula_R|briar_v06:FKXScapula_R|briar_v06:FKOffsetShoulder_R|briar_v06:FKExtraShoulder_R|briar_v06:FKShoulder_R|briar_v06:FKXShoulder_R|briar_v06:FKOffsetElbow_R|briar_v06:FKExtraElbow_R|briar_v06:FKElbow_R.translateY" 
+		5 4 "briar_v06RN" "|BriarRig:Group|BriarRig:MotionSystem|BriarRig:FKSystem|BriarRig:FKParentConstraintToChest_M|BriarRig:FKOffsetScapula_R|BriarRig:FKExtraScapula_R|BriarRig:FKScapula_R|BriarRig:FKXScapula_R|BriarRig:FKOffsetShoulder_R|BriarRig:FKExtraShoulder_R|BriarRig:FKShoulder_R|BriarRig:FKXShoulder_R|BriarRig:FKOffsetElbow_R|BriarRig:FKExtraElbow_R|BriarRig:FKElbow_R.translateY" 
 		"briar_v06RN.placeHolderList[86]" ""
-		5 4 "briar_v06RN" "|briar_v06:Group|briar_v06:MotionSystem|briar_v06:FKSystem|briar_v06:FKParentConstraintToChest_M|briar_v06:FKOffsetScapula_R|briar_v06:FKExtraScapula_R|briar_v06:FKScapula_R|briar_v06:FKXScapula_R|briar_v06:FKOffsetShoulder_R|briar_v06:FKExtraShoulder_R|briar_v06:FKShoulder_R|briar_v06:FKXShoulder_R|briar_v06:FKOffsetElbow_R|briar_v06:FKExtraElbow_R|briar_v06:FKElbow_R.translateZ" 
+		5 4 "briar_v06RN" "|BriarRig:Group|BriarRig:MotionSystem|BriarRig:FKSystem|BriarRig:FKParentConstraintToChest_M|BriarRig:FKOffsetScapula_R|BriarRig:FKExtraScapula_R|BriarRig:FKScapula_R|BriarRig:FKXScapula_R|BriarRig:FKOffsetShoulder_R|BriarRig:FKExtraShoulder_R|BriarRig:FKShoulder_R|BriarRig:FKXShoulder_R|BriarRig:FKOffsetElbow_R|BriarRig:FKExtraElbow_R|BriarRig:FKElbow_R.translateZ" 
 		"briar_v06RN.placeHolderList[87]" ""
-		5 4 "briar_v06RN" "|briar_v06:Group|briar_v06:MotionSystem|briar_v06:FKSystem|briar_v06:FKParentConstraintToChest_M|briar_v06:FKOffsetScapula_R|briar_v06:FKExtraScapula_R|briar_v06:FKScapula_R|briar_v06:FKXScapula_R|briar_v06:FKOffsetShoulder_R|briar_v06:FKExtraShoulder_R|briar_v06:FKShoulder_R|briar_v06:FKXShoulder_R|briar_v06:FKOffsetElbow_R|briar_v06:FKExtraElbow_R|briar_v06:FKElbow_R|briar_v06:FKXElbow_R|briar_v06:FKOffsetWrist_R|briar_v06:FKExtraWrist_R|briar_v06:FKWrist_R.scaleX" 
+		5 4 "briar_v06RN" "|BriarRig:Group|BriarRig:MotionSystem|BriarRig:FKSystem|BriarRig:FKParentConstraintToChest_M|BriarRig:FKOffsetScapula_R|BriarRig:FKExtraScapula_R|BriarRig:FKScapula_R|BriarRig:FKXScapula_R|BriarRig:FKOffsetShoulder_R|BriarRig:FKExtraShoulder_R|BriarRig:FKShoulder_R|BriarRig:FKXShoulder_R|BriarRig:FKOffsetElbow_R|BriarRig:FKExtraElbow_R|BriarRig:FKElbow_R|BriarRig:FKXElbow_R|BriarRig:FKOffsetWrist_R|BriarRig:FKExtraWrist_R|BriarRig:FKWrist_R.scaleX" 
 		"briar_v06RN.placeHolderList[88]" ""
-		5 4 "briar_v06RN" "|briar_v06:Group|briar_v06:MotionSystem|briar_v06:FKSystem|briar_v06:FKParentConstraintToChest_M|briar_v06:FKOffsetScapula_R|briar_v06:FKExtraScapula_R|briar_v06:FKScapula_R|briar_v06:FKXScapula_R|briar_v06:FKOffsetShoulder_R|briar_v06:FKExtraShoulder_R|briar_v06:FKShoulder_R|briar_v06:FKXShoulder_R|briar_v06:FKOffsetElbow_R|briar_v06:FKExtraElbow_R|briar_v06:FKElbow_R|briar_v06:FKXElbow_R|briar_v06:FKOffsetWrist_R|briar_v06:FKExtraWrist_R|briar_v06:FKWrist_R.scaleY" 
+		5 4 "briar_v06RN" "|BriarRig:Group|BriarRig:MotionSystem|BriarRig:FKSystem|BriarRig:FKParentConstraintToChest_M|BriarRig:FKOffsetScapula_R|BriarRig:FKExtraScapula_R|BriarRig:FKScapula_R|BriarRig:FKXScapula_R|BriarRig:FKOffsetShoulder_R|BriarRig:FKExtraShoulder_R|BriarRig:FKShoulder_R|BriarRig:FKXShoulder_R|BriarRig:FKOffsetElbow_R|BriarRig:FKExtraElbow_R|BriarRig:FKElbow_R|BriarRig:FKXElbow_R|BriarRig:FKOffsetWrist_R|BriarRig:FKExtraWrist_R|BriarRig:FKWrist_R.scaleY" 
 		"briar_v06RN.placeHolderList[89]" ""
-		5 4 "briar_v06RN" "|briar_v06:Group|briar_v06:MotionSystem|briar_v06:FKSystem|briar_v06:FKParentConstraintToChest_M|briar_v06:FKOffsetScapula_R|briar_v06:FKExtraScapula_R|briar_v06:FKScapula_R|briar_v06:FKXScapula_R|briar_v06:FKOffsetShoulder_R|briar_v06:FKExtraShoulder_R|briar_v06:FKShoulder_R|briar_v06:FKXShoulder_R|briar_v06:FKOffsetElbow_R|briar_v06:FKExtraElbow_R|briar_v06:FKElbow_R|briar_v06:FKXElbow_R|briar_v06:FKOffsetWrist_R|briar_v06:FKExtraWrist_R|briar_v06:FKWrist_R.scaleZ" 
+		5 4 "briar_v06RN" "|BriarRig:Group|BriarRig:MotionSystem|BriarRig:FKSystem|BriarRig:FKParentConstraintToChest_M|BriarRig:FKOffsetScapula_R|BriarRig:FKExtraScapula_R|BriarRig:FKScapula_R|BriarRig:FKXScapula_R|BriarRig:FKOffsetShoulder_R|BriarRig:FKExtraShoulder_R|BriarRig:FKShoulder_R|BriarRig:FKXShoulder_R|BriarRig:FKOffsetElbow_R|BriarRig:FKExtraElbow_R|BriarRig:FKElbow_R|BriarRig:FKXElbow_R|BriarRig:FKOffsetWrist_R|BriarRig:FKExtraWrist_R|BriarRig:FKWrist_R.scaleZ" 
 		"briar_v06RN.placeHolderList[90]" ""
-		5 4 "briar_v06RN" "|briar_v06:Group|briar_v06:MotionSystem|briar_v06:FKSystem|briar_v06:FKParentConstraintToChest_M|briar_v06:FKOffsetScapula_R|briar_v06:FKExtraScapula_R|briar_v06:FKScapula_R|briar_v06:FKXScapula_R|briar_v06:FKOffsetShoulder_R|briar_v06:FKExtraShoulder_R|briar_v06:FKShoulder_R|briar_v06:FKXShoulder_R|briar_v06:FKOffsetElbow_R|briar_v06:FKExtraElbow_R|briar_v06:FKElbow_R|briar_v06:FKXElbow_R|briar_v06:FKOffsetWrist_R|briar_v06:FKExtraWrist_R|briar_v06:FKWrist_R.rotateX" 
+		5 4 "briar_v06RN" "|BriarRig:Group|BriarRig:MotionSystem|BriarRig:FKSystem|BriarRig:FKParentConstraintToChest_M|BriarRig:FKOffsetScapula_R|BriarRig:FKExtraScapula_R|BriarRig:FKScapula_R|BriarRig:FKXScapula_R|BriarRig:FKOffsetShoulder_R|BriarRig:FKExtraShoulder_R|BriarRig:FKShoulder_R|BriarRig:FKXShoulder_R|BriarRig:FKOffsetElbow_R|BriarRig:FKExtraElbow_R|BriarRig:FKElbow_R|BriarRig:FKXElbow_R|BriarRig:FKOffsetWrist_R|BriarRig:FKExtraWrist_R|BriarRig:FKWrist_R.rotateX" 
 		"briar_v06RN.placeHolderList[91]" ""
-		5 4 "briar_v06RN" "|briar_v06:Group|briar_v06:MotionSystem|briar_v06:FKSystem|briar_v06:FKParentConstraintToChest_M|briar_v06:FKOffsetScapula_R|briar_v06:FKExtraScapula_R|briar_v06:FKScapula_R|briar_v06:FKXScapula_R|briar_v06:FKOffsetShoulder_R|briar_v06:FKExtraShoulder_R|briar_v06:FKShoulder_R|briar_v06:FKXShoulder_R|briar_v06:FKOffsetElbow_R|briar_v06:FKExtraElbow_R|briar_v06:FKElbow_R|briar_v06:FKXElbow_R|briar_v06:FKOffsetWrist_R|briar_v06:FKExtraWrist_R|briar_v06:FKWrist_R.rotateY" 
+		5 4 "briar_v06RN" "|BriarRig:Group|BriarRig:MotionSystem|BriarRig:FKSystem|BriarRig:FKParentConstraintToChest_M|BriarRig:FKOffsetScapula_R|BriarRig:FKExtraScapula_R|BriarRig:FKScapula_R|BriarRig:FKXScapula_R|BriarRig:FKOffsetShoulder_R|BriarRig:FKExtraShoulder_R|BriarRig:FKShoulder_R|BriarRig:FKXShoulder_R|BriarRig:FKOffsetElbow_R|BriarRig:FKExtraElbow_R|BriarRig:FKElbow_R|BriarRig:FKXElbow_R|BriarRig:FKOffsetWrist_R|BriarRig:FKExtraWrist_R|BriarRig:FKWrist_R.rotateY" 
 		"briar_v06RN.placeHolderList[92]" ""
-		5 4 "briar_v06RN" "|briar_v06:Group|briar_v06:MotionSystem|briar_v06:FKSystem|briar_v06:FKParentConstraintToChest_M|briar_v06:FKOffsetScapula_R|briar_v06:FKExtraScapula_R|briar_v06:FKScapula_R|briar_v06:FKXScapula_R|briar_v06:FKOffsetShoulder_R|briar_v06:FKExtraShoulder_R|briar_v06:FKShoulder_R|briar_v06:FKXShoulder_R|briar_v06:FKOffsetElbow_R|briar_v06:FKExtraElbow_R|briar_v06:FKElbow_R|briar_v06:FKXElbow_R|briar_v06:FKOffsetWrist_R|briar_v06:FKExtraWrist_R|briar_v06:FKWrist_R.rotateZ" 
+		5 4 "briar_v06RN" "|BriarRig:Group|BriarRig:MotionSystem|BriarRig:FKSystem|BriarRig:FKParentConstraintToChest_M|BriarRig:FKOffsetScapula_R|BriarRig:FKExtraScapula_R|BriarRig:FKScapula_R|BriarRig:FKXScapula_R|BriarRig:FKOffsetShoulder_R|BriarRig:FKExtraShoulder_R|BriarRig:FKShoulder_R|BriarRig:FKXShoulder_R|BriarRig:FKOffsetElbow_R|BriarRig:FKExtraElbow_R|BriarRig:FKElbow_R|BriarRig:FKXElbow_R|BriarRig:FKOffsetWrist_R|BriarRig:FKExtraWrist_R|BriarRig:FKWrist_R.rotateZ" 
 		"briar_v06RN.placeHolderList[93]" ""
-		5 4 "briar_v06RN" "|briar_v06:Group|briar_v06:MotionSystem|briar_v06:FKSystem|briar_v06:FKParentConstraintToChest_M|briar_v06:FKOffsetScapula_R|briar_v06:FKExtraScapula_R|briar_v06:FKScapula_R|briar_v06:FKXScapula_R|briar_v06:FKOffsetShoulder_R|briar_v06:FKExtraShoulder_R|briar_v06:FKShoulder_R|briar_v06:FKXShoulder_R|briar_v06:FKOffsetElbow_R|briar_v06:FKExtraElbow_R|briar_v06:FKElbow_R|briar_v06:FKXElbow_R|briar_v06:FKOffsetWrist_R|briar_v06:FKExtraWrist_R|briar_v06:FKWrist_R.translateX" 
+		5 4 "briar_v06RN" "|BriarRig:Group|BriarRig:MotionSystem|BriarRig:FKSystem|BriarRig:FKParentConstraintToChest_M|BriarRig:FKOffsetScapula_R|BriarRig:FKExtraScapula_R|BriarRig:FKScapula_R|BriarRig:FKXScapula_R|BriarRig:FKOffsetShoulder_R|BriarRig:FKExtraShoulder_R|BriarRig:FKShoulder_R|BriarRig:FKXShoulder_R|BriarRig:FKOffsetElbow_R|BriarRig:FKExtraElbow_R|BriarRig:FKElbow_R|BriarRig:FKXElbow_R|BriarRig:FKOffsetWrist_R|BriarRig:FKExtraWrist_R|BriarRig:FKWrist_R.translateX" 
 		"briar_v06RN.placeHolderList[94]" ""
-		5 4 "briar_v06RN" "|briar_v06:Group|briar_v06:MotionSystem|briar_v06:FKSystem|briar_v06:FKParentConstraintToChest_M|briar_v06:FKOffsetScapula_R|briar_v06:FKExtraScapula_R|briar_v06:FKScapula_R|briar_v06:FKXScapula_R|briar_v06:FKOffsetShoulder_R|briar_v06:FKExtraShoulder_R|briar_v06:FKShoulder_R|briar_v06:FKXShoulder_R|briar_v06:FKOffsetElbow_R|briar_v06:FKExtraElbow_R|briar_v06:FKElbow_R|briar_v06:FKXElbow_R|briar_v06:FKOffsetWrist_R|briar_v06:FKExtraWrist_R|briar_v06:FKWrist_R.translateY" 
+		5 4 "briar_v06RN" "|BriarRig:Group|BriarRig:MotionSystem|BriarRig:FKSystem|BriarRig:FKParentConstraintToChest_M|BriarRig:FKOffsetScapula_R|BriarRig:FKExtraScapula_R|BriarRig:FKScapula_R|BriarRig:FKXScapula_R|BriarRig:FKOffsetShoulder_R|BriarRig:FKExtraShoulder_R|BriarRig:FKShoulder_R|BriarRig:FKXShoulder_R|BriarRig:FKOffsetElbow_R|BriarRig:FKExtraElbow_R|BriarRig:FKElbow_R|BriarRig:FKXElbow_R|BriarRig:FKOffsetWrist_R|BriarRig:FKExtraWrist_R|BriarRig:FKWrist_R.translateY" 
 		"briar_v06RN.placeHolderList[95]" ""
-		5 4 "briar_v06RN" "|briar_v06:Group|briar_v06:MotionSystem|briar_v06:FKSystem|briar_v06:FKParentConstraintToChest_M|briar_v06:FKOffsetScapula_R|briar_v06:FKExtraScapula_R|briar_v06:FKScapula_R|briar_v06:FKXScapula_R|briar_v06:FKOffsetShoulder_R|briar_v06:FKExtraShoulder_R|briar_v06:FKShoulder_R|briar_v06:FKXShoulder_R|briar_v06:FKOffsetElbow_R|briar_v06:FKExtraElbow_R|briar_v06:FKElbow_R|briar_v06:FKXElbow_R|briar_v06:FKOffsetWrist_R|briar_v06:FKExtraWrist_R|briar_v06:FKWrist_R.translateZ" 
+		5 4 "briar_v06RN" "|BriarRig:Group|BriarRig:MotionSystem|BriarRig:FKSystem|BriarRig:FKParentConstraintToChest_M|BriarRig:FKOffsetScapula_R|BriarRig:FKExtraScapula_R|BriarRig:FKScapula_R|BriarRig:FKXScapula_R|BriarRig:FKOffsetShoulder_R|BriarRig:FKExtraShoulder_R|BriarRig:FKShoulder_R|BriarRig:FKXShoulder_R|BriarRig:FKOffsetElbow_R|BriarRig:FKExtraElbow_R|BriarRig:FKElbow_R|BriarRig:FKXElbow_R|BriarRig:FKOffsetWrist_R|BriarRig:FKExtraWrist_R|BriarRig:FKWrist_R.translateZ" 
 		"briar_v06RN.placeHolderList[96]" ""
-		5 4 "briar_v06RN" "|briar_v06:Group|briar_v06:MotionSystem|briar_v06:FKSystem|briar_v06:FKParentConstraintToChest_M|briar_v06:FKOffsetScapula_L|briar_v06:FKExtraScapula_L|briar_v06:FKScapula_L.scaleX" 
+		5 4 "briar_v06RN" "|BriarRig:Group|BriarRig:MotionSystem|BriarRig:FKSystem|BriarRig:FKParentConstraintToChest_M|BriarRig:FKOffsetScapula_L|BriarRig:FKExtraScapula_L|BriarRig:FKScapula_L.scaleX" 
 		"briar_v06RN.placeHolderList[97]" ""
-		5 4 "briar_v06RN" "|briar_v06:Group|briar_v06:MotionSystem|briar_v06:FKSystem|briar_v06:FKParentConstraintToChest_M|briar_v06:FKOffsetScapula_L|briar_v06:FKExtraScapula_L|briar_v06:FKScapula_L.scaleY" 
+		5 4 "briar_v06RN" "|BriarRig:Group|BriarRig:MotionSystem|BriarRig:FKSystem|BriarRig:FKParentConstraintToChest_M|BriarRig:FKOffsetScapula_L|BriarRig:FKExtraScapula_L|BriarRig:FKScapula_L.scaleY" 
 		"briar_v06RN.placeHolderList[98]" ""
-		5 4 "briar_v06RN" "|briar_v06:Group|briar_v06:MotionSystem|briar_v06:FKSystem|briar_v06:FKParentConstraintToChest_M|briar_v06:FKOffsetScapula_L|briar_v06:FKExtraScapula_L|briar_v06:FKScapula_L.scaleZ" 
+		5 4 "briar_v06RN" "|BriarRig:Group|BriarRig:MotionSystem|BriarRig:FKSystem|BriarRig:FKParentConstraintToChest_M|BriarRig:FKOffsetScapula_L|BriarRig:FKExtraScapula_L|BriarRig:FKScapula_L.scaleZ" 
 		"briar_v06RN.placeHolderList[99]" ""
-		5 4 "briar_v06RN" "|briar_v06:Group|briar_v06:MotionSystem|briar_v06:FKSystem|briar_v06:FKParentConstraintToChest_M|briar_v06:FKOffsetScapula_L|briar_v06:FKExtraScapula_L|briar_v06:FKScapula_L.rotateX" 
+		5 4 "briar_v06RN" "|BriarRig:Group|BriarRig:MotionSystem|BriarRig:FKSystem|BriarRig:FKParentConstraintToChest_M|BriarRig:FKOffsetScapula_L|BriarRig:FKExtraScapula_L|BriarRig:FKScapula_L.rotateX" 
 		"briar_v06RN.placeHolderList[100]" ""
-		5 4 "briar_v06RN" "|briar_v06:Group|briar_v06:MotionSystem|briar_v06:FKSystem|briar_v06:FKParentConstraintToChest_M|briar_v06:FKOffsetScapula_L|briar_v06:FKExtraScapula_L|briar_v06:FKScapula_L.rotateY" 
+		5 4 "briar_v06RN" "|BriarRig:Group|BriarRig:MotionSystem|BriarRig:FKSystem|BriarRig:FKParentConstraintToChest_M|BriarRig:FKOffsetScapula_L|BriarRig:FKExtraScapula_L|BriarRig:FKScapula_L.rotateY" 
 		"briar_v06RN.placeHolderList[101]" ""
-		5 4 "briar_v06RN" "|briar_v06:Group|briar_v06:MotionSystem|briar_v06:FKSystem|briar_v06:FKParentConstraintToChest_M|briar_v06:FKOffsetScapula_L|briar_v06:FKExtraScapula_L|briar_v06:FKScapula_L.rotateZ" 
+		5 4 "briar_v06RN" "|BriarRig:Group|BriarRig:MotionSystem|BriarRig:FKSystem|BriarRig:FKParentConstraintToChest_M|BriarRig:FKOffsetScapula_L|BriarRig:FKExtraScapula_L|BriarRig:FKScapula_L.rotateZ" 
 		"briar_v06RN.placeHolderList[102]" ""
-		5 4 "briar_v06RN" "|briar_v06:Group|briar_v06:MotionSystem|briar_v06:FKSystem|briar_v06:FKParentConstraintToChest_M|briar_v06:FKOffsetScapula_L|briar_v06:FKExtraScapula_L|briar_v06:FKScapula_L.translateX" 
+		5 4 "briar_v06RN" "|BriarRig:Group|BriarRig:MotionSystem|BriarRig:FKSystem|BriarRig:FKParentConstraintToChest_M|BriarRig:FKOffsetScapula_L|BriarRig:FKExtraScapula_L|BriarRig:FKScapula_L.translateX" 
 		"briar_v06RN.placeHolderList[103]" ""
-		5 4 "briar_v06RN" "|briar_v06:Group|briar_v06:MotionSystem|briar_v06:FKSystem|briar_v06:FKParentConstraintToChest_M|briar_v06:FKOffsetScapula_L|briar_v06:FKExtraScapula_L|briar_v06:FKScapula_L.translateY" 
+		5 4 "briar_v06RN" "|BriarRig:Group|BriarRig:MotionSystem|BriarRig:FKSystem|BriarRig:FKParentConstraintToChest_M|BriarRig:FKOffsetScapula_L|BriarRig:FKExtraScapula_L|BriarRig:FKScapula_L.translateY" 
 		"briar_v06RN.placeHolderList[104]" ""
-		5 4 "briar_v06RN" "|briar_v06:Group|briar_v06:MotionSystem|briar_v06:FKSystem|briar_v06:FKParentConstraintToChest_M|briar_v06:FKOffsetScapula_L|briar_v06:FKExtraScapula_L|briar_v06:FKScapula_L.translateZ" 
+		5 4 "briar_v06RN" "|BriarRig:Group|BriarRig:MotionSystem|BriarRig:FKSystem|BriarRig:FKParentConstraintToChest_M|BriarRig:FKOffsetScapula_L|BriarRig:FKExtraScapula_L|BriarRig:FKScapula_L.translateZ" 
 		"briar_v06RN.placeHolderList[105]" ""
-		5 4 "briar_v06RN" "|briar_v06:Group|briar_v06:MotionSystem|briar_v06:FKSystem|briar_v06:FKParentConstraintToChest_M|briar_v06:FKOffsetScapula_L|briar_v06:FKExtraScapula_L|briar_v06:FKScapula_L|briar_v06:FKXScapula_L|briar_v06:FKOffsetShoulder_L|briar_v06:FKExtraShoulder_L|briar_v06:FKShoulder_L.scaleX" 
+		5 4 "briar_v06RN" "|BriarRig:Group|BriarRig:MotionSystem|BriarRig:FKSystem|BriarRig:FKParentConstraintToChest_M|BriarRig:FKOffsetScapula_L|BriarRig:FKExtraScapula_L|BriarRig:FKScapula_L|BriarRig:FKXScapula_L|BriarRig:FKOffsetShoulder_L|BriarRig:FKExtraShoulder_L|BriarRig:FKShoulder_L.scaleX" 
 		"briar_v06RN.placeHolderList[106]" ""
-		5 4 "briar_v06RN" "|briar_v06:Group|briar_v06:MotionSystem|briar_v06:FKSystem|briar_v06:FKParentConstraintToChest_M|briar_v06:FKOffsetScapula_L|briar_v06:FKExtraScapula_L|briar_v06:FKScapula_L|briar_v06:FKXScapula_L|briar_v06:FKOffsetShoulder_L|briar_v06:FKExtraShoulder_L|briar_v06:FKShoulder_L.scaleY" 
+		5 4 "briar_v06RN" "|BriarRig:Group|BriarRig:MotionSystem|BriarRig:FKSystem|BriarRig:FKParentConstraintToChest_M|BriarRig:FKOffsetScapula_L|BriarRig:FKExtraScapula_L|BriarRig:FKScapula_L|BriarRig:FKXScapula_L|BriarRig:FKOffsetShoulder_L|BriarRig:FKExtraShoulder_L|BriarRig:FKShoulder_L.scaleY" 
 		"briar_v06RN.placeHolderList[107]" ""
-		5 4 "briar_v06RN" "|briar_v06:Group|briar_v06:MotionSystem|briar_v06:FKSystem|briar_v06:FKParentConstraintToChest_M|briar_v06:FKOffsetScapula_L|briar_v06:FKExtraScapula_L|briar_v06:FKScapula_L|briar_v06:FKXScapula_L|briar_v06:FKOffsetShoulder_L|briar_v06:FKExtraShoulder_L|briar_v06:FKShoulder_L.scaleZ" 
+		5 4 "briar_v06RN" "|BriarRig:Group|BriarRig:MotionSystem|BriarRig:FKSystem|BriarRig:FKParentConstraintToChest_M|BriarRig:FKOffsetScapula_L|BriarRig:FKExtraScapula_L|BriarRig:FKScapula_L|BriarRig:FKXScapula_L|BriarRig:FKOffsetShoulder_L|BriarRig:FKExtraShoulder_L|BriarRig:FKShoulder_L.scaleZ" 
 		"briar_v06RN.placeHolderList[108]" ""
-		5 4 "briar_v06RN" "|briar_v06:Group|briar_v06:MotionSystem|briar_v06:FKSystem|briar_v06:FKParentConstraintToChest_M|briar_v06:FKOffsetScapula_L|briar_v06:FKExtraScapula_L|briar_v06:FKScapula_L|briar_v06:FKXScapula_L|briar_v06:FKOffsetShoulder_L|briar_v06:FKExtraShoulder_L|briar_v06:FKShoulder_L.rotateY" 
+		5 4 "briar_v06RN" "|BriarRig:Group|BriarRig:MotionSystem|BriarRig:FKSystem|BriarRig:FKParentConstraintToChest_M|BriarRig:FKOffsetScapula_L|BriarRig:FKExtraScapula_L|BriarRig:FKScapula_L|BriarRig:FKXScapula_L|BriarRig:FKOffsetShoulder_L|BriarRig:FKExtraShoulder_L|BriarRig:FKShoulder_L.rotateY" 
 		"briar_v06RN.placeHolderList[109]" ""
-		5 4 "briar_v06RN" "|briar_v06:Group|briar_v06:MotionSystem|briar_v06:FKSystem|briar_v06:FKParentConstraintToChest_M|briar_v06:FKOffsetScapula_L|briar_v06:FKExtraScapula_L|briar_v06:FKScapula_L|briar_v06:FKXScapula_L|briar_v06:FKOffsetShoulder_L|briar_v06:FKExtraShoulder_L|briar_v06:FKShoulder_L.rotateX" 
+		5 4 "briar_v06RN" "|BriarRig:Group|BriarRig:MotionSystem|BriarRig:FKSystem|BriarRig:FKParentConstraintToChest_M|BriarRig:FKOffsetScapula_L|BriarRig:FKExtraScapula_L|BriarRig:FKScapula_L|BriarRig:FKXScapula_L|BriarRig:FKOffsetShoulder_L|BriarRig:FKExtraShoulder_L|BriarRig:FKShoulder_L.rotateX" 
 		"briar_v06RN.placeHolderList[110]" ""
-		5 4 "briar_v06RN" "|briar_v06:Group|briar_v06:MotionSystem|briar_v06:FKSystem|briar_v06:FKParentConstraintToChest_M|briar_v06:FKOffsetScapula_L|briar_v06:FKExtraScapula_L|briar_v06:FKScapula_L|briar_v06:FKXScapula_L|briar_v06:FKOffsetShoulder_L|briar_v06:FKExtraShoulder_L|briar_v06:FKShoulder_L.rotateZ" 
+		5 4 "briar_v06RN" "|BriarRig:Group|BriarRig:MotionSystem|BriarRig:FKSystem|BriarRig:FKParentConstraintToChest_M|BriarRig:FKOffsetScapula_L|BriarRig:FKExtraScapula_L|BriarRig:FKScapula_L|BriarRig:FKXScapula_L|BriarRig:FKOffsetShoulder_L|BriarRig:FKExtraShoulder_L|BriarRig:FKShoulder_L.rotateZ" 
 		"briar_v06RN.placeHolderList[111]" ""
-		5 4 "briar_v06RN" "|briar_v06:Group|briar_v06:MotionSystem|briar_v06:FKSystem|briar_v06:FKParentConstraintToChest_M|briar_v06:FKOffsetScapula_L|briar_v06:FKExtraScapula_L|briar_v06:FKScapula_L|briar_v06:FKXScapula_L|briar_v06:FKOffsetShoulder_L|briar_v06:FKExtraShoulder_L|briar_v06:FKShoulder_L.translateX" 
+		5 4 "briar_v06RN" "|BriarRig:Group|BriarRig:MotionSystem|BriarRig:FKSystem|BriarRig:FKParentConstraintToChest_M|BriarRig:FKOffsetScapula_L|BriarRig:FKExtraScapula_L|BriarRig:FKScapula_L|BriarRig:FKXScapula_L|BriarRig:FKOffsetShoulder_L|BriarRig:FKExtraShoulder_L|BriarRig:FKShoulder_L.translateX" 
 		"briar_v06RN.placeHolderList[112]" ""
-		5 4 "briar_v06RN" "|briar_v06:Group|briar_v06:MotionSystem|briar_v06:FKSystem|briar_v06:FKParentConstraintToChest_M|briar_v06:FKOffsetScapula_L|briar_v06:FKExtraScapula_L|briar_v06:FKScapula_L|briar_v06:FKXScapula_L|briar_v06:FKOffsetShoulder_L|briar_v06:FKExtraShoulder_L|briar_v06:FKShoulder_L.translateY" 
+		5 4 "briar_v06RN" "|BriarRig:Group|BriarRig:MotionSystem|BriarRig:FKSystem|BriarRig:FKParentConstraintToChest_M|BriarRig:FKOffsetScapula_L|BriarRig:FKExtraScapula_L|BriarRig:FKScapula_L|BriarRig:FKXScapula_L|BriarRig:FKOffsetShoulder_L|BriarRig:FKExtraShoulder_L|BriarRig:FKShoulder_L.translateY" 
 		"briar_v06RN.placeHolderList[113]" ""
-		5 4 "briar_v06RN" "|briar_v06:Group|briar_v06:MotionSystem|briar_v06:FKSystem|briar_v06:FKParentConstraintToChest_M|briar_v06:FKOffsetScapula_L|briar_v06:FKExtraScapula_L|briar_v06:FKScapula_L|briar_v06:FKXScapula_L|briar_v06:FKOffsetShoulder_L|briar_v06:FKExtraShoulder_L|briar_v06:FKShoulder_L.translateZ" 
+		5 4 "briar_v06RN" "|BriarRig:Group|BriarRig:MotionSystem|BriarRig:FKSystem|BriarRig:FKParentConstraintToChest_M|BriarRig:FKOffsetScapula_L|BriarRig:FKExtraScapula_L|BriarRig:FKScapula_L|BriarRig:FKXScapula_L|BriarRig:FKOffsetShoulder_L|BriarRig:FKExtraShoulder_L|BriarRig:FKShoulder_L.translateZ" 
 		"briar_v06RN.placeHolderList[114]" ""
-		5 4 "briar_v06RN" "|briar_v06:Group|briar_v06:MotionSystem|briar_v06:FKSystem|briar_v06:FKParentConstraintToChest_M|briar_v06:FKOffsetScapula_L|briar_v06:FKExtraScapula_L|briar_v06:FKScapula_L|briar_v06:FKXScapula_L|briar_v06:FKOffsetShoulder_L|briar_v06:FKExtraShoulder_L|briar_v06:FKShoulder_L|briar_v06:FKXShoulder_L|briar_v06:FKOffsetElbow_L|briar_v06:FKExtraElbow_L|briar_v06:FKElbow_L.scaleX" 
+		5 4 "briar_v06RN" "|BriarRig:Group|BriarRig:MotionSystem|BriarRig:FKSystem|BriarRig:FKParentConstraintToChest_M|BriarRig:FKOffsetScapula_L|BriarRig:FKExtraScapula_L|BriarRig:FKScapula_L|BriarRig:FKXScapula_L|BriarRig:FKOffsetShoulder_L|BriarRig:FKExtraShoulder_L|BriarRig:FKShoulder_L|BriarRig:FKXShoulder_L|BriarRig:FKOffsetElbow_L|BriarRig:FKExtraElbow_L|BriarRig:FKElbow_L.scaleX" 
 		"briar_v06RN.placeHolderList[115]" ""
-		5 4 "briar_v06RN" "|briar_v06:Group|briar_v06:MotionSystem|briar_v06:FKSystem|briar_v06:FKParentConstraintToChest_M|briar_v06:FKOffsetScapula_L|briar_v06:FKExtraScapula_L|briar_v06:FKScapula_L|briar_v06:FKXScapula_L|briar_v06:FKOffsetShoulder_L|briar_v06:FKExtraShoulder_L|briar_v06:FKShoulder_L|briar_v06:FKXShoulder_L|briar_v06:FKOffsetElbow_L|briar_v06:FKExtraElbow_L|briar_v06:FKElbow_L.scaleY" 
+		5 4 "briar_v06RN" "|BriarRig:Group|BriarRig:MotionSystem|BriarRig:FKSystem|BriarRig:FKParentConstraintToChest_M|BriarRig:FKOffsetScapula_L|BriarRig:FKExtraScapula_L|BriarRig:FKScapula_L|BriarRig:FKXScapula_L|BriarRig:FKOffsetShoulder_L|BriarRig:FKExtraShoulder_L|BriarRig:FKShoulder_L|BriarRig:FKXShoulder_L|BriarRig:FKOffsetElbow_L|BriarRig:FKExtraElbow_L|BriarRig:FKElbow_L.scaleY" 
 		"briar_v06RN.placeHolderList[116]" ""
-		5 4 "briar_v06RN" "|briar_v06:Group|briar_v06:MotionSystem|briar_v06:FKSystem|briar_v06:FKParentConstraintToChest_M|briar_v06:FKOffsetScapula_L|briar_v06:FKExtraScapula_L|briar_v06:FKScapula_L|briar_v06:FKXScapula_L|briar_v06:FKOffsetShoulder_L|briar_v06:FKExtraShoulder_L|briar_v06:FKShoulder_L|briar_v06:FKXShoulder_L|briar_v06:FKOffsetElbow_L|briar_v06:FKExtraElbow_L|briar_v06:FKElbow_L.scaleZ" 
+		5 4 "briar_v06RN" "|BriarRig:Group|BriarRig:MotionSystem|BriarRig:FKSystem|BriarRig:FKParentConstraintToChest_M|BriarRig:FKOffsetScapula_L|BriarRig:FKExtraScapula_L|BriarRig:FKScapula_L|BriarRig:FKXScapula_L|BriarRig:FKOffsetShoulder_L|BriarRig:FKExtraShoulder_L|BriarRig:FKShoulder_L|BriarRig:FKXShoulder_L|BriarRig:FKOffsetElbow_L|BriarRig:FKExtraElbow_L|BriarRig:FKElbow_L.scaleZ" 
 		"briar_v06RN.placeHolderList[117]" ""
-		5 4 "briar_v06RN" "|briar_v06:Group|briar_v06:MotionSystem|briar_v06:FKSystem|briar_v06:FKParentConstraintToChest_M|briar_v06:FKOffsetScapula_L|briar_v06:FKExtraScapula_L|briar_v06:FKScapula_L|briar_v06:FKXScapula_L|briar_v06:FKOffsetShoulder_L|briar_v06:FKExtraShoulder_L|briar_v06:FKShoulder_L|briar_v06:FKXShoulder_L|briar_v06:FKOffsetElbow_L|briar_v06:FKExtraElbow_L|briar_v06:FKElbow_L.rotateX" 
+		5 4 "briar_v06RN" "|BriarRig:Group|BriarRig:MotionSystem|BriarRig:FKSystem|BriarRig:FKParentConstraintToChest_M|BriarRig:FKOffsetScapula_L|BriarRig:FKExtraScapula_L|BriarRig:FKScapula_L|BriarRig:FKXScapula_L|BriarRig:FKOffsetShoulder_L|BriarRig:FKExtraShoulder_L|BriarRig:FKShoulder_L|BriarRig:FKXShoulder_L|BriarRig:FKOffsetElbow_L|BriarRig:FKExtraElbow_L|BriarRig:FKElbow_L.rotateX" 
 		"briar_v06RN.placeHolderList[118]" ""
-		5 4 "briar_v06RN" "|briar_v06:Group|briar_v06:MotionSystem|briar_v06:FKSystem|briar_v06:FKParentConstraintToChest_M|briar_v06:FKOffsetScapula_L|briar_v06:FKExtraScapula_L|briar_v06:FKScapula_L|briar_v06:FKXScapula_L|briar_v06:FKOffsetShoulder_L|briar_v06:FKExtraShoulder_L|briar_v06:FKShoulder_L|briar_v06:FKXShoulder_L|briar_v06:FKOffsetElbow_L|briar_v06:FKExtraElbow_L|briar_v06:FKElbow_L.rotateY" 
+		5 4 "briar_v06RN" "|BriarRig:Group|BriarRig:MotionSystem|BriarRig:FKSystem|BriarRig:FKParentConstraintToChest_M|BriarRig:FKOffsetScapula_L|BriarRig:FKExtraScapula_L|BriarRig:FKScapula_L|BriarRig:FKXScapula_L|BriarRig:FKOffsetShoulder_L|BriarRig:FKExtraShoulder_L|BriarRig:FKShoulder_L|BriarRig:FKXShoulder_L|BriarRig:FKOffsetElbow_L|BriarRig:FKExtraElbow_L|BriarRig:FKElbow_L.rotateY" 
 		"briar_v06RN.placeHolderList[119]" ""
-		5 4 "briar_v06RN" "|briar_v06:Group|briar_v06:MotionSystem|briar_v06:FKSystem|briar_v06:FKParentConstraintToChest_M|briar_v06:FKOffsetScapula_L|briar_v06:FKExtraScapula_L|briar_v06:FKScapula_L|briar_v06:FKXScapula_L|briar_v06:FKOffsetShoulder_L|briar_v06:FKExtraShoulder_L|briar_v06:FKShoulder_L|briar_v06:FKXShoulder_L|briar_v06:FKOffsetElbow_L|briar_v06:FKExtraElbow_L|briar_v06:FKElbow_L.rotateZ" 
+		5 4 "briar_v06RN" "|BriarRig:Group|BriarRig:MotionSystem|BriarRig:FKSystem|BriarRig:FKParentConstraintToChest_M|BriarRig:FKOffsetScapula_L|BriarRig:FKExtraScapula_L|BriarRig:FKScapula_L|BriarRig:FKXScapula_L|BriarRig:FKOffsetShoulder_L|BriarRig:FKExtraShoulder_L|BriarRig:FKShoulder_L|BriarRig:FKXShoulder_L|BriarRig:FKOffsetElbow_L|BriarRig:FKExtraElbow_L|BriarRig:FKElbow_L.rotateZ" 
 		"briar_v06RN.placeHolderList[120]" ""
-		5 4 "briar_v06RN" "|briar_v06:Group|briar_v06:MotionSystem|briar_v06:FKSystem|briar_v06:FKParentConstraintToChest_M|briar_v06:FKOffsetScapula_L|briar_v06:FKExtraScapula_L|briar_v06:FKScapula_L|briar_v06:FKXScapula_L|briar_v06:FKOffsetShoulder_L|briar_v06:FKExtraShoulder_L|briar_v06:FKShoulder_L|briar_v06:FKXShoulder_L|briar_v06:FKOffsetElbow_L|briar_v06:FKExtraElbow_L|briar_v06:FKElbow_L.translateX" 
+		5 4 "briar_v06RN" "|BriarRig:Group|BriarRig:MotionSystem|BriarRig:FKSystem|BriarRig:FKParentConstraintToChest_M|BriarRig:FKOffsetScapula_L|BriarRig:FKExtraScapula_L|BriarRig:FKScapula_L|BriarRig:FKXScapula_L|BriarRig:FKOffsetShoulder_L|BriarRig:FKExtraShoulder_L|BriarRig:FKShoulder_L|BriarRig:FKXShoulder_L|BriarRig:FKOffsetElbow_L|BriarRig:FKExtraElbow_L|BriarRig:FKElbow_L.translateX" 
 		"briar_v06RN.placeHolderList[121]" ""
-		5 4 "briar_v06RN" "|briar_v06:Group|briar_v06:MotionSystem|briar_v06:FKSystem|briar_v06:FKParentConstraintToChest_M|briar_v06:FKOffsetScapula_L|briar_v06:FKExtraScapula_L|briar_v06:FKScapula_L|briar_v06:FKXScapula_L|briar_v06:FKOffsetShoulder_L|briar_v06:FKExtraShoulder_L|briar_v06:FKShoulder_L|briar_v06:FKXShoulder_L|briar_v06:FKOffsetElbow_L|briar_v06:FKExtraElbow_L|briar_v06:FKElbow_L.translateY" 
+		5 4 "briar_v06RN" "|BriarRig:Group|BriarRig:MotionSystem|BriarRig:FKSystem|BriarRig:FKParentConstraintToChest_M|BriarRig:FKOffsetScapula_L|BriarRig:FKExtraScapula_L|BriarRig:FKScapula_L|BriarRig:FKXScapula_L|BriarRig:FKOffsetShoulder_L|BriarRig:FKExtraShoulder_L|BriarRig:FKShoulder_L|BriarRig:FKXShoulder_L|BriarRig:FKOffsetElbow_L|BriarRig:FKExtraElbow_L|BriarRig:FKElbow_L.translateY" 
 		"briar_v06RN.placeHolderList[122]" ""
-		5 4 "briar_v06RN" "|briar_v06:Group|briar_v06:MotionSystem|briar_v06:FKSystem|briar_v06:FKParentConstraintToChest_M|briar_v06:FKOffsetScapula_L|briar_v06:FKExtraScapula_L|briar_v06:FKScapula_L|briar_v06:FKXScapula_L|briar_v06:FKOffsetShoulder_L|briar_v06:FKExtraShoulder_L|briar_v06:FKShoulder_L|briar_v06:FKXShoulder_L|briar_v06:FKOffsetElbow_L|briar_v06:FKExtraElbow_L|briar_v06:FKElbow_L.translateZ" 
+		5 4 "briar_v06RN" "|BriarRig:Group|BriarRig:MotionSystem|BriarRig:FKSystem|BriarRig:FKParentConstraintToChest_M|BriarRig:FKOffsetScapula_L|BriarRig:FKExtraScapula_L|BriarRig:FKScapula_L|BriarRig:FKXScapula_L|BriarRig:FKOffsetShoulder_L|BriarRig:FKExtraShoulder_L|BriarRig:FKShoulder_L|BriarRig:FKXShoulder_L|BriarRig:FKOffsetElbow_L|BriarRig:FKExtraElbow_L|BriarRig:FKElbow_L.translateZ" 
 		"briar_v06RN.placeHolderList[123]" ""
-		5 4 "briar_v06RN" "|briar_v06:Group|briar_v06:MotionSystem|briar_v06:FKSystem|briar_v06:FKParentConstraintToChest_M|briar_v06:FKOffsetScapula_L|briar_v06:FKExtraScapula_L|briar_v06:FKScapula_L|briar_v06:FKXScapula_L|briar_v06:FKOffsetShoulder_L|briar_v06:FKExtraShoulder_L|briar_v06:FKShoulder_L|briar_v06:FKXShoulder_L|briar_v06:FKOffsetElbow_L|briar_v06:FKExtraElbow_L|briar_v06:FKElbow_L|briar_v06:FKXElbow_L|briar_v06:FKOffsetWrist_L|briar_v06:FKExtraWrist_L|briar_v06:FKWrist_L.scaleX" 
+		5 4 "briar_v06RN" "|BriarRig:Group|BriarRig:MotionSystem|BriarRig:FKSystem|BriarRig:FKParentConstraintToChest_M|BriarRig:FKOffsetScapula_L|BriarRig:FKExtraScapula_L|BriarRig:FKScapula_L|BriarRig:FKXScapula_L|BriarRig:FKOffsetShoulder_L|BriarRig:FKExtraShoulder_L|BriarRig:FKShoulder_L|BriarRig:FKXShoulder_L|BriarRig:FKOffsetElbow_L|BriarRig:FKExtraElbow_L|BriarRig:FKElbow_L|BriarRig:FKXElbow_L|BriarRig:FKOffsetWrist_L|BriarRig:FKExtraWrist_L|BriarRig:FKWrist_L.scaleX" 
 		"briar_v06RN.placeHolderList[124]" ""
-		5 4 "briar_v06RN" "|briar_v06:Group|briar_v06:MotionSystem|briar_v06:FKSystem|briar_v06:FKParentConstraintToChest_M|briar_v06:FKOffsetScapula_L|briar_v06:FKExtraScapula_L|briar_v06:FKScapula_L|briar_v06:FKXScapula_L|briar_v06:FKOffsetShoulder_L|briar_v06:FKExtraShoulder_L|briar_v06:FKShoulder_L|briar_v06:FKXShoulder_L|briar_v06:FKOffsetElbow_L|briar_v06:FKExtraElbow_L|briar_v06:FKElbow_L|briar_v06:FKXElbow_L|briar_v06:FKOffsetWrist_L|briar_v06:FKExtraWrist_L|briar_v06:FKWrist_L.scaleY" 
+		5 4 "briar_v06RN" "|BriarRig:Group|BriarRig:MotionSystem|BriarRig:FKSystem|BriarRig:FKParentConstraintToChest_M|BriarRig:FKOffsetScapula_L|BriarRig:FKExtraScapula_L|BriarRig:FKScapula_L|BriarRig:FKXScapula_L|BriarRig:FKOffsetShoulder_L|BriarRig:FKExtraShoulder_L|BriarRig:FKShoulder_L|BriarRig:FKXShoulder_L|BriarRig:FKOffsetElbow_L|BriarRig:FKExtraElbow_L|BriarRig:FKElbow_L|BriarRig:FKXElbow_L|BriarRig:FKOffsetWrist_L|BriarRig:FKExtraWrist_L|BriarRig:FKWrist_L.scaleY" 
 		"briar_v06RN.placeHolderList[125]" ""
-		5 4 "briar_v06RN" "|briar_v06:Group|briar_v06:MotionSystem|briar_v06:FKSystem|briar_v06:FKParentConstraintToChest_M|briar_v06:FKOffsetScapula_L|briar_v06:FKExtraScapula_L|briar_v06:FKScapula_L|briar_v06:FKXScapula_L|briar_v06:FKOffsetShoulder_L|briar_v06:FKExtraShoulder_L|briar_v06:FKShoulder_L|briar_v06:FKXShoulder_L|briar_v06:FKOffsetElbow_L|briar_v06:FKExtraElbow_L|briar_v06:FKElbow_L|briar_v06:FKXElbow_L|briar_v06:FKOffsetWrist_L|briar_v06:FKExtraWrist_L|briar_v06:FKWrist_L.scaleZ" 
+		5 4 "briar_v06RN" "|BriarRig:Group|BriarRig:MotionSystem|BriarRig:FKSystem|BriarRig:FKParentConstraintToChest_M|BriarRig:FKOffsetScapula_L|BriarRig:FKExtraScapula_L|BriarRig:FKScapula_L|BriarRig:FKXScapula_L|BriarRig:FKOffsetShoulder_L|BriarRig:FKExtraShoulder_L|BriarRig:FKShoulder_L|BriarRig:FKXShoulder_L|BriarRig:FKOffsetElbow_L|BriarRig:FKExtraElbow_L|BriarRig:FKElbow_L|BriarRig:FKXElbow_L|BriarRig:FKOffsetWrist_L|BriarRig:FKExtraWrist_L|BriarRig:FKWrist_L.scaleZ" 
 		"briar_v06RN.placeHolderList[126]" ""
-		5 4 "briar_v06RN" "|briar_v06:Group|briar_v06:MotionSystem|briar_v06:FKSystem|briar_v06:FKParentConstraintToChest_M|briar_v06:FKOffsetScapula_L|briar_v06:FKExtraScapula_L|briar_v06:FKScapula_L|briar_v06:FKXScapula_L|briar_v06:FKOffsetShoulder_L|briar_v06:FKExtraShoulder_L|briar_v06:FKShoulder_L|briar_v06:FKXShoulder_L|briar_v06:FKOffsetElbow_L|briar_v06:FKExtraElbow_L|briar_v06:FKElbow_L|briar_v06:FKXElbow_L|briar_v06:FKOffsetWrist_L|briar_v06:FKExtraWrist_L|briar_v06:FKWrist_L.rotateX" 
+		5 4 "briar_v06RN" "|BriarRig:Group|BriarRig:MotionSystem|BriarRig:FKSystem|BriarRig:FKParentConstraintToChest_M|BriarRig:FKOffsetScapula_L|BriarRig:FKExtraScapula_L|BriarRig:FKScapula_L|BriarRig:FKXScapula_L|BriarRig:FKOffsetShoulder_L|BriarRig:FKExtraShoulder_L|BriarRig:FKShoulder_L|BriarRig:FKXShoulder_L|BriarRig:FKOffsetElbow_L|BriarRig:FKExtraElbow_L|BriarRig:FKElbow_L|BriarRig:FKXElbow_L|BriarRig:FKOffsetWrist_L|BriarRig:FKExtraWrist_L|BriarRig:FKWrist_L.rotateX" 
 		"briar_v06RN.placeHolderList[127]" ""
-		5 4 "briar_v06RN" "|briar_v06:Group|briar_v06:MotionSystem|briar_v06:FKSystem|briar_v06:FKParentConstraintToChest_M|briar_v06:FKOffsetScapula_L|briar_v06:FKExtraScapula_L|briar_v06:FKScapula_L|briar_v06:FKXScapula_L|briar_v06:FKOffsetShoulder_L|briar_v06:FKExtraShoulder_L|briar_v06:FKShoulder_L|briar_v06:FKXShoulder_L|briar_v06:FKOffsetElbow_L|briar_v06:FKExtraElbow_L|briar_v06:FKElbow_L|briar_v06:FKXElbow_L|briar_v06:FKOffsetWrist_L|briar_v06:FKExtraWrist_L|briar_v06:FKWrist_L.rotateY" 
+		5 4 "briar_v06RN" "|BriarRig:Group|BriarRig:MotionSystem|BriarRig:FKSystem|BriarRig:FKParentConstraintToChest_M|BriarRig:FKOffsetScapula_L|BriarRig:FKExtraScapula_L|BriarRig:FKScapula_L|BriarRig:FKXScapula_L|BriarRig:FKOffsetShoulder_L|BriarRig:FKExtraShoulder_L|BriarRig:FKShoulder_L|BriarRig:FKXShoulder_L|BriarRig:FKOffsetElbow_L|BriarRig:FKExtraElbow_L|BriarRig:FKElbow_L|BriarRig:FKXElbow_L|BriarRig:FKOffsetWrist_L|BriarRig:FKExtraWrist_L|BriarRig:FKWrist_L.rotateY" 
 		"briar_v06RN.placeHolderList[128]" ""
-		5 4 "briar_v06RN" "|briar_v06:Group|briar_v06:MotionSystem|briar_v06:FKSystem|briar_v06:FKParentConstraintToChest_M|briar_v06:FKOffsetScapula_L|briar_v06:FKExtraScapula_L|briar_v06:FKScapula_L|briar_v06:FKXScapula_L|briar_v06:FKOffsetShoulder_L|briar_v06:FKExtraShoulder_L|briar_v06:FKShoulder_L|briar_v06:FKXShoulder_L|briar_v06:FKOffsetElbow_L|briar_v06:FKExtraElbow_L|briar_v06:FKElbow_L|briar_v06:FKXElbow_L|briar_v06:FKOffsetWrist_L|briar_v06:FKExtraWrist_L|briar_v06:FKWrist_L.rotateZ" 
+		5 4 "briar_v06RN" "|BriarRig:Group|BriarRig:MotionSystem|BriarRig:FKSystem|BriarRig:FKParentConstraintToChest_M|BriarRig:FKOffsetScapula_L|BriarRig:FKExtraScapula_L|BriarRig:FKScapula_L|BriarRig:FKXScapula_L|BriarRig:FKOffsetShoulder_L|BriarRig:FKExtraShoulder_L|BriarRig:FKShoulder_L|BriarRig:FKXShoulder_L|BriarRig:FKOffsetElbow_L|BriarRig:FKExtraElbow_L|BriarRig:FKElbow_L|BriarRig:FKXElbow_L|BriarRig:FKOffsetWrist_L|BriarRig:FKExtraWrist_L|BriarRig:FKWrist_L.rotateZ" 
 		"briar_v06RN.placeHolderList[129]" ""
-		5 4 "briar_v06RN" "|briar_v06:Group|briar_v06:MotionSystem|briar_v06:FKSystem|briar_v06:FKParentConstraintToChest_M|briar_v06:FKOffsetScapula_L|briar_v06:FKExtraScapula_L|briar_v06:FKScapula_L|briar_v06:FKXScapula_L|briar_v06:FKOffsetShoulder_L|briar_v06:FKExtraShoulder_L|briar_v06:FKShoulder_L|briar_v06:FKXShoulder_L|briar_v06:FKOffsetElbow_L|briar_v06:FKExtraElbow_L|briar_v06:FKElbow_L|briar_v06:FKXElbow_L|briar_v06:FKOffsetWrist_L|briar_v06:FKExtraWrist_L|briar_v06:FKWrist_L.translateX" 
+		5 4 "briar_v06RN" "|BriarRig:Group|BriarRig:MotionSystem|BriarRig:FKSystem|BriarRig:FKParentConstraintToChest_M|BriarRig:FKOffsetScapula_L|BriarRig:FKExtraScapula_L|BriarRig:FKScapula_L|BriarRig:FKXScapula_L|BriarRig:FKOffsetShoulder_L|BriarRig:FKExtraShoulder_L|BriarRig:FKShoulder_L|BriarRig:FKXShoulder_L|BriarRig:FKOffsetElbow_L|BriarRig:FKExtraElbow_L|BriarRig:FKElbow_L|BriarRig:FKXElbow_L|BriarRig:FKOffsetWrist_L|BriarRig:FKExtraWrist_L|BriarRig:FKWrist_L.translateX" 
 		"briar_v06RN.placeHolderList[130]" ""
-		5 4 "briar_v06RN" "|briar_v06:Group|briar_v06:MotionSystem|briar_v06:FKSystem|briar_v06:FKParentConstraintToChest_M|briar_v06:FKOffsetScapula_L|briar_v06:FKExtraScapula_L|briar_v06:FKScapula_L|briar_v06:FKXScapula_L|briar_v06:FKOffsetShoulder_L|briar_v06:FKExtraShoulder_L|briar_v06:FKShoulder_L|briar_v06:FKXShoulder_L|briar_v06:FKOffsetElbow_L|briar_v06:FKExtraElbow_L|briar_v06:FKElbow_L|briar_v06:FKXElbow_L|briar_v06:FKOffsetWrist_L|briar_v06:FKExtraWrist_L|briar_v06:FKWrist_L.translateY" 
+		5 4 "briar_v06RN" "|BriarRig:Group|BriarRig:MotionSystem|BriarRig:FKSystem|BriarRig:FKParentConstraintToChest_M|BriarRig:FKOffsetScapula_L|BriarRig:FKExtraScapula_L|BriarRig:FKScapula_L|BriarRig:FKXScapula_L|BriarRig:FKOffsetShoulder_L|BriarRig:FKExtraShoulder_L|BriarRig:FKShoulder_L|BriarRig:FKXShoulder_L|BriarRig:FKOffsetElbow_L|BriarRig:FKExtraElbow_L|BriarRig:FKElbow_L|BriarRig:FKXElbow_L|BriarRig:FKOffsetWrist_L|BriarRig:FKExtraWrist_L|BriarRig:FKWrist_L.translateY" 
 		"briar_v06RN.placeHolderList[131]" ""
-		5 4 "briar_v06RN" "|briar_v06:Group|briar_v06:MotionSystem|briar_v06:FKSystem|briar_v06:FKParentConstraintToChest_M|briar_v06:FKOffsetScapula_L|briar_v06:FKExtraScapula_L|briar_v06:FKScapula_L|briar_v06:FKXScapula_L|briar_v06:FKOffsetShoulder_L|briar_v06:FKExtraShoulder_L|briar_v06:FKShoulder_L|briar_v06:FKXShoulder_L|briar_v06:FKOffsetElbow_L|briar_v06:FKExtraElbow_L|briar_v06:FKElbow_L|briar_v06:FKXElbow_L|briar_v06:FKOffsetWrist_L|briar_v06:FKExtraWrist_L|briar_v06:FKWrist_L.translateZ" 
+		5 4 "briar_v06RN" "|BriarRig:Group|BriarRig:MotionSystem|BriarRig:FKSystem|BriarRig:FKParentConstraintToChest_M|BriarRig:FKOffsetScapula_L|BriarRig:FKExtraScapula_L|BriarRig:FKScapula_L|BriarRig:FKXScapula_L|BriarRig:FKOffsetShoulder_L|BriarRig:FKExtraShoulder_L|BriarRig:FKShoulder_L|BriarRig:FKXShoulder_L|BriarRig:FKOffsetElbow_L|BriarRig:FKExtraElbow_L|BriarRig:FKElbow_L|BriarRig:FKXElbow_L|BriarRig:FKOffsetWrist_L|BriarRig:FKExtraWrist_L|BriarRig:FKWrist_L.translateZ" 
 		"briar_v06RN.placeHolderList[132]" ""
-		5 4 "briar_v06RN" "|briar_v06:Group|briar_v06:MotionSystem|briar_v06:FKSystem|briar_v06:FKOffsetRoot_M|briar_v06:FKExtraRoot_M|briar_v06:FKRoot_M.scaleX" 
+		5 4 "briar_v06RN" "|BriarRig:Group|BriarRig:MotionSystem|BriarRig:FKSystem|BriarRig:FKOffsetRoot_M|BriarRig:FKExtraRoot_M|BriarRig:FKRoot_M.scaleX" 
 		"briar_v06RN.placeHolderList[133]" ""
-		5 4 "briar_v06RN" "|briar_v06:Group|briar_v06:MotionSystem|briar_v06:FKSystem|briar_v06:FKOffsetRoot_M|briar_v06:FKExtraRoot_M|briar_v06:FKRoot_M.scaleY" 
+		5 4 "briar_v06RN" "|BriarRig:Group|BriarRig:MotionSystem|BriarRig:FKSystem|BriarRig:FKOffsetRoot_M|BriarRig:FKExtraRoot_M|BriarRig:FKRoot_M.scaleY" 
 		"briar_v06RN.placeHolderList[134]" ""
-		5 4 "briar_v06RN" "|briar_v06:Group|briar_v06:MotionSystem|briar_v06:FKSystem|briar_v06:FKOffsetRoot_M|briar_v06:FKExtraRoot_M|briar_v06:FKRoot_M.scaleZ" 
+		5 4 "briar_v06RN" "|BriarRig:Group|BriarRig:MotionSystem|BriarRig:FKSystem|BriarRig:FKOffsetRoot_M|BriarRig:FKExtraRoot_M|BriarRig:FKRoot_M.scaleZ" 
 		"briar_v06RN.placeHolderList[135]" ""
-		5 4 "briar_v06RN" "|briar_v06:Group|briar_v06:MotionSystem|briar_v06:FKSystem|briar_v06:FKOffsetRoot_M|briar_v06:FKExtraRoot_M|briar_v06:FKRoot_M.rotateX" 
+		5 4 "briar_v06RN" "|BriarRig:Group|BriarRig:MotionSystem|BriarRig:FKSystem|BriarRig:FKOffsetRoot_M|BriarRig:FKExtraRoot_M|BriarRig:FKRoot_M.rotateX" 
 		"briar_v06RN.placeHolderList[136]" ""
-		5 4 "briar_v06RN" "|briar_v06:Group|briar_v06:MotionSystem|briar_v06:FKSystem|briar_v06:FKOffsetRoot_M|briar_v06:FKExtraRoot_M|briar_v06:FKRoot_M.rotateY" 
+		5 4 "briar_v06RN" "|BriarRig:Group|BriarRig:MotionSystem|BriarRig:FKSystem|BriarRig:FKOffsetRoot_M|BriarRig:FKExtraRoot_M|BriarRig:FKRoot_M.rotateY" 
 		"briar_v06RN.placeHolderList[137]" ""
-		5 4 "briar_v06RN" "|briar_v06:Group|briar_v06:MotionSystem|briar_v06:FKSystem|briar_v06:FKOffsetRoot_M|briar_v06:FKExtraRoot_M|briar_v06:FKRoot_M.rotateZ" 
+		5 4 "briar_v06RN" "|BriarRig:Group|BriarRig:MotionSystem|BriarRig:FKSystem|BriarRig:FKOffsetRoot_M|BriarRig:FKExtraRoot_M|BriarRig:FKRoot_M.rotateZ" 
 		"briar_v06RN.placeHolderList[138]" ""
-		5 4 "briar_v06RN" "|briar_v06:Group|briar_v06:MotionSystem|briar_v06:FKSystem|briar_v06:FKOffsetRoot_M|briar_v06:FKExtraRoot_M|briar_v06:FKRoot_M.translateX" 
+		5 4 "briar_v06RN" "|BriarRig:Group|BriarRig:MotionSystem|BriarRig:FKSystem|BriarRig:FKOffsetRoot_M|BriarRig:FKExtraRoot_M|BriarRig:FKRoot_M.translateX" 
 		"briar_v06RN.placeHolderList[139]" ""
-		5 4 "briar_v06RN" "|briar_v06:Group|briar_v06:MotionSystem|briar_v06:FKSystem|briar_v06:FKOffsetRoot_M|briar_v06:FKExtraRoot_M|briar_v06:FKRoot_M.translateY" 
+		5 4 "briar_v06RN" "|BriarRig:Group|BriarRig:MotionSystem|BriarRig:FKSystem|BriarRig:FKOffsetRoot_M|BriarRig:FKExtraRoot_M|BriarRig:FKRoot_M.translateY" 
 		"briar_v06RN.placeHolderList[140]" ""
-		5 4 "briar_v06RN" "|briar_v06:Group|briar_v06:MotionSystem|briar_v06:FKSystem|briar_v06:FKOffsetRoot_M|briar_v06:FKExtraRoot_M|briar_v06:FKRoot_M.translateZ" 
+		5 4 "briar_v06RN" "|BriarRig:Group|BriarRig:MotionSystem|BriarRig:FKSystem|BriarRig:FKOffsetRoot_M|BriarRig:FKExtraRoot_M|BriarRig:FKRoot_M.translateZ" 
 		"briar_v06RN.placeHolderList[141]" ""
-		5 4 "briar_v06RN" "|briar_v06:Group|briar_v06:MotionSystem|briar_v06:FKSystem|briar_v06:FKOffsetRoot_M|briar_v06:FKXRoot_M|briar_v06:FKOffsetRootPart1_M|briar_v06:FKExtraRootPart1_M|briar_v06:FKRootPart1_M|briar_v06:FKXRootPart1_M|briar_v06:FKOffsetRootPart2_M|briar_v06:FKExtraRootPart2_M|briar_v06:FKRootPart2_M|briar_v06:FKXRootPart2_M|briar_v06:FKOffsetSpine1_M|briar_v06:FKExtraSpine1_M|briar_v06:FKSpine1_M.scaleX" 
+		5 4 "briar_v06RN" "|BriarRig:Group|BriarRig:MotionSystem|BriarRig:FKSystem|BriarRig:FKOffsetRoot_M|BriarRig:FKXRoot_M|BriarRig:FKOffsetRootPart1_M|BriarRig:FKExtraRootPart1_M|BriarRig:FKRootPart1_M|BriarRig:FKXRootPart1_M|BriarRig:FKOffsetRootPart2_M|BriarRig:FKExtraRootPart2_M|BriarRig:FKRootPart2_M|BriarRig:FKXRootPart2_M|BriarRig:FKOffsetSpine1_M|BriarRig:FKExtraSpine1_M|BriarRig:FKSpine1_M.scaleX" 
 		"briar_v06RN.placeHolderList[142]" ""
-		5 4 "briar_v06RN" "|briar_v06:Group|briar_v06:MotionSystem|briar_v06:FKSystem|briar_v06:FKOffsetRoot_M|briar_v06:FKXRoot_M|briar_v06:FKOffsetRootPart1_M|briar_v06:FKExtraRootPart1_M|briar_v06:FKRootPart1_M|briar_v06:FKXRootPart1_M|briar_v06:FKOffsetRootPart2_M|briar_v06:FKExtraRootPart2_M|briar_v06:FKRootPart2_M|briar_v06:FKXRootPart2_M|briar_v06:FKOffsetSpine1_M|briar_v06:FKExtraSpine1_M|briar_v06:FKSpine1_M.scaleY" 
+		5 4 "briar_v06RN" "|BriarRig:Group|BriarRig:MotionSystem|BriarRig:FKSystem|BriarRig:FKOffsetRoot_M|BriarRig:FKXRoot_M|BriarRig:FKOffsetRootPart1_M|BriarRig:FKExtraRootPart1_M|BriarRig:FKRootPart1_M|BriarRig:FKXRootPart1_M|BriarRig:FKOffsetRootPart2_M|BriarRig:FKExtraRootPart2_M|BriarRig:FKRootPart2_M|BriarRig:FKXRootPart2_M|BriarRig:FKOffsetSpine1_M|BriarRig:FKExtraSpine1_M|BriarRig:FKSpine1_M.scaleY" 
 		"briar_v06RN.placeHolderList[143]" ""
-		5 4 "briar_v06RN" "|briar_v06:Group|briar_v06:MotionSystem|briar_v06:FKSystem|briar_v06:FKOffsetRoot_M|briar_v06:FKXRoot_M|briar_v06:FKOffsetRootPart1_M|briar_v06:FKExtraRootPart1_M|briar_v06:FKRootPart1_M|briar_v06:FKXRootPart1_M|briar_v06:FKOffsetRootPart2_M|briar_v06:FKExtraRootPart2_M|briar_v06:FKRootPart2_M|briar_v06:FKXRootPart2_M|briar_v06:FKOffsetSpine1_M|briar_v06:FKExtraSpine1_M|briar_v06:FKSpine1_M.scaleZ" 
+		5 4 "briar_v06RN" "|BriarRig:Group|BriarRig:MotionSystem|BriarRig:FKSystem|BriarRig:FKOffsetRoot_M|BriarRig:FKXRoot_M|BriarRig:FKOffsetRootPart1_M|BriarRig:FKExtraRootPart1_M|BriarRig:FKRootPart1_M|BriarRig:FKXRootPart1_M|BriarRig:FKOffsetRootPart2_M|BriarRig:FKExtraRootPart2_M|BriarRig:FKRootPart2_M|BriarRig:FKXRootPart2_M|BriarRig:FKOffsetSpine1_M|BriarRig:FKExtraSpine1_M|BriarRig:FKSpine1_M.scaleZ" 
 		"briar_v06RN.placeHolderList[144]" ""
-		5 4 "briar_v06RN" "|briar_v06:Group|briar_v06:MotionSystem|briar_v06:FKSystem|briar_v06:FKOffsetRoot_M|briar_v06:FKXRoot_M|briar_v06:FKOffsetRootPart1_M|briar_v06:FKExtraRootPart1_M|briar_v06:FKRootPart1_M|briar_v06:FKXRootPart1_M|briar_v06:FKOffsetRootPart2_M|briar_v06:FKExtraRootPart2_M|briar_v06:FKRootPart2_M|briar_v06:FKXRootPart2_M|briar_v06:FKOffsetSpine1_M|briar_v06:FKExtraSpine1_M|briar_v06:FKSpine1_M.rotateX" 
+		5 4 "briar_v06RN" "|BriarRig:Group|BriarRig:MotionSystem|BriarRig:FKSystem|BriarRig:FKOffsetRoot_M|BriarRig:FKXRoot_M|BriarRig:FKOffsetRootPart1_M|BriarRig:FKExtraRootPart1_M|BriarRig:FKRootPart1_M|BriarRig:FKXRootPart1_M|BriarRig:FKOffsetRootPart2_M|BriarRig:FKExtraRootPart2_M|BriarRig:FKRootPart2_M|BriarRig:FKXRootPart2_M|BriarRig:FKOffsetSpine1_M|BriarRig:FKExtraSpine1_M|BriarRig:FKSpine1_M.rotateX" 
 		"briar_v06RN.placeHolderList[145]" ""
-		5 4 "briar_v06RN" "|briar_v06:Group|briar_v06:MotionSystem|briar_v06:FKSystem|briar_v06:FKOffsetRoot_M|briar_v06:FKXRoot_M|briar_v06:FKOffsetRootPart1_M|briar_v06:FKExtraRootPart1_M|briar_v06:FKRootPart1_M|briar_v06:FKXRootPart1_M|briar_v06:FKOffsetRootPart2_M|briar_v06:FKExtraRootPart2_M|briar_v06:FKRootPart2_M|briar_v06:FKXRootPart2_M|briar_v06:FKOffsetSpine1_M|briar_v06:FKExtraSpine1_M|briar_v06:FKSpine1_M.rotateY" 
+		5 4 "briar_v06RN" "|BriarRig:Group|BriarRig:MotionSystem|BriarRig:FKSystem|BriarRig:FKOffsetRoot_M|BriarRig:FKXRoot_M|BriarRig:FKOffsetRootPart1_M|BriarRig:FKExtraRootPart1_M|BriarRig:FKRootPart1_M|BriarRig:FKXRootPart1_M|BriarRig:FKOffsetRootPart2_M|BriarRig:FKExtraRootPart2_M|BriarRig:FKRootPart2_M|BriarRig:FKXRootPart2_M|BriarRig:FKOffsetSpine1_M|BriarRig:FKExtraSpine1_M|BriarRig:FKSpine1_M.rotateY" 
 		"briar_v06RN.placeHolderList[146]" ""
-		5 4 "briar_v06RN" "|briar_v06:Group|briar_v06:MotionSystem|briar_v06:FKSystem|briar_v06:FKOffsetRoot_M|briar_v06:FKXRoot_M|briar_v06:FKOffsetRootPart1_M|briar_v06:FKExtraRootPart1_M|briar_v06:FKRootPart1_M|briar_v06:FKXRootPart1_M|briar_v06:FKOffsetRootPart2_M|briar_v06:FKExtraRootPart2_M|briar_v06:FKRootPart2_M|briar_v06:FKXRootPart2_M|briar_v06:FKOffsetSpine1_M|briar_v06:FKExtraSpine1_M|briar_v06:FKSpine1_M.rotateZ" 
+		5 4 "briar_v06RN" "|BriarRig:Group|BriarRig:MotionSystem|BriarRig:FKSystem|BriarRig:FKOffsetRoot_M|BriarRig:FKXRoot_M|BriarRig:FKOffsetRootPart1_M|BriarRig:FKExtraRootPart1_M|BriarRig:FKRootPart1_M|BriarRig:FKXRootPart1_M|BriarRig:FKOffsetRootPart2_M|BriarRig:FKExtraRootPart2_M|BriarRig:FKRootPart2_M|BriarRig:FKXRootPart2_M|BriarRig:FKOffsetSpine1_M|BriarRig:FKExtraSpine1_M|BriarRig:FKSpine1_M.rotateZ" 
 		"briar_v06RN.placeHolderList[147]" ""
-		5 4 "briar_v06RN" "|briar_v06:Group|briar_v06:MotionSystem|briar_v06:FKSystem|briar_v06:FKOffsetRoot_M|briar_v06:FKXRoot_M|briar_v06:FKOffsetRootPart1_M|briar_v06:FKExtraRootPart1_M|briar_v06:FKRootPart1_M|briar_v06:FKXRootPart1_M|briar_v06:FKOffsetRootPart2_M|briar_v06:FKExtraRootPart2_M|briar_v06:FKRootPart2_M|briar_v06:FKXRootPart2_M|briar_v06:FKOffsetSpine1_M|briar_v06:FKExtraSpine1_M|briar_v06:FKSpine1_M.translateX" 
+		5 4 "briar_v06RN" "|BriarRig:Group|BriarRig:MotionSystem|BriarRig:FKSystem|BriarRig:FKOffsetRoot_M|BriarRig:FKXRoot_M|BriarRig:FKOffsetRootPart1_M|BriarRig:FKExtraRootPart1_M|BriarRig:FKRootPart1_M|BriarRig:FKXRootPart1_M|BriarRig:FKOffsetRootPart2_M|BriarRig:FKExtraRootPart2_M|BriarRig:FKRootPart2_M|BriarRig:FKXRootPart2_M|BriarRig:FKOffsetSpine1_M|BriarRig:FKExtraSpine1_M|BriarRig:FKSpine1_M.translateX" 
 		"briar_v06RN.placeHolderList[148]" ""
-		5 4 "briar_v06RN" "|briar_v06:Group|briar_v06:MotionSystem|briar_v06:FKSystem|briar_v06:FKOffsetRoot_M|briar_v06:FKXRoot_M|briar_v06:FKOffsetRootPart1_M|briar_v06:FKExtraRootPart1_M|briar_v06:FKRootPart1_M|briar_v06:FKXRootPart1_M|briar_v06:FKOffsetRootPart2_M|briar_v06:FKExtraRootPart2_M|briar_v06:FKRootPart2_M|briar_v06:FKXRootPart2_M|briar_v06:FKOffsetSpine1_M|briar_v06:FKExtraSpine1_M|briar_v06:FKSpine1_M.translateY" 
+		5 4 "briar_v06RN" "|BriarRig:Group|BriarRig:MotionSystem|BriarRig:FKSystem|BriarRig:FKOffsetRoot_M|BriarRig:FKXRoot_M|BriarRig:FKOffsetRootPart1_M|BriarRig:FKExtraRootPart1_M|BriarRig:FKRootPart1_M|BriarRig:FKXRootPart1_M|BriarRig:FKOffsetRootPart2_M|BriarRig:FKExtraRootPart2_M|BriarRig:FKRootPart2_M|BriarRig:FKXRootPart2_M|BriarRig:FKOffsetSpine1_M|BriarRig:FKExtraSpine1_M|BriarRig:FKSpine1_M.translateY" 
 		"briar_v06RN.placeHolderList[149]" ""
-		5 4 "briar_v06RN" "|briar_v06:Group|briar_v06:MotionSystem|briar_v06:FKSystem|briar_v06:FKOffsetRoot_M|briar_v06:FKXRoot_M|briar_v06:FKOffsetRootPart1_M|briar_v06:FKExtraRootPart1_M|briar_v06:FKRootPart1_M|briar_v06:FKXRootPart1_M|briar_v06:FKOffsetRootPart2_M|briar_v06:FKExtraRootPart2_M|briar_v06:FKRootPart2_M|briar_v06:FKXRootPart2_M|briar_v06:FKOffsetSpine1_M|briar_v06:FKExtraSpine1_M|briar_v06:FKSpine1_M.translateZ" 
+		5 4 "briar_v06RN" "|BriarRig:Group|BriarRig:MotionSystem|BriarRig:FKSystem|BriarRig:FKOffsetRoot_M|BriarRig:FKXRoot_M|BriarRig:FKOffsetRootPart1_M|BriarRig:FKExtraRootPart1_M|BriarRig:FKRootPart1_M|BriarRig:FKXRootPart1_M|BriarRig:FKOffsetRootPart2_M|BriarRig:FKExtraRootPart2_M|BriarRig:FKRootPart2_M|BriarRig:FKXRootPart2_M|BriarRig:FKOffsetSpine1_M|BriarRig:FKExtraSpine1_M|BriarRig:FKSpine1_M.translateZ" 
 		"briar_v06RN.placeHolderList[150]" ""
-		5 4 "briar_v06RN" "|briar_v06:Group|briar_v06:MotionSystem|briar_v06:FKSystem|briar_v06:FKOffsetRoot_M|briar_v06:FKXRoot_M|briar_v06:FKOffsetRootPart1_M|briar_v06:FKExtraRootPart1_M|briar_v06:FKRootPart1_M|briar_v06:FKXRootPart1_M|briar_v06:FKOffsetRootPart2_M|briar_v06:FKExtraRootPart2_M|briar_v06:FKRootPart2_M|briar_v06:FKXRootPart2_M|briar_v06:FKOffsetSpine1_M|briar_v06:FKXSpine1_M|briar_v06:FKOffsetSpine1Part1_M|briar_v06:FKExtraSpine1Part1_M|briar_v06:FKSpine1Part1_M|briar_v06:FKXSpine1Part1_M|briar_v06:FKOffsetSpine1Part2_M|briar_v06:FKExtraSpine1Part2_M|briar_v06:FKSpine1Part2_M|briar_v06:FKXSpine1Part2_M|briar_v06:FKOffsetChest_M|briar_v06:FKExtraChest_M|briar_v06:FKChest_M.scaleX" 
+		5 4 "briar_v06RN" "|BriarRig:Group|BriarRig:MotionSystem|BriarRig:FKSystem|BriarRig:FKOffsetRoot_M|BriarRig:FKXRoot_M|BriarRig:FKOffsetRootPart1_M|BriarRig:FKExtraRootPart1_M|BriarRig:FKRootPart1_M|BriarRig:FKXRootPart1_M|BriarRig:FKOffsetRootPart2_M|BriarRig:FKExtraRootPart2_M|BriarRig:FKRootPart2_M|BriarRig:FKXRootPart2_M|BriarRig:FKOffsetSpine1_M|BriarRig:FKXSpine1_M|BriarRig:FKOffsetSpine1Part1_M|BriarRig:FKExtraSpine1Part1_M|BriarRig:FKSpine1Part1_M|BriarRig:FKXSpine1Part1_M|BriarRig:FKOffsetSpine1Part2_M|BriarRig:FKExtraSpine1Part2_M|BriarRig:FKSpine1Part2_M|BriarRig:FKXSpine1Part2_M|BriarRig:FKOffsetChest_M|BriarRig:FKExtraChest_M|BriarRig:FKChest_M.scaleX" 
 		"briar_v06RN.placeHolderList[151]" ""
-		5 4 "briar_v06RN" "|briar_v06:Group|briar_v06:MotionSystem|briar_v06:FKSystem|briar_v06:FKOffsetRoot_M|briar_v06:FKXRoot_M|briar_v06:FKOffsetRootPart1_M|briar_v06:FKExtraRootPart1_M|briar_v06:FKRootPart1_M|briar_v06:FKXRootPart1_M|briar_v06:FKOffsetRootPart2_M|briar_v06:FKExtraRootPart2_M|briar_v06:FKRootPart2_M|briar_v06:FKXRootPart2_M|briar_v06:FKOffsetSpine1_M|briar_v06:FKXSpine1_M|briar_v06:FKOffsetSpine1Part1_M|briar_v06:FKExtraSpine1Part1_M|briar_v06:FKSpine1Part1_M|briar_v06:FKXSpine1Part1_M|briar_v06:FKOffsetSpine1Part2_M|briar_v06:FKExtraSpine1Part2_M|briar_v06:FKSpine1Part2_M|briar_v06:FKXSpine1Part2_M|briar_v06:FKOffsetChest_M|briar_v06:FKExtraChest_M|briar_v06:FKChest_M.scaleY" 
+		5 4 "briar_v06RN" "|BriarRig:Group|BriarRig:MotionSystem|BriarRig:FKSystem|BriarRig:FKOffsetRoot_M|BriarRig:FKXRoot_M|BriarRig:FKOffsetRootPart1_M|BriarRig:FKExtraRootPart1_M|BriarRig:FKRootPart1_M|BriarRig:FKXRootPart1_M|BriarRig:FKOffsetRootPart2_M|BriarRig:FKExtraRootPart2_M|BriarRig:FKRootPart2_M|BriarRig:FKXRootPart2_M|BriarRig:FKOffsetSpine1_M|BriarRig:FKXSpine1_M|BriarRig:FKOffsetSpine1Part1_M|BriarRig:FKExtraSpine1Part1_M|BriarRig:FKSpine1Part1_M|BriarRig:FKXSpine1Part1_M|BriarRig:FKOffsetSpine1Part2_M|BriarRig:FKExtraSpine1Part2_M|BriarRig:FKSpine1Part2_M|BriarRig:FKXSpine1Part2_M|BriarRig:FKOffsetChest_M|BriarRig:FKExtraChest_M|BriarRig:FKChest_M.scaleY" 
 		"briar_v06RN.placeHolderList[152]" ""
-		5 4 "briar_v06RN" "|briar_v06:Group|briar_v06:MotionSystem|briar_v06:FKSystem|briar_v06:FKOffsetRoot_M|briar_v06:FKXRoot_M|briar_v06:FKOffsetRootPart1_M|briar_v06:FKExtraRootPart1_M|briar_v06:FKRootPart1_M|briar_v06:FKXRootPart1_M|briar_v06:FKOffsetRootPart2_M|briar_v06:FKExtraRootPart2_M|briar_v06:FKRootPart2_M|briar_v06:FKXRootPart2_M|briar_v06:FKOffsetSpine1_M|briar_v06:FKXSpine1_M|briar_v06:FKOffsetSpine1Part1_M|briar_v06:FKExtraSpine1Part1_M|briar_v06:FKSpine1Part1_M|briar_v06:FKXSpine1Part1_M|briar_v06:FKOffsetSpine1Part2_M|briar_v06:FKExtraSpine1Part2_M|briar_v06:FKSpine1Part2_M|briar_v06:FKXSpine1Part2_M|briar_v06:FKOffsetChest_M|briar_v06:FKExtraChest_M|briar_v06:FKChest_M.scaleZ" 
+		5 4 "briar_v06RN" "|BriarRig:Group|BriarRig:MotionSystem|BriarRig:FKSystem|BriarRig:FKOffsetRoot_M|BriarRig:FKXRoot_M|BriarRig:FKOffsetRootPart1_M|BriarRig:FKExtraRootPart1_M|BriarRig:FKRootPart1_M|BriarRig:FKXRootPart1_M|BriarRig:FKOffsetRootPart2_M|BriarRig:FKExtraRootPart2_M|BriarRig:FKRootPart2_M|BriarRig:FKXRootPart2_M|BriarRig:FKOffsetSpine1_M|BriarRig:FKXSpine1_M|BriarRig:FKOffsetSpine1Part1_M|BriarRig:FKExtraSpine1Part1_M|BriarRig:FKSpine1Part1_M|BriarRig:FKXSpine1Part1_M|BriarRig:FKOffsetSpine1Part2_M|BriarRig:FKExtraSpine1Part2_M|BriarRig:FKSpine1Part2_M|BriarRig:FKXSpine1Part2_M|BriarRig:FKOffsetChest_M|BriarRig:FKExtraChest_M|BriarRig:FKChest_M.scaleZ" 
 		"briar_v06RN.placeHolderList[153]" ""
-		5 4 "briar_v06RN" "|briar_v06:Group|briar_v06:MotionSystem|briar_v06:FKSystem|briar_v06:FKOffsetRoot_M|briar_v06:FKXRoot_M|briar_v06:FKOffsetRootPart1_M|briar_v06:FKExtraRootPart1_M|briar_v06:FKRootPart1_M|briar_v06:FKXRootPart1_M|briar_v06:FKOffsetRootPart2_M|briar_v06:FKExtraRootPart2_M|briar_v06:FKRootPart2_M|briar_v06:FKXRootPart2_M|briar_v06:FKOffsetSpine1_M|briar_v06:FKXSpine1_M|briar_v06:FKOffsetSpine1Part1_M|briar_v06:FKExtraSpine1Part1_M|briar_v06:FKSpine1Part1_M|briar_v06:FKXSpine1Part1_M|briar_v06:FKOffsetSpine1Part2_M|briar_v06:FKExtraSpine1Part2_M|briar_v06:FKSpine1Part2_M|briar_v06:FKXSpine1Part2_M|briar_v06:FKOffsetChest_M|briar_v06:FKExtraChest_M|briar_v06:FKChest_M.rotateX" 
+		5 4 "briar_v06RN" "|BriarRig:Group|BriarRig:MotionSystem|BriarRig:FKSystem|BriarRig:FKOffsetRoot_M|BriarRig:FKXRoot_M|BriarRig:FKOffsetRootPart1_M|BriarRig:FKExtraRootPart1_M|BriarRig:FKRootPart1_M|BriarRig:FKXRootPart1_M|BriarRig:FKOffsetRootPart2_M|BriarRig:FKExtraRootPart2_M|BriarRig:FKRootPart2_M|BriarRig:FKXRootPart2_M|BriarRig:FKOffsetSpine1_M|BriarRig:FKXSpine1_M|BriarRig:FKOffsetSpine1Part1_M|BriarRig:FKExtraSpine1Part1_M|BriarRig:FKSpine1Part1_M|BriarRig:FKXSpine1Part1_M|BriarRig:FKOffsetSpine1Part2_M|BriarRig:FKExtraSpine1Part2_M|BriarRig:FKSpine1Part2_M|BriarRig:FKXSpine1Part2_M|BriarRig:FKOffsetChest_M|BriarRig:FKExtraChest_M|BriarRig:FKChest_M.rotateX" 
 		"briar_v06RN.placeHolderList[154]" ""
-		5 4 "briar_v06RN" "|briar_v06:Group|briar_v06:MotionSystem|briar_v06:FKSystem|briar_v06:FKOffsetRoot_M|briar_v06:FKXRoot_M|briar_v06:FKOffsetRootPart1_M|briar_v06:FKExtraRootPart1_M|briar_v06:FKRootPart1_M|briar_v06:FKXRootPart1_M|briar_v06:FKOffsetRootPart2_M|briar_v06:FKExtraRootPart2_M|briar_v06:FKRootPart2_M|briar_v06:FKXRootPart2_M|briar_v06:FKOffsetSpine1_M|briar_v06:FKXSpine1_M|briar_v06:FKOffsetSpine1Part1_M|briar_v06:FKExtraSpine1Part1_M|briar_v06:FKSpine1Part1_M|briar_v06:FKXSpine1Part1_M|briar_v06:FKOffsetSpine1Part2_M|briar_v06:FKExtraSpine1Part2_M|briar_v06:FKSpine1Part2_M|briar_v06:FKXSpine1Part2_M|briar_v06:FKOffsetChest_M|briar_v06:FKExtraChest_M|briar_v06:FKChest_M.rotateY" 
+		5 4 "briar_v06RN" "|BriarRig:Group|BriarRig:MotionSystem|BriarRig:FKSystem|BriarRig:FKOffsetRoot_M|BriarRig:FKXRoot_M|BriarRig:FKOffsetRootPart1_M|BriarRig:FKExtraRootPart1_M|BriarRig:FKRootPart1_M|BriarRig:FKXRootPart1_M|BriarRig:FKOffsetRootPart2_M|BriarRig:FKExtraRootPart2_M|BriarRig:FKRootPart2_M|BriarRig:FKXRootPart2_M|BriarRig:FKOffsetSpine1_M|BriarRig:FKXSpine1_M|BriarRig:FKOffsetSpine1Part1_M|BriarRig:FKExtraSpine1Part1_M|BriarRig:FKSpine1Part1_M|BriarRig:FKXSpine1Part1_M|BriarRig:FKOffsetSpine1Part2_M|BriarRig:FKExtraSpine1Part2_M|BriarRig:FKSpine1Part2_M|BriarRig:FKXSpine1Part2_M|BriarRig:FKOffsetChest_M|BriarRig:FKExtraChest_M|BriarRig:FKChest_M.rotateY" 
 		"briar_v06RN.placeHolderList[155]" ""
-		5 4 "briar_v06RN" "|briar_v06:Group|briar_v06:MotionSystem|briar_v06:FKSystem|briar_v06:FKOffsetRoot_M|briar_v06:FKXRoot_M|briar_v06:FKOffsetRootPart1_M|briar_v06:FKExtraRootPart1_M|briar_v06:FKRootPart1_M|briar_v06:FKXRootPart1_M|briar_v06:FKOffsetRootPart2_M|briar_v06:FKExtraRootPart2_M|briar_v06:FKRootPart2_M|briar_v06:FKXRootPart2_M|briar_v06:FKOffsetSpine1_M|briar_v06:FKXSpine1_M|briar_v06:FKOffsetSpine1Part1_M|briar_v06:FKExtraSpine1Part1_M|briar_v06:FKSpine1Part1_M|briar_v06:FKXSpine1Part1_M|briar_v06:FKOffsetSpine1Part2_M|briar_v06:FKExtraSpine1Part2_M|briar_v06:FKSpine1Part2_M|briar_v06:FKXSpine1Part2_M|briar_v06:FKOffsetChest_M|briar_v06:FKExtraChest_M|briar_v06:FKChest_M.rotateZ" 
+		5 4 "briar_v06RN" "|BriarRig:Group|BriarRig:MotionSystem|BriarRig:FKSystem|BriarRig:FKOffsetRoot_M|BriarRig:FKXRoot_M|BriarRig:FKOffsetRootPart1_M|BriarRig:FKExtraRootPart1_M|BriarRig:FKRootPart1_M|BriarRig:FKXRootPart1_M|BriarRig:FKOffsetRootPart2_M|BriarRig:FKExtraRootPart2_M|BriarRig:FKRootPart2_M|BriarRig:FKXRootPart2_M|BriarRig:FKOffsetSpine1_M|BriarRig:FKXSpine1_M|BriarRig:FKOffsetSpine1Part1_M|BriarRig:FKExtraSpine1Part1_M|BriarRig:FKSpine1Part1_M|BriarRig:FKXSpine1Part1_M|BriarRig:FKOffsetSpine1Part2_M|BriarRig:FKExtraSpine1Part2_M|BriarRig:FKSpine1Part2_M|BriarRig:FKXSpine1Part2_M|BriarRig:FKOffsetChest_M|BriarRig:FKExtraChest_M|BriarRig:FKChest_M.rotateZ" 
 		"briar_v06RN.placeHolderList[156]" ""
-		5 4 "briar_v06RN" "|briar_v06:Group|briar_v06:MotionSystem|briar_v06:FKSystem|briar_v06:FKOffsetRoot_M|briar_v06:FKXRoot_M|briar_v06:FKOffsetRootPart1_M|briar_v06:FKExtraRootPart1_M|briar_v06:FKRootPart1_M|briar_v06:FKXRootPart1_M|briar_v06:FKOffsetRootPart2_M|briar_v06:FKExtraRootPart2_M|briar_v06:FKRootPart2_M|briar_v06:FKXRootPart2_M|briar_v06:FKOffsetSpine1_M|briar_v06:FKXSpine1_M|briar_v06:FKOffsetSpine1Part1_M|briar_v06:FKExtraSpine1Part1_M|briar_v06:FKSpine1Part1_M|briar_v06:FKXSpine1Part1_M|briar_v06:FKOffsetSpine1Part2_M|briar_v06:FKExtraSpine1Part2_M|briar_v06:FKSpine1Part2_M|briar_v06:FKXSpine1Part2_M|briar_v06:FKOffsetChest_M|briar_v06:FKExtraChest_M|briar_v06:FKChest_M.translateX" 
+		5 4 "briar_v06RN" "|BriarRig:Group|BriarRig:MotionSystem|BriarRig:FKSystem|BriarRig:FKOffsetRoot_M|BriarRig:FKXRoot_M|BriarRig:FKOffsetRootPart1_M|BriarRig:FKExtraRootPart1_M|BriarRig:FKRootPart1_M|BriarRig:FKXRootPart1_M|BriarRig:FKOffsetRootPart2_M|BriarRig:FKExtraRootPart2_M|BriarRig:FKRootPart2_M|BriarRig:FKXRootPart2_M|BriarRig:FKOffsetSpine1_M|BriarRig:FKXSpine1_M|BriarRig:FKOffsetSpine1Part1_M|BriarRig:FKExtraSpine1Part1_M|BriarRig:FKSpine1Part1_M|BriarRig:FKXSpine1Part1_M|BriarRig:FKOffsetSpine1Part2_M|BriarRig:FKExtraSpine1Part2_M|BriarRig:FKSpine1Part2_M|BriarRig:FKXSpine1Part2_M|BriarRig:FKOffsetChest_M|BriarRig:FKExtraChest_M|BriarRig:FKChest_M.translateX" 
 		"briar_v06RN.placeHolderList[157]" ""
-		5 4 "briar_v06RN" "|briar_v06:Group|briar_v06:MotionSystem|briar_v06:FKSystem|briar_v06:FKOffsetRoot_M|briar_v06:FKXRoot_M|briar_v06:FKOffsetRootPart1_M|briar_v06:FKExtraRootPart1_M|briar_v06:FKRootPart1_M|briar_v06:FKXRootPart1_M|briar_v06:FKOffsetRootPart2_M|briar_v06:FKExtraRootPart2_M|briar_v06:FKRootPart2_M|briar_v06:FKXRootPart2_M|briar_v06:FKOffsetSpine1_M|briar_v06:FKXSpine1_M|briar_v06:FKOffsetSpine1Part1_M|briar_v06:FKExtraSpine1Part1_M|briar_v06:FKSpine1Part1_M|briar_v06:FKXSpine1Part1_M|briar_v06:FKOffsetSpine1Part2_M|briar_v06:FKExtraSpine1Part2_M|briar_v06:FKSpine1Part2_M|briar_v06:FKXSpine1Part2_M|briar_v06:FKOffsetChest_M|briar_v06:FKExtraChest_M|briar_v06:FKChest_M.translateY" 
+		5 4 "briar_v06RN" "|BriarRig:Group|BriarRig:MotionSystem|BriarRig:FKSystem|BriarRig:FKOffsetRoot_M|BriarRig:FKXRoot_M|BriarRig:FKOffsetRootPart1_M|BriarRig:FKExtraRootPart1_M|BriarRig:FKRootPart1_M|BriarRig:FKXRootPart1_M|BriarRig:FKOffsetRootPart2_M|BriarRig:FKExtraRootPart2_M|BriarRig:FKRootPart2_M|BriarRig:FKXRootPart2_M|BriarRig:FKOffsetSpine1_M|BriarRig:FKXSpine1_M|BriarRig:FKOffsetSpine1Part1_M|BriarRig:FKExtraSpine1Part1_M|BriarRig:FKSpine1Part1_M|BriarRig:FKXSpine1Part1_M|BriarRig:FKOffsetSpine1Part2_M|BriarRig:FKExtraSpine1Part2_M|BriarRig:FKSpine1Part2_M|BriarRig:FKXSpine1Part2_M|BriarRig:FKOffsetChest_M|BriarRig:FKExtraChest_M|BriarRig:FKChest_M.translateY" 
 		"briar_v06RN.placeHolderList[158]" ""
-		5 4 "briar_v06RN" "|briar_v06:Group|briar_v06:MotionSystem|briar_v06:FKSystem|briar_v06:FKOffsetRoot_M|briar_v06:FKXRoot_M|briar_v06:FKOffsetRootPart1_M|briar_v06:FKExtraRootPart1_M|briar_v06:FKRootPart1_M|briar_v06:FKXRootPart1_M|briar_v06:FKOffsetRootPart2_M|briar_v06:FKExtraRootPart2_M|briar_v06:FKRootPart2_M|briar_v06:FKXRootPart2_M|briar_v06:FKOffsetSpine1_M|briar_v06:FKXSpine1_M|briar_v06:FKOffsetSpine1Part1_M|briar_v06:FKExtraSpine1Part1_M|briar_v06:FKSpine1Part1_M|briar_v06:FKXSpine1Part1_M|briar_v06:FKOffsetSpine1Part2_M|briar_v06:FKExtraSpine1Part2_M|briar_v06:FKSpine1Part2_M|briar_v06:FKXSpine1Part2_M|briar_v06:FKOffsetChest_M|briar_v06:FKExtraChest_M|briar_v06:FKChest_M.translateZ" 
+		5 4 "briar_v06RN" "|BriarRig:Group|BriarRig:MotionSystem|BriarRig:FKSystem|BriarRig:FKOffsetRoot_M|BriarRig:FKXRoot_M|BriarRig:FKOffsetRootPart1_M|BriarRig:FKExtraRootPart1_M|BriarRig:FKRootPart1_M|BriarRig:FKXRootPart1_M|BriarRig:FKOffsetRootPart2_M|BriarRig:FKExtraRootPart2_M|BriarRig:FKRootPart2_M|BriarRig:FKXRootPart2_M|BriarRig:FKOffsetSpine1_M|BriarRig:FKXSpine1_M|BriarRig:FKOffsetSpine1Part1_M|BriarRig:FKExtraSpine1Part1_M|BriarRig:FKSpine1Part1_M|BriarRig:FKXSpine1Part1_M|BriarRig:FKOffsetSpine1Part2_M|BriarRig:FKExtraSpine1Part2_M|BriarRig:FKSpine1Part2_M|BriarRig:FKXSpine1Part2_M|BriarRig:FKOffsetChest_M|BriarRig:FKExtraChest_M|BriarRig:FKChest_M.translateZ" 
 		"briar_v06RN.placeHolderList[159]" ""
-		5 4 "briar_v06RN" "|briar_v06:Group|briar_v06:MotionSystem|briar_v06:IKSystem|briar_v06:IKHandle|briar_v06:IKOffsetLeg_R|briar_v06:IKExtraLeg_R|briar_v06:IKLeg_R.scaleY" 
+		5 4 "briar_v06RN" "|BriarRig:Group|BriarRig:MotionSystem|BriarRig:IKSystem|BriarRig:IKHandle|BriarRig:IKOffsetLeg_R|BriarRig:IKExtraLeg_R|BriarRig:IKLeg_R.scaleY" 
 		"briar_v06RN.placeHolderList[160]" ""
-		5 4 "briar_v06RN" "|briar_v06:Group|briar_v06:MotionSystem|briar_v06:IKSystem|briar_v06:IKHandle|briar_v06:IKOffsetLeg_R|briar_v06:IKExtraLeg_R|briar_v06:IKLeg_R.scaleZ" 
+		5 4 "briar_v06RN" "|BriarRig:Group|BriarRig:MotionSystem|BriarRig:IKSystem|BriarRig:IKHandle|BriarRig:IKOffsetLeg_R|BriarRig:IKExtraLeg_R|BriarRig:IKLeg_R.scaleZ" 
 		"briar_v06RN.placeHolderList[161]" ""
-		5 4 "briar_v06RN" "|briar_v06:Group|briar_v06:MotionSystem|briar_v06:IKSystem|briar_v06:IKHandle|briar_v06:IKOffsetLeg_R|briar_v06:IKExtraLeg_R|briar_v06:IKLeg_R.scaleX" 
+		5 4 "briar_v06RN" "|BriarRig:Group|BriarRig:MotionSystem|BriarRig:IKSystem|BriarRig:IKHandle|BriarRig:IKOffsetLeg_R|BriarRig:IKExtraLeg_R|BriarRig:IKLeg_R.scaleX" 
 		"briar_v06RN.placeHolderList[162]" ""
-		5 4 "briar_v06RN" "|briar_v06:Group|briar_v06:MotionSystem|briar_v06:IKSystem|briar_v06:IKHandle|briar_v06:IKOffsetLeg_R|briar_v06:IKExtraLeg_R|briar_v06:IKLeg_R.followMain" 
+		5 4 "briar_v06RN" "|BriarRig:Group|BriarRig:MotionSystem|BriarRig:IKSystem|BriarRig:IKHandle|BriarRig:IKOffsetLeg_R|BriarRig:IKExtraLeg_R|BriarRig:IKLeg_R.rock" 
 		"briar_v06RN.placeHolderList[163]" ""
-		5 4 "briar_v06RN" "|briar_v06:Group|briar_v06:MotionSystem|briar_v06:IKSystem|briar_v06:IKHandle|briar_v06:IKOffsetLeg_R|briar_v06:IKExtraLeg_R|briar_v06:IKLeg_R.followRoot" 
+		5 4 "briar_v06RN" "|BriarRig:Group|BriarRig:MotionSystem|BriarRig:IKSystem|BriarRig:IKHandle|BriarRig:IKOffsetLeg_R|BriarRig:IKExtraLeg_R|BriarRig:IKLeg_R.roll" 
 		"briar_v06RN.placeHolderList[164]" ""
-		5 4 "briar_v06RN" "|briar_v06:Group|briar_v06:MotionSystem|briar_v06:IKSystem|briar_v06:IKHandle|briar_v06:IKOffsetLeg_R|briar_v06:IKExtraLeg_R|briar_v06:IKLeg_R.swivel" 
+		5 4 "briar_v06RN" "|BriarRig:Group|BriarRig:MotionSystem|BriarRig:IKSystem|BriarRig:IKHandle|BriarRig:IKOffsetLeg_R|BriarRig:IKExtraLeg_R|BriarRig:IKLeg_R.rollStartAngle" 
 		"briar_v06RN.placeHolderList[165]" ""
-		5 4 "briar_v06RN" "|briar_v06:Group|briar_v06:MotionSystem|briar_v06:IKSystem|briar_v06:IKHandle|briar_v06:IKOffsetLeg_R|briar_v06:IKExtraLeg_R|briar_v06:IKLeg_R.rock" 
+		5 4 "briar_v06RN" "|BriarRig:Group|BriarRig:MotionSystem|BriarRig:IKSystem|BriarRig:IKHandle|BriarRig:IKOffsetLeg_R|BriarRig:IKExtraLeg_R|BriarRig:IKLeg_R.rollEndAngle" 
 		"briar_v06RN.placeHolderList[166]" ""
-		5 4 "briar_v06RN" "|briar_v06:Group|briar_v06:MotionSystem|briar_v06:IKSystem|briar_v06:IKHandle|briar_v06:IKOffsetLeg_R|briar_v06:IKExtraLeg_R|briar_v06:IKLeg_R.roll" 
+		5 4 "briar_v06RN" "|BriarRig:Group|BriarRig:MotionSystem|BriarRig:IKSystem|BriarRig:IKHandle|BriarRig:IKOffsetLeg_R|BriarRig:IKExtraLeg_R|BriarRig:IKLeg_R.stretchy" 
 		"briar_v06RN.placeHolderList[167]" ""
-		5 4 "briar_v06RN" "|briar_v06:Group|briar_v06:MotionSystem|briar_v06:IKSystem|briar_v06:IKHandle|briar_v06:IKOffsetLeg_R|briar_v06:IKExtraLeg_R|briar_v06:IKLeg_R.rollStartAngle" 
+		5 4 "briar_v06RN" "|BriarRig:Group|BriarRig:MotionSystem|BriarRig:IKSystem|BriarRig:IKHandle|BriarRig:IKOffsetLeg_R|BriarRig:IKExtraLeg_R|BriarRig:IKLeg_R.antiPop" 
 		"briar_v06RN.placeHolderList[168]" ""
-		5 4 "briar_v06RN" "|briar_v06:Group|briar_v06:MotionSystem|briar_v06:IKSystem|briar_v06:IKHandle|briar_v06:IKOffsetLeg_R|briar_v06:IKExtraLeg_R|briar_v06:IKLeg_R.rollEndAngle" 
+		5 4 "briar_v06RN" "|BriarRig:Group|BriarRig:MotionSystem|BriarRig:IKSystem|BriarRig:IKHandle|BriarRig:IKOffsetLeg_R|BriarRig:IKExtraLeg_R|BriarRig:IKLeg_R.Lenght1" 
 		"briar_v06RN.placeHolderList[169]" ""
-		5 4 "briar_v06RN" "|briar_v06:Group|briar_v06:MotionSystem|briar_v06:IKSystem|briar_v06:IKHandle|briar_v06:IKOffsetLeg_R|briar_v06:IKExtraLeg_R|briar_v06:IKLeg_R.stretchy" 
+		5 4 "briar_v06RN" "|BriarRig:Group|BriarRig:MotionSystem|BriarRig:IKSystem|BriarRig:IKHandle|BriarRig:IKOffsetLeg_R|BriarRig:IKExtraLeg_R|BriarRig:IKLeg_R.Lenght2" 
 		"briar_v06RN.placeHolderList[170]" ""
-		5 4 "briar_v06RN" "|briar_v06:Group|briar_v06:MotionSystem|briar_v06:IKSystem|briar_v06:IKHandle|briar_v06:IKOffsetLeg_R|briar_v06:IKExtraLeg_R|briar_v06:IKLeg_R.antiPop" 
+		5 4 "briar_v06RN" "|BriarRig:Group|BriarRig:MotionSystem|BriarRig:IKSystem|BriarRig:IKHandle|BriarRig:IKOffsetLeg_R|BriarRig:IKExtraLeg_R|BriarRig:IKLeg_R.Fatness1" 
 		"briar_v06RN.placeHolderList[171]" ""
-		5 4 "briar_v06RN" "|briar_v06:Group|briar_v06:MotionSystem|briar_v06:IKSystem|briar_v06:IKHandle|briar_v06:IKOffsetLeg_R|briar_v06:IKExtraLeg_R|briar_v06:IKLeg_R.Lenght1" 
+		5 4 "briar_v06RN" "|BriarRig:Group|BriarRig:MotionSystem|BriarRig:IKSystem|BriarRig:IKHandle|BriarRig:IKOffsetLeg_R|BriarRig:IKExtraLeg_R|BriarRig:IKLeg_R.Fatness2" 
 		"briar_v06RN.placeHolderList[172]" ""
-		5 4 "briar_v06RN" "|briar_v06:Group|briar_v06:MotionSystem|briar_v06:IKSystem|briar_v06:IKHandle|briar_v06:IKOffsetLeg_R|briar_v06:IKExtraLeg_R|briar_v06:IKLeg_R.Lenght2" 
+		5 4 "briar_v06RN" "|BriarRig:Group|BriarRig:MotionSystem|BriarRig:IKSystem|BriarRig:IKHandle|BriarRig:IKOffsetLeg_R|BriarRig:IKExtraLeg_R|BriarRig:IKLeg_R.followRoot" 
 		"briar_v06RN.placeHolderList[173]" ""
-		5 4 "briar_v06RN" "|briar_v06:Group|briar_v06:MotionSystem|briar_v06:IKSystem|briar_v06:IKHandle|briar_v06:IKOffsetLeg_R|briar_v06:IKExtraLeg_R|briar_v06:IKLeg_R.Fatness1" 
+		5 4 "briar_v06RN" "|BriarRig:Group|BriarRig:MotionSystem|BriarRig:IKSystem|BriarRig:IKHandle|BriarRig:IKOffsetLeg_R|BriarRig:IKExtraLeg_R|BriarRig:IKLeg_R.followMain" 
 		"briar_v06RN.placeHolderList[174]" ""
-		5 4 "briar_v06RN" "|briar_v06:Group|briar_v06:MotionSystem|briar_v06:IKSystem|briar_v06:IKHandle|briar_v06:IKOffsetLeg_R|briar_v06:IKExtraLeg_R|briar_v06:IKLeg_R.Fatness2" 
+		5 4 "briar_v06RN" "|BriarRig:Group|BriarRig:MotionSystem|BriarRig:IKSystem|BriarRig:IKHandle|BriarRig:IKOffsetLeg_R|BriarRig:IKExtraLeg_R|BriarRig:IKLeg_R.swivel" 
 		"briar_v06RN.placeHolderList[175]" ""
-		5 4 "briar_v06RN" "|briar_v06:Group|briar_v06:MotionSystem|briar_v06:IKSystem|briar_v06:IKHandle|briar_v06:IKOffsetLeg_R|briar_v06:IKExtraLeg_R|briar_v06:IKLeg_R.volume" 
+		5 4 "briar_v06RN" "|BriarRig:Group|BriarRig:MotionSystem|BriarRig:IKSystem|BriarRig:IKHandle|BriarRig:IKOffsetLeg_R|BriarRig:IKExtraLeg_R|BriarRig:IKLeg_R.volume" 
 		"briar_v06RN.placeHolderList[176]" ""
-		5 4 "briar_v06RN" "|briar_v06:Group|briar_v06:MotionSystem|briar_v06:IKSystem|briar_v06:IKHandle|briar_v06:IKOffsetLeg_R|briar_v06:IKExtraLeg_R|briar_v06:IKLeg_R.translateY" 
+		5 4 "briar_v06RN" "|BriarRig:Group|BriarRig:MotionSystem|BriarRig:IKSystem|BriarRig:IKHandle|BriarRig:IKOffsetLeg_R|BriarRig:IKExtraLeg_R|BriarRig:IKLeg_R.translateZ" 
 		"briar_v06RN.placeHolderList[177]" ""
-		5 4 "briar_v06RN" "|briar_v06:Group|briar_v06:MotionSystem|briar_v06:IKSystem|briar_v06:IKHandle|briar_v06:IKOffsetLeg_R|briar_v06:IKExtraLeg_R|briar_v06:IKLeg_R.translateX" 
+		5 4 "briar_v06RN" "|BriarRig:Group|BriarRig:MotionSystem|BriarRig:IKSystem|BriarRig:IKHandle|BriarRig:IKOffsetLeg_R|BriarRig:IKExtraLeg_R|BriarRig:IKLeg_R.translateX" 
 		"briar_v06RN.placeHolderList[178]" ""
-		5 4 "briar_v06RN" "|briar_v06:Group|briar_v06:MotionSystem|briar_v06:IKSystem|briar_v06:IKHandle|briar_v06:IKOffsetLeg_R|briar_v06:IKExtraLeg_R|briar_v06:IKLeg_R.translateZ" 
+		5 4 "briar_v06RN" "|BriarRig:Group|BriarRig:MotionSystem|BriarRig:IKSystem|BriarRig:IKHandle|BriarRig:IKOffsetLeg_R|BriarRig:IKExtraLeg_R|BriarRig:IKLeg_R.translateY" 
 		"briar_v06RN.placeHolderList[179]" ""
-		5 4 "briar_v06RN" "|briar_v06:Group|briar_v06:MotionSystem|briar_v06:IKSystem|briar_v06:IKHandle|briar_v06:IKOffsetLeg_R|briar_v06:IKExtraLeg_R|briar_v06:IKLeg_R.rotateY" 
+		5 4 "briar_v06RN" "|BriarRig:Group|BriarRig:MotionSystem|BriarRig:IKSystem|BriarRig:IKHandle|BriarRig:IKOffsetLeg_R|BriarRig:IKExtraLeg_R|BriarRig:IKLeg_R.rotateY" 
 		"briar_v06RN.placeHolderList[180]" ""
-		5 4 "briar_v06RN" "|briar_v06:Group|briar_v06:MotionSystem|briar_v06:IKSystem|briar_v06:IKHandle|briar_v06:IKOffsetLeg_R|briar_v06:IKExtraLeg_R|briar_v06:IKLeg_R.rotateX" 
+		5 4 "briar_v06RN" "|BriarRig:Group|BriarRig:MotionSystem|BriarRig:IKSystem|BriarRig:IKHandle|BriarRig:IKOffsetLeg_R|BriarRig:IKExtraLeg_R|BriarRig:IKLeg_R.rotateX" 
 		"briar_v06RN.placeHolderList[181]" ""
-		5 4 "briar_v06RN" "|briar_v06:Group|briar_v06:MotionSystem|briar_v06:IKSystem|briar_v06:IKHandle|briar_v06:IKOffsetLeg_R|briar_v06:IKExtraLeg_R|briar_v06:IKLeg_R.rotateZ" 
+		5 4 "briar_v06RN" "|BriarRig:Group|BriarRig:MotionSystem|BriarRig:IKSystem|BriarRig:IKHandle|BriarRig:IKOffsetLeg_R|BriarRig:IKExtraLeg_R|BriarRig:IKLeg_R.rotateZ" 
 		"briar_v06RN.placeHolderList[182]" ""
-		5 4 "briar_v06RN" "|briar_v06:Group|briar_v06:MotionSystem|briar_v06:IKSystem|briar_v06:IKHandle|briar_v06:IKOffsetLeg_R|briar_v06:IKExtraLeg_R|briar_v06:IKLeg_R|briar_v06:IKLegFootRockInnerPivot_R|briar_v06:IKLegFootRockOuterPivot_R|briar_v06:RollOffsetHeel_R|briar_v06:RollRollerHeel_R|briar_v06:RollExtraHeel_R|briar_v06:RollHeel_R|briar_v06:RollOffsetToesEnd_R|briar_v06:RollRollerToesEnd_R|briar_v06:RollExtraToesEnd_R|briar_v06:RollToesEnd_R|briar_v06:RollOffsetToes_R|briar_v06:RollRollerToes_R|briar_v06:RollExtraToes_R|briar_v06:RollToes_R.rotateX" 
+		5 4 "briar_v06RN" "|BriarRig:Group|BriarRig:MotionSystem|BriarRig:IKSystem|BriarRig:IKHandle|BriarRig:IKOffsetLeg_R|BriarRig:IKExtraLeg_R|BriarRig:IKLeg_R|BriarRig:IKLegFootRockInnerPivot_R|BriarRig:IKLegFootRockOuterPivot_R|BriarRig:RollOffsetHeel_R|BriarRig:RollRollerHeel_R|BriarRig:RollExtraHeel_R|BriarRig:RollHeel_R|BriarRig:RollOffsetToesEnd_R|BriarRig:RollRollerToesEnd_R|BriarRig:RollExtraToesEnd_R|BriarRig:RollToesEnd_R|BriarRig:RollOffsetToes_R|BriarRig:RollRollerToes_R|BriarRig:RollExtraToes_R|BriarRig:RollToes_R.rotateX" 
 		"briar_v06RN.placeHolderList[183]" ""
-		5 4 "briar_v06RN" "|briar_v06:Group|briar_v06:MotionSystem|briar_v06:IKSystem|briar_v06:IKHandle|briar_v06:IKOffsetLeg_R|briar_v06:IKExtraLeg_R|briar_v06:IKLeg_R|briar_v06:IKLegFootRockInnerPivot_R|briar_v06:IKLegFootRockOuterPivot_R|briar_v06:RollOffsetHeel_R|briar_v06:RollRollerHeel_R|briar_v06:RollExtraHeel_R|briar_v06:RollHeel_R|briar_v06:RollOffsetToesEnd_R|briar_v06:RollRollerToesEnd_R|briar_v06:RollExtraToesEnd_R|briar_v06:RollToesEnd_R|briar_v06:RollOffsetToes_R|briar_v06:RollRollerToes_R|briar_v06:RollExtraToes_R|briar_v06:RollToes_R.rotateY" 
+		5 4 "briar_v06RN" "|BriarRig:Group|BriarRig:MotionSystem|BriarRig:IKSystem|BriarRig:IKHandle|BriarRig:IKOffsetLeg_R|BriarRig:IKExtraLeg_R|BriarRig:IKLeg_R|BriarRig:IKLegFootRockInnerPivot_R|BriarRig:IKLegFootRockOuterPivot_R|BriarRig:RollOffsetHeel_R|BriarRig:RollRollerHeel_R|BriarRig:RollExtraHeel_R|BriarRig:RollHeel_R|BriarRig:RollOffsetToesEnd_R|BriarRig:RollRollerToesEnd_R|BriarRig:RollExtraToesEnd_R|BriarRig:RollToesEnd_R|BriarRig:RollOffsetToes_R|BriarRig:RollRollerToes_R|BriarRig:RollExtraToes_R|BriarRig:RollToes_R.rotateY" 
 		"briar_v06RN.placeHolderList[184]" ""
-		5 4 "briar_v06RN" "|briar_v06:Group|briar_v06:MotionSystem|briar_v06:IKSystem|briar_v06:IKHandle|briar_v06:IKOffsetLeg_R|briar_v06:IKExtraLeg_R|briar_v06:IKLeg_R|briar_v06:IKLegFootRockInnerPivot_R|briar_v06:IKLegFootRockOuterPivot_R|briar_v06:RollOffsetHeel_R|briar_v06:RollRollerHeel_R|briar_v06:RollExtraHeel_R|briar_v06:RollHeel_R|briar_v06:RollOffsetToesEnd_R|briar_v06:RollRollerToesEnd_R|briar_v06:RollExtraToesEnd_R|briar_v06:RollToesEnd_R|briar_v06:RollOffsetToes_R|briar_v06:RollRollerToes_R|briar_v06:RollExtraToes_R|briar_v06:RollToes_R.rotateZ" 
+		5 4 "briar_v06RN" "|BriarRig:Group|BriarRig:MotionSystem|BriarRig:IKSystem|BriarRig:IKHandle|BriarRig:IKOffsetLeg_R|BriarRig:IKExtraLeg_R|BriarRig:IKLeg_R|BriarRig:IKLegFootRockInnerPivot_R|BriarRig:IKLegFootRockOuterPivot_R|BriarRig:RollOffsetHeel_R|BriarRig:RollRollerHeel_R|BriarRig:RollExtraHeel_R|BriarRig:RollHeel_R|BriarRig:RollOffsetToesEnd_R|BriarRig:RollRollerToesEnd_R|BriarRig:RollExtraToesEnd_R|BriarRig:RollToesEnd_R|BriarRig:RollOffsetToes_R|BriarRig:RollRollerToes_R|BriarRig:RollExtraToes_R|BriarRig:RollToes_R.rotateZ" 
 		"briar_v06RN.placeHolderList[185]" ""
-		5 4 "briar_v06RN" "|briar_v06:Group|briar_v06:MotionSystem|briar_v06:IKSystem|briar_v06:IKHandle|briar_v06:IKOffsetLeg_R|briar_v06:IKExtraLeg_R|briar_v06:IKLeg_R|briar_v06:IKLegFootRockInnerPivot_R|briar_v06:IKLegFootRockOuterPivot_R|briar_v06:RollOffsetHeel_R|briar_v06:RollRollerHeel_R|briar_v06:RollExtraHeel_R|briar_v06:RollHeel_R|briar_v06:RollOffsetToesEnd_R|briar_v06:RollRollerToesEnd_R|briar_v06:RollExtraToesEnd_R|briar_v06:RollToesEnd_R|briar_v06:RollOffsetToes_R|briar_v06:RollRollerToes_R|briar_v06:RollExtraToes_R|briar_v06:RollToes_R.translateX" 
+		5 4 "briar_v06RN" "|BriarRig:Group|BriarRig:MotionSystem|BriarRig:IKSystem|BriarRig:IKHandle|BriarRig:IKOffsetLeg_R|BriarRig:IKExtraLeg_R|BriarRig:IKLeg_R|BriarRig:IKLegFootRockInnerPivot_R|BriarRig:IKLegFootRockOuterPivot_R|BriarRig:RollOffsetHeel_R|BriarRig:RollRollerHeel_R|BriarRig:RollExtraHeel_R|BriarRig:RollHeel_R|BriarRig:RollOffsetToesEnd_R|BriarRig:RollRollerToesEnd_R|BriarRig:RollExtraToesEnd_R|BriarRig:RollToesEnd_R|BriarRig:RollOffsetToes_R|BriarRig:RollRollerToes_R|BriarRig:RollExtraToes_R|BriarRig:RollToes_R.translateX" 
 		"briar_v06RN.placeHolderList[186]" ""
-		5 4 "briar_v06RN" "|briar_v06:Group|briar_v06:MotionSystem|briar_v06:IKSystem|briar_v06:IKHandle|briar_v06:IKOffsetLeg_R|briar_v06:IKExtraLeg_R|briar_v06:IKLeg_R|briar_v06:IKLegFootRockInnerPivot_R|briar_v06:IKLegFootRockOuterPivot_R|briar_v06:RollOffsetHeel_R|briar_v06:RollRollerHeel_R|briar_v06:RollExtraHeel_R|briar_v06:RollHeel_R|briar_v06:RollOffsetToesEnd_R|briar_v06:RollRollerToesEnd_R|briar_v06:RollExtraToesEnd_R|briar_v06:RollToesEnd_R|briar_v06:RollOffsetToes_R|briar_v06:RollRollerToes_R|briar_v06:RollExtraToes_R|briar_v06:RollToes_R.translateY" 
+		5 4 "briar_v06RN" "|BriarRig:Group|BriarRig:MotionSystem|BriarRig:IKSystem|BriarRig:IKHandle|BriarRig:IKOffsetLeg_R|BriarRig:IKExtraLeg_R|BriarRig:IKLeg_R|BriarRig:IKLegFootRockInnerPivot_R|BriarRig:IKLegFootRockOuterPivot_R|BriarRig:RollOffsetHeel_R|BriarRig:RollRollerHeel_R|BriarRig:RollExtraHeel_R|BriarRig:RollHeel_R|BriarRig:RollOffsetToesEnd_R|BriarRig:RollRollerToesEnd_R|BriarRig:RollExtraToesEnd_R|BriarRig:RollToesEnd_R|BriarRig:RollOffsetToes_R|BriarRig:RollRollerToes_R|BriarRig:RollExtraToes_R|BriarRig:RollToes_R.translateY" 
 		"briar_v06RN.placeHolderList[187]" ""
-		5 4 "briar_v06RN" "|briar_v06:Group|briar_v06:MotionSystem|briar_v06:IKSystem|briar_v06:IKHandle|briar_v06:IKOffsetLeg_R|briar_v06:IKExtraLeg_R|briar_v06:IKLeg_R|briar_v06:IKLegFootRockInnerPivot_R|briar_v06:IKLegFootRockOuterPivot_R|briar_v06:RollOffsetHeel_R|briar_v06:RollRollerHeel_R|briar_v06:RollExtraHeel_R|briar_v06:RollHeel_R|briar_v06:RollOffsetToesEnd_R|briar_v06:RollRollerToesEnd_R|briar_v06:RollExtraToesEnd_R|briar_v06:RollToesEnd_R|briar_v06:RollOffsetToes_R|briar_v06:RollRollerToes_R|briar_v06:RollExtraToes_R|briar_v06:RollToes_R.translateZ" 
+		5 4 "briar_v06RN" "|BriarRig:Group|BriarRig:MotionSystem|BriarRig:IKSystem|BriarRig:IKHandle|BriarRig:IKOffsetLeg_R|BriarRig:IKExtraLeg_R|BriarRig:IKLeg_R|BriarRig:IKLegFootRockInnerPivot_R|BriarRig:IKLegFootRockOuterPivot_R|BriarRig:RollOffsetHeel_R|BriarRig:RollRollerHeel_R|BriarRig:RollExtraHeel_R|BriarRig:RollHeel_R|BriarRig:RollOffsetToesEnd_R|BriarRig:RollRollerToesEnd_R|BriarRig:RollExtraToesEnd_R|BriarRig:RollToesEnd_R|BriarRig:RollOffsetToes_R|BriarRig:RollRollerToes_R|BriarRig:RollExtraToes_R|BriarRig:RollToes_R.translateZ" 
 		"briar_v06RN.placeHolderList[188]" ""
-		5 4 "briar_v06RN" "|briar_v06:Group|briar_v06:MotionSystem|briar_v06:IKSystem|briar_v06:IKHandle|briar_v06:IKOffsetLeg_R|briar_v06:IKExtraLeg_R|briar_v06:IKLeg_R|briar_v06:IKLegFootRockInnerPivot_R|briar_v06:IKLegFootRockOuterPivot_R|briar_v06:RollOffsetHeel_R|briar_v06:RollRollerHeel_R|briar_v06:RollExtraHeel_R|briar_v06:RollHeel_R|briar_v06:RollOffsetToesEnd_R|briar_v06:RollRollerToesEnd_R|briar_v06:RollExtraToesEnd_R|briar_v06:RollToesEnd_R|briar_v06:RollOffsetToes_R|briar_v06:RollRollerToes_R|briar_v06:RollExtraToes_R|briar_v06:RollToes_R.scaleX" 
+		5 4 "briar_v06RN" "|BriarRig:Group|BriarRig:MotionSystem|BriarRig:IKSystem|BriarRig:IKHandle|BriarRig:IKOffsetLeg_R|BriarRig:IKExtraLeg_R|BriarRig:IKLeg_R|BriarRig:IKLegFootRockInnerPivot_R|BriarRig:IKLegFootRockOuterPivot_R|BriarRig:RollOffsetHeel_R|BriarRig:RollRollerHeel_R|BriarRig:RollExtraHeel_R|BriarRig:RollHeel_R|BriarRig:RollOffsetToesEnd_R|BriarRig:RollRollerToesEnd_R|BriarRig:RollExtraToesEnd_R|BriarRig:RollToesEnd_R|BriarRig:RollOffsetToes_R|BriarRig:RollRollerToes_R|BriarRig:RollExtraToes_R|BriarRig:RollToes_R.scaleX" 
 		"briar_v06RN.placeHolderList[189]" ""
-		5 4 "briar_v06RN" "|briar_v06:Group|briar_v06:MotionSystem|briar_v06:IKSystem|briar_v06:IKHandle|briar_v06:IKOffsetLeg_R|briar_v06:IKExtraLeg_R|briar_v06:IKLeg_R|briar_v06:IKLegFootRockInnerPivot_R|briar_v06:IKLegFootRockOuterPivot_R|briar_v06:RollOffsetHeel_R|briar_v06:RollRollerHeel_R|briar_v06:RollExtraHeel_R|briar_v06:RollHeel_R|briar_v06:RollOffsetToesEnd_R|briar_v06:RollRollerToesEnd_R|briar_v06:RollExtraToesEnd_R|briar_v06:RollToesEnd_R|briar_v06:RollOffsetToes_R|briar_v06:RollRollerToes_R|briar_v06:RollExtraToes_R|briar_v06:RollToes_R.scaleY" 
+		5 4 "briar_v06RN" "|BriarRig:Group|BriarRig:MotionSystem|BriarRig:IKSystem|BriarRig:IKHandle|BriarRig:IKOffsetLeg_R|BriarRig:IKExtraLeg_R|BriarRig:IKLeg_R|BriarRig:IKLegFootRockInnerPivot_R|BriarRig:IKLegFootRockOuterPivot_R|BriarRig:RollOffsetHeel_R|BriarRig:RollRollerHeel_R|BriarRig:RollExtraHeel_R|BriarRig:RollHeel_R|BriarRig:RollOffsetToesEnd_R|BriarRig:RollRollerToesEnd_R|BriarRig:RollExtraToesEnd_R|BriarRig:RollToesEnd_R|BriarRig:RollOffsetToes_R|BriarRig:RollRollerToes_R|BriarRig:RollExtraToes_R|BriarRig:RollToes_R.scaleY" 
 		"briar_v06RN.placeHolderList[190]" ""
-		5 4 "briar_v06RN" "|briar_v06:Group|briar_v06:MotionSystem|briar_v06:IKSystem|briar_v06:IKHandle|briar_v06:IKOffsetLeg_R|briar_v06:IKExtraLeg_R|briar_v06:IKLeg_R|briar_v06:IKLegFootRockInnerPivot_R|briar_v06:IKLegFootRockOuterPivot_R|briar_v06:RollOffsetHeel_R|briar_v06:RollRollerHeel_R|briar_v06:RollExtraHeel_R|briar_v06:RollHeel_R|briar_v06:RollOffsetToesEnd_R|briar_v06:RollRollerToesEnd_R|briar_v06:RollExtraToesEnd_R|briar_v06:RollToesEnd_R|briar_v06:RollOffsetToes_R|briar_v06:RollRollerToes_R|briar_v06:RollExtraToes_R|briar_v06:RollToes_R.scaleZ" 
+		5 4 "briar_v06RN" "|BriarRig:Group|BriarRig:MotionSystem|BriarRig:IKSystem|BriarRig:IKHandle|BriarRig:IKOffsetLeg_R|BriarRig:IKExtraLeg_R|BriarRig:IKLeg_R|BriarRig:IKLegFootRockInnerPivot_R|BriarRig:IKLegFootRockOuterPivot_R|BriarRig:RollOffsetHeel_R|BriarRig:RollRollerHeel_R|BriarRig:RollExtraHeel_R|BriarRig:RollHeel_R|BriarRig:RollOffsetToesEnd_R|BriarRig:RollRollerToesEnd_R|BriarRig:RollExtraToesEnd_R|BriarRig:RollToesEnd_R|BriarRig:RollOffsetToes_R|BriarRig:RollRollerToes_R|BriarRig:RollExtraToes_R|BriarRig:RollToes_R.scaleZ" 
 		"briar_v06RN.placeHolderList[191]" ""
-		5 4 "briar_v06RN" "|briar_v06:Group|briar_v06:MotionSystem|briar_v06:IKSystem|briar_v06:IKHandle|briar_v06:IKOffsetLeg_L|briar_v06:IKExtraLeg_L|briar_v06:IKLeg_L.scaleY" 
+		5 4 "briar_v06RN" "|BriarRig:Group|BriarRig:MotionSystem|BriarRig:IKSystem|BriarRig:IKHandle|BriarRig:IKOffsetLeg_L|BriarRig:IKExtraLeg_L|BriarRig:IKLeg_L.scaleY" 
 		"briar_v06RN.placeHolderList[192]" ""
-		5 4 "briar_v06RN" "|briar_v06:Group|briar_v06:MotionSystem|briar_v06:IKSystem|briar_v06:IKHandle|briar_v06:IKOffsetLeg_L|briar_v06:IKExtraLeg_L|briar_v06:IKLeg_L.scaleZ" 
+		5 4 "briar_v06RN" "|BriarRig:Group|BriarRig:MotionSystem|BriarRig:IKSystem|BriarRig:IKHandle|BriarRig:IKOffsetLeg_L|BriarRig:IKExtraLeg_L|BriarRig:IKLeg_L.scaleZ" 
 		"briar_v06RN.placeHolderList[193]" ""
-		5 4 "briar_v06RN" "|briar_v06:Group|briar_v06:MotionSystem|briar_v06:IKSystem|briar_v06:IKHandle|briar_v06:IKOffsetLeg_L|briar_v06:IKExtraLeg_L|briar_v06:IKLeg_L.scaleX" 
+		5 4 "briar_v06RN" "|BriarRig:Group|BriarRig:MotionSystem|BriarRig:IKSystem|BriarRig:IKHandle|BriarRig:IKOffsetLeg_L|BriarRig:IKExtraLeg_L|BriarRig:IKLeg_L.scaleX" 
 		"briar_v06RN.placeHolderList[194]" ""
-		5 4 "briar_v06RN" "|briar_v06:Group|briar_v06:MotionSystem|briar_v06:IKSystem|briar_v06:IKHandle|briar_v06:IKOffsetLeg_L|briar_v06:IKExtraLeg_L|briar_v06:IKLeg_L.followMain" 
+		5 4 "briar_v06RN" "|BriarRig:Group|BriarRig:MotionSystem|BriarRig:IKSystem|BriarRig:IKHandle|BriarRig:IKOffsetLeg_L|BriarRig:IKExtraLeg_L|BriarRig:IKLeg_L.followMain" 
 		"briar_v06RN.placeHolderList[195]" ""
-		5 4 "briar_v06RN" "|briar_v06:Group|briar_v06:MotionSystem|briar_v06:IKSystem|briar_v06:IKHandle|briar_v06:IKOffsetLeg_L|briar_v06:IKExtraLeg_L|briar_v06:IKLeg_L.followRoot" 
+		5 4 "briar_v06RN" "|BriarRig:Group|BriarRig:MotionSystem|BriarRig:IKSystem|BriarRig:IKHandle|BriarRig:IKOffsetLeg_L|BriarRig:IKExtraLeg_L|BriarRig:IKLeg_L.followRoot" 
 		"briar_v06RN.placeHolderList[196]" ""
-		5 4 "briar_v06RN" "|briar_v06:Group|briar_v06:MotionSystem|briar_v06:IKSystem|briar_v06:IKHandle|briar_v06:IKOffsetLeg_L|briar_v06:IKExtraLeg_L|briar_v06:IKLeg_L.swivel" 
+		5 4 "briar_v06RN" "|BriarRig:Group|BriarRig:MotionSystem|BriarRig:IKSystem|BriarRig:IKHandle|BriarRig:IKOffsetLeg_L|BriarRig:IKExtraLeg_L|BriarRig:IKLeg_L.swivel" 
 		"briar_v06RN.placeHolderList[197]" ""
-		5 4 "briar_v06RN" "|briar_v06:Group|briar_v06:MotionSystem|briar_v06:IKSystem|briar_v06:IKHandle|briar_v06:IKOffsetLeg_L|briar_v06:IKExtraLeg_L|briar_v06:IKLeg_L.rock" 
+		5 4 "briar_v06RN" "|BriarRig:Group|BriarRig:MotionSystem|BriarRig:IKSystem|BriarRig:IKHandle|BriarRig:IKOffsetLeg_L|BriarRig:IKExtraLeg_L|BriarRig:IKLeg_L.rock" 
 		"briar_v06RN.placeHolderList[198]" ""
-		5 4 "briar_v06RN" "|briar_v06:Group|briar_v06:MotionSystem|briar_v06:IKSystem|briar_v06:IKHandle|briar_v06:IKOffsetLeg_L|briar_v06:IKExtraLeg_L|briar_v06:IKLeg_L.roll" 
+		5 4 "briar_v06RN" "|BriarRig:Group|BriarRig:MotionSystem|BriarRig:IKSystem|BriarRig:IKHandle|BriarRig:IKOffsetLeg_L|BriarRig:IKExtraLeg_L|BriarRig:IKLeg_L.roll" 
 		"briar_v06RN.placeHolderList[199]" ""
-		5 4 "briar_v06RN" "|briar_v06:Group|briar_v06:MotionSystem|briar_v06:IKSystem|briar_v06:IKHandle|briar_v06:IKOffsetLeg_L|briar_v06:IKExtraLeg_L|briar_v06:IKLeg_L.rollStartAngle" 
+		5 4 "briar_v06RN" "|BriarRig:Group|BriarRig:MotionSystem|BriarRig:IKSystem|BriarRig:IKHandle|BriarRig:IKOffsetLeg_L|BriarRig:IKExtraLeg_L|BriarRig:IKLeg_L.rollStartAngle" 
 		"briar_v06RN.placeHolderList[200]" ""
-		5 4 "briar_v06RN" "|briar_v06:Group|briar_v06:MotionSystem|briar_v06:IKSystem|briar_v06:IKHandle|briar_v06:IKOffsetLeg_L|briar_v06:IKExtraLeg_L|briar_v06:IKLeg_L.rollEndAngle" 
+		5 4 "briar_v06RN" "|BriarRig:Group|BriarRig:MotionSystem|BriarRig:IKSystem|BriarRig:IKHandle|BriarRig:IKOffsetLeg_L|BriarRig:IKExtraLeg_L|BriarRig:IKLeg_L.rollEndAngle" 
 		"briar_v06RN.placeHolderList[201]" ""
-		5 4 "briar_v06RN" "|briar_v06:Group|briar_v06:MotionSystem|briar_v06:IKSystem|briar_v06:IKHandle|briar_v06:IKOffsetLeg_L|briar_v06:IKExtraLeg_L|briar_v06:IKLeg_L.stretchy" 
+		5 4 "briar_v06RN" "|BriarRig:Group|BriarRig:MotionSystem|BriarRig:IKSystem|BriarRig:IKHandle|BriarRig:IKOffsetLeg_L|BriarRig:IKExtraLeg_L|BriarRig:IKLeg_L.stretchy" 
 		"briar_v06RN.placeHolderList[202]" ""
-		5 4 "briar_v06RN" "|briar_v06:Group|briar_v06:MotionSystem|briar_v06:IKSystem|briar_v06:IKHandle|briar_v06:IKOffsetLeg_L|briar_v06:IKExtraLeg_L|briar_v06:IKLeg_L.antiPop" 
+		5 4 "briar_v06RN" "|BriarRig:Group|BriarRig:MotionSystem|BriarRig:IKSystem|BriarRig:IKHandle|BriarRig:IKOffsetLeg_L|BriarRig:IKExtraLeg_L|BriarRig:IKLeg_L.antiPop" 
 		"briar_v06RN.placeHolderList[203]" ""
-		5 4 "briar_v06RN" "|briar_v06:Group|briar_v06:MotionSystem|briar_v06:IKSystem|briar_v06:IKHandle|briar_v06:IKOffsetLeg_L|briar_v06:IKExtraLeg_L|briar_v06:IKLeg_L.Lenght1" 
+		5 4 "briar_v06RN" "|BriarRig:Group|BriarRig:MotionSystem|BriarRig:IKSystem|BriarRig:IKHandle|BriarRig:IKOffsetLeg_L|BriarRig:IKExtraLeg_L|BriarRig:IKLeg_L.Lenght1" 
 		"briar_v06RN.placeHolderList[204]" ""
-		5 4 "briar_v06RN" "|briar_v06:Group|briar_v06:MotionSystem|briar_v06:IKSystem|briar_v06:IKHandle|briar_v06:IKOffsetLeg_L|briar_v06:IKExtraLeg_L|briar_v06:IKLeg_L.Lenght2" 
+		5 4 "briar_v06RN" "|BriarRig:Group|BriarRig:MotionSystem|BriarRig:IKSystem|BriarRig:IKHandle|BriarRig:IKOffsetLeg_L|BriarRig:IKExtraLeg_L|BriarRig:IKLeg_L.Lenght2" 
 		"briar_v06RN.placeHolderList[205]" ""
-		5 4 "briar_v06RN" "|briar_v06:Group|briar_v06:MotionSystem|briar_v06:IKSystem|briar_v06:IKHandle|briar_v06:IKOffsetLeg_L|briar_v06:IKExtraLeg_L|briar_v06:IKLeg_L.Fatness1" 
+		5 4 "briar_v06RN" "|BriarRig:Group|BriarRig:MotionSystem|BriarRig:IKSystem|BriarRig:IKHandle|BriarRig:IKOffsetLeg_L|BriarRig:IKExtraLeg_L|BriarRig:IKLeg_L.Fatness1" 
 		"briar_v06RN.placeHolderList[206]" ""
-		5 4 "briar_v06RN" "|briar_v06:Group|briar_v06:MotionSystem|briar_v06:IKSystem|briar_v06:IKHandle|briar_v06:IKOffsetLeg_L|briar_v06:IKExtraLeg_L|briar_v06:IKLeg_L.Fatness2" 
+		5 4 "briar_v06RN" "|BriarRig:Group|BriarRig:MotionSystem|BriarRig:IKSystem|BriarRig:IKHandle|BriarRig:IKOffsetLeg_L|BriarRig:IKExtraLeg_L|BriarRig:IKLeg_L.Fatness2" 
 		"briar_v06RN.placeHolderList[207]" ""
-		5 4 "briar_v06RN" "|briar_v06:Group|briar_v06:MotionSystem|briar_v06:IKSystem|briar_v06:IKHandle|briar_v06:IKOffsetLeg_L|briar_v06:IKExtraLeg_L|briar_v06:IKLeg_L.volume" 
+		5 4 "briar_v06RN" "|BriarRig:Group|BriarRig:MotionSystem|BriarRig:IKSystem|BriarRig:IKHandle|BriarRig:IKOffsetLeg_L|BriarRig:IKExtraLeg_L|BriarRig:IKLeg_L.volume" 
 		"briar_v06RN.placeHolderList[208]" ""
-		5 4 "briar_v06RN" "|briar_v06:Group|briar_v06:MotionSystem|briar_v06:IKSystem|briar_v06:IKHandle|briar_v06:IKOffsetLeg_L|briar_v06:IKExtraLeg_L|briar_v06:IKLeg_L.translateY" 
+		5 4 "briar_v06RN" "|BriarRig:Group|BriarRig:MotionSystem|BriarRig:IKSystem|BriarRig:IKHandle|BriarRig:IKOffsetLeg_L|BriarRig:IKExtraLeg_L|BriarRig:IKLeg_L.translateY" 
 		"briar_v06RN.placeHolderList[209]" ""
-		5 4 "briar_v06RN" "|briar_v06:Group|briar_v06:MotionSystem|briar_v06:IKSystem|briar_v06:IKHandle|briar_v06:IKOffsetLeg_L|briar_v06:IKExtraLeg_L|briar_v06:IKLeg_L.translateZ" 
+		5 4 "briar_v06RN" "|BriarRig:Group|BriarRig:MotionSystem|BriarRig:IKSystem|BriarRig:IKHandle|BriarRig:IKOffsetLeg_L|BriarRig:IKExtraLeg_L|BriarRig:IKLeg_L.translateZ" 
 		"briar_v06RN.placeHolderList[210]" ""
-		5 4 "briar_v06RN" "|briar_v06:Group|briar_v06:MotionSystem|briar_v06:IKSystem|briar_v06:IKHandle|briar_v06:IKOffsetLeg_L|briar_v06:IKExtraLeg_L|briar_v06:IKLeg_L.translateX" 
+		5 4 "briar_v06RN" "|BriarRig:Group|BriarRig:MotionSystem|BriarRig:IKSystem|BriarRig:IKHandle|BriarRig:IKOffsetLeg_L|BriarRig:IKExtraLeg_L|BriarRig:IKLeg_L.translateX" 
 		"briar_v06RN.placeHolderList[211]" ""
-		5 4 "briar_v06RN" "|briar_v06:Group|briar_v06:MotionSystem|briar_v06:IKSystem|briar_v06:IKHandle|briar_v06:IKOffsetLeg_L|briar_v06:IKExtraLeg_L|briar_v06:IKLeg_L.rotateY" 
+		5 4 "briar_v06RN" "|BriarRig:Group|BriarRig:MotionSystem|BriarRig:IKSystem|BriarRig:IKHandle|BriarRig:IKOffsetLeg_L|BriarRig:IKExtraLeg_L|BriarRig:IKLeg_L.rotateX" 
 		"briar_v06RN.placeHolderList[212]" ""
-		5 4 "briar_v06RN" "|briar_v06:Group|briar_v06:MotionSystem|briar_v06:IKSystem|briar_v06:IKHandle|briar_v06:IKOffsetLeg_L|briar_v06:IKExtraLeg_L|briar_v06:IKLeg_L.rotateX" 
+		5 4 "briar_v06RN" "|BriarRig:Group|BriarRig:MotionSystem|BriarRig:IKSystem|BriarRig:IKHandle|BriarRig:IKOffsetLeg_L|BriarRig:IKExtraLeg_L|BriarRig:IKLeg_L.rotateY" 
 		"briar_v06RN.placeHolderList[213]" ""
-		5 4 "briar_v06RN" "|briar_v06:Group|briar_v06:MotionSystem|briar_v06:IKSystem|briar_v06:IKHandle|briar_v06:IKOffsetLeg_L|briar_v06:IKExtraLeg_L|briar_v06:IKLeg_L.rotateZ" 
+		5 4 "briar_v06RN" "|BriarRig:Group|BriarRig:MotionSystem|BriarRig:IKSystem|BriarRig:IKHandle|BriarRig:IKOffsetLeg_L|BriarRig:IKExtraLeg_L|BriarRig:IKLeg_L.rotateZ" 
 		"briar_v06RN.placeHolderList[214]" ""
-		5 4 "briar_v06RN" "|briar_v06:Group|briar_v06:MotionSystem|briar_v06:IKSystem|briar_v06:IKHandle|briar_v06:IKOffsetLeg_L|briar_v06:IKExtraLeg_L|briar_v06:IKLeg_L|briar_v06:IKLegFootRockInnerPivot_L|briar_v06:IKLegFootRockOuterPivot_L|briar_v06:RollOffsetHeel_L|briar_v06:RollRollerHeel_L|briar_v06:RollExtraHeel_L|briar_v06:RollHeel_L|briar_v06:RollOffsetToesEnd_L|briar_v06:RollRollerToesEnd_L|briar_v06:RollExtraToesEnd_L|briar_v06:RollToesEnd_L|briar_v06:RollOffsetToes_L|briar_v06:RollRollerToes_L|briar_v06:RollExtraToes_L|briar_v06:RollToes_L.rotateX" 
+		5 4 "briar_v06RN" "|BriarRig:Group|BriarRig:MotionSystem|BriarRig:IKSystem|BriarRig:IKHandle|BriarRig:IKOffsetLeg_L|BriarRig:IKExtraLeg_L|BriarRig:IKLeg_L|BriarRig:IKLegFootRockInnerPivot_L|BriarRig:IKLegFootRockOuterPivot_L|BriarRig:RollOffsetHeel_L|BriarRig:RollRollerHeel_L|BriarRig:RollExtraHeel_L|BriarRig:RollHeel_L.rotateX" 
 		"briar_v06RN.placeHolderList[215]" ""
-		5 4 "briar_v06RN" "|briar_v06:Group|briar_v06:MotionSystem|briar_v06:IKSystem|briar_v06:IKHandle|briar_v06:IKOffsetLeg_L|briar_v06:IKExtraLeg_L|briar_v06:IKLeg_L|briar_v06:IKLegFootRockInnerPivot_L|briar_v06:IKLegFootRockOuterPivot_L|briar_v06:RollOffsetHeel_L|briar_v06:RollRollerHeel_L|briar_v06:RollExtraHeel_L|briar_v06:RollHeel_L|briar_v06:RollOffsetToesEnd_L|briar_v06:RollRollerToesEnd_L|briar_v06:RollExtraToesEnd_L|briar_v06:RollToesEnd_L|briar_v06:RollOffsetToes_L|briar_v06:RollRollerToes_L|briar_v06:RollExtraToes_L|briar_v06:RollToes_L.rotateY" 
+		5 4 "briar_v06RN" "|BriarRig:Group|BriarRig:MotionSystem|BriarRig:IKSystem|BriarRig:IKHandle|BriarRig:IKOffsetLeg_L|BriarRig:IKExtraLeg_L|BriarRig:IKLeg_L|BriarRig:IKLegFootRockInnerPivot_L|BriarRig:IKLegFootRockOuterPivot_L|BriarRig:RollOffsetHeel_L|BriarRig:RollRollerHeel_L|BriarRig:RollExtraHeel_L|BriarRig:RollHeel_L.rotateY" 
 		"briar_v06RN.placeHolderList[216]" ""
-		5 4 "briar_v06RN" "|briar_v06:Group|briar_v06:MotionSystem|briar_v06:IKSystem|briar_v06:IKHandle|briar_v06:IKOffsetLeg_L|briar_v06:IKExtraLeg_L|briar_v06:IKLeg_L|briar_v06:IKLegFootRockInnerPivot_L|briar_v06:IKLegFootRockOuterPivot_L|briar_v06:RollOffsetHeel_L|briar_v06:RollRollerHeel_L|briar_v06:RollExtraHeel_L|briar_v06:RollHeel_L|briar_v06:RollOffsetToesEnd_L|briar_v06:RollRollerToesEnd_L|briar_v06:RollExtraToesEnd_L|briar_v06:RollToesEnd_L|briar_v06:RollOffsetToes_L|briar_v06:RollRollerToes_L|briar_v06:RollExtraToes_L|briar_v06:RollToes_L.rotateZ" 
+		5 4 "briar_v06RN" "|BriarRig:Group|BriarRig:MotionSystem|BriarRig:IKSystem|BriarRig:IKHandle|BriarRig:IKOffsetLeg_L|BriarRig:IKExtraLeg_L|BriarRig:IKLeg_L|BriarRig:IKLegFootRockInnerPivot_L|BriarRig:IKLegFootRockOuterPivot_L|BriarRig:RollOffsetHeel_L|BriarRig:RollRollerHeel_L|BriarRig:RollExtraHeel_L|BriarRig:RollHeel_L.rotateZ" 
 		"briar_v06RN.placeHolderList[217]" ""
-		5 4 "briar_v06RN" "|briar_v06:Group|briar_v06:MotionSystem|briar_v06:IKSystem|briar_v06:IKHandle|briar_v06:IKOffsetLeg_L|briar_v06:IKExtraLeg_L|briar_v06:IKLeg_L|briar_v06:IKLegFootRockInnerPivot_L|briar_v06:IKLegFootRockOuterPivot_L|briar_v06:RollOffsetHeel_L|briar_v06:RollRollerHeel_L|briar_v06:RollExtraHeel_L|briar_v06:RollHeel_L|briar_v06:RollOffsetToesEnd_L|briar_v06:RollRollerToesEnd_L|briar_v06:RollExtraToesEnd_L|briar_v06:RollToesEnd_L|briar_v06:RollOffsetToes_L|briar_v06:RollRollerToes_L|briar_v06:RollExtraToes_L|briar_v06:RollToes_L.translateX" 
+		5 4 "briar_v06RN" "|BriarRig:Group|BriarRig:MotionSystem|BriarRig:IKSystem|BriarRig:IKHandle|BriarRig:IKOffsetLeg_L|BriarRig:IKExtraLeg_L|BriarRig:IKLeg_L|BriarRig:IKLegFootRockInnerPivot_L|BriarRig:IKLegFootRockOuterPivot_L|BriarRig:RollOffsetHeel_L|BriarRig:RollRollerHeel_L|BriarRig:RollExtraHeel_L|BriarRig:RollHeel_L.translateX" 
 		"briar_v06RN.placeHolderList[218]" ""
-		5 4 "briar_v06RN" "|briar_v06:Group|briar_v06:MotionSystem|briar_v06:IKSystem|briar_v06:IKHandle|briar_v06:IKOffsetLeg_L|briar_v06:IKExtraLeg_L|briar_v06:IKLeg_L|briar_v06:IKLegFootRockInnerPivot_L|briar_v06:IKLegFootRockOuterPivot_L|briar_v06:RollOffsetHeel_L|briar_v06:RollRollerHeel_L|briar_v06:RollExtraHeel_L|briar_v06:RollHeel_L|briar_v06:RollOffsetToesEnd_L|briar_v06:RollRollerToesEnd_L|briar_v06:RollExtraToesEnd_L|briar_v06:RollToesEnd_L|briar_v06:RollOffsetToes_L|briar_v06:RollRollerToes_L|briar_v06:RollExtraToes_L|briar_v06:RollToes_L.translateY" 
+		5 4 "briar_v06RN" "|BriarRig:Group|BriarRig:MotionSystem|BriarRig:IKSystem|BriarRig:IKHandle|BriarRig:IKOffsetLeg_L|BriarRig:IKExtraLeg_L|BriarRig:IKLeg_L|BriarRig:IKLegFootRockInnerPivot_L|BriarRig:IKLegFootRockOuterPivot_L|BriarRig:RollOffsetHeel_L|BriarRig:RollRollerHeel_L|BriarRig:RollExtraHeel_L|BriarRig:RollHeel_L.translateY" 
 		"briar_v06RN.placeHolderList[219]" ""
-		5 4 "briar_v06RN" "|briar_v06:Group|briar_v06:MotionSystem|briar_v06:IKSystem|briar_v06:IKHandle|briar_v06:IKOffsetLeg_L|briar_v06:IKExtraLeg_L|briar_v06:IKLeg_L|briar_v06:IKLegFootRockInnerPivot_L|briar_v06:IKLegFootRockOuterPivot_L|briar_v06:RollOffsetHeel_L|briar_v06:RollRollerHeel_L|briar_v06:RollExtraHeel_L|briar_v06:RollHeel_L|briar_v06:RollOffsetToesEnd_L|briar_v06:RollRollerToesEnd_L|briar_v06:RollExtraToesEnd_L|briar_v06:RollToesEnd_L|briar_v06:RollOffsetToes_L|briar_v06:RollRollerToes_L|briar_v06:RollExtraToes_L|briar_v06:RollToes_L.translateZ" 
+		5 4 "briar_v06RN" "|BriarRig:Group|BriarRig:MotionSystem|BriarRig:IKSystem|BriarRig:IKHandle|BriarRig:IKOffsetLeg_L|BriarRig:IKExtraLeg_L|BriarRig:IKLeg_L|BriarRig:IKLegFootRockInnerPivot_L|BriarRig:IKLegFootRockOuterPivot_L|BriarRig:RollOffsetHeel_L|BriarRig:RollRollerHeel_L|BriarRig:RollExtraHeel_L|BriarRig:RollHeel_L.translateZ" 
 		"briar_v06RN.placeHolderList[220]" ""
-		5 4 "briar_v06RN" "|briar_v06:Group|briar_v06:MotionSystem|briar_v06:IKSystem|briar_v06:IKHandle|briar_v06:IKOffsetLeg_L|briar_v06:IKExtraLeg_L|briar_v06:IKLeg_L|briar_v06:IKLegFootRockInnerPivot_L|briar_v06:IKLegFootRockOuterPivot_L|briar_v06:RollOffsetHeel_L|briar_v06:RollRollerHeel_L|briar_v06:RollExtraHeel_L|briar_v06:RollHeel_L|briar_v06:RollOffsetToesEnd_L|briar_v06:RollRollerToesEnd_L|briar_v06:RollExtraToesEnd_L|briar_v06:RollToesEnd_L|briar_v06:RollOffsetToes_L|briar_v06:RollRollerToes_L|briar_v06:RollExtraToes_L|briar_v06:RollToes_L.scaleX" 
+		5 4 "briar_v06RN" "|BriarRig:Group|BriarRig:MotionSystem|BriarRig:IKSystem|BriarRig:IKHandle|BriarRig:IKOffsetLeg_L|BriarRig:IKExtraLeg_L|BriarRig:IKLeg_L|BriarRig:IKLegFootRockInnerPivot_L|BriarRig:IKLegFootRockOuterPivot_L|BriarRig:RollOffsetHeel_L|BriarRig:RollRollerHeel_L|BriarRig:RollExtraHeel_L|BriarRig:RollHeel_L.scaleX" 
 		"briar_v06RN.placeHolderList[221]" ""
-		5 4 "briar_v06RN" "|briar_v06:Group|briar_v06:MotionSystem|briar_v06:IKSystem|briar_v06:IKHandle|briar_v06:IKOffsetLeg_L|briar_v06:IKExtraLeg_L|briar_v06:IKLeg_L|briar_v06:IKLegFootRockInnerPivot_L|briar_v06:IKLegFootRockOuterPivot_L|briar_v06:RollOffsetHeel_L|briar_v06:RollRollerHeel_L|briar_v06:RollExtraHeel_L|briar_v06:RollHeel_L|briar_v06:RollOffsetToesEnd_L|briar_v06:RollRollerToesEnd_L|briar_v06:RollExtraToesEnd_L|briar_v06:RollToesEnd_L|briar_v06:RollOffsetToes_L|briar_v06:RollRollerToes_L|briar_v06:RollExtraToes_L|briar_v06:RollToes_L.scaleY" 
+		5 4 "briar_v06RN" "|BriarRig:Group|BriarRig:MotionSystem|BriarRig:IKSystem|BriarRig:IKHandle|BriarRig:IKOffsetLeg_L|BriarRig:IKExtraLeg_L|BriarRig:IKLeg_L|BriarRig:IKLegFootRockInnerPivot_L|BriarRig:IKLegFootRockOuterPivot_L|BriarRig:RollOffsetHeel_L|BriarRig:RollRollerHeel_L|BriarRig:RollExtraHeel_L|BriarRig:RollHeel_L.scaleY" 
 		"briar_v06RN.placeHolderList[222]" ""
-		5 4 "briar_v06RN" "|briar_v06:Group|briar_v06:MotionSystem|briar_v06:IKSystem|briar_v06:IKHandle|briar_v06:IKOffsetLeg_L|briar_v06:IKExtraLeg_L|briar_v06:IKLeg_L|briar_v06:IKLegFootRockInnerPivot_L|briar_v06:IKLegFootRockOuterPivot_L|briar_v06:RollOffsetHeel_L|briar_v06:RollRollerHeel_L|briar_v06:RollExtraHeel_L|briar_v06:RollHeel_L|briar_v06:RollOffsetToesEnd_L|briar_v06:RollRollerToesEnd_L|briar_v06:RollExtraToesEnd_L|briar_v06:RollToesEnd_L|briar_v06:RollOffsetToes_L|briar_v06:RollRollerToes_L|briar_v06:RollExtraToes_L|briar_v06:RollToes_L.scaleZ" 
+		5 4 "briar_v06RN" "|BriarRig:Group|BriarRig:MotionSystem|BriarRig:IKSystem|BriarRig:IKHandle|BriarRig:IKOffsetLeg_L|BriarRig:IKExtraLeg_L|BriarRig:IKLeg_L|BriarRig:IKLegFootRockInnerPivot_L|BriarRig:IKLegFootRockOuterPivot_L|BriarRig:RollOffsetHeel_L|BriarRig:RollRollerHeel_L|BriarRig:RollExtraHeel_L|BriarRig:RollHeel_L.scaleZ" 
 		"briar_v06RN.placeHolderList[223]" ""
-		5 4 "briar_v06RN" "|briar_v06:Group|briar_v06:MotionSystem|briar_v06:RootSystem|briar_v06:RootFollowMain|briar_v06:RootOffsetX_M|briar_v06:RootExtraX_M|briar_v06:RootX_M.translateY" 
+		5 4 "briar_v06RN" "|BriarRig:Group|BriarRig:MotionSystem|BriarRig:IKSystem|BriarRig:IKHandle|BriarRig:IKOffsetLeg_L|BriarRig:IKExtraLeg_L|BriarRig:IKLeg_L|BriarRig:IKLegFootRockInnerPivot_L|BriarRig:IKLegFootRockOuterPivot_L|BriarRig:RollOffsetHeel_L|BriarRig:RollRollerHeel_L|BriarRig:RollExtraHeel_L|BriarRig:RollHeel_L|BriarRig:RollOffsetToesEnd_L|BriarRig:RollRollerToesEnd_L|BriarRig:RollExtraToesEnd_L|BriarRig:RollToesEnd_L|BriarRig:RollOffsetToes_L|BriarRig:RollRollerToes_L|BriarRig:RollExtraToes_L|BriarRig:RollToes_L.rotateX" 
 		"briar_v06RN.placeHolderList[224]" ""
-		5 4 "briar_v06RN" "|briar_v06:Group|briar_v06:MotionSystem|briar_v06:RootSystem|briar_v06:RootFollowMain|briar_v06:RootOffsetX_M|briar_v06:RootExtraX_M|briar_v06:RootX_M.translateX" 
+		5 4 "briar_v06RN" "|BriarRig:Group|BriarRig:MotionSystem|BriarRig:IKSystem|BriarRig:IKHandle|BriarRig:IKOffsetLeg_L|BriarRig:IKExtraLeg_L|BriarRig:IKLeg_L|BriarRig:IKLegFootRockInnerPivot_L|BriarRig:IKLegFootRockOuterPivot_L|BriarRig:RollOffsetHeel_L|BriarRig:RollRollerHeel_L|BriarRig:RollExtraHeel_L|BriarRig:RollHeel_L|BriarRig:RollOffsetToesEnd_L|BriarRig:RollRollerToesEnd_L|BriarRig:RollExtraToesEnd_L|BriarRig:RollToesEnd_L|BriarRig:RollOffsetToes_L|BriarRig:RollRollerToes_L|BriarRig:RollExtraToes_L|BriarRig:RollToes_L.rotateY" 
 		"briar_v06RN.placeHolderList[225]" ""
-		5 4 "briar_v06RN" "|briar_v06:Group|briar_v06:MotionSystem|briar_v06:RootSystem|briar_v06:RootFollowMain|briar_v06:RootOffsetX_M|briar_v06:RootExtraX_M|briar_v06:RootX_M.translateZ" 
+		5 4 "briar_v06RN" "|BriarRig:Group|BriarRig:MotionSystem|BriarRig:IKSystem|BriarRig:IKHandle|BriarRig:IKOffsetLeg_L|BriarRig:IKExtraLeg_L|BriarRig:IKLeg_L|BriarRig:IKLegFootRockInnerPivot_L|BriarRig:IKLegFootRockOuterPivot_L|BriarRig:RollOffsetHeel_L|BriarRig:RollRollerHeel_L|BriarRig:RollExtraHeel_L|BriarRig:RollHeel_L|BriarRig:RollOffsetToesEnd_L|BriarRig:RollRollerToesEnd_L|BriarRig:RollExtraToesEnd_L|BriarRig:RollToesEnd_L|BriarRig:RollOffsetToes_L|BriarRig:RollRollerToes_L|BriarRig:RollExtraToes_L|BriarRig:RollToes_L.rotateZ" 
 		"briar_v06RN.placeHolderList[226]" ""
-		5 4 "briar_v06RN" "|briar_v06:Group|briar_v06:MotionSystem|briar_v06:RootSystem|briar_v06:RootFollowMain|briar_v06:RootOffsetX_M|briar_v06:RootExtraX_M|briar_v06:RootX_M.rotateX" 
+		5 4 "briar_v06RN" "|BriarRig:Group|BriarRig:MotionSystem|BriarRig:IKSystem|BriarRig:IKHandle|BriarRig:IKOffsetLeg_L|BriarRig:IKExtraLeg_L|BriarRig:IKLeg_L|BriarRig:IKLegFootRockInnerPivot_L|BriarRig:IKLegFootRockOuterPivot_L|BriarRig:RollOffsetHeel_L|BriarRig:RollRollerHeel_L|BriarRig:RollExtraHeel_L|BriarRig:RollHeel_L|BriarRig:RollOffsetToesEnd_L|BriarRig:RollRollerToesEnd_L|BriarRig:RollExtraToesEnd_L|BriarRig:RollToesEnd_L|BriarRig:RollOffsetToes_L|BriarRig:RollRollerToes_L|BriarRig:RollExtraToes_L|BriarRig:RollToes_L.translateX" 
 		"briar_v06RN.placeHolderList[227]" ""
-		5 4 "briar_v06RN" "|briar_v06:Group|briar_v06:MotionSystem|briar_v06:RootSystem|briar_v06:RootFollowMain|briar_v06:RootOffsetX_M|briar_v06:RootExtraX_M|briar_v06:RootX_M.rotateY" 
+		5 4 "briar_v06RN" "|BriarRig:Group|BriarRig:MotionSystem|BriarRig:IKSystem|BriarRig:IKHandle|BriarRig:IKOffsetLeg_L|BriarRig:IKExtraLeg_L|BriarRig:IKLeg_L|BriarRig:IKLegFootRockInnerPivot_L|BriarRig:IKLegFootRockOuterPivot_L|BriarRig:RollOffsetHeel_L|BriarRig:RollRollerHeel_L|BriarRig:RollExtraHeel_L|BriarRig:RollHeel_L|BriarRig:RollOffsetToesEnd_L|BriarRig:RollRollerToesEnd_L|BriarRig:RollExtraToesEnd_L|BriarRig:RollToesEnd_L|BriarRig:RollOffsetToes_L|BriarRig:RollRollerToes_L|BriarRig:RollExtraToes_L|BriarRig:RollToes_L.translateY" 
 		"briar_v06RN.placeHolderList[228]" ""
-		5 4 "briar_v06RN" "|briar_v06:Group|briar_v06:MotionSystem|briar_v06:RootSystem|briar_v06:RootFollowMain|briar_v06:RootOffsetX_M|briar_v06:RootExtraX_M|briar_v06:RootX_M.rotateZ" 
+		5 4 "briar_v06RN" "|BriarRig:Group|BriarRig:MotionSystem|BriarRig:IKSystem|BriarRig:IKHandle|BriarRig:IKOffsetLeg_L|BriarRig:IKExtraLeg_L|BriarRig:IKLeg_L|BriarRig:IKLegFootRockInnerPivot_L|BriarRig:IKLegFootRockOuterPivot_L|BriarRig:RollOffsetHeel_L|BriarRig:RollRollerHeel_L|BriarRig:RollExtraHeel_L|BriarRig:RollHeel_L|BriarRig:RollOffsetToesEnd_L|BriarRig:RollRollerToesEnd_L|BriarRig:RollExtraToesEnd_L|BriarRig:RollToesEnd_L|BriarRig:RollOffsetToes_L|BriarRig:RollRollerToes_L|BriarRig:RollExtraToes_L|BriarRig:RollToes_L.translateZ" 
 		"briar_v06RN.placeHolderList[229]" ""
-		5 4 "briar_v06RN" "|briar_v06:Group|briar_v06:MotionSystem|briar_v06:RootSystem|briar_v06:RootFollowMain|briar_v06:RootOffsetX_M|briar_v06:RootExtraX_M|briar_v06:RootX_M.visibility" 
+		5 4 "briar_v06RN" "|BriarRig:Group|BriarRig:MotionSystem|BriarRig:IKSystem|BriarRig:IKHandle|BriarRig:IKOffsetLeg_L|BriarRig:IKExtraLeg_L|BriarRig:IKLeg_L|BriarRig:IKLegFootRockInnerPivot_L|BriarRig:IKLegFootRockOuterPivot_L|BriarRig:RollOffsetHeel_L|BriarRig:RollRollerHeel_L|BriarRig:RollExtraHeel_L|BriarRig:RollHeel_L|BriarRig:RollOffsetToesEnd_L|BriarRig:RollRollerToesEnd_L|BriarRig:RollExtraToesEnd_L|BriarRig:RollToesEnd_L|BriarRig:RollOffsetToes_L|BriarRig:RollRollerToes_L|BriarRig:RollExtraToes_L|BriarRig:RollToes_L.scaleX" 
 		"briar_v06RN.placeHolderList[230]" ""
-		5 4 "briar_v06RN" "|briar_v06:Group|briar_v06:MotionSystem|briar_v06:DrivingSystem|briar_v06:Fingers_R.spread" 
+		5 4 "briar_v06RN" "|BriarRig:Group|BriarRig:MotionSystem|BriarRig:IKSystem|BriarRig:IKHandle|BriarRig:IKOffsetLeg_L|BriarRig:IKExtraLeg_L|BriarRig:IKLeg_L|BriarRig:IKLegFootRockInnerPivot_L|BriarRig:IKLegFootRockOuterPivot_L|BriarRig:RollOffsetHeel_L|BriarRig:RollRollerHeel_L|BriarRig:RollExtraHeel_L|BriarRig:RollHeel_L|BriarRig:RollOffsetToesEnd_L|BriarRig:RollRollerToesEnd_L|BriarRig:RollExtraToesEnd_L|BriarRig:RollToesEnd_L|BriarRig:RollOffsetToes_L|BriarRig:RollRollerToes_L|BriarRig:RollExtraToes_L|BriarRig:RollToes_L.scaleY" 
 		"briar_v06RN.placeHolderList[231]" ""
-		5 4 "briar_v06RN" "|briar_v06:Group|briar_v06:MotionSystem|briar_v06:DrivingSystem|briar_v06:Fingers_R.cup" 
+		5 4 "briar_v06RN" "|BriarRig:Group|BriarRig:MotionSystem|BriarRig:IKSystem|BriarRig:IKHandle|BriarRig:IKOffsetLeg_L|BriarRig:IKExtraLeg_L|BriarRig:IKLeg_L|BriarRig:IKLegFootRockInnerPivot_L|BriarRig:IKLegFootRockOuterPivot_L|BriarRig:RollOffsetHeel_L|BriarRig:RollRollerHeel_L|BriarRig:RollExtraHeel_L|BriarRig:RollHeel_L|BriarRig:RollOffsetToesEnd_L|BriarRig:RollRollerToesEnd_L|BriarRig:RollExtraToesEnd_L|BriarRig:RollToesEnd_L|BriarRig:RollOffsetToes_L|BriarRig:RollRollerToes_L|BriarRig:RollExtraToes_L|BriarRig:RollToes_L.scaleZ" 
 		"briar_v06RN.placeHolderList[232]" ""
-		5 4 "briar_v06RN" "|briar_v06:Group|briar_v06:MotionSystem|briar_v06:DrivingSystem|briar_v06:Fingers_R.indexCurl" 
+		5 4 "briar_v06RN" "|BriarRig:Group|BriarRig:MotionSystem|BriarRig:RootSystem|BriarRig:RootFollowMain|BriarRig:RootOffsetX_M|BriarRig:RootExtraX_M|BriarRig:RootX_M.translateY" 
 		"briar_v06RN.placeHolderList[233]" ""
-		5 4 "briar_v06RN" "|briar_v06:Group|briar_v06:MotionSystem|briar_v06:DrivingSystem|briar_v06:Fingers_R.middleCurl" 
+		5 4 "briar_v06RN" "|BriarRig:Group|BriarRig:MotionSystem|BriarRig:RootSystem|BriarRig:RootFollowMain|BriarRig:RootOffsetX_M|BriarRig:RootExtraX_M|BriarRig:RootX_M.translateX" 
 		"briar_v06RN.placeHolderList[234]" ""
-		5 4 "briar_v06RN" "|briar_v06:Group|briar_v06:MotionSystem|briar_v06:DrivingSystem|briar_v06:Fingers_R.ringCurl" 
+		5 4 "briar_v06RN" "|BriarRig:Group|BriarRig:MotionSystem|BriarRig:RootSystem|BriarRig:RootFollowMain|BriarRig:RootOffsetX_M|BriarRig:RootExtraX_M|BriarRig:RootX_M.translateZ" 
 		"briar_v06RN.placeHolderList[235]" ""
-		5 4 "briar_v06RN" "|briar_v06:Group|briar_v06:MotionSystem|briar_v06:DrivingSystem|briar_v06:Fingers_R.pinkyCurl" 
+		5 4 "briar_v06RN" "|BriarRig:Group|BriarRig:MotionSystem|BriarRig:RootSystem|BriarRig:RootFollowMain|BriarRig:RootOffsetX_M|BriarRig:RootExtraX_M|BriarRig:RootX_M.rotateX" 
 		"briar_v06RN.placeHolderList[236]" ""
-		5 4 "briar_v06RN" "|briar_v06:Group|briar_v06:MotionSystem|briar_v06:DrivingSystem|briar_v06:Fingers_R.thumbCurl" 
+		5 4 "briar_v06RN" "|BriarRig:Group|BriarRig:MotionSystem|BriarRig:RootSystem|BriarRig:RootFollowMain|BriarRig:RootOffsetX_M|BriarRig:RootExtraX_M|BriarRig:RootX_M.rotateY" 
 		"briar_v06RN.placeHolderList[237]" ""
-		5 4 "briar_v06RN" "|briar_v06:Group|briar_v06:MotionSystem|briar_v06:DrivingSystem|briar_v06:Fingers_L.spread" 
+		5 4 "briar_v06RN" "|BriarRig:Group|BriarRig:MotionSystem|BriarRig:RootSystem|BriarRig:RootFollowMain|BriarRig:RootOffsetX_M|BriarRig:RootExtraX_M|BriarRig:RootX_M.rotateZ" 
 		"briar_v06RN.placeHolderList[238]" ""
-		5 4 "briar_v06RN" "|briar_v06:Group|briar_v06:MotionSystem|briar_v06:DrivingSystem|briar_v06:Fingers_L.cup" 
+		5 4 "briar_v06RN" "|BriarRig:Group|BriarRig:MotionSystem|BriarRig:RootSystem|BriarRig:RootFollowMain|BriarRig:RootOffsetX_M|BriarRig:RootExtraX_M|BriarRig:RootX_M.visibility" 
 		"briar_v06RN.placeHolderList[239]" ""
-		5 4 "briar_v06RN" "|briar_v06:Group|briar_v06:MotionSystem|briar_v06:DrivingSystem|briar_v06:Fingers_L.indexCurl" 
+		5 4 "briar_v06RN" "|BriarRig:Group|BriarRig:MotionSystem|BriarRig:DrivingSystem|BriarRig:Fingers_R.spread" 
 		"briar_v06RN.placeHolderList[240]" ""
-		5 4 "briar_v06RN" "|briar_v06:Group|briar_v06:MotionSystem|briar_v06:DrivingSystem|briar_v06:Fingers_L.middleCurl" 
+		5 4 "briar_v06RN" "|BriarRig:Group|BriarRig:MotionSystem|BriarRig:DrivingSystem|BriarRig:Fingers_R.cup" 
 		"briar_v06RN.placeHolderList[241]" ""
-		5 4 "briar_v06RN" "|briar_v06:Group|briar_v06:MotionSystem|briar_v06:DrivingSystem|briar_v06:Fingers_L.ringCurl" 
+		5 4 "briar_v06RN" "|BriarRig:Group|BriarRig:MotionSystem|BriarRig:DrivingSystem|BriarRig:Fingers_R.indexCurl" 
 		"briar_v06RN.placeHolderList[242]" ""
-		5 4 "briar_v06RN" "|briar_v06:Group|briar_v06:MotionSystem|briar_v06:DrivingSystem|briar_v06:Fingers_L.pinkyCurl" 
+		5 4 "briar_v06RN" "|BriarRig:Group|BriarRig:MotionSystem|BriarRig:DrivingSystem|BriarRig:Fingers_R.middleCurl" 
 		"briar_v06RN.placeHolderList[243]" ""
-		5 4 "briar_v06RN" "|briar_v06:Group|briar_v06:MotionSystem|briar_v06:DrivingSystem|briar_v06:Fingers_L.thumbCurl" 
+		5 4 "briar_v06RN" "|BriarRig:Group|BriarRig:MotionSystem|BriarRig:DrivingSystem|BriarRig:Fingers_R.ringCurl" 
 		"briar_v06RN.placeHolderList[244]" ""
-		5 4 "briar_v06RN" "|briar_v06:Group|briar_v06:FaceGroup|briar_v06:FaceMotionSystem|briar_v06:ControlsSetup|briar_v06:ctrlBoxOffset|briar_v06:ctrlBox|briar_v06:ctrlBoxEye_R|briar_v06:ctrlEye_R.translateX" 
+		5 4 "briar_v06RN" "|BriarRig:Group|BriarRig:MotionSystem|BriarRig:DrivingSystem|BriarRig:Fingers_R.pinkyCurl" 
 		"briar_v06RN.placeHolderList[245]" ""
-		5 4 "briar_v06RN" "|briar_v06:Group|briar_v06:FaceGroup|briar_v06:FaceMotionSystem|briar_v06:ControlsSetup|briar_v06:ctrlBoxOffset|briar_v06:ctrlBox|briar_v06:ctrlBoxEye_R|briar_v06:ctrlEye_R.translateY" 
+		5 4 "briar_v06RN" "|BriarRig:Group|BriarRig:MotionSystem|BriarRig:DrivingSystem|BriarRig:Fingers_R.thumbCurl" 
 		"briar_v06RN.placeHolderList[246]" ""
-		5 4 "briar_v06RN" "|briar_v06:Group|briar_v06:FaceGroup|briar_v06:FaceMotionSystem|briar_v06:ControlsSetup|briar_v06:ctrlBoxOffset|briar_v06:ctrlBox|briar_v06:ctrlBoxEye_R|briar_v06:ctrlEye_R.wide" 
+		5 4 "briar_v06RN" "|BriarRig:Group|BriarRig:MotionSystem|BriarRig:DrivingSystem|BriarRig:Fingers_L.spread" 
 		"briar_v06RN.placeHolderList[247]" ""
-		5 4 "briar_v06RN" "|briar_v06:Group|briar_v06:FaceGroup|briar_v06:FaceMotionSystem|briar_v06:ControlsSetup|briar_v06:ctrlBoxOffset|briar_v06:ctrlBox|briar_v06:ctrlBoxEye_R|briar_v06:ctrlEye_R.blink" 
+		5 4 "briar_v06RN" "|BriarRig:Group|BriarRig:MotionSystem|BriarRig:DrivingSystem|BriarRig:Fingers_L.cup" 
 		"briar_v06RN.placeHolderList[248]" ""
-		5 4 "briar_v06RN" "|briar_v06:Group|briar_v06:FaceGroup|briar_v06:FaceMotionSystem|briar_v06:ControlsSetup|briar_v06:ctrlBoxOffset|briar_v06:ctrlBox|briar_v06:ctrlBoxEye_R|briar_v06:ctrlEye_R.squint" 
+		5 4 "briar_v06RN" "|BriarRig:Group|BriarRig:MotionSystem|BriarRig:DrivingSystem|BriarRig:Fingers_L.indexCurl" 
 		"briar_v06RN.placeHolderList[249]" ""
-		5 4 "briar_v06RN" "|briar_v06:Group|briar_v06:FaceGroup|briar_v06:FaceMotionSystem|briar_v06:ControlsSetup|briar_v06:ctrlBoxOffset|briar_v06:ctrlBox|briar_v06:ctrlBoxEye_L|briar_v06:ctrlEye_L.translateX" 
+		5 4 "briar_v06RN" "|BriarRig:Group|BriarRig:MotionSystem|BriarRig:DrivingSystem|BriarRig:Fingers_L.middleCurl" 
 		"briar_v06RN.placeHolderList[250]" ""
-		5 4 "briar_v06RN" "|briar_v06:Group|briar_v06:FaceGroup|briar_v06:FaceMotionSystem|briar_v06:ControlsSetup|briar_v06:ctrlBoxOffset|briar_v06:ctrlBox|briar_v06:ctrlBoxEye_L|briar_v06:ctrlEye_L.translateY" 
+		5 4 "briar_v06RN" "|BriarRig:Group|BriarRig:MotionSystem|BriarRig:DrivingSystem|BriarRig:Fingers_L.ringCurl" 
 		"briar_v06RN.placeHolderList[251]" ""
-		5 4 "briar_v06RN" "|briar_v06:Group|briar_v06:FaceGroup|briar_v06:FaceMotionSystem|briar_v06:ControlsSetup|briar_v06:ctrlBoxOffset|briar_v06:ctrlBox|briar_v06:ctrlBoxEye_L|briar_v06:ctrlEye_L.wide" 
+		5 4 "briar_v06RN" "|BriarRig:Group|BriarRig:MotionSystem|BriarRig:DrivingSystem|BriarRig:Fingers_L.pinkyCurl" 
 		"briar_v06RN.placeHolderList[252]" ""
-		5 4 "briar_v06RN" "|briar_v06:Group|briar_v06:FaceGroup|briar_v06:FaceMotionSystem|briar_v06:ControlsSetup|briar_v06:ctrlBoxOffset|briar_v06:ctrlBox|briar_v06:ctrlBoxEye_L|briar_v06:ctrlEye_L.blink" 
+		5 4 "briar_v06RN" "|BriarRig:Group|BriarRig:MotionSystem|BriarRig:DrivingSystem|BriarRig:Fingers_L.thumbCurl" 
 		"briar_v06RN.placeHolderList[253]" ""
-		5 4 "briar_v06RN" "|briar_v06:Group|briar_v06:FaceGroup|briar_v06:FaceMotionSystem|briar_v06:ControlsSetup|briar_v06:ctrlBoxOffset|briar_v06:ctrlBox|briar_v06:ctrlBoxEye_L|briar_v06:ctrlEye_L.squint" 
+		5 4 "briar_v06RN" "|BriarRig:Group|BriarRig:FaceGroup|BriarRig:FaceMotionSystem|BriarRig:ControlsSetup|BriarRig:ctrlBoxOffset|BriarRig:ctrlBox|BriarRig:ctrlBoxEye_R|BriarRig:ctrlEye_R.translateX" 
 		"briar_v06RN.placeHolderList[254]" ""
-		5 4 "briar_v06RN" "|briar_v06:Group|briar_v06:FaceGroup|briar_v06:FaceMotionSystem|briar_v06:ControlsSetup|briar_v06:ctrlBoxOffset|briar_v06:ctrlBox|briar_v06:ctrlBoxLips_M|briar_v06:ctrlLips_M.translateX" 
+		5 4 "briar_v06RN" "|BriarRig:Group|BriarRig:FaceGroup|BriarRig:FaceMotionSystem|BriarRig:ControlsSetup|BriarRig:ctrlBoxOffset|BriarRig:ctrlBox|BriarRig:ctrlBoxEye_R|BriarRig:ctrlEye_R.translateY" 
 		"briar_v06RN.placeHolderList[255]" ""
-		5 4 "briar_v06RN" "|briar_v06:Group|briar_v06:FaceGroup|briar_v06:FaceMotionSystem|briar_v06:ControlsSetup|briar_v06:ctrlBoxOffset|briar_v06:ctrlBox|briar_v06:ctrlBoxLips_M|briar_v06:ctrlLips_M.translateY" 
+		5 4 "briar_v06RN" "|BriarRig:Group|BriarRig:FaceGroup|BriarRig:FaceMotionSystem|BriarRig:ControlsSetup|BriarRig:ctrlBoxOffset|BriarRig:ctrlBox|BriarRig:ctrlBoxEye_R|BriarRig:ctrlEye_R.wide" 
 		"briar_v06RN.placeHolderList[256]" ""
-		5 4 "briar_v06RN" "|briar_v06:Group|briar_v06:FaceGroup|briar_v06:FaceMotionSystem|briar_v06:ControlsSetup|briar_v06:ctrlBoxOffset|briar_v06:ctrlBox|briar_v06:ctrlBoxLips_M|briar_v06:ctrlLips_M.upperPress" 
+		5 4 "briar_v06RN" "|BriarRig:Group|BriarRig:FaceGroup|BriarRig:FaceMotionSystem|BriarRig:ControlsSetup|BriarRig:ctrlBoxOffset|BriarRig:ctrlBox|BriarRig:ctrlBoxEye_R|BriarRig:ctrlEye_R.blink" 
 		"briar_v06RN.placeHolderList[257]" ""
-		5 4 "briar_v06RN" "|briar_v06:Group|briar_v06:FaceGroup|briar_v06:FaceMotionSystem|briar_v06:ControlsSetup|briar_v06:ctrlBoxOffset|briar_v06:ctrlBox|briar_v06:ctrlBoxLips_M|briar_v06:ctrlLips_M.lowerPress" 
+		5 4 "briar_v06RN" "|BriarRig:Group|BriarRig:FaceGroup|BriarRig:FaceMotionSystem|BriarRig:ControlsSetup|BriarRig:ctrlBoxOffset|BriarRig:ctrlBox|BriarRig:ctrlBoxEye_R|BriarRig:ctrlEye_R.squint" 
 		"briar_v06RN.placeHolderList[258]" ""
-		5 4 "briar_v06RN" "|briar_v06:Group|briar_v06:FaceGroup|briar_v06:FaceMotionSystem|briar_v06:ControlsSetup|briar_v06:ctrlBoxOffset|briar_v06:ctrlBox|briar_v06:ctrlBoxLips_M|briar_v06:ctrlLips_M.upperSqueeze" 
+		5 4 "briar_v06RN" "|BriarRig:Group|BriarRig:FaceGroup|BriarRig:FaceMotionSystem|BriarRig:ControlsSetup|BriarRig:ctrlBoxOffset|BriarRig:ctrlBox|BriarRig:ctrlBoxEye_L|BriarRig:ctrlEye_L.translateX" 
 		"briar_v06RN.placeHolderList[259]" ""
-		5 4 "briar_v06RN" "|briar_v06:Group|briar_v06:FaceGroup|briar_v06:FaceMotionSystem|briar_v06:ControlsSetup|briar_v06:ctrlBoxOffset|briar_v06:ctrlBox|briar_v06:ctrlBoxLips_M|briar_v06:ctrlLips_M.lowerSqueeze" 
+		5 4 "briar_v06RN" "|BriarRig:Group|BriarRig:FaceGroup|BriarRig:FaceMotionSystem|BriarRig:ControlsSetup|BriarRig:ctrlBoxOffset|BriarRig:ctrlBox|BriarRig:ctrlBoxEye_L|BriarRig:ctrlEye_L.translateY" 
 		"briar_v06RN.placeHolderList[260]" ""
-		5 4 "briar_v06RN" "|briar_v06:Group|briar_v06:FaceGroup|briar_v06:FaceMotionSystem|briar_v06:ControlsSetup|briar_v06:ctrlBoxOffset|briar_v06:ctrlBox|briar_v06:ctrlBoxLips_M|briar_v06:ctrlLips_M.upperRoll" 
+		5 4 "briar_v06RN" "|BriarRig:Group|BriarRig:FaceGroup|BriarRig:FaceMotionSystem|BriarRig:ControlsSetup|BriarRig:ctrlBoxOffset|BriarRig:ctrlBox|BriarRig:ctrlBoxEye_L|BriarRig:ctrlEye_L.wide" 
 		"briar_v06RN.placeHolderList[261]" ""
-		5 4 "briar_v06RN" "|briar_v06:Group|briar_v06:FaceGroup|briar_v06:FaceMotionSystem|briar_v06:ControlsSetup|briar_v06:ctrlBoxOffset|briar_v06:ctrlBox|briar_v06:ctrlBoxLips_M|briar_v06:ctrlLips_M.lowerRoll" 
+		5 4 "briar_v06RN" "|BriarRig:Group|BriarRig:FaceGroup|BriarRig:FaceMotionSystem|BriarRig:ControlsSetup|BriarRig:ctrlBoxOffset|BriarRig:ctrlBox|BriarRig:ctrlBoxEye_L|BriarRig:ctrlEye_L.blink" 
 		"briar_v06RN.placeHolderList[262]" ""
-		5 4 "briar_v06RN" "|briar_v06:Group|briar_v06:FaceGroup|briar_v06:FaceMotionSystem|briar_v06:ControlsSetup|briar_v06:ctrlBoxOffset|briar_v06:ctrlBox|briar_v06:ctrlBoxLips_M|briar_v06:ctrlLips_M.upperPucker" 
+		5 4 "briar_v06RN" "|BriarRig:Group|BriarRig:FaceGroup|BriarRig:FaceMotionSystem|BriarRig:ControlsSetup|BriarRig:ctrlBoxOffset|BriarRig:ctrlBox|BriarRig:ctrlBoxEye_L|BriarRig:ctrlEye_L.squint" 
 		"briar_v06RN.placeHolderList[263]" ""
-		5 4 "briar_v06RN" "|briar_v06:Group|briar_v06:FaceGroup|briar_v06:FaceMotionSystem|briar_v06:ControlsSetup|briar_v06:ctrlBoxOffset|briar_v06:ctrlBox|briar_v06:ctrlBoxLips_M|briar_v06:ctrlLips_M.lowerPucker" 
+		5 4 "briar_v06RN" "|BriarRig:Group|BriarRig:FaceGroup|BriarRig:FaceMotionSystem|BriarRig:ControlsSetup|BriarRig:ctrlBoxOffset|BriarRig:ctrlBox|BriarRig:ctrlBoxLips_M|BriarRig:ctrlLips_M.translateX" 
 		"briar_v06RN.placeHolderList[264]" ""
-		5 4 "briar_v06RN" "|briar_v06:Group|briar_v06:FaceGroup|briar_v06:FaceMotionSystem|briar_v06:ControlsSetup|briar_v06:ctrlBoxOffset|briar_v06:ctrlBox|briar_v06:ctrlBoxMouth_M|briar_v06:ctrlMouth_M.translateX" 
+		5 4 "briar_v06RN" "|BriarRig:Group|BriarRig:FaceGroup|BriarRig:FaceMotionSystem|BriarRig:ControlsSetup|BriarRig:ctrlBoxOffset|BriarRig:ctrlBox|BriarRig:ctrlBoxLips_M|BriarRig:ctrlLips_M.translateY" 
 		"briar_v06RN.placeHolderList[265]" ""
-		5 4 "briar_v06RN" "|briar_v06:Group|briar_v06:FaceGroup|briar_v06:FaceMotionSystem|briar_v06:ControlsSetup|briar_v06:ctrlBoxOffset|briar_v06:ctrlBox|briar_v06:ctrlBoxMouth_M|briar_v06:ctrlMouth_M.translateY" 
+		5 4 "briar_v06RN" "|BriarRig:Group|BriarRig:FaceGroup|BriarRig:FaceMotionSystem|BriarRig:ControlsSetup|BriarRig:ctrlBoxOffset|BriarRig:ctrlBox|BriarRig:ctrlBoxLips_M|BriarRig:ctrlLips_M.upperPress" 
 		"briar_v06RN.placeHolderList[266]" ""
-		5 4 "briar_v06RN" "|briar_v06:Group|briar_v06:FaceGroup|briar_v06:FaceMotionSystem|briar_v06:ControlsSetup|briar_v06:ctrlBoxOffset|briar_v06:ctrlBox|briar_v06:ctrlBoxMouth_M|briar_v06:ctrlMouth_M.jawForward" 
+		5 4 "briar_v06RN" "|BriarRig:Group|BriarRig:FaceGroup|BriarRig:FaceMotionSystem|BriarRig:ControlsSetup|BriarRig:ctrlBoxOffset|BriarRig:ctrlBox|BriarRig:ctrlBoxLips_M|BriarRig:ctrlLips_M.lowerPress" 
 		"briar_v06RN.placeHolderList[267]" ""
-		5 4 "briar_v06RN" "|briar_v06:Group|briar_v06:FaceGroup|briar_v06:FaceMotionSystem|briar_v06:ControlsSetup|briar_v06:ctrlBoxOffset|briar_v06:ctrlBox|briar_v06:ctrlBoxMouth_M|briar_v06:ctrlMouth_M.jawSide" 
+		5 4 "briar_v06RN" "|BriarRig:Group|BriarRig:FaceGroup|BriarRig:FaceMotionSystem|BriarRig:ControlsSetup|BriarRig:ctrlBoxOffset|BriarRig:ctrlBox|BriarRig:ctrlBoxLips_M|BriarRig:ctrlLips_M.upperSqueeze" 
 		"briar_v06RN.placeHolderList[268]" ""
-		5 4 "briar_v06RN" "|briar_v06:Group|briar_v06:FaceGroup|briar_v06:FaceMotionSystem|briar_v06:ControlsSetup|briar_v06:ctrlBoxOffset|briar_v06:ctrlBox|briar_v06:ctrlBoxEmotions_M|briar_v06:ctrlEmotions_M.happy" 
+		5 4 "briar_v06RN" "|BriarRig:Group|BriarRig:FaceGroup|BriarRig:FaceMotionSystem|BriarRig:ControlsSetup|BriarRig:ctrlBoxOffset|BriarRig:ctrlBox|BriarRig:ctrlBoxLips_M|BriarRig:ctrlLips_M.lowerSqueeze" 
 		"briar_v06RN.placeHolderList[269]" ""
-		5 4 "briar_v06RN" "|briar_v06:Group|briar_v06:FaceGroup|briar_v06:FaceMotionSystem|briar_v06:ControlsSetup|briar_v06:ctrlBoxOffset|briar_v06:ctrlBox|briar_v06:ctrlBoxEmotions_M|briar_v06:ctrlEmotions_M.angry" 
+		5 4 "briar_v06RN" "|BriarRig:Group|BriarRig:FaceGroup|BriarRig:FaceMotionSystem|BriarRig:ControlsSetup|BriarRig:ctrlBoxOffset|BriarRig:ctrlBox|BriarRig:ctrlBoxLips_M|BriarRig:ctrlLips_M.upperRoll" 
 		"briar_v06RN.placeHolderList[270]" ""
-		5 4 "briar_v06RN" "|briar_v06:Group|briar_v06:FaceGroup|briar_v06:FaceMotionSystem|briar_v06:ControlsSetup|briar_v06:ctrlBoxOffset|briar_v06:ctrlBox|briar_v06:ctrlBoxEmotions_M|briar_v06:ctrlEmotions_M.sad" 
+		5 4 "briar_v06RN" "|BriarRig:Group|BriarRig:FaceGroup|BriarRig:FaceMotionSystem|BriarRig:ControlsSetup|BriarRig:ctrlBoxOffset|BriarRig:ctrlBox|BriarRig:ctrlBoxLips_M|BriarRig:ctrlLips_M.lowerRoll" 
 		"briar_v06RN.placeHolderList[271]" ""
-		5 4 "briar_v06RN" "|briar_v06:Group|briar_v06:FaceGroup|briar_v06:FaceMotionSystem|briar_v06:ControlsSetup|briar_v06:ctrlBoxOffset|briar_v06:ctrlBox|briar_v06:ctrlBoxEmotions_M|briar_v06:ctrlEmotions_M.surprise" 
+		5 4 "briar_v06RN" "|BriarRig:Group|BriarRig:FaceGroup|BriarRig:FaceMotionSystem|BriarRig:ControlsSetup|BriarRig:ctrlBoxOffset|BriarRig:ctrlBox|BriarRig:ctrlBoxLips_M|BriarRig:ctrlLips_M.upperPucker" 
 		"briar_v06RN.placeHolderList[272]" ""
-		5 4 "briar_v06RN" "|briar_v06:Group|briar_v06:FaceGroup|briar_v06:FaceMotionSystem|briar_v06:ControlsSetup|briar_v06:ctrlBoxOffset|briar_v06:ctrlBox|briar_v06:ctrlBoxEmotions_M|briar_v06:ctrlEmotions_M.fear" 
+		5 4 "briar_v06RN" "|BriarRig:Group|BriarRig:FaceGroup|BriarRig:FaceMotionSystem|BriarRig:ControlsSetup|BriarRig:ctrlBoxOffset|BriarRig:ctrlBox|BriarRig:ctrlBoxLips_M|BriarRig:ctrlLips_M.lowerPucker" 
 		"briar_v06RN.placeHolderList[273]" ""
-		5 4 "briar_v06RN" "|briar_v06:Group|briar_v06:FaceGroup|briar_v06:FaceMotionSystem|briar_v06:ControlsSetup|briar_v06:ctrlBoxOffset|briar_v06:ctrlBox|briar_v06:ctrlBoxEmotions_M|briar_v06:ctrlEmotions_M.disgust" 
+		5 4 "briar_v06RN" "|BriarRig:Group|BriarRig:FaceGroup|BriarRig:FaceMotionSystem|BriarRig:ControlsSetup|BriarRig:ctrlBoxOffset|BriarRig:ctrlBox|BriarRig:ctrlBoxMouth_M|BriarRig:ctrlMouth_M.translateX" 
 		"briar_v06RN.placeHolderList[274]" ""
-		5 4 "briar_v06RN" "|briar_v06:Group|briar_v06:FaceGroup|briar_v06:FaceMotionSystem|briar_v06:ControlsSetup|briar_v06:ctrlBoxOffset|briar_v06:ctrlBox|briar_v06:ctrlBoxEmotions_M|briar_v06:ctrlEmotions_M.contempt" 
-		"briar_v06RN.placeHolderList[275]" "";
+		5 4 "briar_v06RN" "|BriarRig:Group|BriarRig:FaceGroup|BriarRig:FaceMotionSystem|BriarRig:ControlsSetup|BriarRig:ctrlBoxOffset|BriarRig:ctrlBox|BriarRig:ctrlBoxMouth_M|BriarRig:ctrlMouth_M.translateY" 
+		"briar_v06RN.placeHolderList[275]" ""
+		5 4 "briar_v06RN" "|BriarRig:Group|BriarRig:FaceGroup|BriarRig:FaceMotionSystem|BriarRig:ControlsSetup|BriarRig:ctrlBoxOffset|BriarRig:ctrlBox|BriarRig:ctrlBoxMouth_M|BriarRig:ctrlMouth_M.jawForward" 
+		"briar_v06RN.placeHolderList[276]" ""
+		5 4 "briar_v06RN" "|BriarRig:Group|BriarRig:FaceGroup|BriarRig:FaceMotionSystem|BriarRig:ControlsSetup|BriarRig:ctrlBoxOffset|BriarRig:ctrlBox|BriarRig:ctrlBoxMouth_M|BriarRig:ctrlMouth_M.jawSide" 
+		"briar_v06RN.placeHolderList[277]" ""
+		5 4 "briar_v06RN" "|BriarRig:Group|BriarRig:FaceGroup|BriarRig:FaceMotionSystem|BriarRig:ControlsSetup|BriarRig:ctrlBoxOffset|BriarRig:ctrlBox|BriarRig:ctrlBoxEmotions_M|BriarRig:ctrlEmotions_M.happy" 
+		"briar_v06RN.placeHolderList[278]" ""
+		5 4 "briar_v06RN" "|BriarRig:Group|BriarRig:FaceGroup|BriarRig:FaceMotionSystem|BriarRig:ControlsSetup|BriarRig:ctrlBoxOffset|BriarRig:ctrlBox|BriarRig:ctrlBoxEmotions_M|BriarRig:ctrlEmotions_M.angry" 
+		"briar_v06RN.placeHolderList[279]" ""
+		5 4 "briar_v06RN" "|BriarRig:Group|BriarRig:FaceGroup|BriarRig:FaceMotionSystem|BriarRig:ControlsSetup|BriarRig:ctrlBoxOffset|BriarRig:ctrlBox|BriarRig:ctrlBoxEmotions_M|BriarRig:ctrlEmotions_M.sad" 
+		"briar_v06RN.placeHolderList[280]" ""
+		5 4 "briar_v06RN" "|BriarRig:Group|BriarRig:FaceGroup|BriarRig:FaceMotionSystem|BriarRig:ControlsSetup|BriarRig:ctrlBoxOffset|BriarRig:ctrlBox|BriarRig:ctrlBoxEmotions_M|BriarRig:ctrlEmotions_M.surprise" 
+		"briar_v06RN.placeHolderList[281]" ""
+		5 4 "briar_v06RN" "|BriarRig:Group|BriarRig:FaceGroup|BriarRig:FaceMotionSystem|BriarRig:ControlsSetup|BriarRig:ctrlBoxOffset|BriarRig:ctrlBox|BriarRig:ctrlBoxEmotions_M|BriarRig:ctrlEmotions_M.fear" 
+		"briar_v06RN.placeHolderList[282]" ""
+		5 4 "briar_v06RN" "|BriarRig:Group|BriarRig:FaceGroup|BriarRig:FaceMotionSystem|BriarRig:ControlsSetup|BriarRig:ctrlBoxOffset|BriarRig:ctrlBox|BriarRig:ctrlBoxEmotions_M|BriarRig:ctrlEmotions_M.disgust" 
+		"briar_v06RN.placeHolderList[283]" ""
+		5 4 "briar_v06RN" "|BriarRig:Group|BriarRig:FaceGroup|BriarRig:FaceMotionSystem|BriarRig:ControlsSetup|BriarRig:ctrlBoxOffset|BriarRig:ctrlBox|BriarRig:ctrlBoxEmotions_M|BriarRig:ctrlEmotions_M.contempt" 
+		"briar_v06RN.placeHolderList[284]" "";
 	setAttr ".ptag" -type "string" "";
 lockNode -l 1 ;
 createNode animCurveTA -n "FKShoulder_R_rotateX";
@@ -1468,8 +1510,8 @@ createNode animCurveTL -n "IKLeg_L_translateX";
 	setAttr ".wgt" no;
 	setAttr -s 7 ".ktv[0:6]"  1 0.013680365906732272 60 0.013680365906732272
 		 61 -0.18612640835002481 68 -0.10133012828580709 76 0 84 -0.093063204175012404 92 -0.18612640835002481;
-	setAttr -s 7 ".kit[1:6]"  1 18 18 18 18 18;
-	setAttr -s 7 ".kot[1:6]"  1 18 18 18 18 18;
+	setAttr -s 7 ".kit[1:6]"  1 1 18 18 18 18;
+	setAttr -s 7 ".kot[1:6]"  1 1 18 18 18 18;
 	setAttr -s 7 ".kix[1:6]"  1 1 0.93717289607327081 1 0.94415618595527462 
 		1;
 	setAttr -s 7 ".kiy[1:6]"  0 0 0.34886525029821797 0 -0.32949824964996244 
@@ -1482,66 +1524,62 @@ createNode animCurveTL -n "IKLeg_L_translateY";
 	rename -uid "25B50C76-4235-EEEF-CE22-09B56F792045";
 	setAttr ".tan" 18;
 	setAttr ".wgt" no;
-	setAttr -s 7 ".ktv[0:6]"  1 0 60 0 61 2.1875973835892921 68 1.8636899334607395
+	setAttr -s 7 ".ktv[0:6]"  1 0 60 0 61 2.1875973835892921 68 2.0571851687405269
 		 76 0 84 0 92 2.1875973835892921;
-	setAttr -s 7 ".kit[1:6]"  1 18 18 18 18 18;
-	setAttr -s 7 ".kot[1:6]"  1 18 18 18 18 18;
-	setAttr -s 7 ".kix[1:6]"  1 1 0.23348646069220547 1 1 1;
-	setAttr -s 7 ".kiy[1:6]"  0 0 -0.9723600530016786 0 0 0;
-	setAttr -s 7 ".kox[1:6]"  1 1 0.23348646069220549 1 1 1;
-	setAttr -s 7 ".koy[1:6]"  0 0 -0.9723600530016786 0 0 0;
+	setAttr -s 7 ".kit[1:6]"  1 1 18 18 18 18;
+	setAttr -s 7 ".kot[1:6]"  1 1 18 18 18 18;
+	setAttr -s 7 ".kix[1:6]"  1 1 0.51222018395147617 1 1 1;
+	setAttr -s 7 ".kiy[1:6]"  0 0 -0.85885416873455056 0 0 0;
+	setAttr -s 7 ".kox[1:6]"  1 1 0.51222018395147617 1 1 1;
+	setAttr -s 7 ".koy[1:6]"  0 0 -0.85885416873455056 0 0 0;
 createNode animCurveTL -n "IKLeg_L_translateZ";
 	rename -uid "03CB4A77-41CD-48AF-6618-DBB54AE71375";
 	setAttr ".tan" 18;
 	setAttr ".wgt" no;
 	setAttr -s 7 ".ktv[0:6]"  1 -0.78599442814600717 60 -0.78599442814600717
-		 61 -5.468420097673941 68 -2.8460094786845489 76 1.745600320935276 84 -2.5183291745770804
+		 61 -5.468420097673941 68 1.0435834695386967 76 1.745600320935276 84 -2.5183291745770804
 		 92 -5.468420097673941;
-	setAttr -s 7 ".kit[1:6]"  1 18 18 18 18 18;
-	setAttr -s 7 ".kot[1:6]"  1 18 18 18 18 18;
-	setAttr -s 7 ".kix[1:6]"  1 1 0.06914360227327021 1 0.073728897393850329 
+	setAttr -s 7 ".kit[1:6]"  1 1 18 18 18 18;
+	setAttr -s 7 ".kot[1:6]"  1 1 18 18 18 18;
+	setAttr -s 7 ".kix[1:6]"  1 1 0.12561634452924864 1 0.073728897393850329 
 		1;
-	setAttr -s 7 ".kiy[1:6]"  0 0 0.99760671723113192 0 -0.99727832107646208 
+	setAttr -s 7 ".kiy[1:6]"  0 0 0.99207889504167412 0 -0.99727832107646208 
 		0;
-	setAttr -s 7 ".kox[1:6]"  1 1 0.06914360227327021 1 0.073728897393850315 
+	setAttr -s 7 ".kox[1:6]"  1 1 0.12561634452924861 1 0.073728897393850315 
 		1;
-	setAttr -s 7 ".koy[1:6]"  0 0 0.99760671723113203 0 -0.99727832107646208 
+	setAttr -s 7 ".koy[1:6]"  0 0 0.99207889504167412 0 -0.99727832107646208 
 		0;
 createNode animCurveTA -n "IKLeg_L_rotateX";
 	rename -uid "BFABF103-4015-740F-1D51-28B74B593EF8";
 	setAttr ".tan" 18;
 	setAttr ".wgt" no;
-	setAttr -s 7 ".ktv[0:6]"  1 0 60 0 61 70.749213140470246 68 65.36160398458415
+	setAttr -s 7 ".ktv[0:6]"  1 0 60 0 61 70.749213140470246 68 42.360134255028207
 		 76 0 84 0 92 70.749213140470246;
-	setAttr -s 7 ".kit[1:6]"  1 18 18 18 18 18;
-	setAttr -s 7 ".kot[1:6]"  1 18 18 18 18 18;
-	setAttr -s 7 ".kix[1:6]"  1 1 0.63736628964644293 1 1 1;
-	setAttr -s 7 ".kiy[1:6]"  0 0 -0.77056097281287661 0 0 0;
-	setAttr -s 7 ".kox[1:6]"  1 1 0.63736628964644282 1 1 1;
-	setAttr -s 7 ".koy[1:6]"  0 0 -0.7705609728128765 0 0 0;
+	setAttr -s 7 ".kit[1:6]"  1 1 18 18 18 18;
+	setAttr -s 7 ".kot[1:6]"  1 1 18 18 18 18;
+	setAttr -s 7 ".kix[1:6]"  1 1 0.3753199963708545 1 1 1;
+	setAttr -s 7 ".kiy[1:6]"  0 0 -0.92689530170574386 0 0 0;
+	setAttr -s 7 ".kox[1:6]"  1 1 0.3753199963708545 1 1 1;
+	setAttr -s 7 ".koy[1:6]"  0 0 -0.92689530170574375 0 0 0;
 createNode animCurveTA -n "IKLeg_L_rotateY";
 	rename -uid "370FFAE5-40C1-0748-33C4-FCB4844D9BF0";
 	setAttr ".tan" 18;
 	setAttr ".wgt" no;
 	setAttr -s 7 ".ktv[0:6]"  1 25.976316818008463 60 25.976316818008463
 		 61 2.4434224450124273 68 0.33812582524568252 76 0 84 0 92 2.4434224450124273;
-	setAttr -s 7 ".kit[1:6]"  1 18 18 18 18 18;
-	setAttr -s 7 ".kot[1:6]"  1 18 18 18 18 18;
-	setAttr -s 7 ".kix[1:6]"  1 0.90417698239844924 0.99780338640562594 
-		1 1 1;
-	setAttr -s 7 ".kiy[1:6]"  0 -0.42715803223260845 -0.066245015491471326 
-		0 0 0;
-	setAttr -s 7 ".kox[1:6]"  1 0.90417698239844946 0.99780338640562571 
-		1 1 1;
-	setAttr -s 7 ".koy[1:6]"  0 -0.42715803223260856 -0.066245015491471312 
-		0 0 0;
+	setAttr -s 7 ".kit[1:6]"  1 1 18 18 18 18;
+	setAttr -s 7 ".kot[1:6]"  1 1 18 18 18 18;
+	setAttr -s 7 ".kix[1:6]"  1 1 0.99780338640562594 1 1 1;
+	setAttr -s 7 ".kiy[1:6]"  0 0 -0.066245015491471326 0 0 0;
+	setAttr -s 7 ".kox[1:6]"  1 1 0.99780338640562571 1 1 1;
+	setAttr -s 7 ".koy[1:6]"  0 0 -0.066245015491471312 0 0 0;
 createNode animCurveTA -n "IKLeg_L_rotateZ";
 	rename -uid "4B8B771F-4E5A-5440-5E3F-4183891D35B4";
 	setAttr ".tan" 18;
 	setAttr ".wgt" no;
 	setAttr -s 6 ".ktv[0:5]"  1 0 60 0 61 0 68 0 84 0 92 0;
-	setAttr -s 6 ".kit[1:5]"  1 18 18 18 18;
-	setAttr -s 6 ".kot[1:5]"  1 18 18 18 18;
+	setAttr -s 6 ".kit[1:5]"  1 1 18 18 18;
+	setAttr -s 6 ".kot[1:5]"  1 1 18 18 18;
 	setAttr -s 6 ".kix[1:5]"  1 1 1 1 1;
 	setAttr -s 6 ".kiy[1:5]"  0 0 0 0 0;
 	setAttr -s 6 ".kox[1:5]"  1 1 1 1 1;
@@ -1551,8 +1589,8 @@ createNode animCurveTU -n "IKLeg_L_scaleX";
 	setAttr ".tan" 18;
 	setAttr ".wgt" no;
 	setAttr -s 6 ".ktv[0:5]"  1 1 60 1 61 1 68 1 84 1 92 1;
-	setAttr -s 6 ".kit[1:5]"  1 18 18 18 18;
-	setAttr -s 6 ".kot[1:5]"  1 18 18 18 18;
+	setAttr -s 6 ".kit[1:5]"  1 1 18 18 18;
+	setAttr -s 6 ".kot[1:5]"  1 1 18 18 18;
 	setAttr -s 6 ".kix[1:5]"  1 1 1 1 1;
 	setAttr -s 6 ".kiy[1:5]"  0 0 0 0 0;
 	setAttr -s 6 ".kox[1:5]"  1 1 1 1 1;
@@ -1562,8 +1600,8 @@ createNode animCurveTU -n "IKLeg_L_scaleY";
 	setAttr ".tan" 18;
 	setAttr ".wgt" no;
 	setAttr -s 6 ".ktv[0:5]"  1 1 60 1 61 1 68 1 84 1 92 1;
-	setAttr -s 6 ".kit[1:5]"  1 18 18 18 18;
-	setAttr -s 6 ".kot[1:5]"  1 18 18 18 18;
+	setAttr -s 6 ".kit[1:5]"  1 1 18 18 18;
+	setAttr -s 6 ".kot[1:5]"  1 1 18 18 18;
 	setAttr -s 6 ".kix[1:5]"  1 1 1 1 1;
 	setAttr -s 6 ".kiy[1:5]"  0 0 0 0 0;
 	setAttr -s 6 ".kox[1:5]"  1 1 1 1 1;
@@ -1573,8 +1611,8 @@ createNode animCurveTU -n "IKLeg_L_scaleZ";
 	setAttr ".tan" 18;
 	setAttr ".wgt" no;
 	setAttr -s 6 ".ktv[0:5]"  1 1 60 1 61 1 68 1 84 1 92 1;
-	setAttr -s 6 ".kit[1:5]"  1 18 18 18 18;
-	setAttr -s 6 ".kot[1:5]"  1 18 18 18 18;
+	setAttr -s 6 ".kit[1:5]"  1 1 18 18 18;
+	setAttr -s 6 ".kot[1:5]"  1 1 18 18 18;
 	setAttr -s 6 ".kix[1:5]"  1 1 1 1 1;
 	setAttr -s 6 ".kiy[1:5]"  0 0 0 0 0;
 	setAttr -s 6 ".kox[1:5]"  1 1 1 1 1;
@@ -1584,8 +1622,8 @@ createNode animCurveTU -n "IKLeg_L_followMain";
 	setAttr ".tan" 18;
 	setAttr ".wgt" no;
 	setAttr -s 6 ".ktv[0:5]"  1 10 60 10 61 10 68 10 84 10 92 10;
-	setAttr -s 6 ".kit[1:5]"  1 18 18 18 18;
-	setAttr -s 6 ".kot[1:5]"  1 18 18 18 18;
+	setAttr -s 6 ".kit[1:5]"  1 1 18 18 18;
+	setAttr -s 6 ".kot[1:5]"  1 1 18 18 18;
 	setAttr -s 6 ".kix[1:5]"  1 1 1 1 1;
 	setAttr -s 6 ".kiy[1:5]"  0 0 0 0 0;
 	setAttr -s 6 ".kox[1:5]"  1 1 1 1 1;
@@ -1595,8 +1633,8 @@ createNode animCurveTU -n "IKLeg_L_followRoot";
 	setAttr ".tan" 18;
 	setAttr ".wgt" no;
 	setAttr -s 6 ".ktv[0:5]"  1 0 60 0 61 0 68 0 84 0 92 0;
-	setAttr -s 6 ".kit[1:5]"  1 18 18 18 18;
-	setAttr -s 6 ".kot[1:5]"  1 18 18 18 18;
+	setAttr -s 6 ".kit[1:5]"  1 1 18 18 18;
+	setAttr -s 6 ".kot[1:5]"  1 1 18 18 18;
 	setAttr -s 6 ".kix[1:5]"  1 1 1 1 1;
 	setAttr -s 6 ".kiy[1:5]"  0 0 0 0 0;
 	setAttr -s 6 ".kox[1:5]"  1 1 1 1 1;
@@ -1606,8 +1644,8 @@ createNode animCurveTU -n "IKLeg_L_swivel";
 	setAttr ".tan" 18;
 	setAttr ".wgt" no;
 	setAttr -s 6 ".ktv[0:5]"  1 0 60 0 61 0 68 0 84 0 92 0;
-	setAttr -s 6 ".kit[1:5]"  1 18 18 18 18;
-	setAttr -s 6 ".kot[1:5]"  1 18 18 18 18;
+	setAttr -s 6 ".kit[1:5]"  1 1 18 18 18;
+	setAttr -s 6 ".kot[1:5]"  1 1 18 18 18;
 	setAttr -s 6 ".kix[1:5]"  1 1 1 1 1;
 	setAttr -s 6 ".kiy[1:5]"  0 0 0 0 0;
 	setAttr -s 6 ".kox[1:5]"  1 1 1 1 1;
@@ -1617,8 +1655,8 @@ createNode animCurveTU -n "IKLeg_L_roll";
 	setAttr ".tan" 18;
 	setAttr ".wgt" no;
 	setAttr -s 9 ".ktv[0:8]"  1 0 15 0 31 0 46 0 60 0 61 0 68 0 84 0 92 0;
-	setAttr -s 9 ".kit[4:8]"  1 18 18 18 18;
-	setAttr -s 9 ".kot[4:8]"  1 18 18 18 18;
+	setAttr -s 9 ".kit[4:8]"  1 1 18 18 18;
+	setAttr -s 9 ".kot[4:8]"  1 1 18 18 18;
 	setAttr -s 9 ".kix[4:8]"  1 1 1 1 1;
 	setAttr -s 9 ".kiy[4:8]"  0 0 0 0 0;
 	setAttr -s 9 ".kox[4:8]"  1 1 1 1 1;
@@ -1628,8 +1666,8 @@ createNode animCurveTU -n "IKLeg_L_rollStartAngle";
 	setAttr ".tan" 18;
 	setAttr ".wgt" no;
 	setAttr -s 6 ".ktv[0:5]"  1 30 60 30 61 30 68 30 84 30 92 30;
-	setAttr -s 6 ".kit[1:5]"  1 18 18 18 18;
-	setAttr -s 6 ".kot[1:5]"  1 18 18 18 18;
+	setAttr -s 6 ".kit[1:5]"  1 1 18 18 18;
+	setAttr -s 6 ".kot[1:5]"  1 1 18 18 18;
 	setAttr -s 6 ".kix[1:5]"  1 1 1 1 1;
 	setAttr -s 6 ".kiy[1:5]"  0 0 0 0 0;
 	setAttr -s 6 ".kox[1:5]"  1 1 1 1 1;
@@ -1639,8 +1677,8 @@ createNode animCurveTU -n "IKLeg_L_rollEndAngle";
 	setAttr ".tan" 18;
 	setAttr ".wgt" no;
 	setAttr -s 6 ".ktv[0:5]"  1 60 60 60 61 60 68 60 84 60 92 60;
-	setAttr -s 6 ".kit[1:5]"  1 18 18 18 18;
-	setAttr -s 6 ".kot[1:5]"  1 18 18 18 18;
+	setAttr -s 6 ".kit[1:5]"  1 1 18 18 18;
+	setAttr -s 6 ".kot[1:5]"  1 1 18 18 18;
 	setAttr -s 6 ".kix[1:5]"  1 1 1 1 1;
 	setAttr -s 6 ".kiy[1:5]"  0 0 0 0 0;
 	setAttr -s 6 ".kox[1:5]"  1 1 1 1 1;
@@ -1650,8 +1688,8 @@ createNode animCurveTU -n "IKLeg_L_rock";
 	setAttr ".tan" 18;
 	setAttr ".wgt" no;
 	setAttr -s 6 ".ktv[0:5]"  1 0 60 0 61 0 68 0 84 0 92 0;
-	setAttr -s 6 ".kit[1:5]"  1 18 18 18 18;
-	setAttr -s 6 ".kot[1:5]"  1 18 18 18 18;
+	setAttr -s 6 ".kit[1:5]"  1 1 18 18 18;
+	setAttr -s 6 ".kot[1:5]"  1 1 18 18 18;
 	setAttr -s 6 ".kix[1:5]"  1 1 1 1 1;
 	setAttr -s 6 ".kiy[1:5]"  0 0 0 0 0;
 	setAttr -s 6 ".kox[1:5]"  1 1 1 1 1;
@@ -1661,8 +1699,8 @@ createNode animCurveTU -n "IKLeg_L_stretchy";
 	setAttr ".tan" 18;
 	setAttr ".wgt" no;
 	setAttr -s 6 ".ktv[0:5]"  1 0 60 0 61 0 68 0 84 0 92 0;
-	setAttr -s 6 ".kit[1:5]"  1 18 18 18 18;
-	setAttr -s 6 ".kot[1:5]"  1 18 18 18 18;
+	setAttr -s 6 ".kit[1:5]"  1 1 18 18 18;
+	setAttr -s 6 ".kot[1:5]"  1 1 18 18 18;
 	setAttr -s 6 ".kix[1:5]"  1 1 1 1 1;
 	setAttr -s 6 ".kiy[1:5]"  0 0 0 0 0;
 	setAttr -s 6 ".kox[1:5]"  1 1 1 1 1;
@@ -1672,8 +1710,8 @@ createNode animCurveTU -n "IKLeg_L_antiPop";
 	setAttr ".tan" 18;
 	setAttr ".wgt" no;
 	setAttr -s 6 ".ktv[0:5]"  1 0 60 0 61 0 68 0 84 0 92 0;
-	setAttr -s 6 ".kit[1:5]"  1 18 18 18 18;
-	setAttr -s 6 ".kot[1:5]"  1 18 18 18 18;
+	setAttr -s 6 ".kit[1:5]"  1 1 18 18 18;
+	setAttr -s 6 ".kot[1:5]"  1 1 18 18 18;
 	setAttr -s 6 ".kix[1:5]"  1 1 1 1 1;
 	setAttr -s 6 ".kiy[1:5]"  0 0 0 0 0;
 	setAttr -s 6 ".kox[1:5]"  1 1 1 1 1;
@@ -1683,8 +1721,8 @@ createNode animCurveTU -n "IKLeg_L_Lenght1";
 	setAttr ".tan" 18;
 	setAttr ".wgt" no;
 	setAttr -s 6 ".ktv[0:5]"  1 1 60 1 61 1 68 1 84 1 92 1;
-	setAttr -s 6 ".kit[1:5]"  1 18 18 18 18;
-	setAttr -s 6 ".kot[1:5]"  1 18 18 18 18;
+	setAttr -s 6 ".kit[1:5]"  1 1 18 18 18;
+	setAttr -s 6 ".kot[1:5]"  1 1 18 18 18;
 	setAttr -s 6 ".kix[1:5]"  1 1 1 1 1;
 	setAttr -s 6 ".kiy[1:5]"  0 0 0 0 0;
 	setAttr -s 6 ".kox[1:5]"  1 1 1 1 1;
@@ -1694,8 +1732,8 @@ createNode animCurveTU -n "IKLeg_L_Lenght2";
 	setAttr ".tan" 18;
 	setAttr ".wgt" no;
 	setAttr -s 6 ".ktv[0:5]"  1 1 60 1 61 1 68 1 84 1 92 1;
-	setAttr -s 6 ".kit[1:5]"  1 18 18 18 18;
-	setAttr -s 6 ".kot[1:5]"  1 18 18 18 18;
+	setAttr -s 6 ".kit[1:5]"  1 1 18 18 18;
+	setAttr -s 6 ".kot[1:5]"  1 1 18 18 18;
 	setAttr -s 6 ".kix[1:5]"  1 1 1 1 1;
 	setAttr -s 6 ".kiy[1:5]"  0 0 0 0 0;
 	setAttr -s 6 ".kox[1:5]"  1 1 1 1 1;
@@ -1705,8 +1743,8 @@ createNode animCurveTU -n "IKLeg_L_Fatness1";
 	setAttr ".tan" 18;
 	setAttr ".wgt" no;
 	setAttr -s 6 ".ktv[0:5]"  1 0 60 0 61 0 68 0 84 0 92 0;
-	setAttr -s 6 ".kit[1:5]"  1 18 18 18 18;
-	setAttr -s 6 ".kot[1:5]"  1 18 18 18 18;
+	setAttr -s 6 ".kit[1:5]"  1 1 18 18 18;
+	setAttr -s 6 ".kot[1:5]"  1 1 18 18 18;
 	setAttr -s 6 ".kix[1:5]"  1 1 1 1 1;
 	setAttr -s 6 ".kiy[1:5]"  0 0 0 0 0;
 	setAttr -s 6 ".kox[1:5]"  1 1 1 1 1;
@@ -1716,8 +1754,8 @@ createNode animCurveTU -n "IKLeg_L_Fatness2";
 	setAttr ".tan" 18;
 	setAttr ".wgt" no;
 	setAttr -s 6 ".ktv[0:5]"  1 0 60 0 61 0 68 0 84 0 92 0;
-	setAttr -s 6 ".kit[1:5]"  1 18 18 18 18;
-	setAttr -s 6 ".kot[1:5]"  1 18 18 18 18;
+	setAttr -s 6 ".kit[1:5]"  1 1 18 18 18;
+	setAttr -s 6 ".kot[1:5]"  1 1 18 18 18;
 	setAttr -s 6 ".kix[1:5]"  1 1 1 1 1;
 	setAttr -s 6 ".kiy[1:5]"  0 0 0 0 0;
 	setAttr -s 6 ".kox[1:5]"  1 1 1 1 1;
@@ -1727,8 +1765,8 @@ createNode animCurveTU -n "IKLeg_L_volume";
 	setAttr ".tan" 18;
 	setAttr ".wgt" no;
 	setAttr -s 6 ".ktv[0:5]"  1 10 60 10 61 10 68 10 84 10 92 10;
-	setAttr -s 6 ".kit[1:5]"  1 18 18 18 18;
-	setAttr -s 6 ".kot[1:5]"  1 18 18 18 18;
+	setAttr -s 6 ".kit[1:5]"  1 1 18 18 18;
+	setAttr -s 6 ".kot[1:5]"  1 1 18 18 18;
 	setAttr -s 6 ".kix[1:5]"  1 1 1 1 1;
 	setAttr -s 6 ".kiy[1:5]"  0 0 0 0 0;
 	setAttr -s 6 ".kox[1:5]"  1 1 1 1 1;
@@ -1767,16 +1805,17 @@ createNode animCurveTL -n "IKLeg_R_translateZ";
 	setAttr ".tan" 18;
 	setAttr ".wgt" no;
 	setAttr -s 7 ".ktv[0:6]"  1 0.88294572173492725 60 0.88294572173492725
-		 61 2.037 68 -2.6756573280565488 76 -6.0608713661412486 84 -4.1009819140432988 92 2.0373196847353596;
+		 61 2.9651929592100332 68 -2.6756573280565488 76 -6.0608713661412486 84 -4.1009819140432988
+		 92 2.0373196847353596;
 	setAttr -s 7 ".kit[0:6]"  1 1 18 18 18 18 1;
 	setAttr -s 7 ".kot[0:6]"  1 1 18 18 18 18 1;
-	setAttr -s 7 ".kix[0:6]"  1 1 1 0.061627259120478277 1 0.065715967969289968 
+	setAttr -s 7 ".kix[0:6]"  1 1 1 0.055310331058617705 1 0.065715967969289968 
 		0.44070527197854403;
-	setAttr -s 7 ".kiy[0:6]"  0 0 0 -0.99809923401097622 0 0.99783836945362026 
+	setAttr -s 7 ".kiy[0:6]"  0 0 0 -0.99846921198311667 0 0.99783836945362026 
 		-0.89765186082930704;
-	setAttr -s 7 ".kox[0:6]"  1 1 1 0.061627259120478277 1 0.065715967969289954 
+	setAttr -s 7 ".kox[0:6]"  1 1 1 0.055310331058617719 1 0.065715967969289954 
 		0.44070527197854403;
-	setAttr -s 7 ".koy[0:6]"  0 0 0 -0.99809923401097622 0 0.99783836945362026 
+	setAttr -s 7 ".koy[0:6]"  0 0 0 -0.99846921198311678 0 0.99783836945362026 
 		-0.89765186082930704;
 createNode animCurveTA -n "IKLeg_R_rotateX";
 	rename -uid "BBE67FFE-477B-A1ED-81A8-8381595587E3";
@@ -2015,40 +2054,39 @@ createNode animCurveTL -n "RootX_M_translateY";
 	setAttr ".tan" 1;
 	setAttr ".wgt" no;
 	setAttr -s 14 ".ktv[0:13]"  1 -0.059076853371038851 15 -0.1391585134205201
-		 31 -0.026513664982919849 46 -0.139 60 -0.059 61 -0.363 64 -0.44394684558694852 68 -0.77150142721135917
-		 72 -0.28750075904336264 76 -0.35415988171813845 80 -0.61549792499487144 84 -0.77150142721135917
-		 88 -0.28750075904336264 92 -0.36322542312250122;
+		 31 -0.026513664982919849 46 -0.139 60 -0.059 61 -0.59895532906424487 64 -0.44394684558694852
+		 68 -0.77150142721135917 72 -0.28750075904336264 76 -0.599 80 -0.61549792499487144
+		 84 -0.77150142721135917 88 -0.28750075904336264 92 -0.599;
 	setAttr -s 14 ".kit[3:13]"  18 1 18 18 18 18 18 1 
 		1 1 18;
 	setAttr -s 14 ".kot[3:13]"  18 1 18 18 18 18 18 1 
 		1 1 18;
-	setAttr -s 14 ".kix[0:13]"  1 1 1 1 1 0.38077206707815003 0.49598501294072878 
-		1 1 0.63083336612004559 1 1 0.43332971466365372 1;
-	setAttr -s 14 ".kiy[0:13]"  0 0 0 0 0 -0.92466893152794583 -0.86833108140742332 
-		0 0 -0.77591833603134575 0 0 0.90123546223476836 0;
-	setAttr -s 14 ".kox[0:13]"  1 1 1 1 1 0.38077206707814998 0.49598501294072872 
-		1 1 0.63083336612004559 1 1 0.43332971466365372 1;
-	setAttr -s 14 ".koy[0:13]"  0 0 0 0 0 -0.92466893152794583 -0.86833108140742321 
-		0 0 -0.77591833603134575 0 0 0.90123546223476836 0;
+	setAttr -s 14 ".kix[0:13]"  1 1 1 1 1 1 1 1 1 0.93749418223824843 1 
+		1 0.43332971466365372 1;
+	setAttr -s 14 ".kiy[0:13]"  0 0 0 0 0 0 0 0 0 -0.34800094578813706 
+		0 0 0.90123546223476836 0;
+	setAttr -s 14 ".kox[0:13]"  1 1 1 1 1 1 1 1 1 0.93749418223824843 1 
+		1 0.43332971466365372 1;
+	setAttr -s 14 ".koy[0:13]"  0 0 0 0 0 0 0 0 0 -0.34800094578813706 
+		0 0 0.90123546223476836 0;
 createNode animCurveTL -n "RootX_M_translateZ";
 	rename -uid "FF97EE7F-4659-5F4D-CC8E-78A86DFB6DE1";
 	setAttr ".tan" 18;
 	setAttr ".wgt" no;
-	setAttr -s 12 ".ktv[0:11]"  1 0 15 0.2 31 0 46 -0.2 60 0 61 -0.46198140212662941
-		 64 -0.3755070355581952 72 -0.32675132689874453 76 -0.46198140212662941 80 -0.46312466376061445
-		 88 -0.32675132689874453 92 -0.46198140212662941;
-	setAttr -s 12 ".kit[0:11]"  1 18 18 18 1 18 18 18 
-		18 1 1 18;
-	setAttr -s 12 ".kot[0:11]"  1 18 18 18 1 18 18 18 
-		18 1 1 18;
-	setAttr -s 12 ".kix[0:11]"  0.68601355074727821 1 0.93256809827408971 
-		1 0.92923863358514491 1 0.93822489972277046 1 0.99966931778511925 1 1 1;
-	setAttr -s 12 ".kiy[0:11]"  0.72758876310118448 0 -0.36099410255771214 
-		0 0.36948012375879263 0 0.34602606482777731 0 -0.025714880498153781 0 0 0;
-	setAttr -s 12 ".kox[0:11]"  0.68601367145491432 1 0.93256809827408971 
-		1 0.92923865231178226 1 0.93822489972277046 1 0.99966931778511925 1 1 1;
-	setAttr -s 12 ".koy[0:11]"  0.72758864929089495 0 -0.36099410255771214 
-		0 0.36948007666149291 0 0.34602606482777726 0 -0.025714880498153781 0 0 0;
+	setAttr -s 14 ".ktv[0:13]"  1 0 15 0.2 31 0 46 -0.2 60 0 61 0 64 0 68 0
+		 72 0 76 0 80 0 84 0 88 0 92 0;
+	setAttr -s 14 ".kit[0:13]"  1 18 18 18 1 18 18 18 
+		18 18 1 18 1 18;
+	setAttr -s 14 ".kot[0:13]"  1 18 18 18 1 18 18 18 
+		18 18 1 18 1 18;
+	setAttr -s 14 ".kix[0:13]"  0.68601355074727821 1 0.93256809827408971 
+		1 0.92923863358514491 1 1 1 1 1 1 1 1 1;
+	setAttr -s 14 ".kiy[0:13]"  0.72758876310118448 0 -0.36099410255771214 
+		0 0.36948012375879263 0 0 0 0 0 0 0 0 0;
+	setAttr -s 14 ".kox[0:13]"  0.68601367145491432 1 0.93256809827408971 
+		1 0.92923865231178226 1 1 1 1 1 1 1 1 1;
+	setAttr -s 14 ".koy[0:13]"  0.72758864929089495 0 -0.36099410255771214 
+		0 0.36948007666149291 0 0 0 0 0 0 0 0 0;
 createNode animCurveTU -n "RootX_M_visibility";
 	rename -uid "E51A6745-4B2F-A205-763C-85B4326D286C";
 	setAttr ".tan" 9;
@@ -2083,19 +2121,19 @@ createNode script -n "uiConfigurationScriptNode";
 	rename -uid "9DDA55DF-4CF7-61EC-EC4C-B383EB84F51F";
 	setAttr ".b" -type "string" (
 		"// Maya Mel UI Configuration File.\n//\n//  This script is machine generated.  Edit at your own risk.\n//\n//\n\nglobal string $gMainPane;\nif (`paneLayout -exists $gMainPane`) {\n\n\tglobal int $gUseScenePanelConfig;\n\tint    $useSceneConfig = $gUseScenePanelConfig;\n\tint    $nodeEditorPanelVisible = stringArrayContains(\"nodeEditorPanel1\", `getPanel -vis`);\n\tint    $nodeEditorWorkspaceControlOpen = (`workspaceControl -exists nodeEditorPanel1Window` && `workspaceControl -q -visible nodeEditorPanel1Window`);\n\tint    $menusOkayInPanels = `optionVar -q allowMenusInPanels`;\n\tint    $nVisPanes = `paneLayout -q -nvp $gMainPane`;\n\tint    $nPanes = 0;\n\tstring $editorName;\n\tstring $panelName;\n\tstring $itemFilterName;\n\tstring $panelConfig;\n\n\t//\n\t//  get current state of the UI\n\t//\n\tsceneUIReplacement -update $gMainPane;\n\n\t$panelName = `sceneUIReplacement -getNextPanel \"modelPanel\" (localizedPanelLabel(\"Top View\")) `;\n\tif (\"\" != $panelName) {\n\t\t$label = `panel -q -label $panelName`;\n\t\tmodelPanel -edit -l (localizedPanelLabel(\"Top View\")) -mbv $menusOkayInPanels  $panelName;\n"
-		+ "\t\t$editorName = $panelName;\n        modelEditor -e \n            -camera \"|top\" \n            -useInteractiveMode 0\n            -displayLights \"default\" \n            -displayAppearance \"smoothShaded\" \n            -activeOnly 0\n            -ignorePanZoom 0\n            -wireframeOnShaded 0\n            -headsUpDisplay 1\n            -holdOuts 1\n            -selectionHiliteDisplay 1\n            -useDefaultMaterial 0\n            -bufferMode \"double\" \n            -twoSidedLighting 0\n            -backfaceCulling 0\n            -xray 0\n            -jointXray 0\n            -activeComponentsXray 0\n            -displayTextures 0\n            -smoothWireframe 0\n            -lineWidth 1\n            -textureAnisotropic 0\n            -textureHilight 1\n            -textureSampling 2\n            -textureDisplay \"modulate\" \n            -textureMaxSize 32768\n            -fogging 0\n            -fogSource \"fragment\" \n            -fogMode \"linear\" \n            -fogStart 0\n            -fogEnd 100\n            -fogDensity 0.1\n            -fogColor 0.5 0.5 0.5 1 \n"
+		+ "\t\t$editorName = $panelName;\n        modelEditor -e \n            -camera \"|top\" \n            -useInteractiveMode 0\n            -displayLights \"default\" \n            -displayAppearance \"smoothShaded\" \n            -activeOnly 0\n            -ignorePanZoom 0\n            -wireframeOnShaded 0\n            -headsUpDisplay 1\n            -holdOuts 1\n            -selectionHiliteDisplay 1\n            -useDefaultMaterial 0\n            -bufferMode \"double\" \n            -twoSidedLighting 0\n            -backfaceCulling 0\n            -xray 0\n            -jointXray 0\n            -activeComponentsXray 0\n            -displayTextures 0\n            -smoothWireframe 0\n            -lineWidth 1\n            -textureAnisotropic 0\n            -textureHilight 1\n            -textureSampling 2\n            -textureDisplay \"modulate\" \n            -textureMaxSize 16384\n            -fogging 0\n            -fogSource \"fragment\" \n            -fogMode \"linear\" \n            -fogStart 0\n            -fogEnd 100\n            -fogDensity 0.1\n            -fogColor 0.5 0.5 0.5 1 \n"
 		+ "            -depthOfFieldPreview 1\n            -maxConstantTransparency 1\n            -rendererName \"vp2Renderer\" \n            -objectFilterShowInHUD 1\n            -isFiltered 0\n            -colorResolution 256 256 \n            -bumpResolution 512 512 \n            -textureCompression 0\n            -transparencyAlgorithm \"frontAndBackCull\" \n            -transpInShadows 0\n            -cullingOverride \"none\" \n            -lowQualityLighting 0\n            -maximumNumHardwareLights 1\n            -occlusionCulling 0\n            -shadingModel 0\n            -useBaseRenderer 0\n            -useReducedRenderer 0\n            -smallObjectCulling 0\n            -smallObjectThreshold -1 \n            -interactiveDisableShadows 0\n            -interactiveBackFaceCull 0\n            -sortTransparent 1\n            -controllers 1\n            -nurbsCurves 1\n            -nurbsSurfaces 1\n            -polymeshes 1\n            -subdivSurfaces 1\n            -planes 1\n            -lights 1\n            -cameras 1\n            -controlVertices 1\n"
-		+ "            -hulls 1\n            -grid 1\n            -imagePlane 1\n            -joints 1\n            -ikHandles 1\n            -deformers 1\n            -dynamics 1\n            -particleInstancers 1\n            -fluids 1\n            -hairSystems 1\n            -follicles 1\n            -nCloths 1\n            -nParticles 1\n            -nRigids 1\n            -dynamicConstraints 1\n            -locators 1\n            -manipulators 1\n            -pluginShapes 1\n            -dimensions 1\n            -handles 1\n            -pivots 1\n            -textures 1\n            -strokes 1\n            -motionTrails 1\n            -clipGhosts 1\n            -bluePencil 1\n            -greasePencils 0\n            -excludeObjectPreset \"All\" \n            -shadows 0\n            -captureSequenceNumber -1\n            -width 656\n            -height 333\n            -sceneRenderFilter 0\n            $editorName;\n        modelEditor -e -viewSelected 0 $editorName;\n        modelEditor -e \n            -pluginObjects \"gpuCacheDisplayFilter\" 1 \n            $editorName;\n"
+		+ "            -hulls 1\n            -grid 1\n            -imagePlane 1\n            -joints 1\n            -ikHandles 1\n            -deformers 1\n            -dynamics 1\n            -particleInstancers 1\n            -fluids 1\n            -hairSystems 1\n            -follicles 1\n            -nCloths 1\n            -nParticles 1\n            -nRigids 1\n            -dynamicConstraints 1\n            -locators 1\n            -manipulators 1\n            -pluginShapes 1\n            -dimensions 1\n            -handles 1\n            -pivots 1\n            -textures 1\n            -strokes 1\n            -motionTrails 1\n            -clipGhosts 1\n            -bluePencil 1\n            -greasePencils 0\n            -excludeObjectPreset \"All\" \n            -shadows 0\n            -captureSequenceNumber -1\n            -width 1070\n            -height 594\n            -sceneRenderFilter 0\n            $editorName;\n        modelEditor -e -viewSelected 0 $editorName;\n        modelEditor -e \n            -pluginObjects \"gpuCacheDisplayFilter\" 1 \n            $editorName;\n"
 		+ "\t\tif (!$useSceneConfig) {\n\t\t\tpanel -e -l $label $panelName;\n\t\t}\n\t}\n\n\n\t$panelName = `sceneUIReplacement -getNextPanel \"modelPanel\" (localizedPanelLabel(\"Side View\")) `;\n\tif (\"\" != $panelName) {\n\t\t$label = `panel -q -label $panelName`;\n\t\tmodelPanel -edit -l (localizedPanelLabel(\"Side View\")) -mbv $menusOkayInPanels  $panelName;\n\t\t$editorName = $panelName;\n        modelEditor -e \n            -camera \"|side\" \n            -useInteractiveMode 0\n            -displayLights \"default\" \n            -displayAppearance \"smoothShaded\" \n            -activeOnly 0\n            -ignorePanZoom 0\n            -wireframeOnShaded 0\n            -headsUpDisplay 1\n            -holdOuts 1\n            -selectionHiliteDisplay 1\n            -useDefaultMaterial 0\n            -bufferMode \"double\" \n            -twoSidedLighting 0\n            -backfaceCulling 0\n            -xray 0\n            -jointXray 0\n            -activeComponentsXray 0\n            -displayTextures 0\n            -smoothWireframe 0\n            -lineWidth 1\n            -textureAnisotropic 0\n"
-		+ "            -textureHilight 1\n            -textureSampling 2\n            -textureDisplay \"modulate\" \n            -textureMaxSize 32768\n            -fogging 0\n            -fogSource \"fragment\" \n            -fogMode \"linear\" \n            -fogStart 0\n            -fogEnd 100\n            -fogDensity 0.1\n            -fogColor 0.5 0.5 0.5 1 \n            -depthOfFieldPreview 1\n            -maxConstantTransparency 1\n            -rendererName \"vp2Renderer\" \n            -objectFilterShowInHUD 1\n            -isFiltered 0\n            -colorResolution 256 256 \n            -bumpResolution 512 512 \n            -textureCompression 0\n            -transparencyAlgorithm \"frontAndBackCull\" \n            -transpInShadows 0\n            -cullingOverride \"none\" \n            -lowQualityLighting 0\n            -maximumNumHardwareLights 1\n            -occlusionCulling 0\n            -shadingModel 0\n            -useBaseRenderer 0\n            -useReducedRenderer 0\n            -smallObjectCulling 0\n            -smallObjectThreshold -1 \n            -interactiveDisableShadows 0\n"
+		+ "            -textureHilight 1\n            -textureSampling 2\n            -textureDisplay \"modulate\" \n            -textureMaxSize 16384\n            -fogging 0\n            -fogSource \"fragment\" \n            -fogMode \"linear\" \n            -fogStart 0\n            -fogEnd 100\n            -fogDensity 0.1\n            -fogColor 0.5 0.5 0.5 1 \n            -depthOfFieldPreview 1\n            -maxConstantTransparency 1\n            -rendererName \"vp2Renderer\" \n            -objectFilterShowInHUD 1\n            -isFiltered 0\n            -colorResolution 256 256 \n            -bumpResolution 512 512 \n            -textureCompression 0\n            -transparencyAlgorithm \"frontAndBackCull\" \n            -transpInShadows 0\n            -cullingOverride \"none\" \n            -lowQualityLighting 0\n            -maximumNumHardwareLights 1\n            -occlusionCulling 0\n            -shadingModel 0\n            -useBaseRenderer 0\n            -useReducedRenderer 0\n            -smallObjectCulling 0\n            -smallObjectThreshold -1 \n            -interactiveDisableShadows 0\n"
 		+ "            -interactiveBackFaceCull 0\n            -sortTransparent 1\n            -controllers 1\n            -nurbsCurves 1\n            -nurbsSurfaces 1\n            -polymeshes 1\n            -subdivSurfaces 1\n            -planes 1\n            -lights 1\n            -cameras 1\n            -controlVertices 1\n            -hulls 1\n            -grid 1\n            -imagePlane 1\n            -joints 1\n            -ikHandles 1\n            -deformers 1\n            -dynamics 1\n            -particleInstancers 1\n            -fluids 1\n            -hairSystems 1\n            -follicles 1\n            -nCloths 1\n            -nParticles 1\n            -nRigids 1\n            -dynamicConstraints 1\n            -locators 1\n            -manipulators 1\n            -pluginShapes 1\n            -dimensions 1\n            -handles 1\n            -pivots 1\n            -textures 1\n            -strokes 1\n            -motionTrails 1\n            -clipGhosts 1\n            -bluePencil 1\n            -greasePencils 0\n            -excludeObjectPreset \"All\" \n"
-		+ "            -shadows 0\n            -captureSequenceNumber -1\n            -width 656\n            -height 332\n            -sceneRenderFilter 0\n            $editorName;\n        modelEditor -e -viewSelected 0 $editorName;\n        modelEditor -e \n            -pluginObjects \"gpuCacheDisplayFilter\" 1 \n            $editorName;\n\t\tif (!$useSceneConfig) {\n\t\t\tpanel -e -l $label $panelName;\n\t\t}\n\t}\n\n\n\t$panelName = `sceneUIReplacement -getNextPanel \"modelPanel\" (localizedPanelLabel(\"Front View\")) `;\n\tif (\"\" != $panelName) {\n\t\t$label = `panel -q -label $panelName`;\n\t\tmodelPanel -edit -l (localizedPanelLabel(\"Front View\")) -mbv $menusOkayInPanels  $panelName;\n\t\t$editorName = $panelName;\n        modelEditor -e \n            -camera \"|front\" \n            -useInteractiveMode 0\n            -displayLights \"default\" \n            -displayAppearance \"smoothShaded\" \n            -activeOnly 0\n            -ignorePanZoom 0\n            -wireframeOnShaded 0\n            -headsUpDisplay 1\n            -holdOuts 1\n            -selectionHiliteDisplay 1\n"
-		+ "            -useDefaultMaterial 0\n            -bufferMode \"double\" \n            -twoSidedLighting 0\n            -backfaceCulling 0\n            -xray 0\n            -jointXray 0\n            -activeComponentsXray 0\n            -displayTextures 0\n            -smoothWireframe 0\n            -lineWidth 1\n            -textureAnisotropic 0\n            -textureHilight 1\n            -textureSampling 2\n            -textureDisplay \"modulate\" \n            -textureMaxSize 32768\n            -fogging 0\n            -fogSource \"fragment\" \n            -fogMode \"linear\" \n            -fogStart 0\n            -fogEnd 100\n            -fogDensity 0.1\n            -fogColor 0.5 0.5 0.5 1 \n            -depthOfFieldPreview 1\n            -maxConstantTransparency 1\n            -rendererName \"vp2Renderer\" \n            -objectFilterShowInHUD 1\n            -isFiltered 0\n            -colorResolution 256 256 \n            -bumpResolution 512 512 \n            -textureCompression 0\n            -transparencyAlgorithm \"frontAndBackCull\" \n            -transpInShadows 0\n"
+		+ "            -shadows 0\n            -captureSequenceNumber -1\n            -width 1068\n            -height 594\n            -sceneRenderFilter 0\n            $editorName;\n        modelEditor -e -viewSelected 0 $editorName;\n        modelEditor -e \n            -pluginObjects \"gpuCacheDisplayFilter\" 1 \n            $editorName;\n\t\tif (!$useSceneConfig) {\n\t\t\tpanel -e -l $label $panelName;\n\t\t}\n\t}\n\n\n\t$panelName = `sceneUIReplacement -getNextPanel \"modelPanel\" (localizedPanelLabel(\"Front View\")) `;\n\tif (\"\" != $panelName) {\n\t\t$label = `panel -q -label $panelName`;\n\t\tmodelPanel -edit -l (localizedPanelLabel(\"Front View\")) -mbv $menusOkayInPanels  $panelName;\n\t\t$editorName = $panelName;\n        modelEditor -e \n            -camera \"|front\" \n            -useInteractiveMode 0\n            -displayLights \"default\" \n            -displayAppearance \"smoothShaded\" \n            -activeOnly 0\n            -ignorePanZoom 0\n            -wireframeOnShaded 0\n            -headsUpDisplay 1\n            -holdOuts 1\n            -selectionHiliteDisplay 1\n"
+		+ "            -useDefaultMaterial 0\n            -bufferMode \"double\" \n            -twoSidedLighting 0\n            -backfaceCulling 0\n            -xray 0\n            -jointXray 0\n            -activeComponentsXray 0\n            -displayTextures 0\n            -smoothWireframe 0\n            -lineWidth 1\n            -textureAnisotropic 0\n            -textureHilight 1\n            -textureSampling 2\n            -textureDisplay \"modulate\" \n            -textureMaxSize 16384\n            -fogging 0\n            -fogSource \"fragment\" \n            -fogMode \"linear\" \n            -fogStart 0\n            -fogEnd 100\n            -fogDensity 0.1\n            -fogColor 0.5 0.5 0.5 1 \n            -depthOfFieldPreview 1\n            -maxConstantTransparency 1\n            -rendererName \"vp2Renderer\" \n            -objectFilterShowInHUD 1\n            -isFiltered 0\n            -colorResolution 256 256 \n            -bumpResolution 512 512 \n            -textureCompression 0\n            -transparencyAlgorithm \"frontAndBackCull\" \n            -transpInShadows 0\n"
 		+ "            -cullingOverride \"none\" \n            -lowQualityLighting 0\n            -maximumNumHardwareLights 1\n            -occlusionCulling 0\n            -shadingModel 0\n            -useBaseRenderer 0\n            -useReducedRenderer 0\n            -smallObjectCulling 0\n            -smallObjectThreshold -1 \n            -interactiveDisableShadows 0\n            -interactiveBackFaceCull 0\n            -sortTransparent 1\n            -controllers 1\n            -nurbsCurves 1\n            -nurbsSurfaces 1\n            -polymeshes 1\n            -subdivSurfaces 1\n            -planes 1\n            -lights 1\n            -cameras 1\n            -controlVertices 1\n            -hulls 1\n            -grid 1\n            -imagePlane 1\n            -joints 1\n            -ikHandles 1\n            -deformers 1\n            -dynamics 1\n            -particleInstancers 1\n            -fluids 1\n            -hairSystems 1\n            -follicles 1\n            -nCloths 1\n            -nParticles 1\n            -nRigids 1\n            -dynamicConstraints 1\n"
-		+ "            -locators 1\n            -manipulators 1\n            -pluginShapes 1\n            -dimensions 1\n            -handles 1\n            -pivots 1\n            -textures 1\n            -strokes 1\n            -motionTrails 1\n            -clipGhosts 1\n            -bluePencil 1\n            -greasePencils 0\n            -excludeObjectPreset \"All\" \n            -shadows 0\n            -captureSequenceNumber -1\n            -width 1319\n            -height 710\n            -sceneRenderFilter 0\n            $editorName;\n        modelEditor -e -viewSelected 0 $editorName;\n        modelEditor -e \n            -pluginObjects \"gpuCacheDisplayFilter\" 1 \n            $editorName;\n\t\tif (!$useSceneConfig) {\n\t\t\tpanel -e -l $label $panelName;\n\t\t}\n\t}\n\n\n\t$panelName = `sceneUIReplacement -getNextPanel \"modelPanel\" (localizedPanelLabel(\"Persp View\")) `;\n\tif (\"\" != $panelName) {\n\t\t$label = `panel -q -label $panelName`;\n\t\tmodelPanel -edit -l (localizedPanelLabel(\"Persp View\")) -mbv $menusOkayInPanels  $panelName;\n\t\t$editorName = $panelName;\n"
-		+ "        modelEditor -e \n            -camera \"|persp\" \n            -useInteractiveMode 0\n            -displayLights \"default\" \n            -displayAppearance \"smoothShaded\" \n            -activeOnly 0\n            -ignorePanZoom 0\n            -wireframeOnShaded 0\n            -headsUpDisplay 1\n            -holdOuts 1\n            -selectionHiliteDisplay 1\n            -useDefaultMaterial 0\n            -bufferMode \"double\" \n            -twoSidedLighting 0\n            -backfaceCulling 0\n            -xray 0\n            -jointXray 0\n            -activeComponentsXray 0\n            -displayTextures 1\n            -smoothWireframe 0\n            -lineWidth 1\n            -textureAnisotropic 0\n            -textureHilight 1\n            -textureSampling 2\n            -textureDisplay \"modulate\" \n            -textureMaxSize 32768\n            -fogging 0\n            -fogSource \"fragment\" \n            -fogMode \"linear\" \n            -fogStart 0\n            -fogEnd 100\n            -fogDensity 0.1\n            -fogColor 0.5 0.5 0.5 1 \n            -depthOfFieldPreview 1\n"
+		+ "            -locators 1\n            -manipulators 1\n            -pluginShapes 1\n            -dimensions 1\n            -handles 1\n            -pivots 1\n            -textures 1\n            -strokes 1\n            -motionTrails 1\n            -clipGhosts 1\n            -bluePencil 1\n            -greasePencils 0\n            -excludeObjectPreset \"All\" \n            -shadows 0\n            -captureSequenceNumber -1\n            -width 1070\n            -height 594\n            -sceneRenderFilter 0\n            $editorName;\n        modelEditor -e -viewSelected 0 $editorName;\n        modelEditor -e \n            -pluginObjects \"gpuCacheDisplayFilter\" 1 \n            $editorName;\n\t\tif (!$useSceneConfig) {\n\t\t\tpanel -e -l $label $panelName;\n\t\t}\n\t}\n\n\n\t$panelName = `sceneUIReplacement -getNextPanel \"modelPanel\" (localizedPanelLabel(\"Persp View\")) `;\n\tif (\"\" != $panelName) {\n\t\t$label = `panel -q -label $panelName`;\n\t\tmodelPanel -edit -l (localizedPanelLabel(\"Persp View\")) -mbv $menusOkayInPanels  $panelName;\n\t\t$editorName = $panelName;\n"
+		+ "        modelEditor -e \n            -camera \"|persp\" \n            -useInteractiveMode 0\n            -displayLights \"default\" \n            -displayAppearance \"smoothShaded\" \n            -activeOnly 0\n            -ignorePanZoom 0\n            -wireframeOnShaded 0\n            -headsUpDisplay 1\n            -holdOuts 1\n            -selectionHiliteDisplay 1\n            -useDefaultMaterial 0\n            -bufferMode \"double\" \n            -twoSidedLighting 0\n            -backfaceCulling 0\n            -xray 0\n            -jointXray 0\n            -activeComponentsXray 0\n            -displayTextures 1\n            -smoothWireframe 0\n            -lineWidth 1\n            -textureAnisotropic 0\n            -textureHilight 1\n            -textureSampling 2\n            -textureDisplay \"modulate\" \n            -textureMaxSize 16384\n            -fogging 0\n            -fogSource \"fragment\" \n            -fogMode \"linear\" \n            -fogStart 0\n            -fogEnd 100\n            -fogDensity 0.1\n            -fogColor 0.5 0.5 0.5 1 \n            -depthOfFieldPreview 1\n"
 		+ "            -maxConstantTransparency 1\n            -rendererName \"vp2Renderer\" \n            -objectFilterShowInHUD 1\n            -isFiltered 0\n            -colorResolution 256 256 \n            -bumpResolution 512 512 \n            -textureCompression 0\n            -transparencyAlgorithm \"frontAndBackCull\" \n            -transpInShadows 0\n            -cullingOverride \"none\" \n            -lowQualityLighting 0\n            -maximumNumHardwareLights 1\n            -occlusionCulling 0\n            -shadingModel 0\n            -useBaseRenderer 0\n            -useReducedRenderer 0\n            -smallObjectCulling 0\n            -smallObjectThreshold -1 \n            -interactiveDisableShadows 0\n            -interactiveBackFaceCull 0\n            -sortTransparent 1\n            -controllers 1\n            -nurbsCurves 1\n            -nurbsSurfaces 1\n            -polymeshes 1\n            -subdivSurfaces 1\n            -planes 1\n            -lights 1\n            -cameras 1\n            -controlVertices 1\n            -hulls 1\n            -grid 1\n"
-		+ "            -imagePlane 1\n            -joints 1\n            -ikHandles 1\n            -deformers 1\n            -dynamics 1\n            -particleInstancers 1\n            -fluids 1\n            -hairSystems 1\n            -follicles 1\n            -nCloths 1\n            -nParticles 1\n            -nRigids 1\n            -dynamicConstraints 1\n            -locators 1\n            -manipulators 1\n            -pluginShapes 1\n            -dimensions 1\n            -handles 1\n            -pivots 1\n            -textures 1\n            -strokes 1\n            -motionTrails 1\n            -clipGhosts 1\n            -bluePencil 1\n            -greasePencils 0\n            -excludeObjectPreset \"All\" \n            -shadows 0\n            -captureSequenceNumber -1\n            -width 656\n            -height 333\n            -sceneRenderFilter 0\n            $editorName;\n        modelEditor -e -viewSelected 0 $editorName;\n        modelEditor -e \n            -pluginObjects \"gpuCacheDisplayFilter\" 1 \n            $editorName;\n\t\tif (!$useSceneConfig) {\n"
+		+ "            -imagePlane 1\n            -joints 1\n            -ikHandles 1\n            -deformers 1\n            -dynamics 1\n            -particleInstancers 1\n            -fluids 1\n            -hairSystems 1\n            -follicles 1\n            -nCloths 1\n            -nParticles 1\n            -nRigids 1\n            -dynamicConstraints 1\n            -locators 1\n            -manipulators 1\n            -pluginShapes 1\n            -dimensions 1\n            -handles 1\n            -pivots 1\n            -textures 1\n            -strokes 1\n            -motionTrails 1\n            -clipGhosts 1\n            -bluePencil 1\n            -greasePencils 0\n            -excludeObjectPreset \"All\" \n            -shadows 0\n            -captureSequenceNumber -1\n            -width 2152\n            -height 1278\n            -sceneRenderFilter 0\n            $editorName;\n        modelEditor -e -viewSelected 0 $editorName;\n        modelEditor -e \n            -pluginObjects \"gpuCacheDisplayFilter\" 1 \n            $editorName;\n\t\tif (!$useSceneConfig) {\n"
 		+ "\t\t\tpanel -e -l $label $panelName;\n\t\t}\n\t}\n\n\n\t$panelName = `sceneUIReplacement -getNextPanel \"outlinerPanel\" (localizedPanelLabel(\"ToggledOutliner\")) `;\n\tif (\"\" != $panelName) {\n\t\t$label = `panel -q -label $panelName`;\n\t\toutlinerPanel -edit -l (localizedPanelLabel(\"ToggledOutliner\")) -mbv $menusOkayInPanels  $panelName;\n\t\t$editorName = $panelName;\n        outlinerEditor -e \n            -docTag \"isolOutln_fromSeln\" \n            -showShapes 0\n            -showAssignedMaterials 0\n            -showTimeEditor 1\n            -showReferenceNodes 1\n            -showReferenceMembers 1\n            -showAttributes 0\n            -showConnected 0\n            -showAnimCurvesOnly 0\n            -showMuteInfo 0\n            -organizeByLayer 1\n            -organizeByClip 1\n            -showAnimLayerWeight 1\n            -autoExpandLayers 1\n            -autoExpand 0\n            -autoExpandAllAnimatedShapes 1\n            -showDagOnly 1\n            -showAssets 1\n            -showContainedOnly 1\n            -showPublishedAsConnected 0\n            -showParentContainers 0\n"
 		+ "            -showContainerContents 1\n            -ignoreDagHierarchy 0\n            -expandConnections 0\n            -showUpstreamCurves 1\n            -showUnitlessCurves 1\n            -showCompounds 1\n            -showLeafs 1\n            -showNumericAttrsOnly 0\n            -highlightActive 1\n            -autoSelectNewObjects 0\n            -doNotSelectNewObjects 0\n            -dropIsParent 1\n            -transmitFilters 0\n            -setFilter \"defaultSetFilter\" \n            -showSetMembers 1\n            -allowMultiSelection 1\n            -alwaysToggleSelect 0\n            -directSelect 0\n            -isSet 0\n            -isSetMember 0\n            -showUfeItems 1\n            -displayMode \"DAG\" \n            -expandObjects 0\n            -setsIgnoreFilters 1\n            -containersIgnoreFilters 0\n            -editAttrName 0\n            -showAttrValues 0\n            -highlightSecondary 0\n            -showUVAttrsOnly 0\n            -showTextureNodesOnly 0\n            -attrAlphaOrder \"default\" \n            -animLayerFilterOptions \"allAffecting\" \n"
 		+ "            -sortOrder \"none\" \n            -longNames 0\n            -niceNames 1\n            -selectCommand \"print(\\\"\\\")\" \n            -showNamespace 1\n            -showPinIcons 0\n            -mapMotionTrails 0\n            -ignoreHiddenAttribute 0\n            -ignoreOutlinerColor 0\n            -renderFilterVisible 0\n            -renderFilterIndex 0\n            -selectionOrder \"chronological\" \n            -expandAttribute 0\n            $editorName;\n\t\tif (!$useSceneConfig) {\n\t\t\tpanel -e -l $label $panelName;\n\t\t}\n\t}\n\n\n\t$panelName = `sceneUIReplacement -getNextPanel \"outlinerPanel\" (localizedPanelLabel(\"Outliner\")) `;\n\tif (\"\" != $panelName) {\n\t\t$label = `panel -q -label $panelName`;\n\t\toutlinerPanel -edit -l (localizedPanelLabel(\"Outliner\")) -mbv $menusOkayInPanels  $panelName;\n\t\t$editorName = $panelName;\n        outlinerEditor -e \n            -showShapes 0\n            -showAssignedMaterials 0\n            -showTimeEditor 1\n            -showReferenceNodes 0\n            -showReferenceMembers 0\n            -showAttributes 0\n"
@@ -2117,13 +2155,10 @@ createNode script -n "uiConfigurationScriptNode";
 		+ "\tif (\"\" != $panelName) {\n\t\t$label = `panel -q -label $panelName`;\n\t\tscriptedPanel -edit -l (localizedPanelLabel(\"UV Editor\")) -mbv $menusOkayInPanels  $panelName;\n\t\tif (!$useSceneConfig) {\n\t\t\tpanel -e -l $label $panelName;\n\t\t}\n\t}\n\n\n\t$panelName = `sceneUIReplacement -getNextScriptedPanel \"renderWindowPanel\" (localizedPanelLabel(\"Render View\")) `;\n\tif (\"\" != $panelName) {\n\t\t$label = `panel -q -label $panelName`;\n\t\tscriptedPanel -edit -l (localizedPanelLabel(\"Render View\")) -mbv $menusOkayInPanels  $panelName;\n\t\tif (!$useSceneConfig) {\n\t\t\tpanel -e -l $label $panelName;\n\t\t}\n\t}\n\n\n\t$panelName = `sceneUIReplacement -getNextPanel \"shapePanel\" (localizedPanelLabel(\"Shape Editor\")) `;\n\tif (\"\" != $panelName) {\n\t\t$label = `panel -q -label $panelName`;\n\t\tshapePanel -edit -l (localizedPanelLabel(\"Shape Editor\")) -mbv $menusOkayInPanels  $panelName;\n\t\tif (!$useSceneConfig) {\n\t\t\tpanel -e -l $label $panelName;\n\t\t}\n\t}\n\n\n\t$panelName = `sceneUIReplacement -getNextPanel \"posePanel\" (localizedPanelLabel(\"Pose Editor\")) `;\n\tif (\"\" != $panelName) {\n"
 		+ "\t\t$label = `panel -q -label $panelName`;\n\t\tposePanel -edit -l (localizedPanelLabel(\"Pose Editor\")) -mbv $menusOkayInPanels  $panelName;\n\t\tif (!$useSceneConfig) {\n\t\t\tpanel -e -l $label $panelName;\n\t\t}\n\t}\n\n\n\t$panelName = `sceneUIReplacement -getNextScriptedPanel \"dynRelEdPanel\" (localizedPanelLabel(\"Dynamic Relationships\")) `;\n\tif (\"\" != $panelName) {\n\t\t$label = `panel -q -label $panelName`;\n\t\tscriptedPanel -edit -l (localizedPanelLabel(\"Dynamic Relationships\")) -mbv $menusOkayInPanels  $panelName;\n\t\tif (!$useSceneConfig) {\n\t\t\tpanel -e -l $label $panelName;\n\t\t}\n\t}\n\n\n\t$panelName = `sceneUIReplacement -getNextScriptedPanel \"relationshipPanel\" (localizedPanelLabel(\"Relationship Editor\")) `;\n\tif (\"\" != $panelName) {\n\t\t$label = `panel -q -label $panelName`;\n\t\tscriptedPanel -edit -l (localizedPanelLabel(\"Relationship Editor\")) -mbv $menusOkayInPanels  $panelName;\n\t\tif (!$useSceneConfig) {\n\t\t\tpanel -e -l $label $panelName;\n\t\t}\n\t}\n\n\n\t$panelName = `sceneUIReplacement -getNextScriptedPanel \"referenceEditorPanel\" (localizedPanelLabel(\"Reference Editor\")) `;\n"
 		+ "\tif (\"\" != $panelName) {\n\t\t$label = `panel -q -label $panelName`;\n\t\tscriptedPanel -edit -l (localizedPanelLabel(\"Reference Editor\")) -mbv $menusOkayInPanels  $panelName;\n\t\tif (!$useSceneConfig) {\n\t\t\tpanel -e -l $label $panelName;\n\t\t}\n\t}\n\n\n\t$panelName = `sceneUIReplacement -getNextScriptedPanel \"dynPaintScriptedPanelType\" (localizedPanelLabel(\"Paint Effects\")) `;\n\tif (\"\" != $panelName) {\n\t\t$label = `panel -q -label $panelName`;\n\t\tscriptedPanel -edit -l (localizedPanelLabel(\"Paint Effects\")) -mbv $menusOkayInPanels  $panelName;\n\t\tif (!$useSceneConfig) {\n\t\t\tpanel -e -l $label $panelName;\n\t\t}\n\t}\n\n\n\t$panelName = `sceneUIReplacement -getNextScriptedPanel \"scriptEditorPanel\" (localizedPanelLabel(\"Script Editor\")) `;\n\tif (\"\" != $panelName) {\n\t\t$label = `panel -q -label $panelName`;\n\t\tscriptedPanel -edit -l (localizedPanelLabel(\"Script Editor\")) -mbv $menusOkayInPanels  $panelName;\n\t\tif (!$useSceneConfig) {\n\t\t\tpanel -e -l $label $panelName;\n\t\t}\n\t}\n\n\n\t$panelName = `sceneUIReplacement -getNextScriptedPanel \"profilerPanel\" (localizedPanelLabel(\"Profiler Tool\")) `;\n"
-		+ "\tif (\"\" != $panelName) {\n\t\t$label = `panel -q -label $panelName`;\n\t\tscriptedPanel -edit -l (localizedPanelLabel(\"Profiler Tool\")) -mbv $menusOkayInPanels  $panelName;\n\t\tif (!$useSceneConfig) {\n\t\t\tpanel -e -l $label $panelName;\n\t\t}\n\t}\n\n\n\t$panelName = `sceneUIReplacement -getNextScriptedPanel \"contentBrowserPanel\" (localizedPanelLabel(\"Content Browser\")) `;\n\tif (\"\" != $panelName) {\n\t\t$label = `panel -q -label $panelName`;\n\t\tscriptedPanel -edit -l (localizedPanelLabel(\"Content Browser\")) -mbv $menusOkayInPanels  $panelName;\n\t\tif (!$useSceneConfig) {\n\t\t\tpanel -e -l $label $panelName;\n\t\t}\n\t}\n\n\n\t$panelName = `sceneUIReplacement -getNextScriptedPanel \"Stereo\" (localizedPanelLabel(\"Stereo\")) `;\n\tif (\"\" != $panelName) {\n\t\t$label = `panel -q -label $panelName`;\n\t\tscriptedPanel -edit -l (localizedPanelLabel(\"Stereo\")) -mbv $menusOkayInPanels  $panelName;\n{ string $editorName = ($panelName+\"Editor\");\n            stereoCameraView -e \n                -camera \"|persp\" \n                -useInteractiveMode 0\n                -displayLights \"default\" \n"
-		+ "                -displayAppearance \"wireframe\" \n                -activeOnly 0\n                -ignorePanZoom 0\n                -wireframeOnShaded 0\n                -headsUpDisplay 1\n                -holdOuts 1\n                -selectionHiliteDisplay 1\n                -useDefaultMaterial 0\n                -bufferMode \"double\" \n                -twoSidedLighting 1\n                -backfaceCulling 0\n                -xray 0\n                -jointXray 0\n                -activeComponentsXray 0\n                -displayTextures 0\n                -smoothWireframe 0\n                -lineWidth 1\n                -textureAnisotropic 0\n                -textureHilight 1\n                -textureSampling 2\n                -textureDisplay \"modulate\" \n                -textureMaxSize 32768\n                -fogging 0\n                -fogSource \"fragment\" \n                -fogMode \"linear\" \n                -fogStart 0\n                -fogEnd 100\n                -fogDensity 0.1\n                -fogColor 0.5 0.5 0.5 1 \n                -depthOfFieldPreview 1\n"
-		+ "                -maxConstantTransparency 1\n                -objectFilterShowInHUD 1\n                -isFiltered 0\n                -colorResolution 4 4 \n                -bumpResolution 4 4 \n                -textureCompression 0\n                -transparencyAlgorithm \"frontAndBackCull\" \n                -transpInShadows 0\n                -cullingOverride \"none\" \n                -lowQualityLighting 0\n                -maximumNumHardwareLights 0\n                -occlusionCulling 0\n                -shadingModel 0\n                -useBaseRenderer 0\n                -useReducedRenderer 0\n                -smallObjectCulling 0\n                -smallObjectThreshold -1 \n                -interactiveDisableShadows 0\n                -interactiveBackFaceCull 0\n                -sortTransparent 1\n                -controllers 1\n                -nurbsCurves 1\n                -nurbsSurfaces 1\n                -polymeshes 1\n                -subdivSurfaces 1\n                -planes 1\n                -lights 1\n                -cameras 1\n"
-		+ "                -controlVertices 1\n                -hulls 1\n                -grid 1\n                -imagePlane 1\n                -joints 1\n                -ikHandles 1\n                -deformers 1\n                -dynamics 1\n                -particleInstancers 1\n                -fluids 1\n                -hairSystems 1\n                -follicles 1\n                -nCloths 1\n                -nParticles 1\n                -nRigids 1\n                -dynamicConstraints 1\n                -locators 1\n                -manipulators 1\n                -pluginShapes 1\n                -dimensions 1\n                -handles 1\n                -pivots 1\n                -textures 1\n                -strokes 1\n                -motionTrails 1\n                -clipGhosts 1\n                -bluePencil 1\n                -greasePencils 0\n                -shadows 0\n                -captureSequenceNumber -1\n                -width 0\n                -height 0\n                -sceneRenderFilter 0\n                -displayMode \"centerEye\" \n"
-		+ "                -viewColor 0 0 0 1 \n                -useCustomBackground 1\n                $editorName;\n            stereoCameraView -e -viewSelected 0 $editorName;\n            stereoCameraView -e \n                -pluginObjects \"gpuCacheDisplayFilter\" 1 \n                $editorName; };\n\t\tif (!$useSceneConfig) {\n\t\t\tpanel -e -l $label $panelName;\n\t\t}\n\t}\n\n\n\tif ($useSceneConfig) {\n        string $configName = `getPanel -cwl (localizedPanelLabel(\"Current Layout\"))`;\n        if (\"\" != $configName) {\n\t\t\tpanelConfiguration -edit -label (localizedPanelLabel(\"Current Layout\")) \n\t\t\t\t-userCreated false\n\t\t\t\t-defaultImage \"vacantCell.xP:/\"\n\t\t\t\t-image \"\"\n\t\t\t\t-sc false\n\t\t\t\t-configString \"global string $gMainPane; paneLayout -e -cn \\\"single\\\" -ps 1 100 100 $gMainPane;\"\n\t\t\t\t-removeAllPanels\n\t\t\t\t-ap false\n\t\t\t\t\t(localizedPanelLabel(\"Front View\")) \n\t\t\t\t\t\"modelPanel\"\n"
-		+ "\t\t\t\t\t\"$panelName = `modelPanel -unParent -l (localizedPanelLabel(\\\"Front View\\\")) -mbv $menusOkayInPanels `;\\n$editorName = $panelName;\\nmodelEditor -e \\n    -cam `findStartUpCamera front` \\n    -useInteractiveMode 0\\n    -displayLights \\\"default\\\" \\n    -displayAppearance \\\"smoothShaded\\\" \\n    -activeOnly 0\\n    -ignorePanZoom 0\\n    -wireframeOnShaded 0\\n    -headsUpDisplay 1\\n    -holdOuts 1\\n    -selectionHiliteDisplay 1\\n    -useDefaultMaterial 0\\n    -bufferMode \\\"double\\\" \\n    -twoSidedLighting 0\\n    -backfaceCulling 0\\n    -xray 0\\n    -jointXray 0\\n    -activeComponentsXray 0\\n    -displayTextures 0\\n    -smoothWireframe 0\\n    -lineWidth 1\\n    -textureAnisotropic 0\\n    -textureHilight 1\\n    -textureSampling 2\\n    -textureDisplay \\\"modulate\\\" \\n    -textureMaxSize 32768\\n    -fogging 0\\n    -fogSource \\\"fragment\\\" \\n    -fogMode \\\"linear\\\" \\n    -fogStart 0\\n    -fogEnd 100\\n    -fogDensity 0.1\\n    -fogColor 0.5 0.5 0.5 1 \\n    -depthOfFieldPreview 1\\n    -maxConstantTransparency 1\\n    -rendererName \\\"vp2Renderer\\\" \\n    -objectFilterShowInHUD 1\\n    -isFiltered 0\\n    -colorResolution 256 256 \\n    -bumpResolution 512 512 \\n    -textureCompression 0\\n    -transparencyAlgorithm \\\"frontAndBackCull\\\" \\n    -transpInShadows 0\\n    -cullingOverride \\\"none\\\" \\n    -lowQualityLighting 0\\n    -maximumNumHardwareLights 1\\n    -occlusionCulling 0\\n    -shadingModel 0\\n    -useBaseRenderer 0\\n    -useReducedRenderer 0\\n    -smallObjectCulling 0\\n    -smallObjectThreshold -1 \\n    -interactiveDisableShadows 0\\n    -interactiveBackFaceCull 0\\n    -sortTransparent 1\\n    -controllers 1\\n    -nurbsCurves 1\\n    -nurbsSurfaces 1\\n    -polymeshes 1\\n    -subdivSurfaces 1\\n    -planes 1\\n    -lights 1\\n    -cameras 1\\n    -controlVertices 1\\n    -hulls 1\\n    -grid 1\\n    -imagePlane 1\\n    -joints 1\\n    -ikHandles 1\\n    -deformers 1\\n    -dynamics 1\\n    -particleInstancers 1\\n    -fluids 1\\n    -hairSystems 1\\n    -follicles 1\\n    -nCloths 1\\n    -nParticles 1\\n    -nRigids 1\\n    -dynamicConstraints 1\\n    -locators 1\\n    -manipulators 1\\n    -pluginShapes 1\\n    -dimensions 1\\n    -handles 1\\n    -pivots 1\\n    -textures 1\\n    -strokes 1\\n    -motionTrails 1\\n    -clipGhosts 1\\n    -bluePencil 1\\n    -greasePencils 0\\n    -excludeObjectPreset \\\"All\\\" \\n    -shadows 0\\n    -captureSequenceNumber -1\\n    -width 1319\\n    -height 710\\n    -sceneRenderFilter 0\\n    $editorName;\\nmodelEditor -e -viewSelected 0 $editorName;\\nmodelEditor -e \\n    -pluginObjects \\\"gpuCacheDisplayFilter\\\" 1 \\n    $editorName\"\n"
-		+ "\t\t\t\t\t\"modelPanel -edit -l (localizedPanelLabel(\\\"Front View\\\")) -mbv $menusOkayInPanels  $panelName;\\n$editorName = $panelName;\\nmodelEditor -e \\n    -cam `findStartUpCamera front` \\n    -useInteractiveMode 0\\n    -displayLights \\\"default\\\" \\n    -displayAppearance \\\"smoothShaded\\\" \\n    -activeOnly 0\\n    -ignorePanZoom 0\\n    -wireframeOnShaded 0\\n    -headsUpDisplay 1\\n    -holdOuts 1\\n    -selectionHiliteDisplay 1\\n    -useDefaultMaterial 0\\n    -bufferMode \\\"double\\\" \\n    -twoSidedLighting 0\\n    -backfaceCulling 0\\n    -xray 0\\n    -jointXray 0\\n    -activeComponentsXray 0\\n    -displayTextures 0\\n    -smoothWireframe 0\\n    -lineWidth 1\\n    -textureAnisotropic 0\\n    -textureHilight 1\\n    -textureSampling 2\\n    -textureDisplay \\\"modulate\\\" \\n    -textureMaxSize 32768\\n    -fogging 0\\n    -fogSource \\\"fragment\\\" \\n    -fogMode \\\"linear\\\" \\n    -fogStart 0\\n    -fogEnd 100\\n    -fogDensity 0.1\\n    -fogColor 0.5 0.5 0.5 1 \\n    -depthOfFieldPreview 1\\n    -maxConstantTransparency 1\\n    -rendererName \\\"vp2Renderer\\\" \\n    -objectFilterShowInHUD 1\\n    -isFiltered 0\\n    -colorResolution 256 256 \\n    -bumpResolution 512 512 \\n    -textureCompression 0\\n    -transparencyAlgorithm \\\"frontAndBackCull\\\" \\n    -transpInShadows 0\\n    -cullingOverride \\\"none\\\" \\n    -lowQualityLighting 0\\n    -maximumNumHardwareLights 1\\n    -occlusionCulling 0\\n    -shadingModel 0\\n    -useBaseRenderer 0\\n    -useReducedRenderer 0\\n    -smallObjectCulling 0\\n    -smallObjectThreshold -1 \\n    -interactiveDisableShadows 0\\n    -interactiveBackFaceCull 0\\n    -sortTransparent 1\\n    -controllers 1\\n    -nurbsCurves 1\\n    -nurbsSurfaces 1\\n    -polymeshes 1\\n    -subdivSurfaces 1\\n    -planes 1\\n    -lights 1\\n    -cameras 1\\n    -controlVertices 1\\n    -hulls 1\\n    -grid 1\\n    -imagePlane 1\\n    -joints 1\\n    -ikHandles 1\\n    -deformers 1\\n    -dynamics 1\\n    -particleInstancers 1\\n    -fluids 1\\n    -hairSystems 1\\n    -follicles 1\\n    -nCloths 1\\n    -nParticles 1\\n    -nRigids 1\\n    -dynamicConstraints 1\\n    -locators 1\\n    -manipulators 1\\n    -pluginShapes 1\\n    -dimensions 1\\n    -handles 1\\n    -pivots 1\\n    -textures 1\\n    -strokes 1\\n    -motionTrails 1\\n    -clipGhosts 1\\n    -bluePencil 1\\n    -greasePencils 0\\n    -excludeObjectPreset \\\"All\\\" \\n    -shadows 0\\n    -captureSequenceNumber -1\\n    -width 1319\\n    -height 710\\n    -sceneRenderFilter 0\\n    $editorName;\\nmodelEditor -e -viewSelected 0 $editorName;\\nmodelEditor -e \\n    -pluginObjects \\\"gpuCacheDisplayFilter\\\" 1 \\n    $editorName\"\n"
+		+ "\tif (\"\" != $panelName) {\n\t\t$label = `panel -q -label $panelName`;\n\t\tscriptedPanel -edit -l (localizedPanelLabel(\"Profiler Tool\")) -mbv $menusOkayInPanels  $panelName;\n\t\tif (!$useSceneConfig) {\n\t\t\tpanel -e -l $label $panelName;\n\t\t}\n\t}\n\n\n\t$panelName = `sceneUIReplacement -getNextScriptedPanel \"contentBrowserPanel\" (localizedPanelLabel(\"Content Browser\")) `;\n\tif (\"\" != $panelName) {\n\t\t$label = `panel -q -label $panelName`;\n\t\tscriptedPanel -edit -l (localizedPanelLabel(\"Content Browser\")) -mbv $menusOkayInPanels  $panelName;\n\t\tif (!$useSceneConfig) {\n\t\t\tpanel -e -l $label $panelName;\n\t\t}\n\t}\n\n\n\tif ($useSceneConfig) {\n        string $configName = `getPanel -cwl (localizedPanelLabel(\"Current Layout\"))`;\n        if (\"\" != $configName) {\n\t\t\tpanelConfiguration -edit -label (localizedPanelLabel(\"Current Layout\")) \n\t\t\t\t-userCreated false\n\t\t\t\t-defaultImage \"vacantCell.xP:/\"\n\t\t\t\t-image \"\"\n\t\t\t\t-sc false\n\t\t\t\t-configString \"global string $gMainPane; paneLayout -e -cn \\\"single\\\" -ps 1 100 100 $gMainPane;\"\n\t\t\t\t-removeAllPanels\n\t\t\t\t-ap false\n"
+		+ "\t\t\t\t\t(localizedPanelLabel(\"Persp View\")) \n\t\t\t\t\t\"modelPanel\"\n"
+		+ "\t\t\t\t\t\"$panelName = `modelPanel -unParent -l (localizedPanelLabel(\\\"Persp View\\\")) -mbv $menusOkayInPanels `;\\n$editorName = $panelName;\\nmodelEditor -e \\n    -cam `findStartUpCamera persp` \\n    -useInteractiveMode 0\\n    -displayLights \\\"default\\\" \\n    -displayAppearance \\\"smoothShaded\\\" \\n    -activeOnly 0\\n    -ignorePanZoom 0\\n    -wireframeOnShaded 0\\n    -headsUpDisplay 1\\n    -holdOuts 1\\n    -selectionHiliteDisplay 1\\n    -useDefaultMaterial 0\\n    -bufferMode \\\"double\\\" \\n    -twoSidedLighting 0\\n    -backfaceCulling 0\\n    -xray 0\\n    -jointXray 0\\n    -activeComponentsXray 0\\n    -displayTextures 1\\n    -smoothWireframe 0\\n    -lineWidth 1\\n    -textureAnisotropic 0\\n    -textureHilight 1\\n    -textureSampling 2\\n    -textureDisplay \\\"modulate\\\" \\n    -textureMaxSize 16384\\n    -fogging 0\\n    -fogSource \\\"fragment\\\" \\n    -fogMode \\\"linear\\\" \\n    -fogStart 0\\n    -fogEnd 100\\n    -fogDensity 0.1\\n    -fogColor 0.5 0.5 0.5 1 \\n    -depthOfFieldPreview 1\\n    -maxConstantTransparency 1\\n    -rendererName \\\"vp2Renderer\\\" \\n    -objectFilterShowInHUD 1\\n    -isFiltered 0\\n    -colorResolution 256 256 \\n    -bumpResolution 512 512 \\n    -textureCompression 0\\n    -transparencyAlgorithm \\\"frontAndBackCull\\\" \\n    -transpInShadows 0\\n    -cullingOverride \\\"none\\\" \\n    -lowQualityLighting 0\\n    -maximumNumHardwareLights 1\\n    -occlusionCulling 0\\n    -shadingModel 0\\n    -useBaseRenderer 0\\n    -useReducedRenderer 0\\n    -smallObjectCulling 0\\n    -smallObjectThreshold -1 \\n    -interactiveDisableShadows 0\\n    -interactiveBackFaceCull 0\\n    -sortTransparent 1\\n    -controllers 1\\n    -nurbsCurves 1\\n    -nurbsSurfaces 1\\n    -polymeshes 1\\n    -subdivSurfaces 1\\n    -planes 1\\n    -lights 1\\n    -cameras 1\\n    -controlVertices 1\\n    -hulls 1\\n    -grid 1\\n    -imagePlane 1\\n    -joints 1\\n    -ikHandles 1\\n    -deformers 1\\n    -dynamics 1\\n    -particleInstancers 1\\n    -fluids 1\\n    -hairSystems 1\\n    -follicles 1\\n    -nCloths 1\\n    -nParticles 1\\n    -nRigids 1\\n    -dynamicConstraints 1\\n    -locators 1\\n    -manipulators 1\\n    -pluginShapes 1\\n    -dimensions 1\\n    -handles 1\\n    -pivots 1\\n    -textures 1\\n    -strokes 1\\n    -motionTrails 1\\n    -clipGhosts 1\\n    -bluePencil 1\\n    -greasePencils 0\\n    -excludeObjectPreset \\\"All\\\" \\n    -shadows 0\\n    -captureSequenceNumber -1\\n    -width 2152\\n    -height 1278\\n    -sceneRenderFilter 0\\n    $editorName;\\nmodelEditor -e -viewSelected 0 $editorName;\\nmodelEditor -e \\n    -pluginObjects \\\"gpuCacheDisplayFilter\\\" 1 \\n    $editorName\"\n"
+		+ "\t\t\t\t\t\"modelPanel -edit -l (localizedPanelLabel(\\\"Persp View\\\")) -mbv $menusOkayInPanels  $panelName;\\n$editorName = $panelName;\\nmodelEditor -e \\n    -cam `findStartUpCamera persp` \\n    -useInteractiveMode 0\\n    -displayLights \\\"default\\\" \\n    -displayAppearance \\\"smoothShaded\\\" \\n    -activeOnly 0\\n    -ignorePanZoom 0\\n    -wireframeOnShaded 0\\n    -headsUpDisplay 1\\n    -holdOuts 1\\n    -selectionHiliteDisplay 1\\n    -useDefaultMaterial 0\\n    -bufferMode \\\"double\\\" \\n    -twoSidedLighting 0\\n    -backfaceCulling 0\\n    -xray 0\\n    -jointXray 0\\n    -activeComponentsXray 0\\n    -displayTextures 1\\n    -smoothWireframe 0\\n    -lineWidth 1\\n    -textureAnisotropic 0\\n    -textureHilight 1\\n    -textureSampling 2\\n    -textureDisplay \\\"modulate\\\" \\n    -textureMaxSize 16384\\n    -fogging 0\\n    -fogSource \\\"fragment\\\" \\n    -fogMode \\\"linear\\\" \\n    -fogStart 0\\n    -fogEnd 100\\n    -fogDensity 0.1\\n    -fogColor 0.5 0.5 0.5 1 \\n    -depthOfFieldPreview 1\\n    -maxConstantTransparency 1\\n    -rendererName \\\"vp2Renderer\\\" \\n    -objectFilterShowInHUD 1\\n    -isFiltered 0\\n    -colorResolution 256 256 \\n    -bumpResolution 512 512 \\n    -textureCompression 0\\n    -transparencyAlgorithm \\\"frontAndBackCull\\\" \\n    -transpInShadows 0\\n    -cullingOverride \\\"none\\\" \\n    -lowQualityLighting 0\\n    -maximumNumHardwareLights 1\\n    -occlusionCulling 0\\n    -shadingModel 0\\n    -useBaseRenderer 0\\n    -useReducedRenderer 0\\n    -smallObjectCulling 0\\n    -smallObjectThreshold -1 \\n    -interactiveDisableShadows 0\\n    -interactiveBackFaceCull 0\\n    -sortTransparent 1\\n    -controllers 1\\n    -nurbsCurves 1\\n    -nurbsSurfaces 1\\n    -polymeshes 1\\n    -subdivSurfaces 1\\n    -planes 1\\n    -lights 1\\n    -cameras 1\\n    -controlVertices 1\\n    -hulls 1\\n    -grid 1\\n    -imagePlane 1\\n    -joints 1\\n    -ikHandles 1\\n    -deformers 1\\n    -dynamics 1\\n    -particleInstancers 1\\n    -fluids 1\\n    -hairSystems 1\\n    -follicles 1\\n    -nCloths 1\\n    -nParticles 1\\n    -nRigids 1\\n    -dynamicConstraints 1\\n    -locators 1\\n    -manipulators 1\\n    -pluginShapes 1\\n    -dimensions 1\\n    -handles 1\\n    -pivots 1\\n    -textures 1\\n    -strokes 1\\n    -motionTrails 1\\n    -clipGhosts 1\\n    -bluePencil 1\\n    -greasePencils 0\\n    -excludeObjectPreset \\\"All\\\" \\n    -shadows 0\\n    -captureSequenceNumber -1\\n    -width 2152\\n    -height 1278\\n    -sceneRenderFilter 0\\n    $editorName;\\nmodelEditor -e -viewSelected 0 $editorName;\\nmodelEditor -e \\n    -pluginObjects \\\"gpuCacheDisplayFilter\\\" 1 \\n    $editorName\"\n"
 		+ "\t\t\t\t$configName;\n\n            setNamedPanelLayout (localizedPanelLabel(\"Current Layout\"));\n        }\n\n        panelHistory -e -clear mainPanelHistory;\n        sceneUIReplacement -clear;\n\t}\n\n\ngrid -spacing 5 -size 12 -divisions 5 -displayAxes yes -displayGridLines yes -displayDivisionLines yes -displayPerspectiveLabels no -displayOrthographicLabels no -displayAxesBold yes -perspectiveLabelPosition axis -orthographicLabelPosition edge;\nviewManip -drawCompass 0 -compassAngle 0 -frontParameters \"\" -homeParameters \"\" -selectionLockParameters \"\";\n}\n");
 	setAttr ".st" 3;
 createNode script -n "sceneConfigurationScriptNode";
@@ -2134,18 +2169,18 @@ createNode animCurveTA -n "FKRoot_M_rotateX";
 	rename -uid "39A9A2E5-41BA-6DEA-AF7A-9384D45094A8";
 	setAttr ".tan" 18;
 	setAttr ".wgt" no;
-	setAttr -s 3 ".ktv[0:2]"  1 2.2868848566278897 30 -3.1546333075347159
-		 60 2.2868848566278897;
+	setAttr -s 4 ".ktv[0:3]"  1 2.2868848566278897 30 -3.1546333075347159
+		 60 2.2868848566278897 61 2.0950467644865682;
 createNode animCurveTA -n "FKRoot_M_rotateY";
 	rename -uid "458FF10D-4C7C-E4E0-3BDF-9FA1130725A5";
 	setAttr ".tan" 18;
 	setAttr ".wgt" no;
-	setAttr -s 2 ".ktv[0:1]"  1 0 60 0;
+	setAttr -s 3 ".ktv[0:2]"  1 0 60 0 61 -0.91705847970288246;
 createNode animCurveTA -n "FKRoot_M_rotateZ";
 	rename -uid "84D542D6-48EF-1084-D4E3-438EF9756D2C";
 	setAttr ".tan" 18;
 	setAttr ".wgt" no;
-	setAttr -s 2 ".ktv[0:1]"  1 0 60 0;
+	setAttr -s 3 ".ktv[0:2]"  1 0 60 0 61 23.630012043970066;
 createNode animCurveTL -n "FKRoot_M_translateX";
 	rename -uid "7C7AFF93-4DF4-516C-B320-CCB976003237";
 	setAttr ".tan" 18;
@@ -2680,7 +2715,7 @@ createNode animCurveTA -n "RollToes_L_rotateX";
 	rename -uid "D5F0D400-40DD-7DD2-DE0C-BCA232BEA168";
 	setAttr ".tan" 18;
 	setAttr ".wgt" no;
-	setAttr -s 11 ".ktv[0:10]"  1 10 15 5 30 10 46 5 60 10 61 10 72 0 76 40.074976569905431
+	setAttr -s 11 ".ktv[0:10]"  1 10 15 5 30 10 46 5 60 10 61 10 72 0 76 0
 		 80 0 84 11.692448460528452 92 10;
 createNode animCurveTA -n "RollToes_L_rotateY";
 	rename -uid "EE15FA03-4A22-B2A6-8A71-A6880B66188E";
@@ -3147,12 +3182,61 @@ createNode animCurveTU -n "ctrlEmotions_M_contempt";
 	setAttr ".tan" 18;
 	setAttr ".wgt" no;
 	setAttr -s 2 ".ktv[0:1]"  1 0 60 0;
+createNode reference -n "sharedReferenceNode";
+	rename -uid "3F27DC93-3E44-B14F-5367-519D00AF78EB";
+	setAttr ".ed" -type "dataReferenceEdits" 
+		"sharedReferenceNode";
+createNode animCurveTA -n "RollHeel_L_rotateX";
+	rename -uid "74095B53-464D-B6DA-2115-D89DFC7982D1";
+	setAttr ".tan" 18;
+	setAttr ".wgt" no;
+	setAttr -s 3 ".ktv[0:2]"  61 0 76 -27.388903293404642 92 0;
+createNode animCurveTA -n "RollHeel_L_rotateY";
+	rename -uid "4AE1E760-4B47-C8D8-28CA-93AF737FB649";
+	setAttr ".tan" 18;
+	setAttr ".wgt" no;
+	setAttr -s 3 ".ktv[0:2]"  61 0 76 0 92 0;
+createNode animCurveTA -n "RollHeel_L_rotateZ";
+	rename -uid "151E9F53-D040-E124-D6D0-179D1827ABC6";
+	setAttr ".tan" 18;
+	setAttr ".wgt" no;
+	setAttr -s 3 ".ktv[0:2]"  61 0 76 0 92 0;
+createNode animCurveTL -n "RollHeel_L_translateX";
+	rename -uid "86A044B4-5F43-38BC-1D20-E99B691F5802";
+	setAttr ".tan" 18;
+	setAttr ".wgt" no;
+	setAttr -s 3 ".ktv[0:2]"  61 0 76 0.071397443914176559 92 0;
+createNode animCurveTL -n "RollHeel_L_translateY";
+	rename -uid "93478AFC-CE49-BEB1-B154-1FB222497E00";
+	setAttr ".tan" 18;
+	setAttr ".wgt" no;
+	setAttr -s 3 ".ktv[0:2]"  61 0 76 0 92 0;
+createNode animCurveTL -n "RollHeel_L_translateZ";
+	rename -uid "CC40B46D-E747-3B4A-BC25-B5AB89D7D665";
+	setAttr ".tan" 18;
+	setAttr ".wgt" no;
+	setAttr -s 3 ".ktv[0:2]"  61 0 76 1.4911704484806831 92 0;
+createNode animCurveTU -n "RollHeel_L_scaleX";
+	rename -uid "71BE2970-EA45-D6A1-495C-1A915423EE99";
+	setAttr ".tan" 18;
+	setAttr ".wgt" no;
+	setAttr -s 3 ".ktv[0:2]"  61 1 76 1 92 1;
+createNode animCurveTU -n "RollHeel_L_scaleY";
+	rename -uid "8AC49BC2-0242-8F29-2341-458BBA95A66D";
+	setAttr ".tan" 18;
+	setAttr ".wgt" no;
+	setAttr -s 3 ".ktv[0:2]"  61 1 76 1 92 1;
+createNode animCurveTU -n "RollHeel_L_scaleZ";
+	rename -uid "7EF861BD-9043-FE42-83CF-C3BEE42686FE";
+	setAttr ".tan" 18;
+	setAttr ".wgt" no;
+	setAttr -s 3 ".ktv[0:2]"  61 1 76 1 92 1;
 createNode mayaUsdLayerManager -n "mayaUsdLayerManager1";
-	rename -uid "27635CA1-4688-D588-BDD4-898C704B298E";
+	rename -uid "8CACB934-7E41-0A72-445F-98AB8241ED25";
 	setAttr ".sst" -type "string" "";
 select -ne :time1;
-	setAttr ".o" 75;
-	setAttr ".unw" 75;
+	setAttr ".o" 76;
+	setAttr ".unw" 76;
 select -ne :hardwareRenderingGlobals;
 	setAttr ".otfna" -type "stringArray" 22 "NURBS Curves" "NURBS Surfaces" "Polygons" "Subdiv Surface" "Particles" "Particle Instance" "Fluids" "Strokes" "Image Planes" "UI" "Lights" "Cameras" "Locators" "Joints" "IK Handles" "Deformers" "Motion Trails" "Components" "Hair Systems" "Follicles" "Misc. UI" "Ornaments"  ;
 	setAttr ".otfva" -type "Int32Array" 22 0 1 1 1 1 1
@@ -3161,7 +3245,7 @@ select -ne :hardwareRenderingGlobals;
 	setAttr ".fprt" yes;
 	setAttr ".rtfm" 1;
 select -ne :renderPartition;
-	setAttr -s 31 ".st";
+	setAttr -s 32 ".st";
 select -ne :renderGlobalsList1;
 select -ne :defaultShaderList1;
 	setAttr -s 28 ".s";
@@ -3178,7 +3262,7 @@ select -ne :standardSurface1;
 	setAttr ".sr" 0.5;
 select -ne :initialShadingGroup;
 	setAttr -k on ".nds";
-	setAttr -s 12 ".dsm";
+	setAttr -s 7 ".dsm";
 	setAttr ".ro" yes;
 select -ne :initialParticleSE;
 	setAttr ".ro" yes;
@@ -3367,23 +3451,23 @@ connectAttr "FKChest_M_translateZ.o" "briar_v06RN.phl[159]";
 connectAttr "IKLeg_R_scaleY.o" "briar_v06RN.phl[160]";
 connectAttr "IKLeg_R_scaleZ.o" "briar_v06RN.phl[161]";
 connectAttr "IKLeg_R_scaleX.o" "briar_v06RN.phl[162]";
-connectAttr "IKLeg_R_followMain.o" "briar_v06RN.phl[163]";
-connectAttr "IKLeg_R_followRoot.o" "briar_v06RN.phl[164]";
-connectAttr "IKLeg_R_swivel.o" "briar_v06RN.phl[165]";
-connectAttr "IKLeg_R_rock.o" "briar_v06RN.phl[166]";
-connectAttr "IKLeg_R_roll.o" "briar_v06RN.phl[167]";
-connectAttr "IKLeg_R_rollStartAngle.o" "briar_v06RN.phl[168]";
-connectAttr "IKLeg_R_rollEndAngle.o" "briar_v06RN.phl[169]";
-connectAttr "IKLeg_R_stretchy.o" "briar_v06RN.phl[170]";
-connectAttr "IKLeg_R_antiPop.o" "briar_v06RN.phl[171]";
-connectAttr "IKLeg_R_Lenght1.o" "briar_v06RN.phl[172]";
-connectAttr "IKLeg_R_Lenght2.o" "briar_v06RN.phl[173]";
-connectAttr "IKLeg_R_Fatness1.o" "briar_v06RN.phl[174]";
-connectAttr "IKLeg_R_Fatness2.o" "briar_v06RN.phl[175]";
+connectAttr "IKLeg_R_rock.o" "briar_v06RN.phl[163]";
+connectAttr "IKLeg_R_roll.o" "briar_v06RN.phl[164]";
+connectAttr "IKLeg_R_rollStartAngle.o" "briar_v06RN.phl[165]";
+connectAttr "IKLeg_R_rollEndAngle.o" "briar_v06RN.phl[166]";
+connectAttr "IKLeg_R_stretchy.o" "briar_v06RN.phl[167]";
+connectAttr "IKLeg_R_antiPop.o" "briar_v06RN.phl[168]";
+connectAttr "IKLeg_R_Lenght1.o" "briar_v06RN.phl[169]";
+connectAttr "IKLeg_R_Lenght2.o" "briar_v06RN.phl[170]";
+connectAttr "IKLeg_R_Fatness1.o" "briar_v06RN.phl[171]";
+connectAttr "IKLeg_R_Fatness2.o" "briar_v06RN.phl[172]";
+connectAttr "IKLeg_R_followRoot.o" "briar_v06RN.phl[173]";
+connectAttr "IKLeg_R_followMain.o" "briar_v06RN.phl[174]";
+connectAttr "IKLeg_R_swivel.o" "briar_v06RN.phl[175]";
 connectAttr "IKLeg_R_volume.o" "briar_v06RN.phl[176]";
-connectAttr "IKLeg_R_translateY.o" "briar_v06RN.phl[177]";
+connectAttr "IKLeg_R_translateZ.o" "briar_v06RN.phl[177]";
 connectAttr "IKLeg_R_translateX.o" "briar_v06RN.phl[178]";
-connectAttr "IKLeg_R_translateZ.o" "briar_v06RN.phl[179]";
+connectAttr "IKLeg_R_translateY.o" "briar_v06RN.phl[179]";
 connectAttr "IKLeg_R_rotateY.o" "briar_v06RN.phl[180]";
 connectAttr "IKLeg_R_rotateX.o" "briar_v06RN.phl[181]";
 connectAttr "IKLeg_R_rotateZ.o" "briar_v06RN.phl[182]";
@@ -3416,70 +3500,79 @@ connectAttr "IKLeg_L_volume.o" "briar_v06RN.phl[208]";
 connectAttr "IKLeg_L_translateY.o" "briar_v06RN.phl[209]";
 connectAttr "IKLeg_L_translateZ.o" "briar_v06RN.phl[210]";
 connectAttr "IKLeg_L_translateX.o" "briar_v06RN.phl[211]";
-connectAttr "IKLeg_L_rotateY.o" "briar_v06RN.phl[212]";
-connectAttr "IKLeg_L_rotateX.o" "briar_v06RN.phl[213]";
+connectAttr "IKLeg_L_rotateX.o" "briar_v06RN.phl[212]";
+connectAttr "IKLeg_L_rotateY.o" "briar_v06RN.phl[213]";
 connectAttr "IKLeg_L_rotateZ.o" "briar_v06RN.phl[214]";
-connectAttr "RollToes_L_rotateX.o" "briar_v06RN.phl[215]";
-connectAttr "RollToes_L_rotateY.o" "briar_v06RN.phl[216]";
-connectAttr "RollToes_L_rotateZ.o" "briar_v06RN.phl[217]";
-connectAttr "RollToes_L_translateX.o" "briar_v06RN.phl[218]";
-connectAttr "RollToes_L_translateY.o" "briar_v06RN.phl[219]";
-connectAttr "RollToes_L_translateZ.o" "briar_v06RN.phl[220]";
-connectAttr "RollToes_L_scaleX.o" "briar_v06RN.phl[221]";
-connectAttr "RollToes_L_scaleY.o" "briar_v06RN.phl[222]";
-connectAttr "RollToes_L_scaleZ.o" "briar_v06RN.phl[223]";
-connectAttr "RootX_M_translateY.o" "briar_v06RN.phl[224]";
-connectAttr "RootX_M_translateX.o" "briar_v06RN.phl[225]";
-connectAttr "RootX_M_translateZ.o" "briar_v06RN.phl[226]";
-connectAttr "RootX_M_rotateX.o" "briar_v06RN.phl[227]";
-connectAttr "RootX_M_rotateY.o" "briar_v06RN.phl[228]";
-connectAttr "RootX_M_rotateZ.o" "briar_v06RN.phl[229]";
-connectAttr "RootX_M_visibility.o" "briar_v06RN.phl[230]";
-connectAttr "Fingers_R_spread.o" "briar_v06RN.phl[231]";
-connectAttr "Fingers_R_cup.o" "briar_v06RN.phl[232]";
-connectAttr "Fingers_R_indexCurl.o" "briar_v06RN.phl[233]";
-connectAttr "Fingers_R_middleCurl.o" "briar_v06RN.phl[234]";
-connectAttr "Fingers_R_ringCurl.o" "briar_v06RN.phl[235]";
-connectAttr "Fingers_R_pinkyCurl.o" "briar_v06RN.phl[236]";
-connectAttr "Fingers_R_thumbCurl.o" "briar_v06RN.phl[237]";
-connectAttr "Fingers_L_spread.o" "briar_v06RN.phl[238]";
-connectAttr "Fingers_L_cup.o" "briar_v06RN.phl[239]";
-connectAttr "Fingers_L_indexCurl.o" "briar_v06RN.phl[240]";
-connectAttr "Fingers_L_middleCurl.o" "briar_v06RN.phl[241]";
-connectAttr "Fingers_L_ringCurl.o" "briar_v06RN.phl[242]";
-connectAttr "Fingers_L_pinkyCurl.o" "briar_v06RN.phl[243]";
-connectAttr "Fingers_L_thumbCurl.o" "briar_v06RN.phl[244]";
-connectAttr "ctrlEye_R_translateX.o" "briar_v06RN.phl[245]";
-connectAttr "ctrlEye_R_translateY.o" "briar_v06RN.phl[246]";
-connectAttr "ctrlEye_R_wide.o" "briar_v06RN.phl[247]";
-connectAttr "ctrlEye_R_blink.o" "briar_v06RN.phl[248]";
-connectAttr "ctrlEye_R_squint.o" "briar_v06RN.phl[249]";
-connectAttr "ctrlEye_L_translateX.o" "briar_v06RN.phl[250]";
-connectAttr "ctrlEye_L_translateY.o" "briar_v06RN.phl[251]";
-connectAttr "ctrlEye_L_wide.o" "briar_v06RN.phl[252]";
-connectAttr "ctrlEye_L_blink.o" "briar_v06RN.phl[253]";
-connectAttr "ctrlEye_L_squint.o" "briar_v06RN.phl[254]";
-connectAttr "ctrlLips_M_translateX.o" "briar_v06RN.phl[255]";
-connectAttr "ctrlLips_M_translateY.o" "briar_v06RN.phl[256]";
-connectAttr "ctrlLips_M_upperPress.o" "briar_v06RN.phl[257]";
-connectAttr "ctrlLips_M_lowerPress.o" "briar_v06RN.phl[258]";
-connectAttr "ctrlLips_M_upperSqueeze.o" "briar_v06RN.phl[259]";
-connectAttr "ctrlLips_M_lowerSqueeze.o" "briar_v06RN.phl[260]";
-connectAttr "ctrlLips_M_upperRoll.o" "briar_v06RN.phl[261]";
-connectAttr "ctrlLips_M_lowerRoll.o" "briar_v06RN.phl[262]";
-connectAttr "ctrlLips_M_upperPucker.o" "briar_v06RN.phl[263]";
-connectAttr "ctrlLips_M_lowerPucker.o" "briar_v06RN.phl[264]";
-connectAttr "ctrlMouth_M_translateX.o" "briar_v06RN.phl[265]";
-connectAttr "ctrlMouth_M_translateY.o" "briar_v06RN.phl[266]";
-connectAttr "ctrlMouth_M_jawForward.o" "briar_v06RN.phl[267]";
-connectAttr "ctrlMouth_M_jawSide.o" "briar_v06RN.phl[268]";
-connectAttr "ctrlEmotions_M_happy.o" "briar_v06RN.phl[269]";
-connectAttr "ctrlEmotions_M_angry.o" "briar_v06RN.phl[270]";
-connectAttr "ctrlEmotions_M_sad.o" "briar_v06RN.phl[271]";
-connectAttr "ctrlEmotions_M_surprise.o" "briar_v06RN.phl[272]";
-connectAttr "ctrlEmotions_M_fear.o" "briar_v06RN.phl[273]";
-connectAttr "ctrlEmotions_M_disgust.o" "briar_v06RN.phl[274]";
-connectAttr "ctrlEmotions_M_contempt.o" "briar_v06RN.phl[275]";
+connectAttr "RollHeel_L_rotateX.o" "briar_v06RN.phl[215]";
+connectAttr "RollHeel_L_rotateY.o" "briar_v06RN.phl[216]";
+connectAttr "RollHeel_L_rotateZ.o" "briar_v06RN.phl[217]";
+connectAttr "RollHeel_L_translateX.o" "briar_v06RN.phl[218]";
+connectAttr "RollHeel_L_translateY.o" "briar_v06RN.phl[219]";
+connectAttr "RollHeel_L_translateZ.o" "briar_v06RN.phl[220]";
+connectAttr "RollHeel_L_scaleX.o" "briar_v06RN.phl[221]";
+connectAttr "RollHeel_L_scaleY.o" "briar_v06RN.phl[222]";
+connectAttr "RollHeel_L_scaleZ.o" "briar_v06RN.phl[223]";
+connectAttr "RollToes_L_rotateX.o" "briar_v06RN.phl[224]";
+connectAttr "RollToes_L_rotateY.o" "briar_v06RN.phl[225]";
+connectAttr "RollToes_L_rotateZ.o" "briar_v06RN.phl[226]";
+connectAttr "RollToes_L_translateX.o" "briar_v06RN.phl[227]";
+connectAttr "RollToes_L_translateY.o" "briar_v06RN.phl[228]";
+connectAttr "RollToes_L_translateZ.o" "briar_v06RN.phl[229]";
+connectAttr "RollToes_L_scaleX.o" "briar_v06RN.phl[230]";
+connectAttr "RollToes_L_scaleY.o" "briar_v06RN.phl[231]";
+connectAttr "RollToes_L_scaleZ.o" "briar_v06RN.phl[232]";
+connectAttr "RootX_M_translateY.o" "briar_v06RN.phl[233]";
+connectAttr "RootX_M_translateX.o" "briar_v06RN.phl[234]";
+connectAttr "RootX_M_translateZ.o" "briar_v06RN.phl[235]";
+connectAttr "RootX_M_rotateX.o" "briar_v06RN.phl[236]";
+connectAttr "RootX_M_rotateY.o" "briar_v06RN.phl[237]";
+connectAttr "RootX_M_rotateZ.o" "briar_v06RN.phl[238]";
+connectAttr "RootX_M_visibility.o" "briar_v06RN.phl[239]";
+connectAttr "Fingers_R_spread.o" "briar_v06RN.phl[240]";
+connectAttr "Fingers_R_cup.o" "briar_v06RN.phl[241]";
+connectAttr "Fingers_R_indexCurl.o" "briar_v06RN.phl[242]";
+connectAttr "Fingers_R_middleCurl.o" "briar_v06RN.phl[243]";
+connectAttr "Fingers_R_ringCurl.o" "briar_v06RN.phl[244]";
+connectAttr "Fingers_R_pinkyCurl.o" "briar_v06RN.phl[245]";
+connectAttr "Fingers_R_thumbCurl.o" "briar_v06RN.phl[246]";
+connectAttr "Fingers_L_spread.o" "briar_v06RN.phl[247]";
+connectAttr "Fingers_L_cup.o" "briar_v06RN.phl[248]";
+connectAttr "Fingers_L_indexCurl.o" "briar_v06RN.phl[249]";
+connectAttr "Fingers_L_middleCurl.o" "briar_v06RN.phl[250]";
+connectAttr "Fingers_L_ringCurl.o" "briar_v06RN.phl[251]";
+connectAttr "Fingers_L_pinkyCurl.o" "briar_v06RN.phl[252]";
+connectAttr "Fingers_L_thumbCurl.o" "briar_v06RN.phl[253]";
+connectAttr "ctrlEye_R_translateX.o" "briar_v06RN.phl[254]";
+connectAttr "ctrlEye_R_translateY.o" "briar_v06RN.phl[255]";
+connectAttr "ctrlEye_R_wide.o" "briar_v06RN.phl[256]";
+connectAttr "ctrlEye_R_blink.o" "briar_v06RN.phl[257]";
+connectAttr "ctrlEye_R_squint.o" "briar_v06RN.phl[258]";
+connectAttr "ctrlEye_L_translateX.o" "briar_v06RN.phl[259]";
+connectAttr "ctrlEye_L_translateY.o" "briar_v06RN.phl[260]";
+connectAttr "ctrlEye_L_wide.o" "briar_v06RN.phl[261]";
+connectAttr "ctrlEye_L_blink.o" "briar_v06RN.phl[262]";
+connectAttr "ctrlEye_L_squint.o" "briar_v06RN.phl[263]";
+connectAttr "ctrlLips_M_translateX.o" "briar_v06RN.phl[264]";
+connectAttr "ctrlLips_M_translateY.o" "briar_v06RN.phl[265]";
+connectAttr "ctrlLips_M_upperPress.o" "briar_v06RN.phl[266]";
+connectAttr "ctrlLips_M_lowerPress.o" "briar_v06RN.phl[267]";
+connectAttr "ctrlLips_M_upperSqueeze.o" "briar_v06RN.phl[268]";
+connectAttr "ctrlLips_M_lowerSqueeze.o" "briar_v06RN.phl[269]";
+connectAttr "ctrlLips_M_upperRoll.o" "briar_v06RN.phl[270]";
+connectAttr "ctrlLips_M_lowerRoll.o" "briar_v06RN.phl[271]";
+connectAttr "ctrlLips_M_upperPucker.o" "briar_v06RN.phl[272]";
+connectAttr "ctrlLips_M_lowerPucker.o" "briar_v06RN.phl[273]";
+connectAttr "ctrlMouth_M_translateX.o" "briar_v06RN.phl[274]";
+connectAttr "ctrlMouth_M_translateY.o" "briar_v06RN.phl[275]";
+connectAttr "ctrlMouth_M_jawForward.o" "briar_v06RN.phl[276]";
+connectAttr "ctrlMouth_M_jawSide.o" "briar_v06RN.phl[277]";
+connectAttr "ctrlEmotions_M_happy.o" "briar_v06RN.phl[278]";
+connectAttr "ctrlEmotions_M_angry.o" "briar_v06RN.phl[279]";
+connectAttr "ctrlEmotions_M_sad.o" "briar_v06RN.phl[280]";
+connectAttr "ctrlEmotions_M_surprise.o" "briar_v06RN.phl[281]";
+connectAttr "ctrlEmotions_M_fear.o" "briar_v06RN.phl[282]";
+connectAttr "ctrlEmotions_M_disgust.o" "briar_v06RN.phl[283]";
+connectAttr "ctrlEmotions_M_contempt.o" "briar_v06RN.phl[284]";
 relationship "link" ":lightLinker1" ":initialShadingGroup.message" ":defaultLightSet.message";
 relationship "link" ":lightLinker1" ":initialParticleSE.message" ":defaultLightSet.message";
 relationship "shadowLink" ":lightLinker1" ":initialShadingGroup.message" ":defaultLightSet.message";
@@ -3490,5 +3583,6 @@ connectAttr ":defaultArnoldDisplayDriver.msg" ":defaultArnoldRenderOptions.drive
 		 -na;
 connectAttr ":defaultArnoldFilter.msg" ":defaultArnoldRenderOptions.filt";
 connectAttr ":defaultArnoldDriver.msg" ":defaultArnoldRenderOptions.drvr";
+connectAttr "sharedReferenceNode.sr" "briar_v06RN.sr";
 connectAttr "defaultRenderLayer.msg" ":defaultRenderingList1.r" -na;
 // End of brairANIMS.0002.ma
