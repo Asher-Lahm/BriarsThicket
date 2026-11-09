@@ -17,6 +17,6 @@ MonoBehaviour:
     it's said to have the ability to cure some sicknesses and status conditions.
   texture: {fileID: 21300000, guid: daf9febfe03fd3d44b109a9bbe858b0f, type: 3}
   purchasePrice: 20
-  sellPrice: 7
+  sellPrice: 15
   briarAttack:
   - {fileID: 11400000, guid: cd68bc9f2cced6f40acf56f2bedfabe9, type: 2}

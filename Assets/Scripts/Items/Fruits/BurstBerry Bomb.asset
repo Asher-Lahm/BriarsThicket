@@ -17,7 +17,7 @@ MonoBehaviour:
     that eating it boosts one strength to the max, but it seems a bit dangerous to
     try.
   texture: {fileID: 21300000, guid: d85f6e9d459cd5640a553f1d2231d3cd, type: 3}
-  purchasePrice: 0
-  sellPrice: 0
+  purchasePrice: 20
+  sellPrice: 15
   briarAttack:
   - {fileID: 11400000, guid: d97054a1d0db50d4e877546b34a35e07, type: 2}

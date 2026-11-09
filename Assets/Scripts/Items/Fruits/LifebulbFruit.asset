@@ -16,7 +16,7 @@ MonoBehaviour:
   itemDescription: A very juicy fruit from a Lifebulb. These fruits have been used
     for healing for centuries.
   texture: {fileID: 21300000, guid: 6d5f28f83fefad640954251514faef5b, type: 3}
-  purchasePrice: 15
-  sellPrice: 7
+  purchasePrice: 18
+  sellPrice: 15
   briarAttack:
   - {fileID: 11400000, guid: cd68bc9f2cced6f40acf56f2bedfabe9, type: 2}

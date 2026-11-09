@@ -18,6 +18,7 @@ public class ItemSelector : Menu
     [SerializeField] protected RectTransform viewport;
 
     [SerializeField] protected Button selectedButton;
+    [SerializeField] protected bool closeAfterSelect = true;
 
     protected Coroutine centerCoroutine;
     public ItemSelectButton selectedItem;
@@ -147,7 +148,10 @@ public class ItemSelector : Menu
 
         callback?.Invoke(item);
 
-        base.Close();
-        Destroy(this.gameObject);
+        if (closeAfterSelect || item == null)
+        {
+            base.Close();
+            Destroy(this.gameObject);
+        }
     }
 }
