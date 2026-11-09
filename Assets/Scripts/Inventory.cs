@@ -52,4 +52,9 @@ public class Inventory : MonoBehaviour
     {
         return items.Where(entry => entry.item is T).ToArray();
     }
+
+    public int GetAmount(Item item)
+    {
+        return items.FindLast(entry => entry.item == item).amount;
+    }
 }

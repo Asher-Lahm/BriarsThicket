@@ -9,10 +9,10 @@ public class ShopItemButton : ItemSelectButton
 {
     public TextMeshProUGUI itemNameText;
     public TextMeshProUGUI itemQuantityText;
-    public 
 
-    override void UpdateVisuals()
+    public override void UpdateVisuals()
     {
+        if (entry.item is ISellable && entry.item is IPurchasable)
         itemQuantityText.text = $"{entry.amount}";
         itemNameText.text = $"{entry.item.itemName}";
     }
