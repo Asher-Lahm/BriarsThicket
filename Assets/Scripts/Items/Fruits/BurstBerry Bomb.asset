@@ -16,7 +16,7 @@ MonoBehaviour:
   itemDescription: The explosive berry from a burst berry plant. Some records claim
     that eating it boosts one strength to the max, but it seems a bit dangerous to
     try.
-  texture: {fileID: 21300000, guid: 3af47fdf107054c49bfa12577b6a028b, type: 3}
+  texture: {fileID: 21300000, guid: d85f6e9d459cd5640a553f1d2231d3cd, type: 3}
   purchasePrice: 0
   sellPrice: 0
   briarAttack:
