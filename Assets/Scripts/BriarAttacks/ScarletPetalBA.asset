@@ -18,7 +18,7 @@ MonoBehaviour:
 
     On Briar: Charges attacks next turn to do 2 extra damage, requires 3
     energy.'
-  texture: {fileID: 21300000, guid: 7e5070c3801754c40acf16bca30945b5, type: 3}
+  texture: {fileID: 21300000, guid: 8646986c8d6a63048b3945aed29e64ac, type: 3}
   attackOnPlant: {fileID: 11400000, guid: 68a942886bf99644aba912c0feac25cb, type: 2}
   attackOnBriar: {fileID: 11400000, guid: 063a9e1aa992f664e9ea4897b2ddfb52, type: 2}
   plantEnergyCost: 1

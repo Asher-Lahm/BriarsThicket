@@ -13,9 +13,9 @@ MonoBehaviour:
   m_Name: ScarletClawPetal
   m_EditorClassIdentifier: 
   itemName: Scarlet Petal
-  itemDescription: A petal from a scarlet claw. Its sharp tip and dart-like shape
-    makes it a good projectile.
-  texture: {fileID: 21300000, guid: 7e5070c3801754c40acf16bca30945b5, type: 3}
+  itemDescription: A petal from a scarlet claw. It has a strong herbal scent. Its
+    sharp tip and dart-like shape makes it a good projectile.
+  texture: {fileID: 21300000, guid: 8646986c8d6a63048b3945aed29e64ac, type: 3}
   purchasePrice: 0
   sellPrice: 0
   briarAttack:

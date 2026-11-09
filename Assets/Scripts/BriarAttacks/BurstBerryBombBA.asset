@@ -13,11 +13,17 @@ MonoBehaviour:
   m_Name: BurstBerryBombBA
   m_EditorClassIdentifier: 
   itemName: Burst Berry Bomb
-  itemDescription: Deals 4 damage to a plant, and 1 damage to any adjacent plants
-  texture: {fileID: 21300000, guid: 3af47fdf107054c49bfa12577b6a028b, type: 3}
+  itemDescription: 'On plant: Deals 4 damage to a plant, and 1 damage to any adjacent
+    plants
+
+    On Briar: Charges attacks next turn to do 4 extra damage, but deals
+    3 damage to you upon eating. Requires 3 energy.
+
+'
+  texture: {fileID: 21300000, guid: d85f6e9d459cd5640a553f1d2231d3cd, type: 3}
   attackOnPlant: {fileID: 11400000, guid: 8dc27ef21a9b4a64ebba8fbca8589dbc, type: 2}
-  attackOnBriar: {fileID: 0}
+  attackOnBriar: {fileID: 11400000, guid: 3f7f452b7081ba943b9eae87fffa040f, type: 2}
   plantEnergyCost: 1
-  briarEnergyCost: 1
+  briarEnergyCost: 3
   attacksAllEnemies: 0
   affectsSelf: 0
