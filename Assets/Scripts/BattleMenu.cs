@@ -246,7 +246,7 @@ public class BattleMenu : Menu
                 Instantiate(energyImage, plantEnergyContainer);
             }
 
-            if (attackButton.energyCostPlant != attackButton.energyCostBriar)
+            if (attackButton.weaponItem.attackOnBriar != null)
             {
                 briarEnergyText.text = $"{attackButton.energyCostBriar} Energy | Briar";
                 for (int i = 0; i < attackButton.energyCostBriar; i++)
@@ -260,6 +260,13 @@ public class BattleMenu : Menu
     private void OnRecipientUpdated(RecipientButton combatantButton)
     {
 
+    }
+
+    public void OnBattleEnd()
+    {
+        DestroyRecipMenu();
+        DestroySelectorMenu();
+        base.Close();
     }
 
     private void CleanItemInfo()

@@ -55,7 +55,8 @@ public class BattleManager : MonoBehaviour
 
     public void EndBattle()
     {
-        battleUI.DestroyHealthBars();
+        print("battle ended");
+        battleUI.OnBattleEnd();
     }
 
     public void StartNewTurn()

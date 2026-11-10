@@ -72,7 +72,7 @@ public class HealthBar : HealthUI, IPointerExitHandler
     protected override void SetUpVisuals(Combatant combatant)
     {
         nameText.text = combatant.combatName;
-        follower.SetTarget(combatant.healthUITransform);
+        //follower.SetTarget(combatant.healthUITransform);
     }
 
     public void OnPointerExit(PointerEventData eventData)
