@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 572cb3f98cec53443bd71938d8ffb21b, type: 3}
   m_Name: cactus
   m_EditorClassIdentifier: 
-  plantName: Template Name
+  plantName: Phoscus
   description: Template Description
   growthStages:
   - {fileID: 11400000, guid: 4732ba7a5bd1e644a9a7e78b31325bcf, type: 2}

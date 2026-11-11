@@ -12,7 +12,11 @@ public class BattleUIManager : MonoBehaviour
     [SerializeField] GameObject healthBarPrefabPlant;
     [SerializeField] GameObject healthBarPrefabBriar;
     [SerializeField] GameObject blankHealthPrefab;
+    [SerializeField] GameObject plantDamageMarkerPrefab;
+    [SerializeField] GameObject briarDamageMarkerPrefab;
+    [SerializeField] Transform damageMarkerContainer;
     List<GameObject> plantHealthMenus = new List<GameObject>();
+    List<GameObject> damageMarkers = new List<GameObject>();
     GameObject briarHealthMenu;
     // Start is called before the first frame update
     private void Awake()
@@ -30,21 +34,31 @@ public class BattleUIManager : MonoBehaviour
         battleMenu.StartOfTurn();
     }
 
-    public void SetPlantHealthBarsOld(PlantBed bed)
+    public void SetPlantDamageMarkers(PlantBed bed)
     {
         foreach (PlantSpot spot in bed.plantSpots)
         {
             if (spot.plant != null)
             {
                 Plant plant = spot.plant;
-                GameObject menuObject = Instantiate(healthBarPrefabPlant, healthBarContainer);
+                GameObject markerObject = Instantiate(plantDamageMarkerPrefab, damageMarkerContainer);
 
-                HealthUI menu = menuObject.GetComponent<HealthUI>();
+                DamageMarker marker = markerObject.GetComponent<DamageMarker>();
 
-                menu.Initialize(plant);
-                plantHealthMenus.Add(menuObject);
+                marker.Initialize(plant);
+                damageMarkers.Add(markerObject);
             }
         }
+    }
+
+    public void SetBriarDamageMarkers(BriarBattle briar)
+    {
+        GameObject markerObject = Instantiate(briarDamageMarkerPrefab, damageMarkerContainer);
+
+        DamageMarker marker = markerObject.GetComponent<DamageMarker>();
+
+        marker.Initialize(briar);
+        damageMarkers.Add(markerObject);
     }
 
     public void SetPlantHealthBars(PlantBed bed)
@@ -116,9 +130,18 @@ public class BattleUIManager : MonoBehaviour
         }
     }
 
+    public void DestroyBattleMarkers()
+    {
+        foreach (GameObject marker in damageMarkers)
+        {
+            Destroy(marker.gameObject);
+        }
+    }
+
     public void OnBattleEnd()
     {
         DestroyHealthBars();
+        DestroyBattleMarkers();
         battleMenu.OnBattleEnd();
     }
 }

@@ -11,9 +11,9 @@ public class PlantHealthBar : HealthBar
 {
     [SerializeField] private Slider fatigueSlider;
     int weakHealth;
-    override protected void UpdateHealthUI(int current, int max, int tempBlock)
+    override protected void UpdateHealthUI(int current, int max, int tempBlock, DamageType type)
     {
-        base.UpdateHealthUI(current, max, tempBlock);
+        base.UpdateHealthUI(current, max, tempBlock, type);
         fatigueSlider.value = Mathf.Min((float)current / max, (float)weakHealth / max);
     }
     protected override void SetUpVisuals(Combatant combatant)

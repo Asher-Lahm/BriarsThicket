@@ -21,7 +21,7 @@ public abstract class Combatant : MonoBehaviour
     public int damageEachTurn = 0;
     public bool skipTurn;
     public Status status;
-    public event Action<int, int, int> HealthChanged;
+    public event Action<int, int, int, DamageType> HealthChanged;
     public event Action<int> AttackEffect;
     public event Action<List<StatusCondition>> StatusChanged;
     [HideInInspector]
@@ -40,8 +40,14 @@ public abstract class Combatant : MonoBehaviour
 
     public virtual void NewTurn()
     {
-        TakeDamage(damageEachTurn, null);
-        Heal(healthEachTurn);
+        if (damageEachTurn > 0)
+        {
+            TakeDamage(damageEachTurn, null);
+        }
+        if (healthEachTurn > 0)
+        {
+            Heal(healthEachTurn);
+        }
         EvalStatuses(true);
         tempBlock = 0;
     }
@@ -62,20 +68,20 @@ public abstract class Combatant : MonoBehaviour
         }
         tempBlock = Mathf.Max(tempBlock - damage, 0);
         currentHealth = Mathf.Max(currentHealth - finalDamage, 0);
-        HealthChanged?.Invoke(currentHealth, maxHealth, tempBlock);
+        HealthChanged?.Invoke(currentHealth, maxHealth, tempBlock, DamageType.Attack);
         AttackEffect?.Invoke(finalDamage);
     }
 
     public virtual void Heal(int amount)
     {
         currentHealth = Mathf.Min(currentHealth + amount, maxHealth);
-        HealthChanged?.Invoke(currentHealth, maxHealth, tempBlock);
+        HealthChanged?.Invoke(currentHealth, maxHealth, tempBlock, DamageType.Heal);
     }
 
     public virtual void AddBlock(int amount)
     {
         tempBlock += Mathf.Min(maxHealth, amount);
-        HealthChanged?.Invoke(currentHealth, maxHealth, tempBlock);
+        HealthChanged?.Invoke(currentHealth, maxHealth, tempBlock, DamageType.Block);
     }
 
     public virtual void AddStatus(StatusCondition status)
