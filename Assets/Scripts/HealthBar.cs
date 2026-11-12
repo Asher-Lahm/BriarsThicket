@@ -28,7 +28,7 @@ public class HealthBar : HealthUI, IPointerExitHandler
     {
         follower = GetComponent<WorldUIFollower>();
     }
-    override protected void UpdateHealthUI(int current, int max, int tempBlock)
+    override protected void UpdateHealthUI(int current, int max, int tempBlock, DamageType type)
     {
         slider.value = (float)current / max;
         blockSlider.value = (float)tempBlock / max;
@@ -72,7 +72,7 @@ public class HealthBar : HealthUI, IPointerExitHandler
     protected override void SetUpVisuals(Combatant combatant)
     {
         nameText.text = combatant.combatName;
-        follower.SetTarget(combatant.healthUITransform);
+        //follower.SetTarget(combatant.healthUITransform);
     }
 
     public void OnPointerExit(PointerEventData eventData)

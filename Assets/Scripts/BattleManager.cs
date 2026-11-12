@@ -49,13 +49,16 @@ public class BattleManager : MonoBehaviour
         isInBattle = true;
         battleUI.SetPlantHealthBars(currentBed);
         battleUI.SetBriarHealthBar(briar);
+        battleUI.SetPlantDamageMarkers(currentBed);
+        battleUI.SetBriarDamageMarkers(briar);
         battleUI.OpenBattleMenu();
         StartNewTurn();
     }
 
     public void EndBattle()
     {
-        battleUI.DestroyHealthBars();
+        print("battle ended");
+        battleUI.OnBattleEnd();
     }
 
     public void StartNewTurn()

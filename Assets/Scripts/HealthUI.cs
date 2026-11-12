@@ -7,18 +7,18 @@ abstract public class HealthUI : MonoBehaviour
 {
     private Combatant combatant;
 
-    public void Initialize(Combatant combatant)
+    public virtual void Initialize(Combatant combatant)
     {
         this.combatant = combatant;
 
         combatant.HealthChanged += UpdateHealthUI;
         combatant.StatusChanged += UpdateStatusUI;
 
-        UpdateHealthUI(combatant.currentHealth, combatant.maxHealth, combatant.tempBlock);
+        UpdateHealthUI(combatant.currentHealth, combatant.maxHealth, combatant.tempBlock, DamageType.None);
         SetUpVisuals(combatant);
     }
 
-    abstract protected void UpdateHealthUI(int current, int max, int tempBlock);
+    abstract protected void UpdateHealthUI(int current, int max, int tempBlock, DamageType type);
 
     abstract protected void UpdateStatusUI(List<StatusCondition> statuses);
 
