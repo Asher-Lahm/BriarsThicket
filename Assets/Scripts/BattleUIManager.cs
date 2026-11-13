@@ -69,8 +69,6 @@ public class BattleUIManager : MonoBehaviour
 
         healthBarGrid.constraintCount = bed.columns;
         //float cellSize = healthRectTransform.rect.height / bed.rows - healthBarGrid.spacing.y;
-        float cellSize = 30;
-        healthBarGrid.cellSize = new Vector2(cellSize * 3, cellSize);
         for (int i = 0; i < bed.columns; i++)
         {
             for (int j = 0; j < bed.rows; j++)

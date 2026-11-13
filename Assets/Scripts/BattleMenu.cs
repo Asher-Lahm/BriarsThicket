@@ -156,11 +156,7 @@ public class BattleMenu : Menu
             RunFromBattle();
         }
         mainButtons.SetActive(false);
-        if (attack.affectsSelf)
-        {
-            QueueBriarAttack(attack, bm.briarBattle);
-        }
-        else if (!attack.attacksAllEnemies)
+        if (!attack.attacksAllEnemies)
         {
             recipientSelectMenu = Instantiate(recipSelectPrefab, sideMenu.transform);
             recipientSelectMenu.Initialize(attack, bm.currentBed, bm.briarBattle, QueueBriarAttack);

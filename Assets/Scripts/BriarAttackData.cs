@@ -10,5 +10,4 @@ public class BriarAttackData : Item
     public int plantEnergyCost;
     public int briarEnergyCost;
     public bool attacksAllEnemies;
-    public bool affectsSelf;
 }

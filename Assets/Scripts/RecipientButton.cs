@@ -10,8 +10,10 @@ public class RecipientButton : MonoBehaviour
     [SerializeField] TextMeshProUGUI textObject;
     public Combatant combatant;
     RecipientSelectMenu selectorMenu;
+    [SerializeField] Transform energyContainer;
+    [SerializeField] GameObject energyPrefab;
 
-    public void Initialize(Combatant inCombatant, RecipientSelectMenu selector)
+    public void Initialize(Combatant inCombatant, RecipientSelectMenu selector, int energyCost)
     {
         selectorMenu = selector;
         if (inCombatant == null)
@@ -20,6 +22,14 @@ public class RecipientButton : MonoBehaviour
         }
         combatant = inCombatant;
         textObject.text = combatant.combatName;
+        foreach (Transform child in energyContainer)
+        {
+            Destroy(child.gameObject);
+        }
+        for (int i = 0; i < energyCost; i++)
+        {
+            Instantiate(energyPrefab, energyContainer);
+        }
     }
 
     public void OnPointerEnter(PointerEventData eventData)

@@ -34,12 +34,13 @@ public class RecipientSelectMenu : Menu
         RecipientButton cancelRButton = this.initialSelection.GetComponent<RecipientButton>();
         buttons.Add(cancelRButton);
         cancelButton.onClick.AddListener(() => SelectRecipient(null, null));
-        cancelRButton.Initialize(null, this);
+        cancelRButton.Initialize(null, this, 0);
 
         RecipientButton rBriarButton = briarButton.GetComponent<RecipientButton>();
         buttons.Add(rBriarButton);
         briarButton.onClick.AddListener(() => SelectRecipient(attack, inBriar));
-        rBriarButton.Initialize(inBriar, this);
+        rBriarButton.Initialize(inBriar, this, attack.briarEnergyCost);
+        buttons.Add(rBriarButton);
         if (attack.attackOnBriar == null)
         {
             briarButton.gameObject.SetActive(false);
@@ -75,7 +76,7 @@ public class RecipientSelectMenu : Menu
                         GameObject buttonObject = Instantiate(recipientPrefab, recipientTransform);
 
                         RecipientButton rButton = buttonObject.GetComponent<RecipientButton>();
-                        rButton.Initialize(spot.plant, this);
+                        rButton.Initialize(spot.plant, this, attack.plantEnergyCost);
                         Button button = buttonObject.GetComponent<Button>();
 
                         button.onClick.AddListener(() => SelectRecipient(attack, spot.plant));
@@ -116,7 +117,7 @@ public class RecipientSelectMenu : Menu
         GameObject buttonObject = Instantiate(recipientPrefab, recipientTransform);
 
         RecipientButton rButton = buttonObject.GetComponent<RecipientButton>();
-        rButton.Initialize(null, this);
+        rButton.Initialize(null, this, 0);
         Button button = buttonObject.GetComponent<Button>();
         button.interactable = false;
 

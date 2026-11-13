@@ -40,6 +40,11 @@ public class HealthBar : HealthUI, IPointerExitHandler
         }
     }
 
+    protected void SetTop()
+    {
+        transform.SetAsLastSibling();
+    }
+
     override protected void UpdateStatusUI(List<StatusCondition> statuses)
     {
         foreach (StatusButton button in buttons)
@@ -62,6 +67,7 @@ public class HealthBar : HealthUI, IPointerExitHandler
         statusDescText.text = status.status.description;
         statusTurnsText.text = $"{status.turns} turns left";
         statusPanel.SetActive(true);
+        SetTop();
     }
 
     protected void HideStatusPanel()
