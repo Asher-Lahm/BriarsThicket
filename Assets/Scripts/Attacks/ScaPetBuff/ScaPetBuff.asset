@@ -13,5 +13,4 @@ MonoBehaviour:
   m_Name: ScaPetBuff
   m_EditorClassIdentifier: 
   actions:
-  - {fileID: 11400000, guid: 45ec611f937de9f45b2a5c4a40f464db, type: 2}
-  plantTarget: 0
+  - {fileID: 11400000, guid: b908e4987204d4a4fb1ad768a7523530, type: 2}

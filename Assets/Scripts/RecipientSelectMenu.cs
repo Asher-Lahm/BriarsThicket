@@ -29,6 +29,14 @@ public class RecipientSelectMenu : Menu
 
     public void Initialize(BriarAttackData attack, PlantBed inBed, BriarBattle inBriar, Action<BriarAttackData, Combatant> callback)
     {
+        if (clickBlock != null)
+            clickBlock.onClick.AddListener(() => SelectRecipient(null, null));
+        recipGrid = recipientTransform.GetComponent<GridLayoutGroup>();
+        recipRectTransform = recipientTransform.GetComponent<RectTransform>();
+        currentBed = inBed;
+        attackData = attack;
+        buttons.Clear();
+
         attackData = attack;
         Button cancelButton = this.initialSelection.GetComponent<Button>();
         RecipientButton cancelRButton = this.initialSelection.GetComponent<RecipientButton>();
@@ -40,23 +48,14 @@ public class RecipientSelectMenu : Menu
         buttons.Add(rBriarButton);
         briarButton.onClick.AddListener(() => SelectRecipient(attack, inBriar));
         rBriarButton.Initialize(inBriar, this, attack.briarEnergyCost);
-        buttons.Add(rBriarButton);
         if (attack.attackOnBriar == null)
         {
             briarButton.gameObject.SetActive(false);
-        } else
+        }
+        else
         {
             briarButton.gameObject.SetActive(true);
         }
-
-
-        if (clickBlock != null)
-            clickBlock.onClick.AddListener(() => SelectRecipient(null, null));
-        recipGrid = recipientTransform.GetComponent<GridLayoutGroup>();
-        recipRectTransform = recipientTransform.GetComponent<RectTransform>();
-        currentBed = inBed;
-        attackData = attack;
-        buttons.Clear();
 
         onRecipientSelected = callback;
 

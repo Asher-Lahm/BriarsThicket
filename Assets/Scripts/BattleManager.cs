@@ -106,18 +106,9 @@ public class BattleManager : MonoBehaviour
             {
                 Plant plant = plantSpot.plant;
                 Attack attack = plant.ChooseAttack();
-                Combatant target;
                 if (attack != null)
                 {
-                    if (attack.plantTarget)
-                    {
-                        target = plant;
-                    }
-                    else
-                    {
-                        target = briarBattle;
-                    }
-                    QueueAttack(attack, plant, target);
+                    QueueAttack(attack, plant, briarBattle);
                     print($"{attack.name}");
                 }
             }

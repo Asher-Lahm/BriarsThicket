@@ -7,5 +7,4 @@ using UnityEngine;
 public class Attack : ScriptableObject
 {
     public AttackAction[] actions;
-    public bool plantTarget;
 }

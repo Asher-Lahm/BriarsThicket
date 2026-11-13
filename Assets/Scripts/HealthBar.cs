@@ -20,6 +20,8 @@ public class HealthBar : HealthUI, IPointerExitHandler
     [SerializeField] protected TextMeshProUGUI statusDescText;
     [SerializeField] protected Transform statusParent;
     [SerializeField] protected StatusButton statusPrefab;
+    protected Transform gridContainer;
+    protected Transform hoverContainer;
     protected List<StatusButton> buttons = new List<StatusButton>();
 
     protected WorldUIFollower follower;
@@ -27,6 +29,7 @@ public class HealthBar : HealthUI, IPointerExitHandler
     protected void Awake()
     {
         follower = GetComponent<WorldUIFollower>();
+        gridContainer = transform.parent;
     }
     override protected void UpdateHealthUI(int current, int max, int tempBlock, DamageType type)
     {
@@ -40,9 +43,21 @@ public class HealthBar : HealthUI, IPointerExitHandler
         }
     }
 
-    protected void SetTop()
+    public void SetHoverContainer(Transform container)
     {
-        transform.SetAsLastSibling();
+        hoverContainer = container;
+    }
+
+    private void BringToFront()
+    {
+        if (hoverContainer == null)
+            return;
+        transform.SetParent(hoverContainer, true);
+    }
+
+    private void ReturnToGrid()
+    {
+        transform.SetParent(gridContainer, true);
     }
 
     override protected void UpdateStatusUI(List<StatusCondition> statuses)
@@ -67,7 +82,7 @@ public class HealthBar : HealthUI, IPointerExitHandler
         statusDescText.text = status.status.description;
         statusTurnsText.text = $"{status.turns} turns left";
         statusPanel.SetActive(true);
-        SetTop();
+        BringToFront();
     }
 
     protected void HideStatusPanel()
@@ -84,5 +99,6 @@ public class HealthBar : HealthUI, IPointerExitHandler
     public void OnPointerExit(PointerEventData eventData)
     {
         HideStatusPanel();
+        ReturnToGrid();
     }
 }

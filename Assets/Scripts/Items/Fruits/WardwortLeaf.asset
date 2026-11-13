@@ -16,7 +16,7 @@ MonoBehaviour:
   itemDescription: The sturdy leaf of a Wardwort. You've read that it can increase
     your defense when eaten. It's heavy weight also makes it quite a strong attacking
     tool.
-  texture: {fileID: 21300000, guid: b51346d1be76fc44c945c61b15682b3f, type: 3}
+  texture: {fileID: 21300000, guid: 8094061f00cceee45aff1718c6b99322, type: 3}
   purchasePrice: 25
   sellPrice: 20
   briarAttack:

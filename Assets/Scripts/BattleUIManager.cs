@@ -8,6 +8,7 @@ public class BattleUIManager : MonoBehaviour
 {
     [SerializeField] BattleMenu battleMenu;
     [SerializeField] Transform healthBarContainer;
+    [SerializeField] Transform healthHoverContainer;
     [SerializeField] Transform briarHealthParent;
     [SerializeField] GameObject healthBarPrefabPlant;
     [SerializeField] GameObject healthBarPrefabBriar;
@@ -82,6 +83,10 @@ public class BattleUIManager : MonoBehaviour
 
                         HealthUI menu = healthUIObject.GetComponent<HealthUI>();
                         menu.Initialize(spot.plant);
+                        if (menu is HealthBar pHealth)
+                        {
+                            pHealth.SetHoverContainer(healthHoverContainer);
+                        }
                         plantHealthMenus.Add(healthUIObject);
                     }
                     else

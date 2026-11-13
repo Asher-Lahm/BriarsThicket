@@ -20,3 +20,4 @@ MonoBehaviour:
   sellPrice: 10
   briarAttack:
   - {fileID: 11400000, guid: cd68bc9f2cced6f40acf56f2bedfabe9, type: 2}
+  - {fileID: 11400000, guid: cd68bc9f2cced6f40acf56f2bedfabe9, type: 2}
