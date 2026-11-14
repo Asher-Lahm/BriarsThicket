@@ -74,7 +74,6 @@ public class IndivPlantMenu : MonoBehaviour
 
     private void UpdateVisual()
     {
-        
         if (planting)
         {
             removeButton.SetActive(false);
@@ -95,17 +94,5 @@ public class IndivPlantMenu : MonoBehaviour
             plantButton.SetActive(true);
             plantButton.GetComponent<Button>().interactable = false;
         }
-    }
-
-    public void SetRemovingTrue()
-    {
-        planting = true;
-        UpdateVisual();
-    }
-
-    public void SetRemovingFalse()
-    {
-        planting = false;
-        UpdateVisual();
     }
 }
