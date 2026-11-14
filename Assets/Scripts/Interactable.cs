@@ -6,5 +6,5 @@ public abstract class Interactable : MonoBehaviour
 {
     [SerializeField]
     protected Collider interactionRange;
-    public abstract void Interact();
+    public abstract void Interact(InteractionContext context);
 }

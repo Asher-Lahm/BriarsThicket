@@ -6,7 +6,7 @@ public class ShopInteractable : Interactable
 {
     [SerializeField] ShopMenu shop;
 
-    public override void Interact()
+    public override void Interact(InteractionContext ic)
     {
         shop.Open();
     }

@@ -14,7 +14,7 @@ public class NPC : Interactable
         }
     }
 
-    public override void Interact()
+    public override void Interact(InteractionContext ic)
     {
         DialogueManager.Instance.StartDialogue(dialogueSequences[dialogueIndex]);
         dialogueIndex++;

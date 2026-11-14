@@ -7,6 +7,8 @@ public class PlayerInteraction : MonoBehaviour
     private readonly List<Interactable> nearbyInteractables = new();
     [SerializeField]
     private PlayerInputReader input;
+    private BriarProgress bp;
+    private InteractionContext ic;
 
     private void Awake()
     {
@@ -14,8 +16,9 @@ public class PlayerInteraction : MonoBehaviour
         {
             input = GetComponentInChildren<PlayerInputReader>();
         }
+        bp = GetComponent<BriarProgress>();
+        ic = new InteractionContext(bp, GetComponent<Inventory>());
     }
-    // Start is called before the first frame update
     public void AddInteractable(Interactable interactable)
     {
         nearbyInteractables.Add(interactable);
@@ -43,7 +46,7 @@ public class PlayerInteraction : MonoBehaviour
 
         if (closest != null)
         {
-            closest.Interact();
+            closest.Interact(ic);
         }
     }
 

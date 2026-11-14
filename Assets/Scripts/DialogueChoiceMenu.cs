@@ -7,12 +7,12 @@ using UnityEngine.UI;
 public class DialogueChoiceMenu : Menu
 {
     private List<ChoiceButton> buttonList = new List<ChoiceButton>();
-    public void AddChoice(DialogueChoice choice, Action action)
+    public void AddChoice(DialogueChoice choice, string choiceText, Action action)
     {
         Debug.Log("Choice added");
         ChoiceButton choiceObject = Instantiate(choice.style.prefab, transform).GetComponent<ChoiceButton>();
         choiceObject.choiceButtonImage.sprite = choice.style.texture;
-        choiceObject.textObject.text = choice.text;
+        choiceObject.textObject.text = choiceText;
         choiceObject.button.onClick.AddListener(() => action());
         buttonList.Add(choiceObject);
     }

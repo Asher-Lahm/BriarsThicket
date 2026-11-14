@@ -17,14 +17,16 @@ public class IndivPlantMenu : MonoBehaviour
     Inventory inventory;
     ItemSelectorHorizontal selectorMenu;
     bool planting = false;
+    bool plantable;
 
     public void Awake()
     {
         follower = GetComponent<WorldUIFollower>();
     }
 
-    public void Initialize(PlantSpot spot, Inventory inventory)
+    public void Initialize(PlantSpot spot, Inventory inventory, bool inPlantable)
     {
+        plantable = inPlantable;
         this.spot = spot;
         this.inventory = inventory;
         follower.SetTarget(spot.transform);
@@ -72,20 +74,38 @@ public class IndivPlantMenu : MonoBehaviour
 
     private void UpdateVisual()
     {
-        if (spot.plant != null)
+        
+        if (planting)
+        {
+            removeButton.SetActive(false);
+            plantButton.SetActive(false);
+        }
+        else if (spot.plant != null)
         {
             removeButton.SetActive(true);
             plantButton.SetActive(false);
         }
-        else if (planting)
-        {
-            removeButton.SetActive(false);
-            plantButton.SetActive(false);
-        }
-        else
+        else if (plantable)
         {
             removeButton.SetActive(false);
             plantButton.SetActive(true);
+        } else
+        {
+            removeButton.SetActive(false);
+            plantButton.SetActive(true);
+            plantButton.GetComponent<Button>().interactable = false;
         }
+    }
+
+    public void SetRemovingTrue()
+    {
+        planting = true;
+        UpdateVisual();
+    }
+
+    public void SetRemovingFalse()
+    {
+        planting = false;
+        UpdateVisual();
     }
 }

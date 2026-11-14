@@ -14,7 +14,7 @@ public class CottageInteractable : Interactable
         menuSummonerDay = menuSummoner[0];
         menuSummonerNight = menuSummoner[1];
     }
-    public override void Interact()
+    public override void Interact(InteractionContext ic)
     {
         if (dayNightManager != null)
         {

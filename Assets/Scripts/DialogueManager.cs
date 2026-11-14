@@ -37,6 +37,9 @@ public class DialogueManager : MonoBehaviour
 
     bool evaluatingConditions = false;
     bool makingChoice = false;
+    Action callbackOnEnd = null;
+
+    Dictionary<string, string> tempDictionary = new Dictionary<string, string>();
 
     private void Awake()
     {
@@ -62,6 +65,44 @@ public class DialogueManager : MonoBehaviour
 
     public void StartDialogue(DialogueNode startNode)
     {
+        callbackOnEnd = null;
+        tempDictionary = new Dictionary<string, string>();
+        isDialogue = true;
+        input.StartUI();
+
+        currentNode = startNode;
+
+        EvaluateNode(startNode);
+    }
+
+    public void StartDialogue(DialogueNode startNode, Dictionary<string, string> replaceDictionary)
+    {
+        callbackOnEnd = null;
+        tempDictionary = replaceDictionary != null ? new Dictionary<string, string>(replaceDictionary) : new Dictionary<string, string>();
+        isDialogue = true;
+        input.StartUI();
+
+        currentNode = startNode;
+
+        EvaluateNode(startNode);
+    }
+
+    public void StartDialogue(DialogueNode startNode, Action callback)
+    {
+        callbackOnEnd = callback;
+        tempDictionary = new Dictionary<string, string>();
+        isDialogue = true;
+        input.StartUI();
+
+        currentNode = startNode;
+
+        EvaluateNode(startNode);
+    }
+
+    public void StartDialogue(DialogueNode startNode, Dictionary<string, string> replaceDictionary, Action callback)
+    {
+        callbackOnEnd = callback;
+        tempDictionary = replaceDictionary != null ? new Dictionary<string, string>(replaceDictionary) : new Dictionary<string, string>();
         isDialogue = true;
         input.StartUI();
 
@@ -90,6 +131,9 @@ public class DialogueManager : MonoBehaviour
         input.StartGameplay();
         RemoveDialogueBox();
         isDialogue = false;
+
+        print("dialogue ended, callback invoked");
+        callbackOnEnd?.Invoke();
     }
 
     void UpdateDialogueBox(DialogueStyle style)
@@ -100,7 +144,15 @@ public class DialogueManager : MonoBehaviour
         dialogueBox = Instantiate(style.prefab, transform).GetComponent<DialogueBox>();
 
         textObject = dialogueBox.textObject;
-        characterPortrait = dialogueBox.characterPortrait;
+        if (dialogueBox.characterPortrait != null)
+        {
+            characterPortrait = dialogueBox.characterPortrait;
+        }
+        else
+        {
+            characterPortrait = null;
+        }
+
         dialogueBox.dialogueBoxImage.sprite = style.texture;
         dialogueBox.textObject.fontSize = style.fontSize;
         dialogueBox.textObject.font = style.font;
@@ -147,7 +199,7 @@ public class DialogueManager : MonoBehaviour
 
     void ShowDialogueLine(DialogueLine node)
     {
-        dialogueBox.SetText(node.text);
+        dialogueBox.SetText(ProcessDialogue(node.text));
 
         if (node.character != null)
         {
@@ -158,7 +210,23 @@ public class DialogueManager : MonoBehaviour
         }
         currentEmotion = node.emotion;
             
-        dialogueBox.SetCharacterSprite(currentCharacter.dialogueSprites[(int)currentEmotion]);
+        if (characterPortrait != null)
+        {
+            dialogueBox.SetCharacterSprite(currentCharacter.dialogueSprites[(int)currentEmotion]);
+        }
+    }
+
+    private string ProcessDialogue(string dialogue)
+    {
+        string newDialogue = dialogue;
+        foreach (KeyValuePair<string, string> entry in tempDictionary)
+        {
+            newDialogue = newDialogue.Replace(entry.Key, entry.Value);
+            print($"{entry.Key}, {entry.Value}");
+        }
+        
+        print(newDialogue);
+        return newDialogue;
     }
 
     void ShowDialogueChoice(DialogueChoiceNode node)
@@ -170,7 +238,7 @@ public class DialogueManager : MonoBehaviour
             {
                 choice.style = defaultChoiceStyle;
             }
-            choiceMenu.AddChoice(choice, () => MakeChoice(choice));
+            choiceMenu.AddChoice(choice, ProcessDialogue(choice.text), () => MakeChoice(choice));
         }
         choiceMenu.SetNavigation();
         choiceMenu.ShowChoices();

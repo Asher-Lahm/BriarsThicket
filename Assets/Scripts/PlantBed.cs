@@ -12,6 +12,7 @@ public class PlantBed : MonoBehaviour
     [HideInInspector] public int columns;
     [HideInInspector] public int rows;
     public PlantSpot[,] plantSpotsGrid;
+    private GardenManager gm;
 
     private void Awake()
     {
@@ -28,14 +29,16 @@ public class PlantBed : MonoBehaviour
         }
     }
 
-    public void Initialize(DayNightManager dayNightManager, GameObject prefab)
+    public void Initialize(DayNightManager dayNightManager, GardenManager gardenManager, GameObject prefab)
     {
+        gm = gardenManager;
         foreach (PlantSpot spot in plantSpots)
         {
             spot.Initialize(dayNightManager, prefab);
         }
 
-        GetComponent<PlantBedInteractable>().dayNightManager = dayNightManager;
+        PlantBedInteractable interactable = GetComponent<PlantBedInteractable>();
+        interactable.Initialize(dayNightManager, gm);
     }
 
     public Combatant GetAdjacent(Plant target, int x, int y)
@@ -51,5 +54,30 @@ public class PlantBed : MonoBehaviour
         return null;
     }
 
-     
+    public bool IsEmpty()
+    {
+        foreach (PlantSpot spot in plantSpots)
+        {
+            if (spot.plant != null)
+            {
+                return false;
+            }
+        }
+        return true;
+    }
+
+    public int GetPlantAmount()
+    {
+        int amount = 0;
+        foreach (PlantSpot spot in plantSpots)
+        {
+            if (spot.plant != null)
+            {
+                amount++;
+            }
+        }
+        return amount;
+    }
+
+
 }

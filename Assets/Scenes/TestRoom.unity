@@ -9161,6 +9161,8 @@ GameObject:
   - component: {fileID: 1474567949}
   - component: {fileID: 1474567951}
   - component: {fileID: 1474567950}
+  - component: {fileID: 1474567953}
+  - component: {fileID: 1474567952}
   m_Layer: 0
   m_Name: Plant Bed 3x2
   m_TagString: Untagged
@@ -9204,7 +9206,6 @@ MonoBehaviour:
   interactionRange: {fileID: 1420227110}
   battleMenu: {fileID: 1956920194}
   plantingMenu: {fileID: 1357262847}
-  dayNightManager: {fileID: 891404911}
 --- !u!114 &1474567951
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -9228,6 +9229,74 @@ MonoBehaviour:
   battleCameraTransform: {fileID: 2092244179}
   columns: 0
   rows: 0
+--- !u!114 &1474567952
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1474567948}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 18a8045f646139e40a48938373a93b42, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  headerText: Remove a plant
+  descText: Would you like to dig up some plants from this bed?
+  menu: {fileID: 910597431077976825, guid: e10da74a897523b49a104b799f6f0060, type: 3}
+  onConfirm:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 1474567948}
+        m_TargetAssemblyTypeName: PlantBedInteractable, Assembly-CSharp
+        m_MethodName: OpenPlantingMenu
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+  onCancel:
+    m_PersistentCalls:
+      m_Calls: []
+  canvas: {fileID: 2023362570}
+--- !u!114 &1474567953
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1474567948}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 18a8045f646139e40a48938373a93b42, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  headerText: Plant a seed
+  descText: Would you like to plant some seeds in this bed?
+  menu: {fileID: 910597431077976825, guid: e10da74a897523b49a104b799f6f0060, type: 3}
+  onConfirm:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 1474567948}
+        m_TargetAssemblyTypeName: PlantBedInteractable, Assembly-CSharp
+        m_MethodName: OpenPlantingMenu
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+  onCancel:
+    m_PersistentCalls:
+      m_Calls: []
+  canvas: {fileID: 2023362570}
 --- !u!1 &1481292266
 GameObject:
   m_ObjectHideFlags: 0
@@ -9820,6 +9889,8 @@ GameObject:
   - component: {fileID: 1564069274}
   - component: {fileID: 1564069276}
   - component: {fileID: 1564069275}
+  - component: {fileID: 1564069278}
+  - component: {fileID: 1564069277}
   m_Layer: 0
   m_Name: Plant Bed Cross
   m_TagString: Untagged
@@ -9863,7 +9934,6 @@ MonoBehaviour:
   interactionRange: {fileID: 601899429}
   battleMenu: {fileID: 1956920194}
   plantingMenu: {fileID: 1357262847}
-  dayNightManager: {fileID: 891404911}
 --- !u!114 &1564069276
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -9886,6 +9956,74 @@ MonoBehaviour:
   battleCameraTransform: {fileID: 298701770}
   columns: 0
   rows: 0
+--- !u!114 &1564069277
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1564069273}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 18a8045f646139e40a48938373a93b42, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  headerText: Remove a plant
+  descText: Would you like to dig up some plants from this bed?
+  menu: {fileID: 910597431077976825, guid: e10da74a897523b49a104b799f6f0060, type: 3}
+  onConfirm:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 1564069273}
+        m_TargetAssemblyTypeName: PlantBedInteractable, Assembly-CSharp
+        m_MethodName: OpenPlantingMenu
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+  onCancel:
+    m_PersistentCalls:
+      m_Calls: []
+  canvas: {fileID: 2023362570}
+--- !u!114 &1564069278
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1564069273}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 18a8045f646139e40a48938373a93b42, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  headerText: Plant a seed
+  descText: Would you like to plant some seeds in this bed?
+  menu: {fileID: 910597431077976825, guid: e10da74a897523b49a104b799f6f0060, type: 3}
+  onConfirm:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 1564069273}
+        m_TargetAssemblyTypeName: PlantBedInteractable, Assembly-CSharp
+        m_MethodName: OpenPlantingMenu
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+  onCancel:
+    m_PersistentCalls:
+      m_Calls: []
+  canvas: {fileID: 2023362570}
 --- !u!1 &1582459392
 GameObject:
   m_ObjectHideFlags: 0
@@ -10489,6 +10627,8 @@ GameObject:
   - component: {fileID: 1686938795}
   - component: {fileID: 1686938797}
   - component: {fileID: 1686938796}
+  - component: {fileID: 1686938799}
+  - component: {fileID: 1686938798}
   m_Layer: 0
   m_Name: Plant Bed 2x2
   m_TagString: Untagged
@@ -10532,7 +10672,6 @@ MonoBehaviour:
   interactionRange: {fileID: 228074079}
   battleMenu: {fileID: 1956920194}
   plantingMenu: {fileID: 1357262847}
-  dayNightManager: {fileID: 891404911}
 --- !u!114 &1686938797
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -10554,6 +10693,74 @@ MonoBehaviour:
   battleCameraTransform: {fileID: 977353041}
   columns: 0
   rows: 0
+--- !u!114 &1686938798
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1686938794}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 18a8045f646139e40a48938373a93b42, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  headerText: Remove a plant
+  descText: Would you like to dig up some plants from this bed?
+  menu: {fileID: 910597431077976825, guid: e10da74a897523b49a104b799f6f0060, type: 3}
+  onConfirm:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 1686938796}
+        m_TargetAssemblyTypeName: PlantBedInteractable, Assembly-CSharp
+        m_MethodName: OpenPlantingMenu
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+  onCancel:
+    m_PersistentCalls:
+      m_Calls: []
+  canvas: {fileID: 2023362570}
+--- !u!114 &1686938799
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1686938794}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 18a8045f646139e40a48938373a93b42, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  headerText: Plant a seed
+  descText: Would you like to plant some seeds in this bed?
+  menu: {fileID: 910597431077976825, guid: e10da74a897523b49a104b799f6f0060, type: 3}
+  onConfirm:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 1686938796}
+        m_TargetAssemblyTypeName: PlantBedInteractable, Assembly-CSharp
+        m_MethodName: OpenPlantingMenu
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+  onCancel:
+    m_PersistentCalls:
+      m_Calls: []
+  canvas: {fileID: 2023362570}
 --- !u!1 &1694120371
 GameObject:
   m_ObjectHideFlags: 0
@@ -10794,6 +11001,14 @@ MonoBehaviour:
   dayNightManager: {fileID: 891404911}
   defaultPlantPrefab: {fileID: 3366795957957545637, guid: b46ddfba4dc5ed740a03bb81f74f4daa,
     type: 3}
+  planting: {fileID: 11400000, guid: c0a48048fe91417489b93afa41bef6eb, type: 2}
+  recap: {fileID: 11400000, guid: 43f3ee8ecb0aeab449a087c5edff62e9, type: 2}
+  harvest: {fileID: 11400000, guid: fcf392b1487a01a4b91b91b307bb4cc4, type: 2}
+  firstGrowth: {fileID: 11400000, guid: 58d962d7edc40c542a5afa9fd48df371, type: 2}
+  firstInteract: {fileID: 11400000, guid: 14580f8271d79334b98e87a5735daa5c, type: 2}
+  firstInteractNoSeed: {fileID: 11400000, guid: b0fa398d2764b0941917f6175f088419,
+    type: 2}
+  beforeFight: {fileID: 11400000, guid: 26864523c6b31a2498f0e9fb371a5d09, type: 2}
   plantBeds:
   - {fileID: 1686938797}
   - {fileID: 1474567951}
@@ -11335,15 +11550,25 @@ PrefabInstance:
         type: 3}
       insertIndex: -1
       addedObject: {fileID: 1042268268}
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 4227492317430553710, guid: 9e72124bbe493af409db075b7f642fdc,
+        type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 2000941752}
   m_SourcePrefab: {fileID: 100100000, guid: 9e72124bbe493af409db075b7f642fdc, type: 3}
+--- !u!1 &1733816144 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 4227492317430553710, guid: 9e72124bbe493af409db075b7f642fdc,
+    type: 3}
+  m_PrefabInstance: {fileID: 1733816143}
+  m_PrefabAsset: {fileID: 0}
 --- !u!114 &1733816148 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 8390665339455538827, guid: 9e72124bbe493af409db075b7f642fdc,
     type: 3}
   m_PrefabInstance: {fileID: 1733816143}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
+  m_GameObject: {fileID: 1733816144}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 5d8c65029317bf4418c44866cbb1c22e, type: 3}
@@ -12533,12 +12758,32 @@ MonoBehaviour:
     type: 3}
   m_PrefabInstance: {fileID: 1733816143}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
+  m_GameObject: {fileID: 1733816144}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 48e767fee20f34f429d1ef30234f44cf, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &2000941752
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1733816144}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 751d5a0c0f402ae40962b33a033fa7c6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  firstBedInteracted: 1
+  seedPurchased: 1
+  firstShopVisit: 0
+  firstTimeToNight: 0
+  firstTimeToDay: 0
+  firstFullBedInteracted: 0
+  firstFight: 0
+  firstGrowth: 0
 --- !u!1 &2011363025
 GameObject:
   m_ObjectHideFlags: 0

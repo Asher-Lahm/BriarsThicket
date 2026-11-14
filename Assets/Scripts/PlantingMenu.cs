@@ -18,7 +18,7 @@ public class PlantingMenu : Menu
             gardenManager = GardenManager.Instance;
         }
     }
-    public void PrepareMenus(PlantBed bed)
+    public void PrepareMenus(PlantBed bed, bool plantable)
     {
         indivPlantMenus.Clear();
         this.bed = bed;
@@ -28,7 +28,7 @@ public class PlantingMenu : Menu
 
             IndivPlantMenu menu = menuObject.GetComponent<IndivPlantMenu>();
             
-            menu.Initialize(spot, inventory);
+            menu.Initialize(spot, inventory, plantable);
             indivPlantMenus.Add(menu);
         }
         camControl.MoveToFixedPosition(bed.plantingCameraTransform);
