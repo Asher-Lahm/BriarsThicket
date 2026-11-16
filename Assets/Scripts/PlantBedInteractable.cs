@@ -183,8 +183,7 @@ public class PlantBedInteractable : Interactable
 
     public void OpenPlantingMenu()
     {
-        print("planting menu opened");
         plantingMenu.Open();
-        plantingMenu.PrepareMenus(bed, plantable);
+        plantingMenu.PrepareMenus(bed, plantable, harvestable);
     }
 }

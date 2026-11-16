@@ -29,4 +29,10 @@ public class PlantSpot : MonoBehaviour
         Destroy(plant.gameObject);
         plant = null;
     }
+
+    public void HarvestPlant(Inventory inventory)
+    {
+        inventory.AddItemToInventory(plant.harvestItem, plant.GetHarvestAmount());
+        RemovePlant();
+    }
 }

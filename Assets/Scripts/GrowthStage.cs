@@ -13,4 +13,6 @@ public class GrowthStage : ScriptableObject
     public bool isFightable = true;
     public Material dayMaterial;
     public Material nightMaterial;
+    public int harvestAmount;
+    public FruitItem harvestItem;
 }

@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -13,20 +14,25 @@ public class IndivPlantMenu : MonoBehaviour
     PlantData selectedPlant;
     [SerializeField] GameObject plantButton;
     [SerializeField] GameObject removeButton;
+    [SerializeField] GameObject harvestButton;
     [SerializeField] ItemSelectorHorizontal itemSelectorPrefab;
     Inventory inventory;
     ItemSelectorHorizontal selectorMenu;
     bool planting = false;
     bool plantable;
+    bool harvestable;
+
+    public Action onPlantRemoved;
 
     public void Awake()
     {
         follower = GetComponent<WorldUIFollower>();
     }
 
-    public void Initialize(PlantSpot spot, Inventory inventory, bool inPlantable)
+    public void Initialize(PlantSpot spot, Inventory inventory, bool inPlantable, bool isHarvestable)
     {
         plantable = inPlantable;
+        harvestable = isHarvestable;
         this.spot = spot;
         this.inventory = inventory;
         follower.SetTarget(spot.transform);
@@ -37,6 +43,14 @@ public class IndivPlantMenu : MonoBehaviour
     {
         spot.RemovePlant();
         UpdateVisual();
+        onPlantRemoved?.Invoke();
+    }
+
+    public void Harvest()
+    {
+        spot.HarvestPlant(inventory);
+        UpdateVisual();
+        onPlantRemoved?.Invoke();
     }
 
     public void Plant(SeedItem seed)
@@ -72,27 +86,47 @@ public class IndivPlantMenu : MonoBehaviour
         }
     }
 
+    public void BedEmpty()
+    {
+        harvestable = false;
+        plantable = true;
+        UpdateVisual();
+    }
+
     private void UpdateVisual()
     {
+        removeButton.SetActive(false);
+        plantButton.SetActive(false);
+        harvestButton.SetActive(false);
+
         if (planting)
         {
-            removeButton.SetActive(false);
-            plantButton.SetActive(false);
+            return;
         }
-        else if (spot.plant != null)
+
+        if (plantable)
         {
-            removeButton.SetActive(true);
-            plantButton.SetActive(false);
+            if (spot.plant == null)
+            {
+                plantButton.SetActive(true);
+            }
+            else
+            {
+                removeButton.SetActive(true);
+            }
+            return;
         }
-        else if (plantable)
+
+        if (spot.plant != null)
         {
-            removeButton.SetActive(false);
-            plantButton.SetActive(true);
-        } else
-        {
-            removeButton.SetActive(false);
-            plantButton.SetActive(true);
-            plantButton.GetComponent<Button>().interactable = false;
+            if (harvestable)
+            {
+                harvestButton.SetActive(true);
+            }
+            else
+            {
+                removeButton.SetActive(true);
+            }
         }
     }
 }

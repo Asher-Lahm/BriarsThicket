@@ -36,4 +36,9 @@ public class SummonConfirmationMenu : MonoBehaviour
         return instancedMenu;
     }
 
+    public void SummonNoReturn()
+    {
+        Summon();
+    }
+
 }

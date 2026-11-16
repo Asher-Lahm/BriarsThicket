@@ -16,6 +16,11 @@ public class Plant : Combatant
     private PlantBed bed;
     private Animator animator;
 
+    private int baseHarvestAmount;
+    private int harvestPenalty;
+    public FruitItem harvestItem;
+    private int harvestAmount;
+
     private GameObject currentVisual;
     private DayNightManager dayNightManager;
 
@@ -95,6 +100,17 @@ public class Plant : Combatant
         ChangeMaterial(nightMaterial);
     }
 
+
+    public int GetHarvestAmount()
+    {
+        return Mathf.Max(0, baseHarvestAmount - harvestPenalty);
+    }
+
+    public void PenalizeHarvest(int amount)
+    {
+        harvestPenalty += amount;
+    }
+
     public Attack ChooseAttack()
     {
         if (attacks.Length == 0)
@@ -140,6 +156,8 @@ public class Plant : Combatant
         dayMaterial = currentStage.dayMaterial;
         weakHealth = currentStage.baseFatigueHealth;
         attacks = currentStage.attacks;
+        harvestItem = currentStage.harvestItem;
+        baseHarvestAmount = currentStage.harvestAmount;
     }
 
     // Update is called once per frame

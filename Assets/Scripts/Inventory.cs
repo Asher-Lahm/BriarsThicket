@@ -10,7 +10,11 @@ public class Inventory : MonoBehaviour
 
     public void AddItemToInventory(Item item, int amount) {
         InventoryEntry existing = items.Find(x => x.item == item);
-
+        if (item == null)
+        {
+            print("cannot add null to inventory");
+            return;
+        }
         if (existing != null)
         {
             existing.amount += amount;

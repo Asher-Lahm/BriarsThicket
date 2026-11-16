@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Playables;
 
 public class PlantingMenu : Menu
 {
@@ -18,7 +19,7 @@ public class PlantingMenu : Menu
             gardenManager = GardenManager.Instance;
         }
     }
-    public void PrepareMenus(PlantBed bed, bool plantable)
+    public void PrepareMenus(PlantBed bed, bool plantable, bool harvestable)
     {
         indivPlantMenus.Clear();
         this.bed = bed;
@@ -28,10 +29,22 @@ public class PlantingMenu : Menu
 
             IndivPlantMenu menu = menuObject.GetComponent<IndivPlantMenu>();
             
-            menu.Initialize(spot, inventory, plantable);
+            menu.Initialize(spot, inventory, plantable, harvestable);
+            menu.onPlantRemoved += UpdateMenus;
             indivPlantMenus.Add(menu);
         }
         camControl.MoveToFixedPosition(bed.plantingCameraTransform);
+    }
+
+    public void UpdateMenus()
+    {
+        if (bed.IsEmpty())
+        {
+            foreach (IndivPlantMenu menu in indivPlantMenus)
+            {
+                menu.BedEmpty();
+            }
+        }
     }
 
     public void CloseMenus()
@@ -39,6 +52,7 @@ public class PlantingMenu : Menu
         camControl.ReturnPlayerControl();
         foreach (IndivPlantMenu menu in indivPlantMenus)
         {
+            menu.onPlantRemoved -= UpdateMenus;
             Destroy(menu.gameObject);
             print("menu destroyed");
         }

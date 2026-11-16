@@ -62,7 +62,7 @@ public class RecipientSelectMenu : Menu
         recipGrid.constraintCount = currentBed.columns;
         float cellSize = recipRectTransform.rect.height / currentBed.rows - recipGrid.spacing.y;
         recipGrid.cellSize = new Vector2(cellSize, cellSize);
-        if (attack.attackOnPlant == null)
+        if (attack.attackOnPlant != null)
         {
             for (int i = 0; i < currentBed.columns; i++)
             {

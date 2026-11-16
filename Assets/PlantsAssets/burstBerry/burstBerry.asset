@@ -14,7 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   plantName: Burst Berry
   description: This plant lobs explosive berries. These berries make for effective
-    defensive weapons.
+    offensive weapons.
   growthStages:
   - {fileID: 11400000, guid: 4732ba7a5bd1e644a9a7e78b31325bcf, type: 2}
   - {fileID: 11400000, guid: 8976d7a62b4c4ba459f5d0143b7e9b38, type: 2}
