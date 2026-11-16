@@ -7,6 +7,8 @@ public class SummonConfirmationMenu : MonoBehaviour
 {
     [SerializeField] public string headerText;
     [SerializeField] [TextArea] public string descText;
+    [SerializeField] string confirmText = "Yes";
+    [SerializeField] string declineText = "No";
     [SerializeField] GameObject menu;
     [SerializeField] public UnityEvent onConfirm;
     [SerializeField] public UnityEvent onCancel;
@@ -19,18 +21,19 @@ public class SummonConfirmationMenu : MonoBehaviour
             canvas = GetComponentInParent<Canvas>();
         }
     }
-    public void Summon()
+    public ConfirmationMenu Summon()
     {
         if (canvas == null)
         {
             Debug.Log("no canvas to spawn menu");
-            return;
+            return null;
         }
             
         GameObject menuObject = Instantiate(menu, canvas.transform);
         ConfirmationMenu instancedMenu = menuObject.GetComponent<ConfirmationMenu>();
-        instancedMenu.Intialize(headerText, descText, onConfirm, onCancel);
+        instancedMenu.Intialize(headerText, descText, onConfirm, onCancel, confirmText, declineText);
         instancedMenu.Open();
+        return instancedMenu;
     }
 
 }

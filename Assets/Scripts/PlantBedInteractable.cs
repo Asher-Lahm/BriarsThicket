@@ -58,7 +58,7 @@ public class PlantBedInteractable : Interactable
             plantable = false;
             planted = true;
             plantAge++;
-            if (plantAge == 2)
+            if (plantAge == 1)
             {
                 fightable = true;
                 harvestable = true;
@@ -119,7 +119,7 @@ public class PlantBedInteractable : Interactable
         {
             if (ic.Progress.seedPurchased)
             {
-                DialogueManager.Instance.StartDialogue(gm.firstInteract, plantSeeds.Summon);
+                DialogueManager.Instance.StartDialogue(gm.firstInteract, () => plantSeeds.Summon());
                 ic.Progress.firstBedInteracted = true;
             }
             else
@@ -132,18 +132,18 @@ public class PlantBedInteractable : Interactable
         {
             if (plantable)
             {
-                OpenPlantingMenu();
+                plantSeeds.Summon();
             }
             else
             {
                 if (ic.Progress.firstFullBedInteracted)
                 {
-                    DialogueManager.Instance.StartDialogue(gm.recap, dialogueDictionary, OpenPlantingMenu);
+                    DialogueManager.Instance.StartDialogue(gm.recap, dialogueDictionary, () => removePlants.Summon());
                     ic.Progress.firstFullBedInteracted = true;
                 } 
                 else
                 {
-                    DialogueManager.Instance.StartDialogue(gm.recap, dialogueDictionary, OpenPlantingMenu);
+                    DialogueManager.Instance.StartDialogue(gm.recap, dialogueDictionary, () => removePlants.Summon());
                 }
             }
         } else
@@ -164,13 +164,12 @@ public class PlantBedInteractable : Interactable
             {
                 if (!ic.Progress.firstGrowth)
                 {
-                    DialogueManager.Instance.StartDialogue(gm.firstGrowth, dialogueDictionary, OpenPlantingMenu);
-                    print(dialogueDictionary["{PLANTLIST}"]);
+                    DialogueManager.Instance.StartDialogue(gm.firstGrowth, dialogueDictionary, () => removePlants.Summon());
                     ic.Progress.firstGrowth = true;
                 }
                 else
                 {
-                    DialogueManager.Instance.StartDialogue(gm.recap, dialogueDictionary, OpenPlantingMenu);
+                    DialogueManager.Instance.StartDialogue(gm.recap, dialogueDictionary, () => removePlants.Summon());
                 }
             }
         }  

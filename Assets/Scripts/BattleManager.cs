@@ -22,7 +22,9 @@ public class BattleManager : MonoBehaviour
     [SerializeField] PlayerInputReader playerInput;
     [SerializeField] CameraController camControl;
     [SerializeField] public BriarBattle briarBattle;
+    [SerializeField] public BriarAttackData endBattle;
     private bool plantsHaveTurn = true;
+
     //[[SerializeField]] List<Combatant> combatants;
 
     public void Awake()
@@ -43,21 +45,18 @@ public class BattleManager : MonoBehaviour
 
     public void StartBattle(BriarBattle briar, PlantBed bed)
     {
-        Debug.Log("Started Battle (Theoretically)");
         camControl.MoveToFixedPosition(bed.battleCameraTransform);
         currentBed = bed;
         isInBattle = true;
-        battleUI.SetPlantHealthBars(currentBed);
-        battleUI.SetBriarHealthBar(briar);
-        battleUI.SetPlantDamageMarkers(currentBed);
-        battleUI.SetBriarDamageMarkers(briar);
-        battleUI.OpenBattleMenu();
+        battleUI.OnBattleStart(currentBed, briar);
         StartNewTurn();
     }
 
     public void EndBattle()
     {
         print("battle ended");
+        isInBattle = false;
+        camControl.ReturnPlayerControl();
         battleUI.OnBattleEnd();
     }
 
@@ -81,6 +80,11 @@ public class BattleManager : MonoBehaviour
     {
         Attack attack;
         int energyCost;
+        if (briarAttack == endBattle)
+        {
+            EndBattle();
+            return;
+        }
         if (reciever == briarBattle)
         {
             attack = briarAttack.attackOnBriar;
@@ -156,8 +160,6 @@ public class BattleManager : MonoBehaviour
         Attack attack = currentAttack.attack;
         Combatant attacker = currentAttack.attacker;
         Combatant reciever = currentAttack.reciever;
-
-        print($"attack: {attack.name}");
 
         foreach(AttackAction action in attack.actions)
         {

@@ -1,6 +1,7 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -141,6 +142,14 @@ public class BattleUIManager : MonoBehaviour
         }
     }
 
+    public void OnBattleStart(PlantBed currentBed, BriarBattle briar)
+    {
+        SetPlantHealthBars(currentBed);
+        SetBriarHealthBar(briar);
+        SetPlantDamageMarkers(currentBed);
+        SetBriarDamageMarkers(briar);
+        OpenBattleMenu();
+    }
     public void OnBattleEnd()
     {
         DestroyHealthBars();

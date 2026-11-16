@@ -62,33 +62,35 @@ public class RecipientSelectMenu : Menu
         recipGrid.constraintCount = currentBed.columns;
         float cellSize = recipRectTransform.rect.height / currentBed.rows - recipGrid.spacing.y;
         recipGrid.cellSize = new Vector2(cellSize, cellSize);
-
-        for (int i = 0; i < currentBed.columns; i++)
+        if (attack.attackOnPlant == null)
         {
-            for (int j = 0; j < currentBed.rows; j++)
+            for (int i = 0; i < currentBed.columns; i++)
             {
-                if (currentBed.plantSpotsGrid[i, j] != null)
+                for (int j = 0; j < currentBed.rows; j++)
                 {
-                    PlantSpot spot = currentBed.plantSpotsGrid[i, j];
-                    if (spot.plant != null)
+                    if (currentBed.plantSpotsGrid[i, j] != null)
                     {
-                        GameObject buttonObject = Instantiate(recipientPrefab, recipientTransform);
+                        PlantSpot spot = currentBed.plantSpotsGrid[i, j];
+                        if (spot.plant != null)
+                        {
+                            GameObject buttonObject = Instantiate(recipientPrefab, recipientTransform);
 
-                        RecipientButton rButton = buttonObject.GetComponent<RecipientButton>();
-                        rButton.Initialize(spot.plant, this, attack.plantEnergyCost);
-                        Button button = buttonObject.GetComponent<Button>();
+                            RecipientButton rButton = buttonObject.GetComponent<RecipientButton>();
+                            rButton.Initialize(spot.plant, this, attack.plantEnergyCost);
+                            Button button = buttonObject.GetComponent<Button>();
 
-                        button.onClick.AddListener(() => SelectRecipient(attack, spot.plant));
-                        buttons.Add(rButton);
-                    }  
+                            button.onClick.AddListener(() => SelectRecipient(attack, spot.plant));
+                            buttons.Add(rButton);
+                        }
+                        else
+                        {
+                            DrawNullButton();
+                        }
+                    }
                     else
                     {
                         DrawNullButton();
                     }
-                } 
-                else
-                {
-                    DrawNullButton();
                 }
             }
         }

@@ -6,7 +6,6 @@ using UnityEngine.UI;
 public class BattleStartMenu : Menu
 {
     [SerializeField] BattleManager battleManager;
-    [SerializeField] BattleUIManager battleUIManager;
     PlantBed bed;
 
     private void Start()

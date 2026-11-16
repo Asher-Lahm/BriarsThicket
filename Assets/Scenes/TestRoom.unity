@@ -3716,6 +3716,7 @@ GameObject:
   m_Component:
   - component: {fileID: 692203317}
   - component: {fileID: 692203318}
+  - component: {fileID: 692203319}
   m_Layer: 5
   m_Name: Player Input Menu
   m_TagString: Untagged
@@ -3779,6 +3780,30 @@ MonoBehaviour:
     type: 3}
   mainButtons: {fileID: 556480372}
   runAway: {fileID: 11400000, guid: 9fa8aeaba435eba44b126f690c2ba2a1, type: 2}
+--- !u!114 &692203319
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 692203316}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 18a8045f646139e40a48938373a93b42, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  headerText: End this battle early?
+  descText: You will not be able to fight this plant bed again tonight.
+  confirmText: End Battle
+  declineText: Continue Battle
+  menu: {fileID: 910597431077976825, guid: e10da74a897523b49a104b799f6f0060, type: 3}
+  onConfirm:
+    m_PersistentCalls:
+      m_Calls: []
+  onCancel:
+    m_PersistentCalls:
+      m_Calls: []
+  canvas: {fileID: 1702293914}
 --- !u!1 &698212568
 GameObject:
   m_ObjectHideFlags: 0
@@ -5753,6 +5778,7 @@ MonoBehaviour:
   playerInput: {fileID: 1677191628}
   camControl: {fileID: 138094829}
   briarBattle: {fileID: 2000941751}
+  endBattle: {fileID: 11400000, guid: 9fa8aeaba435eba44b126f690c2ba2a1, type: 2}
 --- !u!4 &962610154
 Transform:
   m_ObjectHideFlags: 0
@@ -6757,8 +6783,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   headerText: Ready for morning?
-  descText: Going inside now, you will sleep until tomorrow. Any plants not fought
-    will destroy each other, or themselves.
+  descText: Going inside now, you will sleep until tomorrow. Any plants not fatigued
+    will damage themselves and hurt your harvest.
+  confirmText: Go inside
+  declineText: Keep battling
   menu: {fileID: 910597431077976825, guid: e10da74a897523b49a104b799f6f0060, type: 3}
   onConfirm:
     m_PersistentCalls:
@@ -6794,6 +6822,8 @@ MonoBehaviour:
   headerText: Done gardening?
   descText: Going inside now will pass the time to night. Are you sure you want to
     advance?
+  confirmText: Go inside
+  declineText: Continue gardening
   menu: {fileID: 910597431077976825, guid: e10da74a897523b49a104b799f6f0060, type: 3}
   onConfirm:
     m_PersistentCalls:
@@ -9243,11 +9273,13 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   headerText: Remove a plant
   descText: Would you like to dig up some plants from this bed?
+  confirmText: Start digging
+  declineText: Go back
   menu: {fileID: 910597431077976825, guid: e10da74a897523b49a104b799f6f0060, type: 3}
   onConfirm:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1474567948}
+      - m_Target: {fileID: 1474567950}
         m_TargetAssemblyTypeName: PlantBedInteractable, Assembly-CSharp
         m_MethodName: OpenPlantingMenu
         m_Mode: 1
@@ -9277,11 +9309,13 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   headerText: Plant a seed
   descText: Would you like to plant some seeds in this bed?
+  confirmText: Start planting
+  declineText: Go back
   menu: {fileID: 910597431077976825, guid: e10da74a897523b49a104b799f6f0060, type: 3}
   onConfirm:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1474567948}
+      - m_Target: {fileID: 1474567950}
         m_TargetAssemblyTypeName: PlantBedInteractable, Assembly-CSharp
         m_MethodName: OpenPlantingMenu
         m_Mode: 1
@@ -9970,11 +10004,13 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   headerText: Remove a plant
   descText: Would you like to dig up some plants from this bed?
+  confirmText: Start digging
+  declineText: Go back
   menu: {fileID: 910597431077976825, guid: e10da74a897523b49a104b799f6f0060, type: 3}
   onConfirm:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1564069273}
+      - m_Target: {fileID: 1564069275}
         m_TargetAssemblyTypeName: PlantBedInteractable, Assembly-CSharp
         m_MethodName: OpenPlantingMenu
         m_Mode: 1
@@ -10004,11 +10040,13 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   headerText: Plant a seed
   descText: Would you like to plant some seeds in this bed?
+  confirmText: Start planting
+  declineText: Go back
   menu: {fileID: 910597431077976825, guid: e10da74a897523b49a104b799f6f0060, type: 3}
   onConfirm:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1564069273}
+      - m_Target: {fileID: 1564069275}
         m_TargetAssemblyTypeName: PlantBedInteractable, Assembly-CSharp
         m_MethodName: OpenPlantingMenu
         m_Mode: 1
@@ -10707,6 +10745,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   headerText: Remove a plant
   descText: Would you like to dig up some plants from this bed?
+  confirmText: Start digging
+  declineText: Go back
   menu: {fileID: 910597431077976825, guid: e10da74a897523b49a104b799f6f0060, type: 3}
   onConfirm:
     m_PersistentCalls:
@@ -10741,6 +10781,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   headerText: Plant a seed
   descText: Would you like to plant some seeds in this bed?
+  confirmText: Start planting
+  declineText: Go back
   menu: {fileID: 910597431077976825, guid: e10da74a897523b49a104b799f6f0060, type: 3}
   onConfirm:
     m_PersistentCalls:
@@ -12573,7 +12615,6 @@ MonoBehaviour:
   initialSelection: {fileID: 1175534288}
   menuFocusManager: {fileID: 163871870}
   battleManager: {fileID: 962610153}
-  battleUIManager: {fileID: 1702293916}
 --- !u!114 &1956920195
 MonoBehaviour:
   m_ObjectHideFlags: 0

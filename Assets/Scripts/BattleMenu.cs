@@ -33,7 +33,12 @@ public class BattleMenu : Menu
     bool actionToggled = false;
     bool attackToggled = false;
     bool itemToggled = false;
-
+    private void Awake()
+    {
+        SummonConfirmationMenu confMenu = GetComponent<SummonConfirmationMenu>();
+        confMenu.onConfirm.AddListener(() => QueueBriarAttack(runAway, bm.briarBattle));
+        confMenu.onCancel.AddListener(() => QueueBriarAttack(null, null));
+    }
     public void ToggleAttackMenu()
     {
         attackToggled = !attackToggled;
@@ -113,10 +118,7 @@ public class BattleMenu : Menu
         selectorMenu.DisableButtons(bm.GetBriarEnergy());
     }
 
-    public void RunFromBattle()
-    {
-        bm.EndBattle();
-    }
+    
 
     private void DestroySelectorMenu()
     {
@@ -162,6 +164,12 @@ public class BattleMenu : Menu
             recipientSelectMenu.Initialize(attack, bm.currentBed, bm.briarBattle, QueueBriarAttack);
             recipientSelectMenu.DisableButtons(bm.GetBriarEnergy());
         }
+    }
+
+    public void RunFromBattle()
+    {
+        ConfirmationMenu confMenu = GetComponent<SummonConfirmationMenu>().Summon();
+        sideMenu.SetActive(false);
     }
 
     private void QueueBriarAttack(BriarAttackData briarAttack, Combatant target)
