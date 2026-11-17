@@ -20,8 +20,9 @@ public class PlantBedInteractable : Interactable
     private SummonConfirmationMenu removePlants;
     private Dictionary<string, string> dialogueDictionary = new Dictionary<string, string>();
 
-    private void Awake()
+    protected override void Awake()
     {
+        base.Awake();
         bed = GetComponent<PlantBed>();
         SummonConfirmationMenu[] menuSummoner = GetComponents<SummonConfirmationMenu>();
         plantSeeds = menuSummoner[0];
@@ -113,8 +114,51 @@ public class PlantBedInteractable : Interactable
         dialogueDictionary["{PLANTLIST}"] = plantListString;
     }
 
+    public override void SummonInteractIndicator(InteractionContext ic)
+    {
+
+        print(indSummoner.name);
+        if (!ic.Progress.firstBedInteracted)
+        {
+            indSummoner.ChangeInteractPrompt("Inspect");
+        }
+        else if (dnManager.isDay)
+        {
+            if (plantable)
+            {
+                indSummoner.ChangeInteractPrompt("Plant");
+            }
+            else
+            {
+                indSummoner.ChangeInteractPrompt("Inspect");
+            }
+        }
+        else
+        {
+            if (fightable)
+            {
+                if (!ic.Progress.firstFight)
+                {
+                    indSummoner.ChangeInteractPrompt("Inspect");
+                }
+                else
+                {
+                    indSummoner.ChangeInteractPrompt("Fight");
+                }
+            }
+            else
+            {
+                indSummoner.ChangeInteractPrompt("Inspect");
+            }
+        }
+        
+        base.SummonInteractIndicator(ic);
+    }
+
     public override void Interact(InteractionContext ic)
     {
+        if (!isInteractable)
+            return;
         if (!ic.Progress.firstBedInteracted)
         {
             if (ic.Progress.seedPurchased)

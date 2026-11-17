@@ -7,9 +7,13 @@ public class InteractionContext
     public BriarProgress Progress { get; }
     public Inventory Inventory { get; }
 
-    public InteractionContext(BriarProgress bp, Inventory bi)
+    public DayNightManager DayNight { get; }
+
+
+    public InteractionContext(BriarProgress bp, Inventory bi, DayNightManager dn)
     {
         Progress = bp;
         Inventory = bi;
+        DayNight = dn;
     }
 }

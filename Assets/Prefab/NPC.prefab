@@ -107,6 +107,37 @@ CapsuleCollider:
   m_Height: 2.3
   m_Direction: 1
   m_Center: {x: 0, y: 0, z: 0}
+--- !u!1 &6757137515650751461
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 8134849068808955618}
+  m_Layer: 0
+  m_Name: Interaction Indicator Loc
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &8134849068808955618
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6757137515650751461}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0.69, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 1124533364901239887}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &7792582236606695598
 GameObject:
   m_ObjectHideFlags: 0
@@ -172,6 +203,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1124533364901239887}
   - component: {fileID: 6937119055216134151}
+  - component: {fileID: 7723928456136837678}
   m_Layer: 0
   m_Name: NPC
   m_TagString: Untagged
@@ -193,6 +225,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 1420665778693195262}
+  - {fileID: 8134849068808955618}
   - {fileID: 938909705097598387}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -209,6 +242,25 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   interactionRange: {fileID: 7053672851143879164}
+  isInteractable: 1
   dialogueSequences:
   - {fileID: 11400000, guid: 6ca6ac2bfeab12c4ebfb2c17224fe41a, type: 2}
   - {fileID: 11400000, guid: c32e3e04b0f9cd0439c2e6fd997028c2, type: 2}
+--- !u!114 &7723928456136837678
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8824380321677953563}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5c9f522d1534ec847917756d1fa18265, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  targetRectTransform: {fileID: 0}
+  indicatorPositionTransform: {fileID: 8134849068808955618}
+  interactionIndicatorPrefab: {fileID: 6950603831735099597, guid: 8074f64c5c820db478406232cf51facf,
+    type: 3}
+  indicatorPrompt: Speak
+  indicatorLetter: E

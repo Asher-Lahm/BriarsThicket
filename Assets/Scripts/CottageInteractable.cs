@@ -8,14 +8,17 @@ public class CottageInteractable : Interactable
     SummonConfirmationMenu menuSummonerDay;
     SummonConfirmationMenu menuSummonerNight;
 
-    private void Awake()
+    protected override void Awake()
     {
+        base.Awake();
         SummonConfirmationMenu[] menuSummoner = GetComponents<SummonConfirmationMenu>();
         menuSummonerDay = menuSummoner[0];
         menuSummonerNight = menuSummoner[1];
     }
     public override void Interact(InteractionContext ic)
     {
+        if (!isInteractable)
+            return;
         if (dayNightManager != null)
         {
             if (dayNightManager.isDay)
@@ -25,5 +28,19 @@ public class CottageInteractable : Interactable
                 menuSummonerNight.Summon();
             }
         }
+    }
+
+    public override void SummonInteractIndicator(InteractionContext ic)
+    {
+        if (ic.DayNight.isDay)
+        {
+            indSummoner.ChangeInteractPrompt("Inside");
+        }
+        else
+        {
+            indSummoner.ChangeInteractPrompt("Sleep");
+        }
+
+            base.SummonInteractIndicator(ic);
     }
 }

@@ -9,6 +9,8 @@ public class PlayerInteraction : MonoBehaviour
     private PlayerInputReader input;
     private BriarProgress bp;
     private InteractionContext ic;
+    [SerializeField] DayNightManager dnManager;
+    private Interactable closestInteractable;
 
     private void Awake()
     {
@@ -17,7 +19,7 @@ public class PlayerInteraction : MonoBehaviour
             input = GetComponentInChildren<PlayerInputReader>();
         }
         bp = GetComponent<BriarProgress>();
-        ic = new InteractionContext(bp, GetComponent<Inventory>());
+        ic = new InteractionContext(bp, GetComponent<Inventory>(), dnManager);
     }
     public void AddInteractable(Interactable interactable)
     {
@@ -42,11 +44,9 @@ public class PlayerInteraction : MonoBehaviour
 
     private void TryInteract()
     {
-        Interactable closest = GetClosestInteractable();
-
-        if (closest != null)
+        if (closestInteractable != null)
         {
-            closest.Interact(ic);
+            closestInteractable.Interact(ic);
         }
     }
 
@@ -66,6 +66,25 @@ public class PlayerInteraction : MonoBehaviour
             }
         }
         return closest;
+    }
+
+    private void Update()
+    {
+        if (closestInteractable == null && nearbyInteractables.Count == 0)
+            return;
+        Interactable newClosestInteractable = GetClosestInteractable();
+        if (newClosestInteractable != closestInteractable)
+        {
+            if (closestInteractable != null)
+            {
+                closestInteractable.DestroyInteractIndicator();
+            }
+            closestInteractable = newClosestInteractable;
+            if (closestInteractable != null)
+            {
+                closestInteractable.SummonInteractIndicator(ic);
+            }
+        }
     }
 
     private void OnTriggerEnter(Collider other)

@@ -12,4 +12,5 @@ public class BriarProgress : MonoBehaviour
     public bool firstFullBedInteracted = false;
     public bool firstFight = false;
     public bool firstGrowth = false;
+    public bool isDay = true;
 }

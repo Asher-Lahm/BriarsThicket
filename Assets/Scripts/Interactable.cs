@@ -4,7 +4,38 @@ using UnityEngine;
 
 public abstract class Interactable : MonoBehaviour
 {
-    [SerializeField]
-    protected Collider interactionRange;
-    public abstract void Interact(InteractionContext context);
+    [SerializeField] protected Collider interactionRange;
+    protected InteractionIndicatorSummoner indSummoner;
+    public bool isInteractable = true;
+
+    protected virtual void Awake()
+    {
+        indSummoner = GetComponent<InteractionIndicatorSummoner>();
+    }
+    public virtual void Interact(InteractionContext context)
+    {
+        if (!isInteractable)
+            return;
+    }
+
+    public virtual void SummonInteractIndicator(InteractionContext ic)
+    {
+        if (indSummoner != null && isInteractable)
+            indSummoner.Summon();
+    }
+
+    public virtual void DestroyInteractIndicator()
+    {
+        if (indSummoner != null)
+            indSummoner.Clear();
+    }
+
+    public virtual void SetInteractable(bool interaction)
+    {
+        isInteractable = interaction;
+        if (!interaction)
+        {
+            DestroyInteractIndicator();
+        }
+    }
 }
