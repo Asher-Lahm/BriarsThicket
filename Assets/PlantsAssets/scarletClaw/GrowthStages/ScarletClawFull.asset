@@ -22,3 +22,5 @@ MonoBehaviour:
   isFightable: 1
   dayMaterial: {fileID: 2100000, guid: 809aff3735300e447914ef327812f413, type: 2}
   nightMaterial: {fileID: 2100000, guid: 07117e1d1bf525146bb1d1d61f8a21fb, type: 2}
+  harvestAmount: 5
+  harvestItem: {fileID: 11400000, guid: 5ca4947145a26a4478049efcaf82c5fd, type: 2}
