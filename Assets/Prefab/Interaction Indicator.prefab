@@ -226,8 +226,8 @@ MonoBehaviour:
   m_fontMaterials: []
   m_fontColor32:
     serializedVersion: 2
-    rgba: 4278190080
-  m_fontColor: {r: 0, g: 0, b: 0, a: 1}
+    rgba: 4279252045
+  m_fontColor: {r: 0.3018868, g: 0.20336986, b: 0.06123176, a: 1}
   m_enableVertexGradient: 0
   m_colorMode: 3
   m_fontColorGradient:
@@ -477,7 +477,7 @@ MonoBehaviour:
   buttonLetterText: {fileID: 5349321740150184397}
   promptText: {fileID: 2376448732701495193}
   image: {fileID: 1377319142460864895}
-  textColorButton: {r: 0, g: 0, b: 0, a: 1}
+  textColorButton: {r: 0.3019608, g: 0.20392157, b: 0.0627451, a: 1}
   textColorPrompt: {r: 1, g: 1, b: 1, a: 1}
 --- !u!114 &5357916483010476597
 MonoBehaviour:

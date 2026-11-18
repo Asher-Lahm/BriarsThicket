@@ -18,7 +18,8 @@ public class NPC : Interactable
     {
         if (!isInteractable)
             return;
-        DialogueManager.Instance.StartDialogue(dialogueSequences[dialogueIndex]);
+        indSummoner.Delete();
+        DialogueManager.Instance.StartDialogue(dialogueSequences[dialogueIndex], indSummoner.Summon);
         dialogueIndex++;
         if (dialogueIndex >= dialogueSequences.Count)
             dialogueIndex = dialogueSequences.Count - 1;

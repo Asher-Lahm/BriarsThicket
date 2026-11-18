@@ -38,7 +38,7 @@ public class InteractionIndicatorSummoner : MonoBehaviour
         print("interaction menu summoned");
     }
 
-    public virtual void Clear()
+    public virtual void Delete()
     {
         if (interactionIndicator != null)
         {

@@ -26,6 +26,9 @@ public class PlayerInputReader : MonoBehaviour
     public event Action DebugPressed;
     public event Action UIStart;
     public event Action GameplayStart;
+    public event Action PausePressed;
+    public event Action InventoryPressed;
+    public event Action BackPressed;
 
     public InputContext currentContext { get; private set; } = InputContext.Gameplay;
 
@@ -53,10 +56,21 @@ public class PlayerInputReader : MonoBehaviour
         controls.UINavigation.Disable();
     }
 
+    private void OnPausePressed(InputAction.CallbackContext context)
+    {
+        PausePressed?.Invoke();
+    }
+    private void OnInventoryPressed(InputAction.CallbackContext context)
+    {
+        InventoryPressed?.Invoke();
+    }
+    private void OnBackPressed(InputAction.CallbackContext context)
+    {
+        BackPressed?.Invoke();
+    }
     private void OnDebugPressed(InputAction.CallbackContext context)
     {
         DebugPressed?.Invoke();
-        print("Debug Pressed");
     }
 
     private void OnInteractPerformed(InputAction.CallbackContext context)

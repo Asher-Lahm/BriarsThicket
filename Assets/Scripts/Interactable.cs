@@ -27,7 +27,7 @@ public abstract class Interactable : MonoBehaviour
     public virtual void DestroyInteractIndicator()
     {
         if (indSummoner != null)
-            indSummoner.Clear();
+            indSummoner.Delete();
     }
 
     public virtual void SetInteractable(bool interaction)
