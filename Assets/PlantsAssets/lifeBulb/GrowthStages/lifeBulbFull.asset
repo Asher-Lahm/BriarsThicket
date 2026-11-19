@@ -20,7 +20,6 @@ MonoBehaviour:
   - {fileID: 11400000, guid: 3bd03427766fd7545af47ebf5eb954c8, type: 2}
   - {fileID: 11400000, guid: adc280ad1bbcfe8408571f7a0f367ab3, type: 2}
   - {fileID: 11400000, guid: 9df8591d6a887054a9e745e96cac10df, type: 2}
-  - {fileID: 11400000, guid: 0ed4335614d4c5147ae9376b321b6d65, type: 2}
   - {fileID: 11400000, guid: 454670df65e1869439e35e4c7435c5e7, type: 2}
   isFightable: 1
   dayMaterial: {fileID: 2100000, guid: 27fe7354d82c61d4f80e2d14c8193d5c, type: 2}

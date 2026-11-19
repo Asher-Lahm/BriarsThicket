@@ -20,5 +20,5 @@ MonoBehaviour:
   - {x: 0, y: 0, z: 3}
   status:
   - {fileID: 11400000, guid: cdf5707b7a60009469636b6c78367dc2, type: 2}
-  turns: 2
+  turns: 1
   infiniteStatus: 0
