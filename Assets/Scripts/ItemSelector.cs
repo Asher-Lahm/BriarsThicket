@@ -95,7 +95,8 @@ public class ItemSelector : Menu
         if (clickBlock != null)
             clickBlock.onClick.AddListener(() => SelectItem(null));
 
-        onItemSelected = item => callback((S)item);
+        if (callback != null)
+            onItemSelected = item => callback((S)item);
         int i = 1;
         foreach (InventoryEntry entry in items)
         {
@@ -144,7 +145,6 @@ public class ItemSelector : Menu
     {
         Action<Item> callback = onItemSelected;
         onItemSelected = null;
-        print("item selected");
 
         callback?.Invoke(item);
 

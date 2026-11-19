@@ -374,6 +374,15 @@ public partial class @PlayerControls: IInputActionCollection2, IDisposable
                     ""processors"": """",
                     ""interactions"": """",
                     ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""Inventory"",
+                    ""type"": ""Button"",
+                    ""id"": ""ab1a5957-20bf-40a1-894e-0dce31246477"",
+                    ""expectedControlType"": """",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
                 }
             ],
             ""bindings"": [
@@ -475,6 +484,17 @@ public partial class @PlayerControls: IInputActionCollection2, IDisposable
                     ""action"": ""Close"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""2b301be7-a453-4909-9b4a-5652e9e56d15"",
+                    ""path"": ""<Keyboard>/q"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Inventory"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
                 }
             ]
         }
@@ -496,6 +516,7 @@ public partial class @PlayerControls: IInputActionCollection2, IDisposable
         m_UINavigation_Confirm = m_UINavigation.FindAction("Confirm", throwIfNotFound: true);
         m_UINavigation_Debug = m_UINavigation.FindAction("Debug", throwIfNotFound: true);
         m_UINavigation_Close = m_UINavigation.FindAction("Close", throwIfNotFound: true);
+        m_UINavigation_Inventory = m_UINavigation.FindAction("Inventory", throwIfNotFound: true);
     }
 
     ~@PlayerControls()
@@ -743,6 +764,7 @@ public partial class @PlayerControls: IInputActionCollection2, IDisposable
     private readonly InputAction m_UINavigation_Confirm;
     private readonly InputAction m_UINavigation_Debug;
     private readonly InputAction m_UINavigation_Close;
+    private readonly InputAction m_UINavigation_Inventory;
     /// <summary>
     /// Provides access to input actions defined in input action map "UI Navigation".
     /// </summary>
@@ -770,6 +792,10 @@ public partial class @PlayerControls: IInputActionCollection2, IDisposable
         /// Provides access to the underlying input action "UINavigation/Close".
         /// </summary>
         public InputAction @Close => m_Wrapper.m_UINavigation_Close;
+        /// <summary>
+        /// Provides access to the underlying input action "UINavigation/Inventory".
+        /// </summary>
+        public InputAction @Inventory => m_Wrapper.m_UINavigation_Inventory;
         /// <summary>
         /// Provides access to the underlying input action map instance.
         /// </summary>
@@ -808,6 +834,9 @@ public partial class @PlayerControls: IInputActionCollection2, IDisposable
             @Close.started += instance.OnClose;
             @Close.performed += instance.OnClose;
             @Close.canceled += instance.OnClose;
+            @Inventory.started += instance.OnInventory;
+            @Inventory.performed += instance.OnInventory;
+            @Inventory.canceled += instance.OnInventory;
         }
 
         /// <summary>
@@ -831,6 +860,9 @@ public partial class @PlayerControls: IInputActionCollection2, IDisposable
             @Close.started -= instance.OnClose;
             @Close.performed -= instance.OnClose;
             @Close.canceled -= instance.OnClose;
+            @Inventory.started -= instance.OnInventory;
+            @Inventory.performed -= instance.OnInventory;
+            @Inventory.canceled -= instance.OnInventory;
         }
 
         /// <summary>
@@ -956,5 +988,12 @@ public partial class @PlayerControls: IInputActionCollection2, IDisposable
         /// <seealso cref="UnityEngine.InputSystem.InputAction.performed" />
         /// <seealso cref="UnityEngine.InputSystem.InputAction.canceled" />
         void OnClose(InputAction.CallbackContext context);
+        /// <summary>
+        /// Method invoked when associated input action "Inventory" is either <see cref="UnityEngine.InputSystem.InputAction.started" />, <see cref="UnityEngine.InputSystem.InputAction.performed" /> or <see cref="UnityEngine.InputSystem.InputAction.canceled" />.
+        /// </summary>
+        /// <seealso cref="UnityEngine.InputSystem.InputAction.started" />
+        /// <seealso cref="UnityEngine.InputSystem.InputAction.performed" />
+        /// <seealso cref="UnityEngine.InputSystem.InputAction.canceled" />
+        void OnInventory(InputAction.CallbackContext context);
     }
 }

@@ -16,6 +16,11 @@ public class Menu : MonoBehaviour
     {
         savedSelection = initialSelection;
     }
+
+    public virtual void Initialize()
+    {
+        
+    }
     public void Open()
     {
         if (menuFocusManager == null || !menuFocusManager.isActiveAndEnabled)

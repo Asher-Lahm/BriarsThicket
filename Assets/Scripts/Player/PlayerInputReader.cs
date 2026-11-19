@@ -28,6 +28,7 @@ public class PlayerInputReader : MonoBehaviour
     public event Action GameplayStart;
     public event Action PausePressed;
     public event Action InventoryPressed;
+    public event Action InventoryClosePressed;
     public event Action BackPressed;
 
     public InputContext currentContext { get; private set; } = InputContext.Gameplay;
@@ -43,7 +44,11 @@ public class PlayerInputReader : MonoBehaviour
         controls.Player.Interact.performed += OnInteractPerformed;
         controls.UINavigation.Confirm.performed += OnConfirmPerformed;
         controls.UINavigation.Debug.performed += OnDebugPressed;
+        controls.UINavigation.Close.performed += OnBackPressed;
         controls.Player.Debug.performed += OnDebugPressed;
+        controls.Player.Pause.performed += OnPausePressed;
+        controls.Player.Inventory.performed += OnInventoryPressed;
+        controls.UINavigation.Inventory.performed += OnInventoryClosePressed;
     }
 
     void OnDisable()
@@ -52,17 +57,27 @@ public class PlayerInputReader : MonoBehaviour
         controls.Player.Interact.performed -= OnInteractPerformed;
         controls.UINavigation.Confirm.performed -= OnInteractPerformed;
         controls.UINavigation.Debug.performed -= OnDebugPressed;
+        controls.UINavigation.Close.performed -= OnBackPressed;
+        controls.Player.Debug.performed -= OnDebugPressed;
+        controls.Player.Pause.performed -= OnPausePressed;
+        controls.Player.Inventory.performed -= OnInventoryPressed;
+        controls.UINavigation.Inventory.performed -= OnInventoryClosePressed;
         controls.Player.Disable();
         controls.UINavigation.Disable();
     }
 
     private void OnPausePressed(InputAction.CallbackContext context)
     {
+        print("esc pressed");
         PausePressed?.Invoke();
     }
     private void OnInventoryPressed(InputAction.CallbackContext context)
     {
         InventoryPressed?.Invoke();
+    }
+    private void OnInventoryClosePressed(InputAction.CallbackContext context)
+    {
+        InventoryClosePressed?.Invoke();
     }
     private void OnBackPressed(InputAction.CallbackContext context)
     {

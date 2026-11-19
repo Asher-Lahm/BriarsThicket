@@ -1,18 +1,22 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
-public class OptionsMenu : Menu
+public class OptionsMenu : Menu, ISwitchableMenu
 {
-    // Start is called before the first frame update
-    void Start()
+    [SerializeField] Slider masterSlider;
+    [SerializeField] Slider sfxSlider;
+    [SerializeField] Slider musicSlider;
+    private float masterSliderValue;
+    private float sfxSliderValue;
+    private float musicSliderValue;
+    public override void Initialize()
     {
-        
     }
 
-    // Update is called once per frame
-    void Update()
+    public void UpdateVisuals()
     {
-        
+
     }
 }

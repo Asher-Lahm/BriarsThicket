@@ -12,12 +12,15 @@ public class PauseCanvas : MonoBehaviour
         input.PausePressed += () => pauseMenu.OpenMenu(0);
         input.InventoryPressed += () => pauseMenu.OpenMenu(1);
         input.BackPressed += pauseMenu.CloseAllMenus;
+        input.InventoryClosePressed += pauseMenu.CloseAllMenus;
     }
 
     private void OnDisable()
     {
         input.PausePressed -= () => pauseMenu.OpenMenu(0);
         input.InventoryPressed -= () => pauseMenu.OpenMenu(1);
+        input.BackPressed -= pauseMenu.CloseAllMenus;
+        input.InventoryClosePressed -= pauseMenu.CloseAllMenus;
     }
 
     
