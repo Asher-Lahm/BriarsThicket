@@ -17,4 +17,5 @@ MonoBehaviour:
     attack with with your scythe or shears.
   growthStages:
   - {fileID: 11400000, guid: 4732ba7a5bd1e644a9a7e78b31325bcf, type: 2}
+  - {fileID: 11400000, guid: 81f9ff1a50182824d97d791e2056da9c, type: 2}
   - {fileID: 11400000, guid: 4ef2109c9979eab4bb40fcc56f396d41, type: 2}

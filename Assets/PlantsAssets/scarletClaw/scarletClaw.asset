@@ -16,4 +16,5 @@ MonoBehaviour:
   description: Scarlet Claw Description
   growthStages:
   - {fileID: 11400000, guid: 4732ba7a5bd1e644a9a7e78b31325bcf, type: 2}
+  - {fileID: 11400000, guid: a83b591e4b2c6a64b8bf2028fa23f311, type: 2}
   - {fileID: 11400000, guid: 73db7c2f2a02c6447a3aeb03a06e0ce4, type: 2}

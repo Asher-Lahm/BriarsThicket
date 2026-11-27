@@ -17,4 +17,5 @@ MonoBehaviour:
     to damage it at all.
   growthStages:
   - {fileID: 11400000, guid: 4732ba7a5bd1e644a9a7e78b31325bcf, type: 2}
+  - {fileID: 11400000, guid: 3749398e2eccedd48a5e3c1231339c5a, type: 2}
   - {fileID: 11400000, guid: b99c5b6fe9c3ff340a3c01b7e4e39813, type: 2}

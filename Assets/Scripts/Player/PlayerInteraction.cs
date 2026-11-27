@@ -32,6 +32,11 @@ public class PlayerInteraction : MonoBehaviour
         nearbyInteractables.Remove(interactable);
     }
 
+    public InteractionContext GetIC()
+    {
+        return ic;
+    }
+
     private void OnEnable()
     {
         input.InteractPressed += TryInteract;

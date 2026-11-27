@@ -17,4 +17,5 @@ MonoBehaviour:
     offensive weapons.
   growthStages:
   - {fileID: 11400000, guid: 4732ba7a5bd1e644a9a7e78b31325bcf, type: 2}
+  - {fileID: 11400000, guid: 07426c1341371a445981826b1f7e4724, type: 2}
   - {fileID: 11400000, guid: 8976d7a62b4c4ba459f5d0143b7e9b38, type: 2}

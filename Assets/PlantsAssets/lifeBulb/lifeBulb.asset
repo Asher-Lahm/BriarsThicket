@@ -16,4 +16,5 @@ MonoBehaviour:
   description: A plant that heals the plants around it.
   growthStages:
   - {fileID: 11400000, guid: 4732ba7a5bd1e644a9a7e78b31325bcf, type: 2}
+  - {fileID: 11400000, guid: bed7b8c8b9680e94bbe6e27fefe51c4e, type: 2}
   - {fileID: 11400000, guid: 3d78467f939cb9d4ba8af91feaf5ecd0, type: 2}

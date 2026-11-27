@@ -26,7 +26,9 @@ public class PlantBedInteractable : Interactable
         bed = GetComponent<PlantBed>();
         SummonConfirmationMenu[] menuSummoner = GetComponents<SummonConfirmationMenu>();
         plantSeeds = menuSummoner[0];
+        plantSeeds.onCancel.AddListener(indSummoner.Summon);
         removePlants = menuSummoner[1];
+        removePlants.onCancel.AddListener(indSummoner.Summon);
     }
 
     public void Initialize(DayNightManager dayNightManager, GardenManager gardenManager)
@@ -59,7 +61,7 @@ public class PlantBedInteractable : Interactable
             plantable = false;
             planted = true;
             plantAge++;
-            if (plantAge == 1)
+            if (plantAge >= 2)
             {
                 fightable = true;
                 harvestable = true;
@@ -116,8 +118,6 @@ public class PlantBedInteractable : Interactable
 
     public override void SummonInteractIndicator(InteractionContext ic)
     {
-
-        print(indSummoner.name);
         if (!ic.Progress.firstBedInteracted)
         {
             indSummoner.ChangeInteractPrompt("Inspect");
@@ -157,6 +157,7 @@ public class PlantBedInteractable : Interactable
 
     public override void Interact(InteractionContext ic)
     {
+        indSummoner.Delete();
         if (!isInteractable)
             return;
         if (!ic.Progress.firstBedInteracted)
@@ -168,7 +169,7 @@ public class PlantBedInteractable : Interactable
             }
             else
             {
-                DialogueManager.Instance.StartDialogue(gm.firstInteractNoSeed);
+                DialogueManager.Instance.StartDialogue(gm.firstInteractNoSeed, indSummoner.Summon);
                 ic.Progress.firstBedInteracted = false;
             }
         }

@@ -17,6 +17,7 @@ public class CottageInteractable : Interactable
     }
     public override void Interact(InteractionContext ic)
     {
+        indSummoner.Delete();
         if (!isInteractable)
             return;
         if (dayNightManager != null)
